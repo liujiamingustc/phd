@@ -1,6 +1,6 @@
-# Delft3d svn [tags](svn.oss.deltares.nl/repos/delft3d/tags)
+# [Delft3d tags](svn.oss.deltares.nl/repos/delft3d/tags)
 
-All the tags are downloaded inside `Macbook pro -> VirtualBox -> ubuntu-ihe`
+All the tags are downloaded inside `Macbook pro -> VirtualBox -> ubuntu-ihe -> ~/svn.repos.delft3d.tags`
 
 ## 6686
 
