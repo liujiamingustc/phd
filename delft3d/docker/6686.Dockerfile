@@ -33,3 +33,24 @@ RUN wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4/hdf5-${v}.tar.gz \
     && make -j 2 \
     && make install
 
+#netcdf
+ENV v=4.4.1
+ENV NETCDF4_DIR="/root/Downloads/libraries/netcdf_4.4"
+RUN wget http://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-${v}.tar.gz \
+    && tar -xf netcdf-${v}.tar.gz && cd netcdf-${v} \
+    && CPPFLAGS=-I$HDF5_DIR/include LDFLAGS=-L$HDF5_DIR/lib ./configure --enable-netcdf-4 --enable-shared --enable-dap --prefix=$NETCDF4_DIR \
+    && make \
+    && make install
+
+ENV PATH=$PATH:$NETCDF4_DIR/bin
+ENV LD_LIBRARY_PATH=$NETCDF4_DIR/lib:$LD_LIBRARY_PATH
+ENV PKG_CONFIG_PATH=$NETCDF4_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
+
+#netcdf fortran
+ENV v=4.4.4
+RUN wget http://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-${v}.tar.gz \
+    && tar -xf netcdf-fortran-${v}.tar.gz \
+    && cd netcdf-fortran-${v} \
+    && CPPFLAGS=-I$NETCDF4_DIR/include LDFLAGS=-L$NETCDF4_DIR/lib LD_LIBRARY_PATH=$NETCDF4_DIR/lib:$LD_LIBRARY_PATH ./configure --prefix=$NETCDF4_DIR \
+    && make \
+    && make install
