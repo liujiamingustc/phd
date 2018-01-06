@@ -23,3 +23,13 @@ RUN wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4/zlib-${v}.tar.gz \
     && ./configure --prefix=/usr/local \
     && make install
 
+#hdf5
+ENV v=1.8.13
+ENV HDF5_DIR="/root/Downloads/libraries/hdf5-${v}"
+RUN wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4/hdf5-${v}.tar.gz \
+    && tar -xf hdf5-${v}.tar.gz \
+    && cd hdf5-${v} \
+    && ./configure --enable-shared --enable-hl --prefix=$HDF5_DIR \
+    && make -j 2 \
+    && make install
+
