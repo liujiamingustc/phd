@@ -54,3 +54,18 @@ RUN wget http://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-${v}.ta
     && CPPFLAGS=-I$NETCDF4_DIR/include LDFLAGS=-L$NETCDF4_DIR/lib LD_LIBRARY_PATH=$NETCDF4_DIR/lib:$LD_LIBRARY_PATH ./configure --prefix=$NETCDF4_DIR \
     && make \
     && make install
+
+#mpi
+ENV v=3.2
+ENV MPICH2_3_2_DIR="/root/Downloads/libraries/mpich-3.2"
+RUN wget http://www.mpich.org/static/downloads/${v}/mpich-${v}.tar.gz \
+    && tar -xzf mpich-${v}.tar.gz \
+    && cd mpich-${v} \
+    && ./configure --prefix=$MPICH2_3_2_DIR \
+    && make \
+    && make install
+
+ENV PATH=$PATH:$MPICH2_3_2_DIR/bin
+ENV LD_LIBRARY_PATH=$MPICH2_3_2_DIR/lib:$LD_LIBRARY_PATH
+ENV PKG_CONFIG_PATH=$MPICH2_3_2_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
+
