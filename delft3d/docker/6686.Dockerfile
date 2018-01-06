@@ -69,3 +69,16 @@ ENV PATH=$PATH:$MPICH2_3_2_DIR/bin
 ENV LD_LIBRARY_PATH=$MPICH2_3_2_DIR/lib:$LD_LIBRARY_PATH
 ENV PKG_CONFIG_PATH=$MPICH2_3_2_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
 
+#delft3d
+# NOTE: we need to replace the '~' with the actual path as it causes
+# errors in the delft3d build script
+RUN df -h
+ADD ../tags/6686 /delft3d
+RUN cd /delft3d/src \
+  && sed --in-place 's/~/\/root/' build_ubuntu1604.sh \
+  && ./build_ubuntu1604.sh -gnu -64bit
+
+RUN cp /root/Downloads/libraries/mpich-3.2/bin/* /delft3d/bin/lnx64/flow2d3d/bin/
+RUN cp -R /root/Downloads/libraries/mpich-3.2/lib/* /delft3d/bin/lnx64/flow2d3d/bin/
+
+WORKDIR /delft3d/examples/01_standard
