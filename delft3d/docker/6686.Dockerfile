@@ -15,3 +15,11 @@ RUN apt-get update && apt-get install -y \
   pkg-config \
   gedit
 
+#zlib
+ENV v=1.2.8
+RUN wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4/zlib-${v}.tar.gz \
+    && tar -xf zlib-${v}.tar.gz \
+    && cd zlib-${v} \
+    && ./configure --prefix=/usr/local \
+    && make install
+
