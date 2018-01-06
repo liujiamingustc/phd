@@ -73,7 +73,7 @@ ENV PKG_CONFIG_PATH=$MPICH2_3_2_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
 # NOTE: we need to replace the '~' with the actual path as it causes
 # errors in the delft3d build script
 RUN df -h
-ADD ./tags/6686 /delft3d
+ADD /tags/6686 /delft3d
 RUN cd /delft3d/src \
   && sed --in-place 's/~/\/root/' build_ubuntu1604.sh \
   && ./build_ubuntu1604.sh -gnu -64bit
