@@ -1,7 +1,0 @@
-substance 'tracer' active
-   description        'conservative tracer source 1'
-   concentration-unit '(g/m3)'
-   waste-load-unit    '-'
-end-substance
-active-processes
-end-active-processes
