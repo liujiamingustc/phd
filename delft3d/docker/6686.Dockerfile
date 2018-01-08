@@ -77,7 +77,7 @@ ADD tags/6686 /delft3d
 # RUN cd /delft3d/src \
 #     && sed --in-place 's/~/\/root/' build_ubuntu1604.sh \
 #     && ./build_ubuntu1604.sh -gnu -64bit
-RUN [“chmod”, “+x”, "/delft3d/src/build_ubuntu1604.sh”]
+RUN ["chmod", "+x", "/delft3d/src/build_ubuntu1604.sh"]
 RUN cd /delft3d/src \
     && ./build_ubuntu1604.sh -gnu -64bit
 
