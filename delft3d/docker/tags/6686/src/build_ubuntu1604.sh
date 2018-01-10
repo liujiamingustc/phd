@@ -164,8 +164,8 @@ case $compiler in
     gnu)
         ifortInit=""
         iccInit=""
-        addpath PATH /opt/gcc/bin
-        addpath LD_LIBRARY_PATH /opt/gcc/lib /opt/gcc/lib64
+        addpath PATH /usr/bin
+        addpath LD_LIBRARY_PATH /usr/lib/gcc/x86_64-linux-gnu/5.4.0
         echo "Using GNU compilers in `witch gfortran`"
         ;;
 
