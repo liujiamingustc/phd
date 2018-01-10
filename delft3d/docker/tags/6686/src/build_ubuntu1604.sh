@@ -400,9 +400,15 @@ command="make ds-install &> $log"
 log "Running $command"
 eval $command
 
+# 20180110-pan
 if [ $? -ne 0 ]; then
     log "Make fails!"
+    ls -all
+    
     cd $orgdir
+    log "OrgDir $orgdir"
+    ls -all
+
     exit 1
 fi
 
