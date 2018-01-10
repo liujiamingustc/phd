@@ -5,20 +5,27 @@
 #
 #   There are command-line options to select Fortran compiler and debug or not.
 #
+#   ToDo:  Remove stripping of executables when the debug flag is set.
+#   It's even debatable whether stripping belongs in the build.  I think not.
+#
+#   ToDo: Don't preintialize the compiler, the user should do this himself
+#   so that he's aware exactly which version he's using.  Besides, we can't
+#   keep up with every new compiler update.  This script should be ultra-low
+#   maintanence.
+#
+#   irv.elshoff@deltares.nl
 #   adri.mourits@deltares.nl
-#   02 Sep 2016
+#   04 Feb 2015
 #
 #   Copyright (C)  Stichting Deltares, 2011-2013.
 #-------------------------------------------------------------------------------
 #
-#   WARNINGS WARNINGS WARNINGS WARNINGS WARNINGS WARNINGS WARNINGS WARNINGS
+#   WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
 #
 #   This script contains references to Deltares specific systems.
 #   Use this script as an example and modify it to fit to your system.
 #   See file README for compiling without using this script.
 #
-#   This script does not work on Mac
-#   
 #-------------------------------------------------------------------------------
 
 # This script must be executed in the directory where it resides
@@ -240,10 +247,10 @@ fi
 
 # When the autotools are not installed in the default location,
 # point to them explicitly
-addpath PATH \
-    /opt/automake/bin \
-    /opt/autoconf/bin \
-    /opt/libtool/bin
+# addpath PATH \
+#    /opt/automake/bin \
+#    /opt/autoconf/bin \
+#    /opt/libtool/bin
 
 
 #===============================================================================
@@ -252,11 +259,16 @@ addpath PATH \
 #---------------------
 # mpich2
 if [ "$compiler" = 'gnu' ]; then
-    addpath PATH /opt/mpich2-1.4.1-gcc-4.6.2/bin
-    export MPI_INCLUDE=/opt/mpich2-1.4.1-gcc-4.6.2/include
-    export MPILIBS_ADDITIONAL="-L/opt/mpich2-1.4.1-gcc-4.6.2/lib -lfmpich -lmpich -lmpl"
+#    addpath PATH /opt/mpich2-1.4.1-gcc-4.6.2/bin
+#    export MPI_INCLUDE=/opt/mpich2-1.4.1-gcc-4.6.2/include
+#    export MPILIBS_ADDITIONAL="-L/opt/mpich2-1.4.1-gcc-4.6.2/lib -lfmpich -lmpich -lmpl"
+
+    addpath PATH ~/Downloads/libraries/mpich-3.2/bin
+    export MPI_INCLUDE=~/Downloads/libraries/mpich-3.2/include
+    export MPILIBS_ADDITIONAL="-L~/Downloads/libraries/mpich-3.2/lib -lfmpich -lmpich -lmpl"
     # export MPILIBS_ADDITIONAL=" "
-    export MPIFC=/opt/mpich2-1.4.1-gcc-4.6.2/bin/mpif90  
+    # export MPIFC=/opt/mpich2-1.4.1-gcc-4.6.2/bin/mpif90  
+    export MPIFC=~/Downloads/libraries/mpich-3.2/bin/mpif90  
 else
     # Intel compilers
     addpath PATH /opt/mpich2-1.0.8-intel64/bin
@@ -289,9 +301,15 @@ fi
 
 #---------------------
 # netcdf
- export NETCDFROOT=/p/delft3d/opt/netcdf-4.1.3mt/intel11.1
- export PKG_CONFIG_PATH=$NETCDFROOT/lib/pkgconfig:$PKG_CONFIG_PATH
- export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$NETCDFROOT/lib
+# export NETCDFROOT=/p/delft3d/opt/netcdf-4.1.3mt/intel11.1
+# export PKG_CONFIG_PATH=$NETCDFROOT/lib/pkgconfig:$PKG_CONFIG_PATH
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$NETCDFROOT/lib
+
+
+export NETCDFROOT="~/Downloads/libraries/netcdf_4.4" 
+export PATH=$PATH:$NETCDFROOT/bin
+export LD_LIBRARY_PATH=$NETCDFROOT/lib:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=$NETCDFROOT/lib/pkgconfig:$PKG_CONFIG_PATH
 
 #===============================================================================
 echo "Current settings:"
@@ -403,6 +421,7 @@ eval $command
 # 20180110-pan
 if [ $? -ne 0 ]; then
     log "Make fails!"
+    pwd
     ls -all
     
     cd $orgdir
