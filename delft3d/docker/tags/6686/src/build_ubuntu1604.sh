@@ -422,11 +422,10 @@ eval $command
 if [ $? -ne 0 ]; then
     log "Make fails!"
     pwd
-    ls -all
+    ls
+    vim $log
     
     cd $orgdir
-    log "OrgDir $orgdir"
-    ls -all
 
     exit 1
 fi
