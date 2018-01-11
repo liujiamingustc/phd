@@ -263,12 +263,12 @@ if [ "$compiler" = 'gnu' ]; then
 #    export MPI_INCLUDE=/opt/mpich2-1.4.1-gcc-4.6.2/include
 #    export MPILIBS_ADDITIONAL="-L/opt/mpich2-1.4.1-gcc-4.6.2/lib -lfmpich -lmpich -lmpl"
 
-    addpath PATH ~/Downloads/libraries/mpich-3.2/bin
-    export MPI_INCLUDE=~/Downloads/libraries/mpich-3.2/include
-    export MPILIBS_ADDITIONAL="-L~/Downloads/libraries/mpich-3.2/lib -lfmpich -lmpich -lmpl"
+    addpath PATH /root/Downloads/libraries/mpich-3.2/bin
+    export MPI_INCLUDE=/root/Downloads/libraries/mpich-3.2/include
+    export MPILIBS_ADDITIONAL="-L/root/Downloads/libraries/mpich-3.2/lib -lfmpich -lmpich -lmpl"
     # export MPILIBS_ADDITIONAL=" "
     # export MPIFC=/opt/mpich2-1.4.1-gcc-4.6.2/bin/mpif90  
-    export MPIFC=~/Downloads/libraries/mpich-3.2/bin/mpif90  
+    export MPIFC=/root/Downloads/libraries/mpich-3.2/bin/mpif90  
 else
     # Intel compilers
     addpath PATH /opt/mpich2-1.0.8-intel64/bin
@@ -306,7 +306,7 @@ fi
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$NETCDFROOT/lib
 
 
-export NETCDFROOT="~/Downloads/libraries/netcdf_4.4" 
+export NETCDFROOT="/root/Downloads/libraries/netcdf_4.4" 
 export PATH=$PATH:$NETCDFROOT/bin
 export LD_LIBRARY_PATH=$NETCDFROOT/lib:$LD_LIBRARY_PATH
 export PKG_CONFIG_PATH=$NETCDFROOT/lib/pkgconfig:$PKG_CONFIG_PATH
@@ -423,6 +423,7 @@ if [ $? -ne 0 ]; then
     log "Make fails!"
     pwd
     ls
+    log "Make log"
     cat $log
     
     cd $orgdir
