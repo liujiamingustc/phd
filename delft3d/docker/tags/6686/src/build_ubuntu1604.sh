@@ -423,7 +423,7 @@ if [ $? -ne 0 ]; then
     log "Make fails!"
     pwd
     ls
-    vim $log
+    cat $log
     
     cd $orgdir
 
