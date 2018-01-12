@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
 RUN df -h
 
 ADD tags/ooten /epanet
+RUN ["chmod", "+x", "/epanet/configure"]
 
 RUN cd /epanet \
   && ./configure \
