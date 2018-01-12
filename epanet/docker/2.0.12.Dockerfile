@@ -15,8 +15,6 @@ RUN apt-get update && apt-get install -y \
   gedit
 
 # Epanet
-# NOTE: we need to replace the '~' with the actual path as it causes
-# errors in the delft3d build script
 RUN df -h
 
 ADD tags/2.0.12 /epanet

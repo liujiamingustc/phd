@@ -15,15 +15,13 @@ RUN apt-get update && apt-get install -y \
   gedit
 
 # Epanet
-# NOTE: we need to replace the '~' with the actual path as it causes
-# errors in the delft3d build script
 RUN df -h
 
-ADD tags/ooten /epanet
-RUN ["chmod", "+x", "/epanet/configure"]
+# ADD tags/ooten /epanet
+# RUN ["chmod", "+x", "/epanet/configure"]
 
-RUN cd /epanet \
-  && ./configure \
-  && make \
-  && make install
+# RUN cd /epanet \
+#   && ./configure \
+#   && make \
+#   && make install
 
