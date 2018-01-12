@@ -81,10 +81,10 @@ RUN ["chmod", "+x", "/delft3d/src/build_ubuntu1604.sh"]
 #     && sed --in-place 's/~/\/root/' build_ubuntu1604.sh \
 #     && ./build_ubuntu1604.sh -gnu -64bit
 RUN cd /delft3d/src
-# 20180110-pan
+# 20180110-pan ok
 RUN /delft3d/src/build_ubuntu1604.sh -gnu -64bit
 
-# RUN cp /root/Downloads/libraries/mpich-3.2/bin/* /delft3d/bin/lnx64/flow2d3d/bin/
-# RUN cp -R /root/Downloads/libraries/mpich-3.2/lib/* /delft3d/bin/lnx64/flow2d3d/bin/
+RUN cp /root/Downloads/libraries/mpich-3.2/bin/* /delft3d/bin/lnx64/flow2d3d/bin/
+RUN cp -R /root/Downloads/libraries/mpich-3.2/lib/* /delft3d/bin/lnx64/flow2d3d/bin/
 
-# WORKDIR /delft3d/examples/01_standard
+WORKDIR /delft3d/examples/01_standard
