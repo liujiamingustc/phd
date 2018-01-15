@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A7588D8F200CE3DB009008CB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588D8E200CE3DB009008CB /* main.cpp */; };
+		A7588DE8200CE4F6009008CB /* ONControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DA4200CE4F6009008CB /* ONControl.cpp */; };
+		A7588DE9200CE4F6009008CB /* ONCurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DA6200CE4F6009008CB /* ONCurve.cpp */; };
+		A7588DEA200CE4F6009008CB /* ONElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DA8200CE4F6009008CB /* ONElement.cpp */; };
+		A7588DEB200CE4F6009008CB /* ONENException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DAA200CE4F6009008CB /* ONENException.cpp */; };
+		A7588DEC200CE4F6009008CB /* ONException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DAC200CE4F6009008CB /* ONException.cpp */; };
+		A7588DED200CE4F6009008CB /* ONFCV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DAE200CE4F6009008CB /* ONFCV.cpp */; };
+		A7588DEE200CE4F6009008CB /* ONGPV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DB0200CE4F6009008CB /* ONGPV.cpp */; };
+		A7588DEF200CE4F6009008CB /* ONJunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DB2200CE4F6009008CB /* ONJunction.cpp */; };
+		A7588DF0200CE4F6009008CB /* ONLink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DB4200CE4F6009008CB /* ONLink.cpp */; };
+		A7588DF1200CE4F6009008CB /* ONNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DB6200CE4F6009008CB /* ONNode.cpp */; };
+		A7588DF2200CE4F6009008CB /* ONObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DB8200CE4F6009008CB /* ONObject.cpp */; };
+		A7588DF3200CE4F6009008CB /* ONPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DBA200CE4F6009008CB /* ONPattern.cpp */; };
+		A7588DF4200CE4F6009008CB /* ONPBV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DBC200CE4F6009008CB /* ONPBV.cpp */; };
+		A7588DF5200CE4F6009008CB /* ONPipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DBE200CE4F6009008CB /* ONPipe.cpp */; };
+		A7588DF6200CE4F6009008CB /* ONPRV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DC0200CE4F6009008CB /* ONPRV.cpp */; };
+		A7588DF7200CE4F6009008CB /* ONPSV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DC2200CE4F6009008CB /* ONPSV.cpp */; };
+		A7588DF8200CE4F6009008CB /* ONPump.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DC4200CE4F6009008CB /* ONPump.cpp */; };
+		A7588DF9200CE4F6009008CB /* ONReservoir.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DC6200CE4F6009008CB /* ONReservoir.cpp */; };
+		A7588DFA200CE4F6009008CB /* ONSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DC8200CE4F6009008CB /* ONSystem.cpp */; };
+		A7588DFB200CE4F6009008CB /* ONTank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DCA200CE4F6009008CB /* ONTank.cpp */; };
+		A7588DFC200CE4F6009008CB /* ONTCV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DCC200CE4F6009008CB /* ONTCV.cpp */; };
+		A7588DFD200CE4F6009008CB /* ONValve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588DCE200CE4F6009008CB /* ONValve.cpp */; };
+		A7588E1A200CE7AE009008CB /* epanet_on.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E05200CE7AD009008CB /* epanet_on.c */; };
+		A7588E1B200CE7AE009008CB /* example1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7588E06200CE7AD009008CB /* example1.cpp */; };
+		A7588E1C200CE7AE009008CB /* hash.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E08200CE7AD009008CB /* hash.c */; };
+		A7588E1D200CE7AE009008CB /* hydraul.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E0A200CE7AD009008CB /* hydraul.c */; };
+		A7588E1E200CE7AE009008CB /* inpfile.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E0B200CE7AE009008CB /* inpfile.c */; };
+		A7588E1F200CE7AE009008CB /* input1.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E0C200CE7AE009008CB /* input1.c */; };
+		A7588E20200CE7AE009008CB /* input2.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E0D200CE7AE009008CB /* input2.c */; };
+		A7588E21200CE7AE009008CB /* input3.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E0E200CE7AE009008CB /* input3.c */; };
+		A7588E22200CE7AE009008CB /* mempool.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E0F200CE7AE009008CB /* mempool.c */; };
+		A7588E23200CE7AE009008CB /* output.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E11200CE7AE009008CB /* output.c */; };
+		A7588E24200CE7AE009008CB /* quality.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E12200CE7AE009008CB /* quality.c */; };
+		A7588E25200CE7AE009008CB /* report.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E13200CE7AE009008CB /* report.c */; };
+		A7588E26200CE7AE009008CB /* rules.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E14200CE7AE009008CB /* rules.c */; };
+		A7588E27200CE7AE009008CB /* smatrix.c in Sources */ = {isa = PBXBuildFile; fileRef = A7588E15200CE7AE009008CB /* smatrix.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A7588D89200CE3DB009008CB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A7588D8B200CE3DB009008CB /* ooten */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ooten; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7588D8E200CE3DB009008CB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A7588DA4200CE4F6009008CB /* ONControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONControl.cpp; sourceTree = "<group>"; };
+		A7588DA5200CE4F6009008CB /* ONControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONControl.h; sourceTree = "<group>"; };
+		A7588DA6200CE4F6009008CB /* ONCurve.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONCurve.cpp; sourceTree = "<group>"; };
+		A7588DA7200CE4F6009008CB /* ONCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONCurve.h; sourceTree = "<group>"; };
+		A7588DA8200CE4F6009008CB /* ONElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONElement.cpp; sourceTree = "<group>"; };
+		A7588DA9200CE4F6009008CB /* ONElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONElement.h; sourceTree = "<group>"; };
+		A7588DAA200CE4F6009008CB /* ONENException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONENException.cpp; sourceTree = "<group>"; };
+		A7588DAB200CE4F6009008CB /* ONENException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONENException.h; sourceTree = "<group>"; };
+		A7588DAC200CE4F6009008CB /* ONException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONException.cpp; sourceTree = "<group>"; };
+		A7588DAD200CE4F6009008CB /* ONException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONException.h; sourceTree = "<group>"; };
+		A7588DAE200CE4F6009008CB /* ONFCV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONFCV.cpp; sourceTree = "<group>"; };
+		A7588DAF200CE4F6009008CB /* ONFCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONFCV.h; sourceTree = "<group>"; };
+		A7588DB0200CE4F6009008CB /* ONGPV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONGPV.cpp; sourceTree = "<group>"; };
+		A7588DB1200CE4F6009008CB /* ONGPV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONGPV.h; sourceTree = "<group>"; };
+		A7588DB2200CE4F6009008CB /* ONJunction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONJunction.cpp; sourceTree = "<group>"; };
+		A7588DB3200CE4F6009008CB /* ONJunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONJunction.h; sourceTree = "<group>"; };
+		A7588DB4200CE4F6009008CB /* ONLink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONLink.cpp; sourceTree = "<group>"; };
+		A7588DB5200CE4F6009008CB /* ONLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONLink.h; sourceTree = "<group>"; };
+		A7588DB6200CE4F6009008CB /* ONNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONNode.cpp; sourceTree = "<group>"; };
+		A7588DB7200CE4F6009008CB /* ONNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONNode.h; sourceTree = "<group>"; };
+		A7588DB8200CE4F6009008CB /* ONObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONObject.cpp; sourceTree = "<group>"; };
+		A7588DB9200CE4F6009008CB /* ONObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONObject.h; sourceTree = "<group>"; };
+		A7588DBA200CE4F6009008CB /* ONPattern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONPattern.cpp; sourceTree = "<group>"; };
+		A7588DBB200CE4F6009008CB /* ONPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONPattern.h; sourceTree = "<group>"; };
+		A7588DBC200CE4F6009008CB /* ONPBV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONPBV.cpp; sourceTree = "<group>"; };
+		A7588DBD200CE4F6009008CB /* ONPBV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONPBV.h; sourceTree = "<group>"; };
+		A7588DBE200CE4F6009008CB /* ONPipe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONPipe.cpp; sourceTree = "<group>"; };
+		A7588DBF200CE4F6009008CB /* ONPipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONPipe.h; sourceTree = "<group>"; };
+		A7588DC0200CE4F6009008CB /* ONPRV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONPRV.cpp; sourceTree = "<group>"; };
+		A7588DC1200CE4F6009008CB /* ONPRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONPRV.h; sourceTree = "<group>"; };
+		A7588DC2200CE4F6009008CB /* ONPSV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONPSV.cpp; sourceTree = "<group>"; };
+		A7588DC3200CE4F6009008CB /* ONPSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONPSV.h; sourceTree = "<group>"; };
+		A7588DC4200CE4F6009008CB /* ONPump.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONPump.cpp; sourceTree = "<group>"; };
+		A7588DC5200CE4F6009008CB /* ONPump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONPump.h; sourceTree = "<group>"; };
+		A7588DC6200CE4F6009008CB /* ONReservoir.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONReservoir.cpp; sourceTree = "<group>"; };
+		A7588DC7200CE4F6009008CB /* ONReservoir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONReservoir.h; sourceTree = "<group>"; };
+		A7588DC8200CE4F6009008CB /* ONSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONSystem.cpp; sourceTree = "<group>"; };
+		A7588DC9200CE4F6009008CB /* ONSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSystem.h; sourceTree = "<group>"; };
+		A7588DCA200CE4F6009008CB /* ONTank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONTank.cpp; sourceTree = "<group>"; };
+		A7588DCB200CE4F6009008CB /* ONTank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONTank.h; sourceTree = "<group>"; };
+		A7588DCC200CE4F6009008CB /* ONTCV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONTCV.cpp; sourceTree = "<group>"; };
+		A7588DCD200CE4F6009008CB /* ONTCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONTCV.h; sourceTree = "<group>"; };
+		A7588DCE200CE4F6009008CB /* ONValve.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ONValve.cpp; sourceTree = "<group>"; };
+		A7588DCF200CE4F6009008CB /* ONValve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONValve.h; sourceTree = "<group>"; };
+		A7588E04200CE7AD009008CB /* enumstxt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = enumstxt.h; sourceTree = "<group>"; };
+		A7588E05200CE7AD009008CB /* epanet_on.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = epanet_on.c; sourceTree = "<group>"; };
+		A7588E06200CE7AD009008CB /* example1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = example1.cpp; sourceTree = "<group>"; };
+		A7588E07200CE7AD009008CB /* funcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = funcs.h; sourceTree = "<group>"; };
+		A7588E08200CE7AD009008CB /* hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hash.c; sourceTree = "<group>"; };
+		A7588E09200CE7AD009008CB /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
+		A7588E0A200CE7AD009008CB /* hydraul.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hydraul.c; sourceTree = "<group>"; };
+		A7588E0B200CE7AE009008CB /* inpfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = inpfile.c; sourceTree = "<group>"; };
+		A7588E0C200CE7AE009008CB /* input1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = input1.c; sourceTree = "<group>"; };
+		A7588E0D200CE7AE009008CB /* input2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = input2.c; sourceTree = "<group>"; };
+		A7588E0E200CE7AE009008CB /* input3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = input3.c; sourceTree = "<group>"; };
+		A7588E0F200CE7AE009008CB /* mempool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mempool.c; sourceTree = "<group>"; };
+		A7588E10200CE7AE009008CB /* mempool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mempool.h; sourceTree = "<group>"; };
+		A7588E11200CE7AE009008CB /* output.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = output.c; sourceTree = "<group>"; };
+		A7588E12200CE7AE009008CB /* quality.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = quality.c; sourceTree = "<group>"; };
+		A7588E13200CE7AE009008CB /* report.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = report.c; sourceTree = "<group>"; };
+		A7588E14200CE7AE009008CB /* rules.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rules.c; sourceTree = "<group>"; };
+		A7588E15200CE7AE009008CB /* smatrix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smatrix.c; sourceTree = "<group>"; };
+		A7588E16200CE7AE009008CB /* text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = text.h; sourceTree = "<group>"; };
+		A7588E17200CE7AE009008CB /* toolkit_on.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = toolkit_on.h; sourceTree = "<group>"; };
+		A7588E18200CE7AE009008CB /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		A7588E19200CE7AE009008CB /* vars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vars.h; sourceTree = "<group>"; };
+		A7588E29200CEF87009008CB /* Build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Build; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7588D88200CE3DB009008CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A7588D82200CE3DB009008CB = {
+			isa = PBXGroup;
+			children = (
+				A7588E29200CEF87009008CB /* Build */,
+				A7588D8D200CE3DB009008CB /* ooten */,
+				A7588D8C200CE3DB009008CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A7588D8C200CE3DB009008CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7588D8B200CE3DB009008CB /* ooten */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7588D8D200CE3DB009008CB /* ooten */ = {
+			isa = PBXGroup;
+			children = (
+				A7588E04200CE7AD009008CB /* enumstxt.h */,
+				A7588E05200CE7AD009008CB /* epanet_on.c */,
+				A7588E06200CE7AD009008CB /* example1.cpp */,
+				A7588E07200CE7AD009008CB /* funcs.h */,
+				A7588E08200CE7AD009008CB /* hash.c */,
+				A7588E09200CE7AD009008CB /* hash.h */,
+				A7588E0A200CE7AD009008CB /* hydraul.c */,
+				A7588E0B200CE7AE009008CB /* inpfile.c */,
+				A7588E0C200CE7AE009008CB /* input1.c */,
+				A7588E0D200CE7AE009008CB /* input2.c */,
+				A7588E0E200CE7AE009008CB /* input3.c */,
+				A7588E0F200CE7AE009008CB /* mempool.c */,
+				A7588E10200CE7AE009008CB /* mempool.h */,
+				A7588E11200CE7AE009008CB /* output.c */,
+				A7588E12200CE7AE009008CB /* quality.c */,
+				A7588E13200CE7AE009008CB /* report.c */,
+				A7588E14200CE7AE009008CB /* rules.c */,
+				A7588E15200CE7AE009008CB /* smatrix.c */,
+				A7588E16200CE7AE009008CB /* text.h */,
+				A7588E17200CE7AE009008CB /* toolkit_on.h */,
+				A7588E18200CE7AE009008CB /* types.h */,
+				A7588E19200CE7AE009008CB /* vars.h */,
+				A7588DA4200CE4F6009008CB /* ONControl.cpp */,
+				A7588DA5200CE4F6009008CB /* ONControl.h */,
+				A7588DA6200CE4F6009008CB /* ONCurve.cpp */,
+				A7588DA7200CE4F6009008CB /* ONCurve.h */,
+				A7588DA8200CE4F6009008CB /* ONElement.cpp */,
+				A7588DA9200CE4F6009008CB /* ONElement.h */,
+				A7588DAA200CE4F6009008CB /* ONENException.cpp */,
+				A7588DAB200CE4F6009008CB /* ONENException.h */,
+				A7588DAC200CE4F6009008CB /* ONException.cpp */,
+				A7588DAD200CE4F6009008CB /* ONException.h */,
+				A7588DAE200CE4F6009008CB /* ONFCV.cpp */,
+				A7588DAF200CE4F6009008CB /* ONFCV.h */,
+				A7588DB0200CE4F6009008CB /* ONGPV.cpp */,
+				A7588DB1200CE4F6009008CB /* ONGPV.h */,
+				A7588DB2200CE4F6009008CB /* ONJunction.cpp */,
+				A7588DB3200CE4F6009008CB /* ONJunction.h */,
+				A7588DB4200CE4F6009008CB /* ONLink.cpp */,
+				A7588DB5200CE4F6009008CB /* ONLink.h */,
+				A7588DB6200CE4F6009008CB /* ONNode.cpp */,
+				A7588DB7200CE4F6009008CB /* ONNode.h */,
+				A7588DB8200CE4F6009008CB /* ONObject.cpp */,
+				A7588DB9200CE4F6009008CB /* ONObject.h */,
+				A7588DBA200CE4F6009008CB /* ONPattern.cpp */,
+				A7588DBB200CE4F6009008CB /* ONPattern.h */,
+				A7588DBC200CE4F6009008CB /* ONPBV.cpp */,
+				A7588DBD200CE4F6009008CB /* ONPBV.h */,
+				A7588DBE200CE4F6009008CB /* ONPipe.cpp */,
+				A7588DBF200CE4F6009008CB /* ONPipe.h */,
+				A7588DC0200CE4F6009008CB /* ONPRV.cpp */,
+				A7588DC1200CE4F6009008CB /* ONPRV.h */,
+				A7588DC2200CE4F6009008CB /* ONPSV.cpp */,
+				A7588DC3200CE4F6009008CB /* ONPSV.h */,
+				A7588DC4200CE4F6009008CB /* ONPump.cpp */,
+				A7588DC5200CE4F6009008CB /* ONPump.h */,
+				A7588DC6200CE4F6009008CB /* ONReservoir.cpp */,
+				A7588DC7200CE4F6009008CB /* ONReservoir.h */,
+				A7588DC8200CE4F6009008CB /* ONSystem.cpp */,
+				A7588DC9200CE4F6009008CB /* ONSystem.h */,
+				A7588DCA200CE4F6009008CB /* ONTank.cpp */,
+				A7588DCB200CE4F6009008CB /* ONTank.h */,
+				A7588DCC200CE4F6009008CB /* ONTCV.cpp */,
+				A7588DCD200CE4F6009008CB /* ONTCV.h */,
+				A7588DCE200CE4F6009008CB /* ONValve.cpp */,
+				A7588DCF200CE4F6009008CB /* ONValve.h */,
+				A7588D8E200CE3DB009008CB /* main.cpp */,
+			);
+			path = ooten;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A7588D8A200CE3DB009008CB /* ooten */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7588D92200CE3DB009008CB /* Build configuration list for PBXNativeTarget "ooten" */;
+			buildPhases = (
+				A7588D87200CE3DB009008CB /* Sources */,
+				A7588D88200CE3DB009008CB /* Frameworks */,
+				A7588D89200CE3DB009008CB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ooten;
+			productName = ooten;
+			productReference = A7588D8B200CE3DB009008CB /* ooten */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7588D83200CE3DB009008CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = DssFactory;
+				TargetAttributes = {
+					A7588D8A200CE3DB009008CB = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = A7588D86200CE3DB009008CB /* Build configuration list for PBXProject "ooten" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A7588D82200CE3DB009008CB;
+			productRefGroup = A7588D8C200CE3DB009008CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7588D8A200CE3DB009008CB /* ooten */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7588D87200CE3DB009008CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7588DF2200CE4F6009008CB /* ONObject.cpp in Sources */,
+				A7588E1E200CE7AE009008CB /* inpfile.c in Sources */,
+				A7588E1D200CE7AE009008CB /* hydraul.c in Sources */,
+				A7588E26200CE7AE009008CB /* rules.c in Sources */,
+				A7588E23200CE7AE009008CB /* output.c in Sources */,
+				A7588E1B200CE7AE009008CB /* example1.cpp in Sources */,
+				A7588DF6200CE4F6009008CB /* ONPRV.cpp in Sources */,
+				A7588DFA200CE4F6009008CB /* ONSystem.cpp in Sources */,
+				A7588DF1200CE4F6009008CB /* ONNode.cpp in Sources */,
+				A7588DF0200CE4F6009008CB /* ONLink.cpp in Sources */,
+				A7588E24200CE7AE009008CB /* quality.c in Sources */,
+				A7588DE8200CE4F6009008CB /* ONControl.cpp in Sources */,
+				A7588DEE200CE4F6009008CB /* ONGPV.cpp in Sources */,
+				A7588DF3200CE4F6009008CB /* ONPattern.cpp in Sources */,
+				A7588E20200CE7AE009008CB /* input2.c in Sources */,
+				A7588D8F200CE3DB009008CB /* main.cpp in Sources */,
+				A7588DF8200CE4F6009008CB /* ONPump.cpp in Sources */,
+				A7588DED200CE4F6009008CB /* ONFCV.cpp in Sources */,
+				A7588E25200CE7AE009008CB /* report.c in Sources */,
+				A7588DF7200CE4F6009008CB /* ONPSV.cpp in Sources */,
+				A7588E1C200CE7AE009008CB /* hash.c in Sources */,
+				A7588DFC200CE4F6009008CB /* ONTCV.cpp in Sources */,
+				A7588E1A200CE7AE009008CB /* epanet_on.c in Sources */,
+				A7588E22200CE7AE009008CB /* mempool.c in Sources */,
+				A7588DF5200CE4F6009008CB /* ONPipe.cpp in Sources */,
+				A7588E1F200CE7AE009008CB /* input1.c in Sources */,
+				A7588E27200CE7AE009008CB /* smatrix.c in Sources */,
+				A7588DF9200CE4F6009008CB /* ONReservoir.cpp in Sources */,
+				A7588E21200CE7AE009008CB /* input3.c in Sources */,
+				A7588DEF200CE4F6009008CB /* ONJunction.cpp in Sources */,
+				A7588DF4200CE4F6009008CB /* ONPBV.cpp in Sources */,
+				A7588DFD200CE4F6009008CB /* ONValve.cpp in Sources */,
+				A7588DEC200CE4F6009008CB /* ONException.cpp in Sources */,
+				A7588DE9200CE4F6009008CB /* ONCurve.cpp in Sources */,
+				A7588DFB200CE4F6009008CB /* ONTank.cpp in Sources */,
+				A7588DEA200CE4F6009008CB /* ONElement.cpp in Sources */,
+				A7588DEB200CE4F6009008CB /* ONENException.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A7588D90200CE3DB009008CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A7588D91200CE3DB009008CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A7588D93200CE3DB009008CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A7588D94200CE3DB009008CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7588D86200CE3DB009008CB /* Build configuration list for PBXProject "ooten" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7588D90200CE3DB009008CB /* Debug */,
+				A7588D91200CE3DB009008CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7588D92200CE3DB009008CB /* Build configuration list for PBXNativeTarget "ooten" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7588D93200CE3DB009008CB /* Debug */,
+				A7588D94200CE3DB009008CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7588D83200CE3DB009008CB /* Project object */;
+}
