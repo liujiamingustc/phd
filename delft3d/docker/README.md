@@ -2,12 +2,6 @@
 
 All the tags are downloaded inside `Macbook pro -> VirtualBox -> ubuntu-ihe -> ~/svn.repos.delft3d.tags`
 
-The source codes are stored under context folder `./tags/version_number`
-
 ## 6686
 
-Used for SurrogateModel
-
-## 6906
-
-Docker Hub image
+The source codes are stored under context folder `/delft3d/docker/tags/6686`
