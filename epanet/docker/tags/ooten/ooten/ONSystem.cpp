@@ -20,6 +20,8 @@ AUTHOR:     JE van Zyl
 #pragma hdrstop
 
 #include "ONSystem.h"
+
+#include <cstring>
 //---------------------------------------------------------------------------
 
 #pragma package(smart_init)
