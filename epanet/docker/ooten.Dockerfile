@@ -20,6 +20,9 @@ RUN df -h
 ADD tags/ooten /epanet
 # RUN ["chmod", "+x", "/epanet/configure"]
 
+RUN apt-get install -y \
+  cmake
+
 # RUN cd /epanet \
 #   && ./configure \
 #   && make \
