@@ -25,7 +25,9 @@ RUN apt-get install -y \
 
 RUN cd /epanet/build/cmake \
   && cmake ../../ \
-  && make
+
+# RUN cd /epanet/build/cmake \
+#   && make
   
 # RUN cd /epanet/build/cmake \
 #   && make install
