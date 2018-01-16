@@ -127,7 +127,6 @@
 		A7588E17200CE7AE009008CB /* toolkit_on.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = toolkit_on.h; sourceTree = "<group>"; };
 		A7588E18200CE7AE009008CB /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
 		A7588E19200CE7AE009008CB /* vars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vars.h; sourceTree = "<group>"; };
-		A7588E29200CEF87009008CB /* Build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Build; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +143,6 @@
 		A7588D82200CE3DB009008CB = {
 			isa = PBXGroup;
 			children = (
-				A7588E29200CEF87009008CB /* Build */,
 				A7588D8D200CE3DB009008CB /* ooten */,
 				A7588D8C200CE3DB009008CB /* Products */,
 			);
@@ -443,6 +441,7 @@
 				A7588D94200CE3DB009008CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

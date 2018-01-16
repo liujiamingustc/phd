@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
     try
     {
         /* Open a new file in OOTEN and the hydraulics solver */
-        mySystem.open("../../../test/net1.inp", "../../../test/net1.rpt", "");
+        mySystem.open("../../../../test/net1.inp", "../../../../test/net1.rpt", "");
         mySystem.openHydraulics();
         
         /* Find all the tanks in the network */
