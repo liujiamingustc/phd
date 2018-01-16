@@ -1,5 +1,4 @@
-ooten
-=====
+# ooten
 
 OOTEN - Object-Oriented Toolkit for EPANET
 
@@ -7,8 +6,7 @@ Like the EPANET sources, the OOTEN sources are Public Domain.
 
 See [epanet.de](http://epanet.de/en/ooten/index.html) for more information.
 
-Contents of OOTEN.ZIP
-=======================
+## Contents of OOTEN.ZIP
 
 This archive contains the source code for OOTEN (Object-
 Oriented Toolkit for EpaNet), as well as the EPANET 2 
@@ -36,8 +34,7 @@ following categories:
 
 
 
-HELP FILES
-========================
+## HELP FILES
 
 The following files are included to provide help for users
 of OOTEN:
@@ -47,8 +44,8 @@ of OOTEN:
 
 
 
-EPANET SOURCE CODE FILES
-========================
+## EPANET SOURCE CODE FILES
+
 The following standard EPANET source files (C-code) are 
 included in this archive:
 
@@ -100,8 +97,7 @@ Changes to standard EPANET files can be located in the code by searching
 for the keyword `"jevz"`.
 
 
-OOTEN SOURCE CODE FILES
-=======================
+## OOTEN SOURCE CODE FILES
 
 The following ANSI C++ OOTEN source code files are included in this 
 archive:
@@ -152,8 +148,7 @@ archive:
 	ONENEXCEPTION.H   -- definition of the OOTEN class ONENException
 
 
-BORLAND C++ BUILDER PROJECT FILES
-=================================
+## BORLAND C++ BUILDER PROJECT FILES
 
 The following Borland Builder C++ Builder (version 6.0) project
 files are included in this archive as an example of how to implement
@@ -165,3 +160,15 @@ OOTEN in Borland C++ Builder:
 	EXAMPLE1.CPP    -- implementation of example 1 defined in help - contains main() function
 	NET1.INP        -- example EPANET input file - used in EXAMPLE1.CPP
 
+
+## Build program
+
+```bash
+$ git clone https://github.com/quanpan302/phd.git
+$ cd epanet/tags/ooten
+$ mkdir -p build
+$ cd build
+$ cmake ..
+$ make
+$ cd ../
+```
