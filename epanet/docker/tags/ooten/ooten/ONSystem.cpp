@@ -323,9 +323,9 @@ void ONSystem::epanetSimulation(string inputFile, string reportFile, string outp
     char* reportfile = new char[reportFile.length()+1];
     char* outputfile = new char[outputFile.length()+1];
 
-    strcpy(inputfile, inputFile.c_str());
-    strcpy(reportfile, reportFile.c_str());
-    strcpy(outputfile, outputFile.c_str());
+    std::strcpy(inputfile, inputFile.c_str());
+    std::strcpy(reportfile, reportFile.c_str());
+    std::strcpy(outputfile, outputFile.c_str());
 
     errcode = ENepanet(inputfile, reportfile, outputfile, progressFunc);
     if(errcode) checkError(errcode, "ONSystem::epanetSimulation()");
@@ -395,9 +395,9 @@ void ONSystem::setQualityParameters(ONSystem::qualityTpe type, string chemName,
     char* node = new char[traceId.length()+1];
     char* chemname = new char[chemName.length()+1];
     char* chemunits = new char[chemUnits.length()+1];
-    strcpy(node, traceId.c_str());
-    strcpy(chemname, chemName.c_str());
-    strcpy(chemunits, chemUnits.c_str());
+    std::strcpy(node, traceId.c_str());
+    std::strcpy(chemname, chemName.c_str());
+    std::strcpy(chemunits, chemUnits.c_str());
     errcode = ENsetqualtype(type, chemname, chemunits, node);
     if(errcode) checkError(errcode, "ONSystem::setQualityParameter()");
     delete[] node;
@@ -413,9 +413,9 @@ void ONSystem::open(string inputFile, string reportFile, string outputFile)
     char* reportfile = new char[reportFile.length()+1];
     char* outputfile = new char[outputFile.length()+1];
 
-    strcpy(inputfile, inputFile.c_str());
-    strcpy(outputfile, outputFile.c_str());
-    strcpy(reportfile, reportFile.c_str());
+    std::strcpy(inputfile, inputFile.c_str());
+    std::strcpy(outputfile, outputFile.c_str());
+    std::strcpy(reportfile, reportFile.c_str());
     errcode = ENopen(inputfile, reportfile, outputfile);
     if(errcode) checkError(errcode, "ONSystem::open()");
     delete[] inputfile;
@@ -672,7 +672,7 @@ ONNode* ONSystem::node(string id) const
     int index;
     int errcode;
     char* cname = new char[id.length()+1];
-    strcpy(cname, id.c_str());
+    std::strcpy(cname, id.c_str());
     errcode = ENgetnodeindex(cname, &index);
     delete[] cname;
     if(errcode) checkError(errcode, "ONSystem::node()");
@@ -684,7 +684,7 @@ ONLink* ONSystem::link(string id) const
     int index;
     int errcode;
     char* cname = new char[id.length()+1];
-    strcpy(cname, id.c_str());
+    std::strcpy(cname, id.c_str());
     errcode = ENgetlinkindex(cname, &index);
     delete[] cname;
     if(errcode) checkError(errcode, "ONSystem::link()");
@@ -696,7 +696,7 @@ ONPattern* ONSystem::pattern(string id) const
     int index;
     int errcode;
     char* cname = new char[id.length()+1];
-    strcpy(cname, id.c_str());
+    std::strcpy(cname, id.c_str());
     errcode = ENgetpatternindex(cname, &index);
     delete[] cname;
     if(errcode) checkError(errcode, "ONSystem::pattern()");
@@ -708,7 +708,7 @@ ONCurve* ONSystem::curve(string id) const
     int index;
     int errcode;
     char* cname = new char[id.length()+1];
-    strcpy(cname, id.c_str());
+    std::strcpy(cname, id.c_str());
     errcode = ENgetcurveindex(cname, &index);
     delete[] cname;
     if(errcode) checkError(errcode, "ONSystem::curve()");
@@ -754,7 +754,7 @@ void ONSystem::saveHydraulicsFile(string fileName)
 {
     int errcode;
     char* fname = new char[fileName.length()+1];
-    strcpy(fname, fileName.c_str());
+    std::strcpy(fname, fileName.c_str());
     errcode = ENsavehydfile(fname); 
     delete[] fname;
     if(errcode) checkError(errcode, "ONSystem::saveResultFile()");
@@ -764,7 +764,7 @@ void ONSystem::loadHydraulicsFile(string fileName)
 {
     int errcode;
     char* fname = new char[fileName.length()+1];
-    strcpy(fname, fileName.c_str());
+    std::strcpy(fname, fileName.c_str());
     errcode = ENusehydfile(fname); 
     delete[] fname;
     if(errcode) checkError(errcode, "ONSystem::loadResultFile()");
@@ -899,7 +899,7 @@ void ONSystem::saveInputFile(string fileName)
 {
     int errcode;
     char* fname = new char[fileName.length()+1];
-    strcpy(fname, fileName.c_str());
+    std::strcpy(fname, fileName.c_str());
     errcode = ENsaveinpfile(fname); 
     delete[] fname;
     if(errcode) checkError(errcode, "ONSystem::saveInputFile()");
@@ -923,7 +923,7 @@ void ONSystem::setReportFormat(string command)
 {
     int errcode;
     char* cmd = new char[command.length()+1];
-    strcpy(cmd, command.c_str());
+    std::strcpy(cmd, command.c_str());
     errcode = ENsetreport(cmd);
     delete[] cmd;
     if(errcode) checkError(errcode, "ONSystem::setReportFormat()");
