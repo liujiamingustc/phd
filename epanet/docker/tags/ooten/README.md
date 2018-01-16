@@ -168,7 +168,9 @@ $ git clone https://github.com/quanpan302/phd.git
 $ cd epanet/tags/ooten
 $ mkdir -p build
 $ cd build
-$ cmake ..
+$ mkdir cmake
+$ cd cmake
+$ cmake ../../
 $ make
-$ cd ../
+$ cd ../../
 ```
