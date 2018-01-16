@@ -166,10 +166,7 @@ OOTEN in Borland C++ Builder:
 ```bash
 $ git clone https://github.com/quanpan302/phd.git
 $ cd epanet/tags/ooten
-$ mkdir -p build
-$ cd build
-$ mkdir cmake
-$ cd cmake
+$ cd build/cmake
 $ cmake ../../
 $ make
 $ cd ../../
