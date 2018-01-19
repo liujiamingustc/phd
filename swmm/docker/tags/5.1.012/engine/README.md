@@ -26,7 +26,7 @@ USING THE GNU C/C++ COMPILER ON LINUX
 	//#define DLL
 	```
 
-2. Copy the file `"Makefile"` to the directory where the SWMM 5 `engine` source code files are located.
+2. Copy the file `"Makefile"` to the directory where the SWMM 5 `engine / source code` files are located.
 
 3. Open a console shell and navigate to the SWMM 5 engine source code directory.
 
