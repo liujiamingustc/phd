@@ -14,14 +14,14 @@ RUN apt-get update && apt-get install -y \
   pkg-config \
   gedit
 
-# Epanet
+# SWMM
 RUN df -h
 
-ADD tags/2.0.12 /epanet
-RUN ["chmod", "+x", "/epanet/configure"]
+ADD tags/5.1.012 /swmm
+# RUN ["chmod", "+x", "/swmm/engine/configure"]
 
-RUN cd /epanet \
-  && ./configure \
-  && make \
-  && make install
+# RUN cd /swmm/engine \
+#   && ./configure \
+#   && make \
+#   && make install
 
