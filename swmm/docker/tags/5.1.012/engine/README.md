@@ -8,5 +8,5 @@ for an overview of the various code modules.
 
 makefiles.zip
 =============
-Contains "make" files for compiling the SWMM 5.1 engine
+Contains `"make"` files for compiling the SWMM 5.1 engine
 on Microsoft C++ 2010 and the GNU C compiler for Linux.
