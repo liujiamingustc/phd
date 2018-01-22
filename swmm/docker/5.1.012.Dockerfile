@@ -24,7 +24,7 @@ RUN cp /swmm/engine/makefiles/Makefile /swmm/engine/src/Makefile
 RUN ls /swmm/engine/src
 
 RUN cd /swmm/engine/src \
-  && make \
+  && make
   
 RUN ls /swmm/engine/src
 
