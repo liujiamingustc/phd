@@ -21,7 +21,13 @@ ADD tags/5.1.012 /swmm
 RUN cp /swmm/engine/makefiles/Makefile /swmm/engine/src/Makefile
 # RUN ["chmod", "+x", "/swmm/engine/configure"]
 
+RUN ls /swmm/engine/src
+
 RUN cd /swmm/engine/src \
   && make \
+  
+RUN ls /swmm/engine/src
+
+# RUN cd /swmm/engine/src \
 #   && make install
 
