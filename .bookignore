@@ -1,23 +1,8 @@
-# Templat
-# Node rules:
-## Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
-## Dependency directory
-## Commenting this out is preferred by some people, see
-## https://docs.npmjs.com/misc/faq#should-i-check-my-node_modules-folder-into-git
-node_modules
-
-# Book build output
-thesis/_book
-
-# eBook build output
-*.epub
-*.mobi
-*.pdf
-
+# Check template:
+# https://github.com/GitbookIO/documentation/blob/master/.gitignore
 
 # Ignore the file test.md
+README.md
 latest.Dockerfile
 
 # Ignore everything in the directory "bin"
@@ -29,3 +14,24 @@ surrogate/*
 swmm/*
 waq/*
 wsn/*
+
+# Node rules:
+## Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+## Dependency directory
+## Commenting this out is preferred by some people, see
+## https://docs.npmjs.com/misc/faq#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+# Book build output
+_book
+
+# eBook build output
+*.epub
+*.mobi
+*.pdf
+
