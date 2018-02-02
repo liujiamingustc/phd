@@ -1,8 +1,6 @@
 # Summary
 
-## About
-
-[Thesis](README.md)
+* [About](README.md)
 
 ### Chapter 1
 
