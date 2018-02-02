@@ -2,7 +2,7 @@
 # https://github.com/GitbookIO/documentation/blob/master/.gitignore
 
 # Ignore the file test.md
-README.md
+# README.md
 latest.Dockerfile
 
 # Ignore everything in the directory "bin"
