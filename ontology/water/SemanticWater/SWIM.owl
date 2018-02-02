@@ -1,0 +1,908 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticwater.com/SWIM#"
+     xml:base="http://www.semanticwater.com/SWIM"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticwater.com/SWIM">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Semantic Water Interoperability Model</rdfs:label>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.WISDOM.org/WISDOMontology#forProcess -->
+
+    <owl:ObjectProperty rdf:about="http://www.WISDOM.org/WISDOMontology#forProcess">
+        <rdfs:domain rdf:resource="http://www.semanticwater.com/SWIM#Asset"/>
+        <rdfs:range rdf:resource="http://www.semanticwater.com/SWIM#Process"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.WISDOM.org/WISDOMontology#onPlatform -->
+
+    <owl:ObjectProperty rdf:about="http://www.WISDOM.org/WISDOMontology#onPlatform">
+        <rdfs:domain rdf:resource="http://www.semanticwater.com/SWIM#Asset"/>
+        <rdfs:range rdf:resource="http://www.semanticwater.com/SWIM#Platform"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Abstraction -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Abstraction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#AbstractionFlowmeter -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#AbstractionFlowmeter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Abstraction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Flowmeter measuring volume of water abstracted from an aquifer with calibration and uncertainty  assessment</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#AbstractionLicence -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#AbstractionLicence">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Abstraction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Licence issued by Environment Agency permitting abstraction under annual and daily constraints.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#AbstractionReport -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#AbstractionReport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Abstraction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Daily and monthly abstaction report for a group of licensed boreholes,</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#AeratorSurface -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#AeratorSurface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WasteTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Surface aerator</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Asset -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Asset"/>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#BackPumpStation -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#BackPumpStation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#NaturalWaterFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Pumping station returning water to higher pound</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Borehole -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Borehole">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#FixedAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Abstraction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Source of groundwater drilled into an acquifer</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#BoreholePump01 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#BoreholePump01">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Abstraction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Pump with state represented by one data bits, running/stopped.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#BoreholePump02 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#BoreholePump02">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Abstraction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Pump with state represented by two data bits, running/stopped and healthy/tripped.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#BoreholeWaterLevel -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#BoreholeWaterLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Abstraction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Water level sensor referenced to distance of water level from borehole headplate datum.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#ChlorineResidualAnalyser01 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#ChlorineResidualAnalyser01">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WaterTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Simple residual analyser in mg/l</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#ContactTank -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#ContactTank">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#FixedAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WaterTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Tank with providing time delay allowing extended cotact period between water and injected chlorine solution.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#ControlAsset -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#ControlAsset">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Asset"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#DMA -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#DMA">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#FixedAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Distribution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>District meter area</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#DOSensor -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#DOSensor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WasteTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Dissolved Oxygen sensor with high limit</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Distribution -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Distribution">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Document -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Document">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Asset"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#FinalEffluentMonitor -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#FinalEffluentMonitor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WasteTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Package of sensors including solids and ammonia</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#FixedAsset -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#FixedAsset">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Asset"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#FlowToTreatment -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#FlowToTreatment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WasteTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>MCERTS Flowmeter recording and reporting flow to treatment </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#FlowmeterEmProduction -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#FlowmeterEmProduction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WaterTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Precision electromagnetic flowmeter measuring production from treatment plant.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#FlowmeterTurbine -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#FlowmeterTurbine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WaterReuse"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Turbine flowmeter generating pulses for specific volume passed.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Flume -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Flume">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#NaturalWaterFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Flowmeasurement in open channel according to BS1380</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#GreywaterFilter -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#GreywaterFilter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WaterReuse"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Simple greywater treatment unit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#GreywaterRecyclePlant -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#GreywaterRecyclePlant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WaterReuse"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Plant for recycling lightly polluted water</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#InletWorks -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#InletWorks">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#FixedAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WasteTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Preliminary treatment consisting of coarse screen and grit channel</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#LagoonLevel -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#LagoonLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WasteTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Tertiary settlement water level sensor</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Lock -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Lock">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#FixedAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#NaturalWaterFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#NaturalWaterFlow -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#NaturalWaterFlow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#OzoneTreatment01 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#OzoneTreatment01">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WaterReuse"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Ozone generator and inAir monitor</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Plant -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Plant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Asset"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Platform -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Platform"/>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Pound -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Pound">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#FixedAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#NaturalWaterFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#PrimarySettlement -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#PrimarySettlement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#FixedAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WasteTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Primary sedimentation process</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Process -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Process"/>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#PumpSet -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#PumpSet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WaterReuse"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Simple booster set with fault alarm.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#RisingMain -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#RisingMain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#FixedAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Transmission"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Pressurised trunk main.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#SecondarySettlement -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#SecondarySettlement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#FixedAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WasteTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Secondary desimemtation with blanket level measurement</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Sensor -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Asset"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#ServiceReservoir02 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#ServiceReservoir02">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#FixedAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Transmission"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Bulk storage of potable water in the distribution network with static high and low operating and alert limits. Volume and water age derived values</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#SewagePumpStation01 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#SewagePumpStation01">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Sewerage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Basic SPS with 2-pumps</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#SewagePumpStation02 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#SewagePumpStation02">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Sewerage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>2-pump SPS with diagnostics and energy management</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#SewagePumpStation03 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#SewagePumpStation03">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Sewerage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Multi-pump operation with diagnostics and dynamic optimisation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#SewagePumpStation04 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#SewagePumpStation04">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#Sewerage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>SPS with real-time catchment control</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Sewerage -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Sewerage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Sluicegate -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Sluicegate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#ControlAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#NaturalWaterFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Controls water flow in a channel</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#Transmission -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#Transmission">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#TurbiidityAnalyserNTU01 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#TurbiidityAnalyserNTU01">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WaterTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Simple turbidity analyser calibrated in NTU</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#ValveActOpenClosedDelay -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#ValveActOpenClosedDelay">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#ControlAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#WaterTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Actuated valve with finite travel time, auto/manual modes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WasteTreatment -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#WasteTreatment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WaterLevel01 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#WaterLevel01">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#NaturalWaterFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WaterLevel02 -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#WaterLevel02">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#NaturalWaterFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Battery-powered level sensor with GPRS comms</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WaterReuse -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#WaterReuse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WaterTreatment -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#WaterTreatment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WeirBypass -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#WeirBypass">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#ControlAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#NaturalWaterFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Allows water to flow down canal system bypassing locks</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WeirDischarge -->
+
+    <owl:Class rdf:about="http://www.semanticwater.com/SWIM#WeirDischarge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticwater.com/SWIM#ControlAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.WISDOM.org/WISDOMontology#forProcess"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticwater.com/SWIM#NaturalWaterFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Allows water to leave the canal system when level is above a fixed or moveable level.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WWX1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticwater.com/SWIM#WWX1">
+        <rdf:type rdf:resource="http://www.semanticwater.com/SWIM#Platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WWX2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticwater.com/SWIM#WWX2">
+        <rdf:type rdf:resource="http://www.semanticwater.com/SWIM#Platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WWX3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticwater.com/SWIM#WWX3">
+        <rdf:type rdf:resource="http://www.semanticwater.com/SWIM#Platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WWX4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticwater.com/SWIM#WWX4">
+        <rdf:type rdf:resource="http://www.semanticwater.com/SWIM#Platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WWX5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticwater.com/SWIM#WWX5">
+        <rdf:type rdf:resource="http://www.semanticwater.com/SWIM#Platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WWX6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticwater.com/SWIM#WWX6">
+        <rdf:type rdf:resource="http://www.semanticwater.com/SWIM#Platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WWX7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticwater.com/SWIM#WWX7">
+        <rdf:type rdf:resource="http://www.semanticwater.com/SWIM#Platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticwater.com/SWIM#WWX8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticwater.com/SWIM#WWX8">
+        <rdf:type rdf:resource="http://www.semanticwater.com/SWIM#Platform"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.3.20160319-0906) https://github.com/owlcs/owlapi -->
+
