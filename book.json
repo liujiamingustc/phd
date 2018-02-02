@@ -1,3 +1,11 @@
 {
+    "gitbook": ">= 3.0.0",
+    "plugins": [],
+    "links": {
+        "sidebar": {
+            "Contact me": "http://www.quanpan302.com/contact"
+        }
+    },
+    "pluginsConfig": {},
     "root": "./thesis"
 }
