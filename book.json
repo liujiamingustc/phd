@@ -1,11 +1,12 @@
 {
     "gitbook": ">= 3.0.0",
+    "author": "Quan Pan",
     "plugins": [],
+    "pluginsConfig": {},
     "links": {
         "sidebar": {
             "About Q.Pan": "http://www.quanpan302.com/about"
         }
     },
-    "pluginsConfig": {},
     "root": "./thesis"
 }
