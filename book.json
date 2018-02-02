@@ -1,8 +1,24 @@
 {
     "gitbook": ">= 3.0.0",
+    "title": "My PhD Thesis",
     "author": "Quan Pan",
-    "plugins": [],
-    "pluginsConfig": {},
+    "plugins": ["autocover"],
+    "pluginsConfig": {
+		"autocover": {
+			"font": {
+				"size": null,
+				"family": "Impact",
+				"color": "#FFF"
+			},
+			"size": {
+				"w": 1800,
+				"h": 2360
+			},
+			"background": {
+				"color": "#09F"
+			}
+		}
+	},
     "links": {
         "sidebar": {
             "About Q.Pan": "http://www.quanpan302.com/about"
