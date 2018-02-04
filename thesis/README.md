@@ -1,8 +1,7 @@
 # Web-based Framework For Optimisation And Decision Support Using Complex Water Models
 
-![cover1](https://raw.githubusercontent.com/quanpan302/phd/master/thesis/cover1.jpg)
-
-![cover2](https://raw.githubusercontent.com/quanpan302/phd/master/thesis/cover2.jpg)
+| ![cover1](https://raw.githubusercontent.com/quanpan302/phd/master/thesis/cover1.jpg) |
+| ![cover2](https://raw.githubusercontent.com/quanpan302/phd/master/thesis/cover2.jpg) |
 
 The online document of My PhD thesis hosted at [GitBook](https://quanpan302.gitbooks.io/phd-thesis/).
 
