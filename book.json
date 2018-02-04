@@ -10,15 +10,16 @@
 	"pluginsConfig": {
 		"autocover": {
 			"font": {
+				"size": null,
 				"family": "Impact",
-				"color": "#000"
+				"color": "#FFF"
 			},
 			"size": {
 				"w": 1800,
 				"h": 2360
 			},
 			"background": {
-				"color": "#FFF"
+				"color": "#09F"
 			}
 		},
 		"disqus": {
