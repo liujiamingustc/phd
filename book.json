@@ -1,6 +1,6 @@
 {
     "gitbook": ">= 3.0.0",
-    "title": "My PhD Thesis",
+    "title": "Web-based Framework For Optimisation And Decision Support Using Complex Water Models",
     "author": "Quan Pan",
     "plugins": ["autocover"],
     "pluginsConfig": {
