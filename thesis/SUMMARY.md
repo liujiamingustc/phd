@@ -12,7 +12,7 @@
    * [1.5 Methodology](ch01/1_5-Methodology.md)
 * [2 Literature Review](ch02/README.md)
 
-### Simulation Model
+### Simulation
 
 * [3 Development and Model Setup](ch03/README.md)
    * [3.1 Milano Water Supply Network Hydraulic Model](ch03/3_1-Milano_WSN.md)
@@ -27,11 +27,11 @@
    * [5.1 Problem Description](ch05/5_1-Problem_Desc.md)
    * [5.2 Results](ch05/5_2-Results.md)
 
-### Surrogate Model
+### Surrogate
 
 * [6 Surrogate Modelling for Taihu Lake Water Quality Model](ch06/README.md)
 
-### Decision Support Framework
+### DSF
 
 * [7 Decision Support Framework Development](ch07/README.md)
    * [7.1 Framework Design](ch07/7_1-Framework.md)
