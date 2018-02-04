@@ -10,7 +10,6 @@
    * [1.3 Research Objectives](ch01/1_3-Research_Objectives.md)
    * [1.4 Innovation and Practical Value](ch01/1_4-Innovation_and_Practical_Value.md)
    * [1.5 Methodology](ch01/1_5-Methodology.md)
-
 * [2 Literature Review](ch02/README.md)
 
 ### Simulation Model
@@ -24,7 +23,6 @@
 * [4 Optimisation Problem Solution for Case Study One](ch04/README.md)
    * [4.1 Problem Description](ch04/4_1-Problem_Desc.md)
    * [4.2 Results](ch04/4_2-Results.md)
-
 * [5 Optimisation Problem Solution for Case Study Two](ch05/README.md)
    * [5.1 Problem Description](ch05/5_1-Problem_Desc.md)
    * [5.2 Results](ch05/5_2-Results.md)
