@@ -1,6 +1,6 @@
 # My PhD Thesis
 
-cover ![fig1](https://raw.githubusercontent.com/quanpan302/phd/master/thesis/cover.jpg)
+![fig1](https://raw.githubusercontent.com/quanpan302/phd/master/thesis/cover.jpg)
 
 
 The online document of My PhD thesis hosted at [GitBook](https://quanpan302.gitbooks.io/phd-thesis/).
