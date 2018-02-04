@@ -11,9 +11,9 @@ Ontology, Semantic Web, Domains
 1. wsn [purl](http://purl.org/water/wsn)
 1. lake [purl](http://purl.org/water/lake)
 
-# W3C
+# ICT4Water
 
-**WISDOM Project [link](http://www.semanticwater.com/#resources)**
+**WISDOM Project [link](http://www.wisdom-project.eu)**
 
 1. WISDOM-Object.Agent
    ![graph_Agent](./water/SemanticWater/WISDOM-Object.Agent.png)
