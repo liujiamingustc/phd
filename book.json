@@ -1,8 +1,13 @@
 {
     "gitbook": ">= 3.0.0",
     "title": "Web-based Framework For Optimisation And Decision Support Using Complex Water Models",
-    "author": "Quan Pan",
-    "plugins": ["autocover"],
+    "author": "Quan Pan <quanpan302@hotmail.com>",
+    "description": "This is my PhD thesis.",
+    "isbn": null,
+    "plugins": [
+    	"autocover",
+    	"disqus"
+    ],
     "pluginsConfig": {
 		"autocover": {
 			"font": {
@@ -17,7 +22,10 @@
 			"background": {
 				"color": "#09F"
 			}
-		}
+		},
+		"disqus": {
+            "shortName": "phd-thesis"
+        }
 	},
     "links": {
         "sidebar": {
