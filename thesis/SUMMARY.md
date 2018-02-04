@@ -1,7 +1,10 @@
 # Summary
 
+* [Preface](README.md)
 * [SUMMARY](ch00/SUMMARY.md)
 * [SAMENVATTING](ch00/SAMENVATTING.md)
+* [ACKNOWLEDGEMENT](ch00/ACKNOWLEDGEMENT.md)
+* [ABBREVIATIONS](ch00/ABBREVIATIONS.md)
 * [1. Introduction](ch01/README.md)
    * [1.1. Background](ch01/1_1-Background.md)
    * [1.2. Case Studies](ch01/1_2-Case_Studies.md)
@@ -25,7 +28,5 @@
    * [7.3. Databases](ch07/7_3-Databases.md)
    * [7.4. Graphical User Interface](ch07/7_4-GUI.md)
 * [8. Conclusion](ch08/README.md)
-* [ABBREVIATIONS](ch00/ABBREVIATIONS.md)
 * [REFERENCES](ch00/REFERENCES.md)
-* [ACKNOWLEDGEMENT](ch00/ACKNOWLEDGEMENT.md)
 * [ABOUT THE AUTHOR](ch00/ABOUT.md)
