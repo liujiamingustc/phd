@@ -17,5 +17,4 @@ Practical steps for creating and using an ABM of a STS:
 1. Model validation
 1. Model use
 
-> "Agent-Based Modelling of Socio-Technical Systems"
-> - van Dam, Koen H., Nikolic, Igor, Lukszo, Zofia
+> "Agent-Based Modelling of Socio-Technical Systems" - van Dam, Koen H., Nikolic, Igor, Lukszo, Zofia
