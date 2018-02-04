@@ -1,6 +1,6 @@
 # Summary
 
-* [SUMMARY](ch00/SUMMARY.md)
+* [About](README.md)
 
 ### Introduction
 
@@ -43,6 +43,7 @@
 
 * [8 Conclusion](ch08/README.md)
 
+* [SUMMARY](ch00/SUMMARY.md)
 * [SAMENVATTING](ch00/SAMENVATTING.md)
 * [ABBREVIATIONS](ch00/ABBREVIATIONS.md)
 * [REFERENCES](ch00/REFERENCES.md)
