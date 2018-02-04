@@ -3,7 +3,6 @@
     "title": "Web-based Framework For Optimisation And Decision Support Using Complex Water Models",
     "author": "Quan Pan <quanpan302@hotmail.com>",
     "description": "This is my PhD thesis.",
-    "isbn": null,
     "plugins": [
     	"autocover",
     	"disqus"
