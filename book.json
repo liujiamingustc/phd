@@ -4,24 +4,9 @@
 	"author":  "Quan Pan <quanpan302@hotmail.com>",
 	"description": "This is my PhD thesis.",
 	"plugins": [
-		"autocover",
 		"disqus"
 	],
 	"pluginsConfig": {
-		"autocover": {
-			"font": {
-				"size": null,
-				"family": "Impact",
-				"color": "#FFF"
-			},
-			"size": {
-				"w": 1800,
-				"h": 2360
-			},
-			"background": {
-				"color": "#09F"
-			}
-		},
 		"disqus": {
 			"shortName": "quanpan302"
 		}
