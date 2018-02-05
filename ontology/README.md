@@ -11,7 +11,7 @@ Ontology, Semantic Web, Domains
 1. wsn [purl](http://purl.org/water/wsn)
 1. lake [purl](http://purl.org/water/lake)
 
-# ICT4Water
+### ICT4Water
 
 **WISDOM Project [link](http://www.wisdom-project.eu)**
 
@@ -45,3 +45,22 @@ Ontology, Semantic Web, Domains
    ![WISDOM-Object.Physical Object](https://raw.githubusercontent.com/quanpan302/phd/master/ontology/water/SemanticWater/WISDOM-Object.PhysicalObject.png)
 1. WISDOM-Object.SocialObject
    ![WISDOM-Object.SocialObject](https://raw.githubusercontent.com/quanpan302/phd/master/ontology/water/SemanticWater/WISDOM-Object.SocialObject.png)
+
+# Semantic Web
+
+## Applications
+
+*Applications of Semantic Web technologies* are defined by using metadata in a metadata-specific way.
+
+1. Web Data Exchange and Syndication
+   * Endowing Web Data with Metadata
+   * Vocabularies
+1. Semantic Wikis
+1. Semantic Portals
+1. Semantic Metadata in Data Formats
+1. Semantic Web in Life Sciences
+1. Ontologies for Standardizations
+1. RIF Applications, `W3C RIF working group`
+1. Toward Future Applications
+
+> "Foundations of Semantic Web Technologies" - Pascal Hitzler, Markus Krtzsch, Sebastian Rudolph
