@@ -31,15 +31,13 @@ Ontology, Semantic Web, Domains
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:DUL="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
-	 xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
      
      ...
      
 </rdf:RDF>
 ```
-
-Prefix ![WISDOM-Prefix](https://raw.githubusercontent.com/quanpan302/phd/master/ontology/water/SemanticWater/WISDOM-Prefix.png)
 
 1. WISDOM-Object.Agent
    ![WISDOM-Object.Agent](https://raw.githubusercontent.com/quanpan302/phd/master/ontology/water/SemanticWater/WISDOM-Object.Agent.png)
