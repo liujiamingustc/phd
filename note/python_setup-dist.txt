@@ -1,0 +1,155 @@
+How To Package And Distribute Python Applications
+https://www.digitalocean.com/community/tutorials/how-to-package-and-distribute-python-applications
+
+/#
+ # Python Package Index (PyPI)
+ #
+ # Let"s begin with creating a simple,
+ # general Python flask application [structure] which we then can use to package.
+ #/
+/MyApplication
+    |-- run.py
+    |--   # Run a test server.
+    |--   from app import app
+    |--   app.run(debug=True)
+    |--
+    |-- config.py
+    |--   DEBUG = True
+    |--   THREADS_PER_PAGE = 4
+    |--
+    |--   CSRF_ENABLED     = True
+    |--   CSRF_SESSION_KEY = "secret"
+    |--
+    |__ /app
+         |-- __init__.py
+         |--   from flask import Flask, render_template
+         |--   app = Flask(__name__)
+         |--   app.config.from_object("config")
+         |--
+         |--   from app.module_one.controllers import module_one
+         |--   app.register_blueprint(module_one)
+         |--
+         |-- /module_one
+             |-- __init__.py
+             |-- controllers.py
+             |--   from flask import Blueprint, request, render_template
+             |--
+             |--   module_one = Blueprint("auth", __name__, url_prefix="/auth")
+             |--   @module_one.route("/hello")
+             |--   def hello():
+             |--       return render_template("module_one/hello.html")
+             |--
+             |-- models.py
+         |__ /templates
+             |-- module_one
+                 |-- hello.html
+                 |--       &lt!DOCTYPE html>
+                 |--       &lthtml lang="en">
+                 |--       &lthead>
+                 |--           &lttitle>{% block title %}My Site{% endblock %}
+                 |--           {% block css %}
+                 |--           {% endblock %}
+                 |--           &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+                 |--         &lt/head>
+                 |--       &ltbody>
+                 |--       Hello, world!
+                 |--       &lt/body>
+                 |--       &lt/html>
+                 |--
+         |__ /static
+         |__ ..
+         |__ .
+    |-- setup.py
+    |--   # Distribution setup file
+    |--   from distutils.core import setup
+    |--
+    |--   setup(
+    |--       # Application name:
+    |--       name="MyApplication",
+    |--
+    |--       # Version number (initial):
+    |--       version="0.1.0",
+    |--
+    |--       # Application author details:
+    |--       author="name surname",
+    |--       author_email="name@addr.ess",
+    |--
+    |--       # Packages
+    |--       packages=["app"],
+    |--
+    |--       # Include additional files into the package
+    |--       include_package_data=True,
+    |--
+    |--       # Details
+    |--       url="http://pypi.python.org/pypi/MyApplication_v010/",
+    |--
+    |--       # license="LICENSE.txt",
+    |--       description="Useful towel-related stuff.",
+    |--
+    |--       # long_description=open("README.txt").read(),
+    |--
+    |--       # Dependent packages (distributions)
+    |--       install_requires=[
+    |--           "flask",
+    |--       ],
+    |--   )
+    |--
+    |-- MANIFEST.in
+    |--   # Distribution manifest file
+    |--   #
+    |--   # f you need to ship extra directories (e.g. static or templates),
+    |--   # you need to explicitly state them in the manifest to be packaged.
+    |--   # We will do this inside the MANIFEST.in.
+    |--
+    |--   recursive-include app/templates *
+    |--   recursive-include app/static *
+    |--
+    |-- README.txt
+    |--   # Read-me file
+    |--
+    |-- CHANGES.txt
+    |--   # Changes log
+
+
+mv    ~/MyApplication/run.py ~/MyApplication/bin/run
+
+
+/#
+ # How to Create The Distribution File
+ #
+ # In order to generate a distribution file copy, run the following:
+ #/
+root@hostname:~/# cd ~/MyApplication
+root@hostname:~/MyApplication# python setup.py sdist
+root@hostname:~/MyApplication# ls dist
+root@hostname:~/MyApplication# MyApplication-0.1.0.tar.gz
+
+
+/#
+ # How to Install The Application
+ #
+ # From now on, your application can be installed
+ # and used by others using the setup.py file created.
+ #/
+root@hostname:~/MyApplication# python setup.py install
+root@hostname:~/MyApplication# python setup.py develop
+
+
+/#
+ # How to Share Your Application
+ #
+ # If you would like to share your code on the Python Packaging Index,
+ # you can do so by initiating the "register" procedure as per the following:
+ #/
+root@hostname:~/MyApplication# python setup.py register
+root@hostname:~/MyApplication# python setup.py sdist upload
+
+
+/#
+ # How to Create Packages of Your Application's New Versions
+ #/
+  1. Edit the setup.py file with a text editor (e.g. nano)
+     and set the new version number: version="0.1.1"
+  2. Edit the CHANGES.txt to reflect the changes
+  3. Make the necessary adjustments to the LICENSE.txt and README.txt
+  4. Upload your code following the previous step.
