@@ -20,6 +20,10 @@ Here you can find all the implementations of my PhD Project.
 
 .. toctree::
    :maxdepth: 2
+   :numbered:
+
+   api/index
+   benchmarks/index
 
 Indices and tables
 ==================
