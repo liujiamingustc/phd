@@ -68,6 +68,6 @@ RUN git clone -q https://github.com/google/googletest.git /googletest \
 # DeepCoder
 RUN df -h
 
-# ADD pyOpt/tags/1.2.0 /pyOpt
+# ADD pyOpt/docker/tags/1.2.0 /pyOpt
   
 # WORKDIR /pyOpt
