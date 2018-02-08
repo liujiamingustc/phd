@@ -3,17 +3,12 @@
 
 # Ignore the file test.md
 # README.md
-latest.Dockerfile
 
 # Ignore everything in the directory "bin"
-delft3d/*
-epanet/*
-ontology/*
-sociotechnical/*
-surrogate/*
-swmm/*
-waq/*
-wsn/*
+docker/*
+docs/*
+src/*
+tutorial/*
 
 # Node rules:
 ## Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
