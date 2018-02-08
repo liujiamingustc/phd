@@ -16,13 +16,9 @@ EPANET is a public domain hydraulic analysis package for water supply networks.
 
 Version:
 
-**2.0.12**
+**2.0.12** [link](http://epanet.de/linux/index.html)
 
-[link](http://epanet.de/linux/index.html)
-
-**ooten**
-
-[link](https://github.com/sdteffen/ooten)
+**ooten** [link](https://github.com/sdteffen/ooten)
 
 ## SWMM
 
@@ -30,7 +26,4 @@ Storm Water Management Model (SWMM)
 
 Version:
 
-**5.1.012**
-
-[link](https://www.epa.gov/water-research/storm-water-management-model-swmm)
-
+**5.1.012** [link](https://www.epa.gov/water-research/storm-water-management-model-swmm)
