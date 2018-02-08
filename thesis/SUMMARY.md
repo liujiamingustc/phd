@@ -28,5 +28,5 @@
    * [7.3. Databases](ch07/7_3-Databases.md)
    * [7.4. Graphical User Interface](ch07/7_4-GUI.md)
 * [8. Conclusion](ch08/README.md)
-* [References](ch00/References.md)
+* [References](References/README.md)
 * [Author](ch00/Author.md)
