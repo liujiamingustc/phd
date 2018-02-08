@@ -1,12 +1,14 @@
-How To Package And Distribute Python Applications
-https://www.digitalocean.com/community/tutorials/how-to-package-and-distribute-python-applications
+# How To Package And Distribute Python Applications
 
-/#
- # Python Package Index (PyPI)
- #
- # Let"s begin with creating a simple,
- # general Python flask application [structure] which we then can use to package.
- #/
+[link](https://www.digitalocean.com/community/tutorials/how-to-package-and-distribute-python-applications)
+
+
+## Python Package Index (PyPI)
+
+Let"s begin with creating a simple,
+general Python flask application [structure] which we then can use to package.
+
+```
 /MyApplication
     |-- run.py
     |--   # Run a test server.
@@ -109,47 +111,48 @@ https://www.digitalocean.com/community/tutorials/how-to-package-and-distribute-p
     |--
     |-- CHANGES.txt
     |--   # Changes log
+```
 
-
+```
 mv    ~/MyApplication/run.py ~/MyApplication/bin/run
+```
 
+## How to Create The Distribution File
 
-/#
- # How to Create The Distribution File
- #
- # In order to generate a distribution file copy, run the following:
- #/
+In order to generate a distribution file copy, run the following:
+
+```
 root@hostname:~/# cd ~/MyApplication
 root@hostname:~/MyApplication# python setup.py sdist
 root@hostname:~/MyApplication# ls dist
 root@hostname:~/MyApplication# MyApplication-0.1.0.tar.gz
+```
 
 
-/#
- # How to Install The Application
- #
- # From now on, your application can be installed
- # and used by others using the setup.py file created.
- #/
+## How to Install The Application
+
+From now on, your application can be installed
+and used by others using the setup.py file created.
+ 
+```
 root@hostname:~/MyApplication# python setup.py install
 root@hostname:~/MyApplication# python setup.py develop
+```
 
+## How to Share Your Application
 
-/#
- # How to Share Your Application
- #
- # If you would like to share your code on the Python Packaging Index,
- # you can do so by initiating the "register" procedure as per the following:
- #/
+If you would like to share your code on the Python Packaging Index,
+you can do so by initiating the "register" procedure as per the following:
+
+```
 root@hostname:~/MyApplication# python setup.py register
 root@hostname:~/MyApplication# python setup.py sdist upload
+```
 
+## How to Create Packages of Your Application's New Versions
 
-/#
- # How to Create Packages of Your Application's New Versions
- #/
-  1. Edit the setup.py file with a text editor (e.g. nano)
-     and set the new version number: version="0.1.1"
-  2. Edit the CHANGES.txt to reflect the changes
-  3. Make the necessary adjustments to the LICENSE.txt and README.txt
-  4. Upload your code following the previous step.
+1. Edit the setup.py file with a text editor (e.g. nano)
+   and set the new version number: version="0.1.1"
+2. Edit the CHANGES.txt to reflect the changes
+3. Make the necessary adjustments to the LICENSE.txt and README.txt
+4. Upload your code following the previous step.
