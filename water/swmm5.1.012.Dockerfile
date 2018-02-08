@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
 # SWMM
 RUN df -h
 
-ADD tags/5.1.012 /swmm
+ADD swmm/tags/5.1.012 /swmm
 RUN cp /swmm/engine/makefiles/Makefile /swmm/engine/src/Makefile
 # RUN ["chmod", "+x", "/swmm/engine/configure"]
 
