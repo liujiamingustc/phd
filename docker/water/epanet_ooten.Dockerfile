@@ -23,13 +23,15 @@ ADD epanet/tags/ooten /epanet
 RUN apt-get install -y \
   cmake
 
-RUN cd /epanet/build/cmake
+RUN ls /epanet
+RUN ls /epanet/build
+RUN ls /epanet/build/cmake
 
-RUN cd /epanet/build/cmake \
-  && cmake ../../
+# RUN cd /epanet/build/cmake \
+#   && cmake ../../
 
-RUN cd /epanet/build/cmake \
-  && make
+# RUN cd /epanet/build/cmake \
+#   && make
   
 # RUN cd /epanet/build/cmake \
 #   && make install
