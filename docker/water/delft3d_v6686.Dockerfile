@@ -82,8 +82,8 @@ RUN ["chmod", "+x", "/delft3d/src/build_ubuntu1604.sh"]
 #     && ./build_ubuntu1604.sh -gnu -64bit
 
 # 20180110-pan ok
-# RUN cd /delft3d/src
-# RUN /delft3d/src/build_ubuntu1604.sh -gnu -64bit
+RUN cd /delft3d/src
+RUN /delft3d/src/build_ubuntu1604.sh -gnu -64bit
 
 # RUN cp /root/Downloads/libraries/mpich-3.2/bin/* /delft3d/bin/lnx64/flow2d3d/bin/
 # RUN cp -R /root/Downloads/libraries/mpich-3.2/lib/* /delft3d/bin/lnx64/flow2d3d/bin/
