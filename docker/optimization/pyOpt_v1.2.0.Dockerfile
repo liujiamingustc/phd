@@ -87,5 +87,7 @@ ADD pyOpt/tags/1.2.0 /pyOpt
 
 # RUN cd /pyOpt \
 #   && python setup.py install
+RUN cd /pyOpt \
+  && python3 setup.py install
 
-# WORKDIR /pyOpt
+WORKDIR /pyOpt
