@@ -55,12 +55,14 @@ RUN git clone -q https://github.com/google/googletest.git /googletest \
   && cd / && rm -rf /googletest
 
 # Swig
-RUN cd / \
-  && git clone https://github.com/swig/swig.git \
-  && cd swig \
-  && ./autogen.sh \
-  && ./configure \
-  && make
+# RUN cd / \
+#   && git clone https://github.com/swig/swig.git \
+#   && cd swig \
+#   && ./autogen.sh \
+#   && ./configure \
+#   && make
+RUN apt-get update && apt-get install -y \
+  swig
 
 # pip
 RUN pip3 install \
