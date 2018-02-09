@@ -14,15 +14,23 @@ RUN apt-get update && apt-get install -y \
   pkg-config \
   gedit
 
+
+# ===========
+# version old
+# ===========
+RUN gfortran --version
+RUN gcc --version
+RUN g++ --version
 RUN python3 -v
 
+# python3
 RUN apt-get install -y \
   python3-pip \
   build-essential \
   libssl-dev \
   libffi-dev \
   python3-dev
-  
+
 # g++ >= 6.0
 # https://gist.github.com/application2000/73fd6f4bf1be6600a2cf9f56315a2d91
 RUN apt-get update && apt-get install -y \
@@ -72,23 +80,32 @@ RUN git clone -q https://github.com/google/googletest.git /googletest \
 RUN apt-get update && apt-get install -y \
   swig
 
-# pip
+
+# ===========
+# version new
+# ===========
+RUN gfortran --version
+RUN gcc --version
+RUN g++ --version
+RUN cmake --version
+RUN git --version
+
+# python3 pip3
 RUN pip3 install \
   numpy \
   mock
 # RUN pip3 install \
 #   mpi4py
 
-# version
-# RUN gcc --version
-# RUN g++ --version
-# RUN cmake --version
-# RUN git --version
+# python3 test
 RUN which python
 RUN which python3
 RUN python3 -c "import numpy; print(numpy.__version__)"
 
+
+# ===========
 # pyOpt
+# ===========
 RUN df -h
 
 ADD pyOpt/tags/1.2.0 /pyOpt
