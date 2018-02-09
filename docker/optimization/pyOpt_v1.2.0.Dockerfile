@@ -43,8 +43,16 @@ RUN update-alternatives \
   --install /usr/bin/gcc gcc /usr/bin/gcc-6 60 \
   --slave /usr/bin/g++ g++ /usr/bin/g++-6
 
+# gfortran
 RUN apt-get update && apt-get install -y \
-  cmake \
+  gfortran
+
+# cmake
+RUN apt-get update && apt-get install -y \
+  cmake
+
+# git
+RUN apt-get update && apt-get install -y \
   git
 
 # gtest
