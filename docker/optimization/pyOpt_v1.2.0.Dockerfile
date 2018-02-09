@@ -54,20 +54,32 @@ RUN git clone -q https://github.com/google/googletest.git /googletest \
   && cmake .. && make && make install \
   && cd / && rm -rf /googletest
 
-# RUN pip3 install \
-#   numpy \
-#   mock \
-#   chainer
+# Swig
+RUN cd / \
+  && git clone https://github.com/swig/swig.git \
+  && cd swig \
+  && ./autogen.sh \
+  && ./configure \
+  && make
 
+# pip
+RUN pip3 install \
+  numpy \
+  mock \
+  mpi4py
+
+# version
 # RUN gcc --version
 # RUN g++ --version
 # RUN cmake --version
 # RUN git --version
 
-
-# DeepCoder
+# pyOpt
 RUN df -h
 
-# ADD pyOpt/tags/1.2.0 /pyOpt
-  
+ADD pyOpt/tags/1.2.0 /pyOpt
+
+RUN cd /pyOpt \
+  && python setup.py install
+
 # WORKDIR /pyOpt
