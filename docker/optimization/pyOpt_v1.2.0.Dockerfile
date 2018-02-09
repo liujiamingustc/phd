@@ -77,6 +77,7 @@ RUN pip3 install \
 # RUN cmake --version
 # RUN git --version
 RUN which python
+RUN which python3
 RUN python3 -c "import numpy; print(numpy.__version__)"
 
 # pyOpt
