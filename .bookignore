@@ -7,7 +7,7 @@
 # Ignore everything in the directory "bin"
 docker/*
 docs/*
-src/*
+surrogate/*
 tutorial/*
 
 # Node rules:
