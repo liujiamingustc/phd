@@ -67,8 +67,9 @@ RUN apt-get update && apt-get install -y \
 # pip
 RUN pip3 install \
   numpy \
-  mock \
-  mpi4py
+  mock
+# RUN pip3 install \
+#   mpi4py
 
 # version
 # RUN gcc --version
