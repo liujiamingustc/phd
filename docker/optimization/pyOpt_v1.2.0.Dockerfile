@@ -76,13 +76,15 @@ RUN pip3 install \
 # RUN g++ --version
 # RUN cmake --version
 # RUN git --version
+RUN which python
+RUN python -c "import numpy; print(numpy.__version__)"
 
 # pyOpt
 RUN df -h
 
 ADD pyOpt/tags/1.2.0 /pyOpt
 
-RUN cd /pyOpt \
-  && python setup.py install
+# RUN cd /pyOpt \
+#   && python setup.py install
 
 # WORKDIR /pyOpt
