@@ -77,7 +77,7 @@ RUN pip3 install \
 # RUN cmake --version
 # RUN git --version
 RUN which python
-RUN python -c "import numpy; print(numpy.__version__)"
+RUN python3 -c "import numpy; print(numpy.__version__)"
 
 # pyOpt
 RUN df -h
