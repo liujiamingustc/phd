@@ -4,7 +4,7 @@ MAINTAINER Markus Ackermann <ackermann@informatik.uni-leipzig.de>
 
 RUN dnf install -y findutils wget rasqal
 
-COPY docker/run.sh docker/dbpedia-dld.yml /download.sh /
+COPY DBpedia/run.sh DBpedia/dbpedia-dld.yml DBpedia/download.sh /
 
 RUN chmod +x /run.sh
 
