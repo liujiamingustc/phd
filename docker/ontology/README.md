@@ -40,11 +40,11 @@ Ontology, Semantic Web, Domains
 ```
 
 1. WISDOM-Object.Agent
-   ![WISDOM-Object.Agent](https://raw.githubusercontent.com/quanpan302/phd/master/ontology/water/SemanticWater/WISDOM-Object.Agent.png)
+   ![WISDOM-Object.Agent](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.Agent.png)
 1. WISDOM-Object.Physical Object
-   ![WISDOM-Object.Physical Object](https://raw.githubusercontent.com/quanpan302/phd/master/ontology/water/SemanticWater/WISDOM-Object.PhysicalObject.png)
+   ![WISDOM-Object.Physical Object](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.PhysicalObject.png)
 1. WISDOM-Object.SocialObject
-   ![WISDOM-Object.SocialObject](https://raw.githubusercontent.com/quanpan302/phd/master/ontology/water/SemanticWater/WISDOM-Object.SocialObject.png)
+   ![WISDOM-Object.SocialObject](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.SocialObject.png)
 
 # Semantic Web
 
