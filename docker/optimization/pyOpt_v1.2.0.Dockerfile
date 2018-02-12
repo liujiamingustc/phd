@@ -18,6 +18,23 @@ RUN apt-get update && apt-get install -y \
   pkg-config \
   gedit
 
+RUN apt-get install -y \
+  libssl-dev \
+  libffi-dev
+
+# python3
+RUN apt-get install -y \
+  python3-pip \
+  python3-dev
+
+# cmake
+RUN apt-get install -y \
+  cmake
+
+# git
+RUN apt-get install -y \
+  git
+
 
 # ===========
 # version old
@@ -26,15 +43,13 @@ RUN gfortran --version
 RUN gcc --version
 RUN g++ --version
 RUN python3 -v
+RUN cmake --version
+RUN git --version
 
-# python3
-RUN apt-get install -y \
-  python3-pip \
-  build-essential \
-  libssl-dev \
-  libffi-dev \
-  python3-dev
 
+# ==============
+# version update
+# ==============
 # g++ >= 6.0
 # https://gist.github.com/application2000/73fd6f4bf1be6600a2cf9f56315a2d91
 RUN apt-get update && apt-get install -y \
@@ -58,14 +73,6 @@ RUN update-alternatives \
 # gfortran
 RUN apt-get update && apt-get install -y \
   gfortran
-
-# cmake
-RUN apt-get update && apt-get install -y \
-  cmake
-
-# git
-RUN apt-get update && apt-get install -y \
-  git
 
 # gtest
 RUN git clone -q https://github.com/google/googletest.git /googletest \
@@ -91,6 +98,7 @@ RUN apt-get update && apt-get install -y \
 RUN gfortran --version
 RUN gcc --version
 RUN g++ --version
+RUN python3 -v
 RUN cmake --version
 RUN git --version
 
@@ -107,12 +115,12 @@ RUN which python3
 RUN python3 -c "import numpy; print(numpy.__version__)"
 
 
-# ===========
-# pyOpt
-# ===========
+# ============
+# project code
+# ============
 RUN df -h
 
-ADD pyOpt/tags/1.2.0 /pyOpt
+ADD pyOpt/tags/v1.2.0 /pyOpt
 
 # RUN cd /pyOpt \
 #   && python setup.py install
