@@ -1,3 +1,20 @@
+# Semantic Web
+
+*Applications of Semantic Web technologies* are defined by using metadata in a metadata-specific way.
+
+1. Web Data Exchange and Syndication
+   * Endowing Web Data with Metadata
+   * Vocabularies
+1. Semantic Wikis
+1. Semantic Portals
+1. Semantic Metadata in Data Formats
+1. Semantic Web in Life Sciences
+1. Ontologies for Standardizations
+1. RIF Applications, `W3C RIF working group`
+1. Toward Future Applications
+
+> "Foundations of Semantic Web Technologies" - Pascal Hitzler, Markus Krtzsch, Sebastian Rudolph
+
 # Ontology
 
 Ontology, Semantic Web, Domains 
@@ -11,9 +28,9 @@ Ontology, Semantic Web, Domains
 1. wsn [purl](http://purl.org/water/wsn)
 1. lake [purl](http://purl.org/water/lake)
 
-### ICT4Water
+## Demo
 
-**WISDOM Project [link](http://www.wisdom-project.eu)**
+### WISDOM Project [link](http://www.wisdom-project.eu)
 
 ```xml
 <?xml version="1.0"?>
@@ -39,28 +56,12 @@ Ontology, Semantic Web, Domains
 </rdf:RDF>
 ```
 
-1. WISDOM-Object.Agent
-   ![WISDOM-Object.Agent](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.Agent.png)
-1. WISDOM-Object.Physical Object
-   ![WISDOM-Object.Physical Object](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.PhysicalObject.png)
-1. WISDOM-Object.SocialObject
-   ![WISDOM-Object.SocialObject](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.SocialObject.png)
+| Object          | Graph |
+|-----------------|-------|
+| Agent           | ![WISDOM-Object.Agent](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.Agent.png) |
+| Physical Object | ![WISDOM-Object.Physical Object](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.PhysicalObject.png) |
+| SocialObject    | ![WISDOM-Object.SocialObject](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.SocialObject.png) |
 
-# Semantic Web
+### DBpedia [link](http://wiki.dbpedia.org)
 
-## Applications
-
-*Applications of Semantic Web technologies* are defined by using metadata in a metadata-specific way.
-
-1. Web Data Exchange and Syndication
-   * Endowing Web Data with Metadata
-   * Vocabularies
-1. Semantic Wikis
-1. Semantic Portals
-1. Semantic Metadata in Data Formats
-1. Semantic Web in Life Sciences
-1. Ontologies for Standardizations
-1. RIF Applications, `W3C RIF working group`
-1. Toward Future Applications
-
-> "Foundations of Semantic Web Technologies" - Pascal Hitzler, Markus Krtzsch, Sebastian Rudolph
+### NASA sweet [link](https://sweet.jpl.nasa.gov)
