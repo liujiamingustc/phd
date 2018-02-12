@@ -20,9 +20,21 @@ Version:
 
 **ooten** [link](https://github.com/sdteffen/ooten)
 
-## SWMM
+## sph
 
-Storm Water Management Model (SWMM)
+Smoothed Particle Hydrodynamics
+
+Version:
+
+**gpusph** [link](https://github.com/GPUSPH/gpusph)
+
+**pysph** [link](https://github.com/pypr/pysph)
+
+**SPH** [link](https://github.com/rosamu/SPH)
+
+## swmm
+
+Storm Water Management Model
 
 Version:
 
