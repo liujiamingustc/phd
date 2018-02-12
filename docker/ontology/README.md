@@ -1,23 +1,21 @@
-# Semantic Web
+# Ontology
+
+Semantic Web
 
 *Applications of Semantic Web technologies* are defined by using metadata in a metadata-specific way.
 
 1. Web Data Exchange and Syndication
    * Endowing Web Data with Metadata
    * Vocabularies
-1. Semantic Wikis
-1. Semantic Portals
-1. Semantic Metadata in Data Formats
-1. Semantic Web in Life Sciences
-1. Ontologies for Standardizations
-1. RIF Applications, `W3C RIF working group`
-1. Toward Future Applications
+2. Semantic Wikis
+3. Semantic Portals
+4. Semantic Metadata in Data Formats
+5. Semantic Web in Life Sciences
+6. Ontologies for Standardizations
+7. RIF Applications, `W3C RIF working group`
+8. Toward Future Applications
 
 > "Foundations of Semantic Web Technologies" - Pascal Hitzler, Markus Krtzsch, Sebastian Rudolph
-
-# Ontology
-
-Ontology, Semantic Web, Domains 
 
 ## socio
 
@@ -26,7 +24,7 @@ Ontology, Semantic Web, Domains
 ## water
 
 1. wsn [purl](http://purl.org/water/wsn)
-1. lake [purl](http://purl.org/water/lake)
+2. lake [purl](http://purl.org/water/lake)
 
 ## Demo
 
