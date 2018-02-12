@@ -2,7 +2,7 @@
 
 Semantic Web
 
-*Applications of Semantic Web technologies* are defined by using metadata in a metadata-specific way.
+*"Applications of Semantic Web technologies"* are defined by using metadata in a metadata-specific way.
 
 1. Web Data Exchange and Syndication
    * Endowing Web Data with Metadata
