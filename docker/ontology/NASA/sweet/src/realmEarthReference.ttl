@@ -1,0 +1,263 @@
+@prefix : <http://sweetontology.net/realmEarthReference/> .
+@prefix ht: <http://sweetontology.net/propSpaceHeight/> .
+@prefix emf: <http://sweetontology.net/phenElecMag/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix atmo: <http://sweetontology.net/realmAtmo/> .
+@prefix dist: <http://sweetontology.net/propSpaceDistance/> .
+@prefix eref: <http://sweetontology.net/realmEarthReference/> .
+@prefix geol: <http://sweetontology.net/realmGeol/> .
+@prefix heli: <http://sweetontology.net/realmAstroHelio/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mrela: <http://sweetontology.net/relaMath/> .
+@prefix ocean: <http://sweetontology.net/realmOcean/> .
+@prefix prela: <http://sweetontology.net/relaPhysical/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@base <http://sweetontology.net/realmEarthReference> .
+
+<http://sweetontology.net/realmEarthReference> rdf:type owl:Ontology ;
+                                                owl:imports <http://sweetontology.net/phenElecMag> ,
+                                                            <http://sweetontology.net/propSpaceDistance> ,
+                                                            <http://sweetontology.net/propSpaceHeight> ,
+                                                            <http://sweetontology.net/realm> ,
+                                                            <http://sweetontology.net/realmAstroHelio> ,
+                                                            <http://sweetontology.net/realmAtmo> ,
+                                                            <http://sweetontology.net/realmGeol> ,
+                                                            <http://sweetontology.net/realmOcean> ,
+                                                            <http://sweetontology.net/relaMath> ,
+                                                            <http://sweetontology.net/relaPhysical> ,
+                                                            <http://sweetontology.net/relaSpace> ;
+                                                rdfs:label "SWEET Ontology" ;
+                                                owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmGeol/Core
+geol:Core rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmGeol/UpperMantle
+geol:UpperMantle rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmOcean/AbyssopelagicZone
+ocean:AbyssopelagicZone rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmOcean/BathypelagicZone
+ocean:BathypelagicZone rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmOcean/MesopelagicZone
+ocean:MesopelagicZone rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmOcean/PhoticZone
+ocean:PhoticZone rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/realmEarthReference/AbyssopelagicZone
+eref:AbyssopelagicZone rdf:type owl:NamedIndividual ,
+                                ocean:AbyssopelagicZone ;
+                       prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthAtmosphere
+eref:EarthAtmosphere rdf:type owl:NamedIndividual ,
+                              planet:Atmosphere ;
+                     prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthAtmosphereMesoscale
+eref:EarthAtmosphereMesoscale rdf:type owl:NamedIndividual ,
+                                       dist:DistanceRange_km .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthAtmosphereSynopticScale
+eref:EarthAtmosphereSynopticScale rdf:type owl:NamedIndividual ,
+                                           dist:DistanceRange_km .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthBathypelagicZone
+eref:EarthBathypelagicZone rdf:type owl:NamedIndividual ,
+                                    ocean:BathypelagicZone ;
+                           prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthCore
+eref:EarthCore rdf:type owl:NamedIndividual ,
+                        geol:Core ;
+               prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthCrust
+eref:EarthCrust rdf:type owl:NamedIndividual ,
+                         geol:Crust ;
+                prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthDLayer
+eref:EarthDLayer rdf:type owl:NamedIndividual ,
+                          heli:DLayer ;
+                 prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthELayer
+eref:EarthELayer rdf:type owl:NamedIndividual ,
+                          heli:ELayer ;
+                 prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthExosphere
+eref:EarthExosphere rdf:type owl:NamedIndividual ,
+                             heli:Exosphere ;
+                    prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthFLayer
+eref:EarthFLayer rdf:type owl:NamedIndividual ,
+                          heli:FLayer ;
+                 prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthGeosphere
+eref:EarthGeosphere rdf:type owl:NamedIndividual ,
+                             planet:Geosphere ;
+                    prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthIonosphere
+eref:EarthIonosphere rdf:type owl:NamedIndividual ,
+                              heli:Ionosphere ;
+                     prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthLithosphere
+eref:EarthLithosphere rdf:type owl:NamedIndividual ,
+                               geol:Lithosphere ;
+                      prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthMesopelagicZone
+eref:EarthMesopelagicZone rdf:type owl:NamedIndividual ,
+                                   ocean:MesopelagicZone ;
+                          prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthMesosphere
+eref:EarthMesosphere rdf:type owl:NamedIndividual ,
+                              atmo:Mesosphere ;
+                     prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthPhoticZone
+eref:EarthPhoticZone rdf:type owl:NamedIndividual ,
+                              ocean:PhoticZone ;
+                     prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthStratosphere
+eref:EarthStratosphere rdf:type owl:NamedIndividual ,
+                                atmo:Stratosphere ;
+                       prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthThermosphere
+eref:EarthThermosphere rdf:type owl:NamedIndividual ,
+                                atmo:Thermosphere ;
+                       prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthTroposphere
+eref:EarthTroposphere rdf:type owl:NamedIndividual ,
+                               atmo:Troposphere ;
+                      prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/EarthUpperMantle
+eref:EarthUpperMantle rdf:type owl:NamedIndividual ,
+                               geol:UpperMantle ;
+                      prela:hasAstronomicalBody planet:Earth .
+
+
+###  http://sweetontology.net/realmEarthReference/IGRF
+eref:IGRF rdf:type owl:NamedIndividual ,
+                   emf:GeomagneticField ;
+          owl:sameAs eref:InternationalGeomagneticReferenceField .
+
+
+###  http://sweetontology.net/realmEarthReference/InternationalGeomagneticReferenceField
+eref:InternationalGeomagneticReferenceField rdf:type owl:NamedIndividual ,
+                                                     emf:GeomagneticField .
+
+
+[ rdf:type ht:HeightRange_km
+] .
+
+[ rdf:type ht:HeightRange_km
+ ] .
+
+[ rdf:type ht:HeightRange_km
+ ] .
+
+[ rdf:type ht:HeightRange_km
+ ] .
+
+[ rdf:type ht:HeightRange_km
+ ] .
+
+[ rdf:type ht:HeightRange_km
+ ] .
+
+[ rdf:type ht:HeightRange_km
+ ] .
+
+[ rdf:type ht:HeightRange_km
+ ] .
+
+[ rdf:type ht:HeightRange_km
+ ] .
+
+[ rdf:type ht:HeightRange_km
+ ] .
+
+[ rdf:type ht:DepthRange_km
+ ] .
+
+[ rdf:type ht:DepthRange_km
+ ] .
+
+[ rdf:type ht:DepthRange_km
+ ] .
+
+[ rdf:type ht:DepthRange_km
+ ] .
+
+[ rdf:type ht:DepthRange_km
+ ] .
+
+[ rdf:type ht:DepthRange_km
+ ] .
+
+[ rdf:type ht:DepthRange_km
+ ] .
+
+[ rdf:type ht:DepthRange_km
+ ] .
+
+[ rdf:type ht:DepthRange_km
+ ] .
+
+[ rdf:type ht:DepthRange_km
+ ] .
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

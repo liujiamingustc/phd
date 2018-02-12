@@ -1,0 +1,303 @@
+@prefix : <http://sweetontology.net/phenAtmoFog/> .
+@prefix fog: <http://sweetontology.net/phenAtmoFog/> .
+@prefix mix: <http://sweetontology.net/phenMixing/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sed: <http://sweetontology.net/matrSediment/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix comp: <http://sweetontology.net/matrCompound/> .
+@prefix meso: <http://sweetontology.net/phenAtmoWindMesoscale/> .
+@prefix orog: <http://sweetontology.net/realmLandOrographic/> .
+@prefix phen: <http://sweetontology.net/phen/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix cloud: <http://sweetontology.net/phenAtmoCloud/> .
+@prefix coast: <http://sweetontology.net/realmLandCoastal/> .
+@prefix crela: <http://sweetontology.net/relaChemical/> .
+@prefix front: <http://sweetontology.net/phenAtmoFront/> .
+@prefix prela: <http://sweetontology.net/relaPhysical/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@prefix trans: <http://sweetontology.net/phenFluidTransport/> .
+@prefix water: <http://sweetontology.net/matrWater/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@prefix precip: <http://sweetontology.net/phenAtmoPrecipitation/> .
+@prefix statec: <http://sweetontology.net/procStateChange/> .
+@base <http://sweetontology.net/phenAtmoFog> .
+
+<http://sweetontology.net/phenAtmoFog> rdf:type owl:Ontology ;
+                                        owl:imports <http://sweetontology.net/matrCompound> ,
+                                                    <http://sweetontology.net/matrSediment> ,
+                                                    <http://sweetontology.net/matrWater> ,
+                                                    <http://sweetontology.net/phen> ,
+                                                    <http://sweetontology.net/phenAtmoCloud> ,
+                                                    <http://sweetontology.net/phenAtmoFront> ,
+                                                    <http://sweetontology.net/phenAtmoPrecipitation> ,
+                                                    <http://sweetontology.net/phenAtmoWindMesoscale> ,
+                                                    <http://sweetontology.net/phenFluidTransport> ,
+                                                    <http://sweetontology.net/phenMixing> ,
+                                                    <http://sweetontology.net/procStateChange> ,
+                                                    <http://sweetontology.net/realm> ,
+                                                    <http://sweetontology.net/realmLandCoastal> ,
+                                                    <http://sweetontology.net/realmLandOrographic> ,
+                                                    <http://sweetontology.net/rela> ,
+                                                    <http://sweetontology.net/relaChemical> ,
+                                                    <http://sweetontology.net/relaPhysical> ,
+                                                    <http://sweetontology.net/relaSpace> ;
+                                        rdfs:label "SWEET Ontology" ;
+                                        owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaChemical/hasSubstance
+crela:hasSubstance rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaPhysical/hasStateChange
+prela:hasStateChange rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSpace/near
+srela:near rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/phenAtmoFog/AdvectionFog
+fog:AdvectionFog rdf:type owl:Class ;
+                 rdfs:subClassOf fog:Fog ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasPhenomena ;
+                                   owl:allValuesFrom trans:Advection
+                                 ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/BrownCloud
+fog:BrownCloud rdf:type owl:Class ;
+               rdfs:subClassOf fog:Smog .
+
+
+###  http://sweetontology.net/phenAtmoFog/EvaporationFog
+fog:EvaporationFog rdf:type owl:Class ;
+                   rdfs:subClassOf fog:Fog ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty prela:hasStateChange ;
+                                     owl:allValuesFrom statec:Evaporation
+                                   ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/Fog
+fog:Fog rdf:type owl:Class ;
+        rdfs:subClassOf cloud:Stratiform ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty rela:hasRealm ;
+                          owl:allValuesFrom planet:PlanetarySurface
+                        ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/FreezingFog
+fog:FreezingFog rdf:type owl:Class ;
+                rdfs:subClassOf fog:Fog ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty prela:hasStateChange ;
+                                  owl:allValuesFrom statec:Freezing
+                                ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/FrontalFog
+fog:FrontalFog rdf:type owl:Class ;
+               rdfs:subClassOf fog:Fog ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rela:hasPhenomena ;
+                                 owl:allValuesFrom front:Front
+                               ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/Garua
+fog:Garua rdf:type owl:Class ;
+          rdfs:subClassOf fog:Fog .
+
+
+###  http://sweetontology.net/phenAtmoFog/GroundFog
+fog:GroundFog rdf:type owl:Class ;
+              rdfs:subClassOf fog:Fog ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty srela:near ;
+                                owl:allValuesFrom planet:PlanetarySurface
+                              ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/Haar
+fog:Haar rdf:type owl:Class ;
+         rdfs:subClassOf fog:Fog ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty rela:hasRealm ;
+                           owl:allValuesFrom coast:Coastal
+                         ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/Haze
+fog:Haze rdf:type owl:Class ;
+         rdfs:subClassOf fog:Fog .
+
+
+###  http://sweetontology.net/phenAtmoFog/HighFog
+fog:HighFog rdf:type owl:Class ;
+            rdfs:subClassOf fog:MountainFog .
+
+
+###  http://sweetontology.net/phenAtmoFog/IceFog
+fog:IceFog rdf:type owl:Class ;
+           rdfs:subClassOf fog:Fog ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty crela:hasSubstance ;
+                             owl:allValuesFrom water:Ice
+                           ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/MixingFog
+fog:MixingFog rdf:type owl:Class ;
+              rdfs:subClassOf fog:Fog ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rela:hasPhenomena ;
+                                owl:someValuesFrom mix:Mixing
+                              ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/MonsoonFog
+fog:MonsoonFog rdf:type owl:Class ;
+               rdfs:subClassOf fog:Fog ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rela:hasPhenomena ;
+                                 owl:allValuesFrom precip:Monsoon
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rela:hasPhenomena ;
+                                 owl:allValuesFrom trans:Advection
+                               ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/MountainFog
+fog:MountainFog rdf:type owl:Class ;
+                owl:equivalentClass fog:OrographicFog ;
+                rdfs:subClassOf fog:Fog ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasRealm ;
+                                  owl:someValuesFrom orog:Mountain
+                                ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/OrographicFog
+fog:OrographicFog rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenAtmoFog/RadiationFog
+fog:RadiationFog rdf:type owl:Class ;
+                 rdfs:subClassOf fog:Fog ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasPhenomena ;
+                                   owl:allValuesFrom phen:RadiationalCooling
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasRealm ;
+                                   owl:allValuesFrom planet:Land
+                                 ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/SaltHaze
+fog:SaltHaze rdf:type owl:Class ;
+             rdfs:subClassOf fog:Haze ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty crela:hasSubstance ;
+                               owl:hasValue comp:Salt
+                             ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/SandHaze
+fog:SandHaze rdf:type owl:Class ;
+             rdfs:subClassOf fog:Haze ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty crela:hasSubstance ;
+                               owl:someValuesFrom sed:Sand
+                             ] .
+
+
+###  http://sweetontology.net/phenAtmoFog/Smog
+fog:Smog rdf:type owl:Class ;
+         rdfs:subClassOf fog:Fog .
+
+
+###  http://sweetontology.net/phenAtmoFog/UpslopeFog
+fog:UpslopeFog rdf:type owl:Class ;
+               rdfs:subClassOf fog:Fog ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rela:hasPhenomena ;
+                                 owl:allValuesFrom meso:UpslopeWind
+                               ] .
+
+
+###  http://sweetontology.net/phenAtmoFront/Front
+front:Front rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenAtmoPrecipitation/Monsoon
+precip:Monsoon rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/UpslopeWind
+meso:UpslopeWind rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenFluidTransport/Advection
+trans:Advection rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenMixing/Mixing
+mix:Mixing rdf:type owl:Class .
+
+
+###  http://sweetontology.net/procStateChange/Evaporation
+statec:Evaporation rdf:type owl:Class .
+
+
+###  http://sweetontology.net/procStateChange/Freezing
+statec:Freezing rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realm/Land
+planet:Land rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realm/PlanetarySurface
+planet:PlanetarySurface rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandCoastal/Coastal
+coast:Coastal rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandOrographic/Mountain
+orog:Mountain rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/matrCompound/Salt
+comp:Salt rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

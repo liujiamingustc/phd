@@ -1,0 +1,355 @@
+@prefix : <http://sweetontology.net/matrEquipment/> .
+@prefix hum: <http://sweetontology.net/human/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix body: <http://sweetontology.net/realmAstroBody/> .
+@prefix infr: <http://sweetontology.net/matrEquipment/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix subs: <http://sweetontology.net/matr/> .
+@prefix tran: <http://sweetontology.net/humanTransportation/> .
+@prefix hrela: <http://sweetontology.net/relaHuman/> .
+@prefix realm: <http://sweetontology.net/realm/> .
+@base <http://sweetontology.net/matrEquipment> .
+
+<http://sweetontology.net/matrEquipment> rdf:type owl:Ontology ;
+                                          owl:imports <http://sweetontology.net/humanTransportation> ,
+                                                      <http://sweetontology.net/matr> ,
+                                                      <http://sweetontology.net/realm> ,
+                                                      <http://sweetontology.net/realmAstroBody> ,
+                                                      <http://sweetontology.net/rela> ,
+                                                      <http://sweetontology.net/relaHuman> ;
+                                          rdfs:label "SWEET Ontology" ;
+                                          owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasRole
+rela:hasRole rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaHuman/hasHumanActivity
+hrela:hasHumanActivity rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/matrEquipment/Aircraft
+infr:Aircraft rdf:type owl:Class ;
+              rdfs:subClassOf infr:Equipment ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rela:hasRealm ;
+                                owl:allValuesFrom realm:Atmosphere
+                              ] .
+
+
+###  http://sweetontology.net/matrEquipment/Airplane
+infr:Airplane rdf:type owl:Class ;
+              rdfs:subClassOf infr:Aircraft .
+
+
+###  http://sweetontology.net/matrEquipment/Antenna
+infr:Antenna rdf:type owl:Class ;
+             rdfs:subClassOf infr:CommunicationsEquipment .
+
+
+###  http://sweetontology.net/matrEquipment/ArtesianWell
+infr:ArtesianWell rdf:type owl:Class ;
+                  rdfs:subClassOf infr:ConfinedWell .
+
+
+###  http://sweetontology.net/matrEquipment/Borehole
+infr:Borehole rdf:type owl:Class ;
+              rdfs:subClassOf infr:Equipment .
+
+
+###  http://sweetontology.net/matrEquipment/Car
+infr:Car rdf:type owl:Class ;
+         rdfs:subClassOf infr:Vehicle .
+
+
+###  http://sweetontology.net/matrEquipment/Communication
+infr:Communication rdf:type owl:Class ;
+                   owl:equivalentClass infr:Communications ;
+                   rdfs:subClassOf hum:HumanActivity .
+
+
+###  http://sweetontology.net/matrEquipment/CommunicationMethod
+infr:CommunicationMethod rdf:type owl:Class ;
+                         rdfs:subClassOf infr:Communication .
+
+
+###  http://sweetontology.net/matrEquipment/Communications
+infr:Communications rdf:type owl:Class .
+
+
+###  http://sweetontology.net/matrEquipment/CommunicationsEquipment
+infr:CommunicationsEquipment rdf:type owl:Class ;
+                             rdfs:subClassOf infr:Equipment ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty hrela:hasHumanActivity ;
+                                               owl:allValuesFrom infr:Communications
+                                             ] .
+
+
+###  http://sweetontology.net/matrEquipment/ComputerHardware
+infr:ComputerHardware rdf:type owl:Class ;
+                      rdfs:subClassOf infr:Equipment .
+
+
+###  http://sweetontology.net/matrEquipment/ConfinedWell
+infr:ConfinedWell rdf:type owl:Class ;
+                  rdfs:subClassOf infr:Well .
+
+
+###  http://sweetontology.net/matrEquipment/DisposalWell
+infr:DisposalWell rdf:type owl:Class ;
+                  rdfs:subClassOf infr:Well .
+
+
+###  http://sweetontology.net/matrEquipment/DrainageWell
+infr:DrainageWell rdf:type owl:Class ;
+                  rdfs:subClassOf infr:Well .
+
+
+###  http://sweetontology.net/matrEquipment/EmergencyVehicle
+infr:EmergencyVehicle rdf:type owl:Class ;
+                      rdfs:subClassOf infr:Vehicle .
+
+
+###  http://sweetontology.net/matrEquipment/Equipment
+infr:Equipment rdf:type owl:Class ;
+               rdfs:subClassOf infr:Infrastructure .
+
+
+###  http://sweetontology.net/matrEquipment/Helicopter
+infr:Helicopter rdf:type owl:Class ;
+                rdfs:subClassOf infr:Aircraft .
+
+
+###  http://sweetontology.net/matrEquipment/Infrastructure
+infr:Infrastructure rdf:type owl:Class ;
+                    rdfs:subClassOf infr:MaterialThing .
+
+
+###  http://sweetontology.net/matrEquipment/InjectionWell
+infr:InjectionWell rdf:type owl:Class ;
+                   rdfs:subClassOf infr:Well .
+
+
+###  http://sweetontology.net/matrEquipment/Internet
+infr:Internet rdf:type owl:Class ;
+              rdfs:subClassOf infr:CommunicationMethod .
+
+
+###  http://sweetontology.net/matrEquipment/Jet
+infr:Jet rdf:type owl:Class ;
+         rdfs:subClassOf infr:Aircraft .
+
+
+###  http://sweetontology.net/matrEquipment/LandLine
+infr:LandLine rdf:type owl:Class ;
+              rdfs:subClassOf infr:Phone .
+
+
+###  http://sweetontology.net/matrEquipment/MaterialThing
+infr:MaterialThing rdf:type owl:Class ;
+                   rdfs:subClassOf subs:Substance .
+
+
+###  http://sweetontology.net/matrEquipment/MobilePhone
+infr:MobilePhone rdf:type owl:Class ;
+                 rdfs:subClassOf infr:Phone .
+
+
+###  http://sweetontology.net/matrEquipment/MonitoringWell
+infr:MonitoringWell rdf:type owl:Class ;
+                    rdfs:subClassOf infr:Well .
+
+
+###  http://sweetontology.net/matrEquipment/Navigation
+infr:Navigation rdf:type owl:Class ;
+                rdfs:subClassOf hum:HumanActivity .
+
+
+###  http://sweetontology.net/matrEquipment/NavigationEquipment
+infr:NavigationEquipment rdf:type owl:Class ;
+                         rdfs:subClassOf infr:Equipment ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty hrela:hasHumanActivity ;
+                                           owl:allValuesFrom infr:Navigation
+                                         ] .
+
+
+###  http://sweetontology.net/matrEquipment/Phone
+infr:Phone rdf:type owl:Class ;
+           rdfs:subClassOf infr:CommunicationMethod ,
+                           infr:CommunicationsEquipment .
+
+
+###  http://sweetontology.net/matrEquipment/Pipeline
+infr:Pipeline rdf:type owl:Class ;
+              rdfs:subClassOf infr:TransportationEquipment .
+
+
+###  http://sweetontology.net/matrEquipment/PumpingWell
+infr:PumpingWell rdf:type owl:Class ;
+                 rdfs:subClassOf infr:Well .
+
+
+###  http://sweetontology.net/matrEquipment/Radio
+infr:Radio rdf:type owl:Class ;
+           rdfs:subClassOf infr:CommunicationMethod ,
+                           infr:CommunicationsEquipment .
+
+
+###  http://sweetontology.net/matrEquipment/Receive
+infr:Receive rdf:type owl:Class ;
+             owl:equivalentClass infr:Reception ;
+             rdfs:subClassOf infr:Communication .
+
+
+###  http://sweetontology.net/matrEquipment/Receiver
+infr:Receiver rdf:type owl:Class ;
+              rdfs:subClassOf infr:CommunicationsEquipment ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rela:hasRole ;
+                                owl:allValuesFrom infr:Reception
+                              ] .
+
+
+###  http://sweetontology.net/matrEquipment/Reception
+infr:Reception rdf:type owl:Class .
+
+
+###  http://sweetontology.net/matrEquipment/RechargeWell
+infr:RechargeWell rdf:type owl:Class ;
+                  rdfs:subClassOf infr:Well .
+
+
+###  http://sweetontology.net/matrEquipment/Rocket
+infr:Rocket rdf:type owl:Class ;
+            rdfs:subClassOf infr:Spacecraft .
+
+
+###  http://sweetontology.net/matrEquipment/Rover
+infr:Rover rdf:type owl:Class ;
+           rdfs:subClassOf infr:Vehicle .
+
+
+###  http://sweetontology.net/matrEquipment/Satellite
+infr:Satellite rdf:type owl:Class ;
+               rdfs:subClassOf infr:Spacecraft .
+
+
+###  http://sweetontology.net/matrEquipment/Ship
+infr:Ship rdf:type owl:Class ;
+          rdfs:subClassOf infr:Vehicle .
+
+
+###  http://sweetontology.net/matrEquipment/Signal
+infr:Signal rdf:type owl:Class ;
+            rdfs:subClassOf infr:Communication .
+
+
+###  http://sweetontology.net/matrEquipment/Sink
+infr:Sink rdf:type owl:Class ;
+          rdfs:subClassOf infr:Equipment .
+
+
+###  http://sweetontology.net/matrEquipment/SpaceShuttle
+infr:SpaceShuttle rdf:type owl:Class ;
+                  rdfs:subClassOf infr:Spacecraft .
+
+
+###  http://sweetontology.net/matrEquipment/Spacecraft
+infr:Spacecraft rdf:type owl:Class ;
+                rdfs:subClassOf infr:TransportationEquipment ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasRealm ;
+                                  owl:allValuesFrom body:OuterSpace
+                                ] .
+
+
+###  http://sweetontology.net/matrEquipment/Trailer
+infr:Trailer rdf:type owl:Class ;
+             rdfs:subClassOf infr:Vehicle .
+
+
+###  http://sweetontology.net/matrEquipment/Train
+infr:Train rdf:type owl:Class ;
+           rdfs:subClassOf infr:Vehicle .
+
+
+###  http://sweetontology.net/matrEquipment/Transmission
+infr:Transmission rdf:type owl:Class ;
+                  owl:equivalentClass infr:Transmit .
+
+
+###  http://sweetontology.net/matrEquipment/Transmit
+infr:Transmit rdf:type owl:Class ;
+              rdfs:subClassOf infr:Communication .
+
+
+###  http://sweetontology.net/matrEquipment/Transmitter
+infr:Transmitter rdf:type owl:Class ;
+                 rdfs:subClassOf infr:CommunicationsEquipment ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasRole ;
+                                   owl:allValuesFrom infr:Transmission
+                                 ] .
+
+
+###  http://sweetontology.net/matrEquipment/TransportationEquipment
+infr:TransportationEquipment rdf:type owl:Class ;
+                             rdfs:subClassOf infr:Equipment ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty hrela:hasHumanActivity ;
+                                               owl:allValuesFrom tran:Transportation
+                                             ] .
+
+
+###  http://sweetontology.net/matrEquipment/Truck
+infr:Truck rdf:type owl:Class ;
+           rdfs:subClassOf infr:Vehicle .
+
+
+###  http://sweetontology.net/matrEquipment/UnconfinedWell
+infr:UnconfinedWell rdf:type owl:Class ;
+                    rdfs:subClassOf infr:Well .
+
+
+###  http://sweetontology.net/matrEquipment/Vehicle
+infr:Vehicle rdf:type owl:Class ;
+             rdfs:subClassOf infr:TransportationEquipment .
+
+
+###  http://sweetontology.net/matrEquipment/Well
+infr:Well rdf:type owl:Class ;
+          rdfs:subClassOf infr:Equipment .
+
+
+###  http://sweetontology.net/matrEquipment/Wireless
+infr:Wireless rdf:type owl:Class ;
+              rdfs:subClassOf infr:CommunicationMethod .
+
+
+###  http://sweetontology.net/realm/Atmosphere
+realm:Atmosphere rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmAstroBody/OuterSpace
+body:OuterSpace rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

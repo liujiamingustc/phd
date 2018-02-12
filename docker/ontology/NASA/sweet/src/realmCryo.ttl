@@ -1,0 +1,241 @@
+@prefix : <http://sweetontology.net/realmCryo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix res: <http://sweetontology.net/humanResearch/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cryo: <http://sweetontology.net/realmCryo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@prefix state: <http://sweetontology.net/state/> .
+@prefix water: <http://sweetontology.net/matrWater/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@prefix pstate: <http://sweetontology.net/statePhysical/> .
+@base <http://sweetontology.net/realmCryo> .
+
+<http://sweetontology.net/realmCryo> rdf:type owl:Ontology ;
+                                      owl:imports <http://sweetontology.net/humanResearch> ,
+                                                  <http://sweetontology.net/matrWater> ,
+                                                  <http://sweetontology.net/realm> ,
+                                                  <http://sweetontology.net/rela> ,
+                                                  <http://sweetontology.net/relaSpace> ,
+                                                  <http://sweetontology.net/state> ,
+                                                  <http://sweetontology.net/statePhysical> ;
+                                      rdfs:label "SWEET Ontology" ;
+                                      owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasState
+rela:hasState rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSpace/inside
+srela:inside rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmCryo/AblationZone
+cryo:AblationZone rdf:type owl:Class ;
+                  rdfs:subClassOf cryo:GlacialRegion .
+
+
+###  http://sweetontology.net/realmCryo/AccumulationZone
+cryo:AccumulationZone rdf:type owl:Class ;
+                      rdfs:subClassOf cryo:GlacialRegion .
+
+
+###  http://sweetontology.net/realmCryo/AlpineTundra
+cryo:AlpineTundra rdf:type owl:Class ;
+                  rdfs:subClassOf cryo:Tundra .
+
+
+###  http://sweetontology.net/realmCryo/Calf
+cryo:Calf rdf:type owl:Class ;
+          rdfs:subClassOf cryo:SeaIce .
+
+
+###  http://sweetontology.net/realmCryo/CongelationIce
+cryo:CongelationIce rdf:type owl:Class ;
+                    rdfs:subClassOf cryo:SeaIce .
+
+
+###  http://sweetontology.net/realmCryo/DriftIce
+cryo:DriftIce rdf:type owl:Class ;
+              rdfs:subClassOf cryo:SeaIce ;
+              owl:disjointWith cryo:FastIce .
+
+
+###  http://sweetontology.net/realmCryo/FastIce
+cryo:FastIce rdf:type owl:Class ;
+             rdfs:subClassOf cryo:SeaIce .
+
+
+###  http://sweetontology.net/realmCryo/Floe
+cryo:Floe rdf:type owl:Class ;
+          owl:equivalentClass cryo:IceFloe ;
+          rdfs:subClassOf cryo:SeaIce .
+
+
+###  http://sweetontology.net/realmCryo/FrazilIce
+cryo:FrazilIce rdf:type owl:Class ;
+               rdfs:subClassOf cryo:SeaIce .
+
+
+###  http://sweetontology.net/realmCryo/FrozenGround
+cryo:FrozenGround rdf:type owl:Class ;
+                  rdfs:subClassOf planet:Land ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasState ;
+                                    owl:hasValue pstate:Frozen
+                                  ] .
+
+
+###  http://sweetontology.net/realmCryo/GlacialRegion
+cryo:GlacialRegion rdf:type owl:Class ;
+                   rdfs:subClassOf planet:PlanetaryRealm .
+
+
+###  http://sweetontology.net/realmCryo/Glacier
+cryo:Glacier rdf:type owl:Class ;
+             rdfs:subClassOf water:Ice .
+
+
+###  http://sweetontology.net/realmCryo/GlacierTerminus
+cryo:GlacierTerminus rdf:type owl:Class ;
+                     owl:equivalentClass cryo:Snout ;
+                     rdfs:subClassOf cryo:GlacialRegion .
+
+
+###  http://sweetontology.net/realmCryo/IceBase
+cryo:IceBase rdf:type owl:Class ;
+             rdfs:subClassOf planet:PlanetaryBoundary .
+
+
+###  http://sweetontology.net/realmCryo/IceCap
+cryo:IceCap rdf:type owl:Class ;
+            rdfs:subClassOf planet:PlanetaryRealm .
+
+
+###  http://sweetontology.net/realmCryo/IceCore
+cryo:IceCore rdf:type owl:Class ;
+             rdfs:subClassOf res:Sample ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty srela:inside ;
+                               owl:someValuesFrom water:Ice
+                             ] .
+
+
+###  http://sweetontology.net/realmCryo/IceField
+cryo:IceField rdf:type owl:Class ;
+              rdfs:subClassOf cryo:SeaIce .
+
+
+###  http://sweetontology.net/realmCryo/IceFloe
+cryo:IceFloe rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmCryo/IceSheet
+cryo:IceSheet rdf:type owl:Class ;
+              rdfs:subClassOf cryo:Glacier .
+
+
+###  http://sweetontology.net/realmCryo/IceShelf
+cryo:IceShelf rdf:type owl:Class ;
+              rdfs:subClassOf water:Ice .
+
+
+###  http://sweetontology.net/realmCryo/IceSnowInterface
+cryo:IceSnowInterface rdf:type owl:Class ;
+                      rdfs:subClassOf planet:PlanetaryBoundary .
+
+
+###  http://sweetontology.net/realmCryo/IceStream
+cryo:IceStream rdf:type owl:Class ;
+               rdfs:subClassOf water:Ice .
+
+
+###  http://sweetontology.net/realmCryo/IceSurface
+cryo:IceSurface rdf:type owl:Class ;
+                rdfs:subClassOf planet:PlanetaryBoundary .
+
+
+###  http://sweetontology.net/realmCryo/Iceberg
+cryo:Iceberg rdf:type owl:Class ;
+             rdfs:subClassOf cryo:LandIce ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rela:hasRealm ;
+                               owl:someValuesFrom planet:Ocean
+                             ] .
+
+
+###  http://sweetontology.net/realmCryo/LandIce
+cryo:LandIce rdf:type owl:Class ;
+             rdfs:subClassOf water:Ice ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rela:hasRealm ;
+                               owl:someValuesFrom planet:Land
+                             ] .
+
+
+###  http://sweetontology.net/realmCryo/Lead
+cryo:Lead rdf:type owl:Class ;
+          rdfs:subClassOf cryo:SeaIce .
+
+
+###  http://sweetontology.net/realmCryo/PackIce
+cryo:PackIce rdf:type owl:Class ;
+             rdfs:subClassOf cryo:DriftIce .
+
+
+###  http://sweetontology.net/realmCryo/SeaIce
+cryo:SeaIce rdf:type owl:Class ;
+            rdfs:subClassOf water:Ice ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rela:hasRealm ;
+                              owl:someValuesFrom planet:Ocean
+                            ] .
+
+
+###  http://sweetontology.net/realmCryo/SeasonalIce
+cryo:SeasonalIce rdf:type owl:Class ;
+                 rdfs:subClassOf cryo:SeaIce .
+
+
+###  http://sweetontology.net/realmCryo/Snout
+cryo:Snout rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmCryo/TabularIceberg
+cryo:TabularIceberg rdf:type owl:Class ;
+                    rdfs:subClassOf cryo:Iceberg .
+
+
+###  http://sweetontology.net/realmCryo/Tundra
+cryo:Tundra rdf:type owl:Class ;
+            rdfs:subClassOf planet:Land ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rela:hasRealm ;
+                              owl:someValuesFrom cryo:FrozenGround
+                            ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/statePhysical/Frozen
+pstate:Frozen rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

@@ -1,0 +1,227 @@
+@prefix : <http://sweetontology.net/procStateChange/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix phys: <http://sweetontology.net/procPhysical/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prela: <http://sweetontology.net/relaPhysical/> .
+@prefix pstate: <http://sweetontology.net/statePhysical/> .
+@prefix sstate: <http://sweetontology.net/stateSystem/> .
+@prefix statec: <http://sweetontology.net/procStateChange/> .
+@base <http://sweetontology.net/procStateChange> .
+
+<http://sweetontology.net/procStateChange> rdf:type owl:Ontology ;
+                                            owl:imports <http://sweetontology.net/procPhysical> ,
+                                                        <http://sweetontology.net/relaPhysical> ,
+                                                        <http://sweetontology.net/statePhysical> ,
+                                                        <http://sweetontology.net/stateSystem> ;
+                                            rdfs:label "SWEET Ontology" ;
+                                            owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/relaPhysical/from
+prela:from rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaPhysical/to
+prela:to rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/procStateChange/Boiling
+statec:Boiling rdf:type owl:Class ;
+               rdfs:subClassOf statec:Vaporization .
+
+
+###  http://sweetontology.net/procStateChange/Condensation
+statec:Condensation rdf:type owl:Class ;
+                    rdfs:subClassOf statec:StateChange ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty prela:from ;
+                                      owl:hasValue pstate:Gas
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty prela:to ;
+                                      owl:hasValue pstate:Liquid
+                                    ] .
+
+
+###  http://sweetontology.net/procStateChange/Deionization
+statec:Deionization rdf:type owl:Class ;
+                    rdfs:subClassOf statec:StateChange ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty prela:from ;
+                                      owl:hasValue pstate:IonizedState
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty prela:to ;
+                                      owl:hasValue pstate:NeutralState
+                                    ] .
+
+
+###  http://sweetontology.net/procStateChange/Deposition
+statec:Deposition rdf:type owl:Class ;
+                  rdfs:subClassOf statec:StateChange ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty prela:from ;
+                                    owl:hasValue pstate:Gas
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty prela:to ;
+                                    owl:hasValue pstate:Solid
+                                  ] .
+
+
+###  http://sweetontology.net/procStateChange/Evaporation
+statec:Evaporation rdf:type owl:Class ;
+                   rdfs:subClassOf statec:Vaporization .
+
+
+###  http://sweetontology.net/procStateChange/Freezing
+statec:Freezing rdf:type owl:Class ;
+                rdfs:subClassOf statec:StateChange ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty prela:from ;
+                                  owl:hasValue pstate:Liquid
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty prela:to ;
+                                  owl:hasValue pstate:Solid
+                                ] .
+
+
+###  http://sweetontology.net/procStateChange/Gasification
+statec:Gasification rdf:type owl:Class ;
+                    rdfs:subClassOf statec:StateChange ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty prela:to ;
+                                      owl:hasValue pstate:Gas
+                                    ] .
+
+
+###  http://sweetontology.net/procStateChange/Ionization
+statec:Ionization rdf:type owl:Class ;
+                  rdfs:subClassOf statec:StateChange ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty prela:to ;
+                                    owl:hasValue pstate:IonizedState
+                                  ] .
+
+
+###  http://sweetontology.net/procStateChange/Liquiefaction
+statec:Liquiefaction rdf:type owl:Class ;
+                     rdfs:subClassOf statec:StateChange ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty prela:to ;
+                                       owl:hasValue pstate:Liquid
+                                     ] .
+
+
+###  http://sweetontology.net/procStateChange/Melting
+statec:Melting rdf:type owl:Class ;
+               rdfs:subClassOf statec:StateChange ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty prela:from ;
+                                 owl:hasValue pstate:Solid
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty prela:to ;
+                                 owl:hasValue pstate:Liquid
+                               ] .
+
+
+###  http://sweetontology.net/procStateChange/PhaseTransition
+statec:PhaseTransition rdf:type owl:Class ;
+                       owl:equivalentClass statec:StateChange .
+
+
+###  http://sweetontology.net/procStateChange/Photoionization
+statec:Photoionization rdf:type owl:Class ;
+                       rdfs:subClassOf statec:Ionization .
+
+
+###  http://sweetontology.net/procStateChange/Refreezing
+statec:Refreezing rdf:type owl:Class ;
+                  rdfs:subClassOf statec:Freezing .
+
+
+###  http://sweetontology.net/procStateChange/StateChange
+statec:StateChange rdf:type owl:Class ;
+                   rdfs:subClassOf phys:PhysicalProcess ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty prela:from ;
+                                     owl:allValuesFrom pstate:StateOfMatter
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty prela:to ;
+                                     owl:allValuesFrom pstate:StateOfMatter
+                                   ] .
+
+
+###  http://sweetontology.net/procStateChange/Sublimation
+statec:Sublimation rdf:type owl:Class ;
+                   rdfs:subClassOf statec:StateChange ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty prela:from ;
+                                     owl:hasValue pstate:Solid
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty prela:to ;
+                                     owl:hasValue pstate:Gas
+                                   ] .
+
+
+###  http://sweetontology.net/procStateChange/Thawing
+statec:Thawing rdf:type owl:Class ;
+               rdfs:subClassOf statec:Melting .
+
+
+###  http://sweetontology.net/procStateChange/Vaporization
+statec:Vaporization rdf:type owl:Class ;
+                    rdfs:subClassOf statec:StateChange ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty prela:from ;
+                                      owl:hasValue pstate:Liquid
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty prela:to ;
+                                      owl:hasValue pstate:Gas
+                                    ] .
+
+
+###  http://sweetontology.net/statePhysical/StateOfMatter
+pstate:StateOfMatter rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/statePhysical/Gas
+pstate:Gas rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/statePhysical/IonizedState
+pstate:IonizedState rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/statePhysical/Liquid
+pstate:Liquid rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/statePhysical/NeutralState
+pstate:NeutralState rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/statePhysical/Solid
+pstate:Solid rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

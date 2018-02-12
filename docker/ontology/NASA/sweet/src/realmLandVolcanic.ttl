@@ -1,0 +1,172 @@
+@prefix : <http://sweetontology.net/realmLandVolcanic/> .
+@prefix ign: <http://sweetontology.net/matrRockIgneous/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix vol: <http://sweetontology.net/phenGeolVolcano/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ener: <http://sweetontology.net/propEnergy/> .
+@prefix fail: <http://sweetontology.net/phenSolid/> .
+@prefix geol: <http://sweetontology.net/realmGeol/> .
+@prefix land: <http://sweetontology.net/realmLandform/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix volc: <http://sweetontology.net/realmLandVolcanic/> .
+@prefix crela: <http://sweetontology.net/relaChemical/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@base <http://sweetontology.net/realmLandVolcanic> .
+
+<http://sweetontology.net/realmLandVolcanic> rdf:type owl:Ontology ;
+                                              owl:imports <http://sweetontology.net/matrRockIgneous> ,
+                                                          <http://sweetontology.net/phenGeolVolcano> ,
+                                                          <http://sweetontology.net/phenSolid> ,
+                                                          <http://sweetontology.net/propEnergy> ,
+                                                          <http://sweetontology.net/realm> ,
+                                                          <http://sweetontology.net/realmGeol> ,
+                                                          <http://sweetontology.net/realmLandform> ,
+                                                          <http://sweetontology.net/rela> ,
+                                                          <http://sweetontology.net/relaChemical> ;
+                                              rdfs:label "SWEET Ontology" ;
+                                              owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/relaChemical/hasPrimarySubstance
+crela:hasPrimarySubstance rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmLandVolcanic/Caldera
+volc:Caldera rdf:type owl:Class ;
+             rdfs:subClassOf geol:GeologicFeature .
+
+
+###  http://sweetontology.net/realmLandVolcanic/CentralVolcano
+volc:CentralVolcano rdf:type owl:Class ;
+                    rdfs:subClassOf volc:Volcano .
+
+
+###  http://sweetontology.net/realmLandVolcanic/CompositeVolcano
+volc:CompositeVolcano rdf:type owl:Class ;
+                      owl:equivalentClass volc:CompoundVolcano .
+
+
+###  http://sweetontology.net/realmLandVolcanic/CompoundVolcano
+volc:CompoundVolcano rdf:type owl:Class ;
+                     rdfs:subClassOf volc:Volcano .
+
+
+###  http://sweetontology.net/realmLandVolcanic/Fumarole
+volc:Fumarole rdf:type owl:Class ;
+              rdfs:subClassOf volc:Vent .
+
+
+###  http://sweetontology.net/realmLandVolcanic/Geothermal
+volc:Geothermal rdf:type owl:Class ;
+                rdfs:subClassOf ener:Heat ,
+                                geol:GeologicFeature .
+
+
+###  http://sweetontology.net/realmLandVolcanic/Geyser
+volc:Geyser rdf:type owl:Class ;
+            rdfs:subClassOf volc:Vent .
+
+
+###  http://sweetontology.net/realmLandVolcanic/HotSpot
+volc:HotSpot rdf:type owl:Class ;
+             rdfs:subClassOf geol:GeologicFeature ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rela:hasRealm ;
+                               owl:allValuesFrom volc:LinearVolcanicChain
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty crela:hasSubstance ;
+                               owl:allValuesFrom ign:AnorogenicIgneousRock
+                             ] .
+
+
+###  http://sweetontology.net/realmLandVolcanic/LavaPlain
+volc:LavaPlain rdf:type owl:Class ;
+               rdfs:subClassOf geol:GeologicFeature .
+
+
+###  http://sweetontology.net/realmLandVolcanic/LinearVolcanicChain
+volc:LinearVolcanicChain rdf:type owl:Class ;
+                         rdfs:subClassOf volc:VolcanicChain .
+
+
+###  http://sweetontology.net/realmLandVolcanic/Monogenetic
+volc:Monogenetic rdf:type owl:Class ;
+                 rdfs:subClassOf volc:Volcano .
+
+
+###  http://sweetontology.net/realmLandVolcanic/ShieldVolcano
+volc:ShieldVolcano rdf:type owl:Class ;
+                   rdfs:subClassOf volc:Volcano .
+
+
+###  http://sweetontology.net/realmLandVolcanic/Stratovolcano
+volc:Stratovolcano rdf:type owl:Class ;
+                   rdfs:subClassOf volc:Volcano .
+
+
+###  http://sweetontology.net/realmLandVolcanic/SubaqueousVolcano
+volc:SubaqueousVolcano rdf:type owl:Class ;
+                       owl:equivalentClass volc:SubmarineVolcano ;
+                       rdfs:subClassOf volc:Volcano ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty rela:hasRealm ;
+                                         owl:allValuesFrom planet:Ocean
+                                       ] .
+
+
+###  http://sweetontology.net/realmLandVolcanic/SubmarineVolcano
+volc:SubmarineVolcano rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandVolcanic/Tumulus
+volc:Tumulus rdf:type owl:Class ;
+             rdfs:subClassOf land:Landform .
+
+
+###  http://sweetontology.net/realmLandVolcanic/Vent
+volc:Vent rdf:type owl:Class ;
+          rdfs:subClassOf fail:Crack ,
+                          geol:GeologicFeature .
+
+
+###  http://sweetontology.net/realmLandVolcanic/VolcanicArc
+volc:VolcanicArc rdf:type owl:Class ;
+                 owl:equivalentClass volc:VolcanicChain .
+
+
+###  http://sweetontology.net/realmLandVolcanic/VolcanicChain
+volc:VolcanicChain rdf:type owl:Class ;
+                   rdfs:subClassOf geol:GeologicProvince .
+
+
+###  http://sweetontology.net/realmLandVolcanic/VolcanicField
+volc:VolcanicField rdf:type owl:Class ;
+                   rdfs:subClassOf geol:GeologicProvince .
+
+
+###  http://sweetontology.net/realmLandVolcanic/VolcanicSystem
+volc:VolcanicSystem rdf:type owl:Class ;
+                    rdfs:subClassOf geol:GeologicFeature .
+
+
+###  http://sweetontology.net/realmLandVolcanic/Volcano
+volc:Volcano rdf:type owl:Class ;
+             rdfs:subClassOf volc:VolcanicField ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty crela:hasPrimarySubstance ;
+                               owl:someValuesFrom ign:Magma
+                             ] .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

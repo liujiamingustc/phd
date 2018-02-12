@@ -1,0 +1,231 @@
+@prefix : <http://sweetontology.net/phenHydro/> .
+@prefix com: <http://sweetontology.net/reprSciComponent/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sys: <http://sweetontology.net/phenSystem/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix comp: <http://sweetontology.net/matrCompound/> .
+@prefix geom: <http://sweetontology.net/phenGeolGeomorphology/> .
+@prefix impa: <http://sweetontology.net/stateRoleImpact/> .
+@prefix phen: <http://sweetontology.net/phen/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix surf: <http://sweetontology.net/phenHydro/> .
+@prefix crela: <http://sweetontology.net/relaChemical/> .
+@prefix fluid: <http://sweetontology.net/phenFluidDynamics/> .
+@prefix realm: <http://sweetontology.net/realmHydro/> .
+@prefix trans: <http://sweetontology.net/phenFluidTransport/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@prefix screla: <http://sweetontology.net/relaSci/> .
+@base <http://sweetontology.net/phenHydro> .
+
+<http://sweetontology.net/phenHydro> rdf:type owl:Ontology ;
+                                      owl:imports <http://sweetontology.net/matrCompound> ,
+                                                  <http://sweetontology.net/phen> ,
+                                                  <http://sweetontology.net/phenFluidDynamics> ,
+                                                  <http://sweetontology.net/phenFluidTransport> ,
+                                                  <http://sweetontology.net/phenGeolGeomorphology> ,
+                                                  <http://sweetontology.net/phenSystem> ,
+                                                  <http://sweetontology.net/realm> ,
+                                                  <http://sweetontology.net/realmHydro> ,
+                                                  <http://sweetontology.net/rela> ,
+                                                  <http://sweetontology.net/relaChemical> ,
+                                                  <http://sweetontology.net/relaSci> ,
+                                                  <http://sweetontology.net/reprSciComponent> ,
+                                                  <http://sweetontology.net/stateRoleImpact> ;
+                                      rdfs:label "SWEET Ontology" ;
+                                      owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/phenHydro/BaseFlow
+surf:BaseFlow rdf:type owl:Class ;
+              rdfs:subClassOf surf:Streamflow .
+
+
+###  http://sweetontology.net/phenHydro/Debouche
+surf:Debouche rdf:type owl:Class ;
+              rdfs:subClassOf surf:StreamDischarge .
+
+
+###  http://sweetontology.net/phenHydro/DeepPercolation
+surf:DeepPercolation rdf:type owl:Class ;
+                     rdfs:subClassOf surf:Percolation .
+
+
+###  http://sweetontology.net/phenHydro/Discharge
+surf:Discharge rdf:type owl:Class ;
+               rdfs:subClassOf surf:WaterFlow .
+
+
+###  http://sweetontology.net/phenHydro/Drain
+surf:Drain rdf:type owl:Class ;
+           rdfs:subClassOf surf:WaterFlow .
+
+
+###  http://sweetontology.net/phenHydro/Drainage
+surf:Drainage rdf:type owl:Class ;
+              rdfs:subClassOf sys:Removal .
+
+
+###  http://sweetontology.net/phenHydro/FlashFlood
+surf:FlashFlood rdf:type owl:Class ;
+                rdfs:subClassOf phen:ExtremeEvent ,
+                                surf:Flood .
+
+
+###  http://sweetontology.net/phenHydro/Flood
+surf:Flood rdf:type owl:Class ;
+           rdfs:subClassOf surf:HydrospherePhenomena ,
+                           sys:Inundation ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty screla:hasImpact ;
+                             owl:hasValue impa:Hazard
+                           ] .
+
+
+###  http://sweetontology.net/phenHydro/GroundwaterStorage
+surf:GroundwaterStorage rdf:type owl:Class ;
+                        rdfs:subClassOf surf:HydrospherePhenomena ,
+                                        com:Storage .
+
+
+###  http://sweetontology.net/phenHydro/HydrospherePhenomena
+surf:HydrospherePhenomena rdf:type owl:Class ;
+                          rdfs:subClassOf phen:PlanetaryPhenomena ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty rela:hasRealm ;
+                                            owl:allValuesFrom planet:Hydrosphere
+                                          ] .
+
+
+###  http://sweetontology.net/phenHydro/HydrothermalAlteration
+surf:HydrothermalAlteration rdf:type owl:Class ;
+                            rdfs:subClassOf surf:HydrospherePhenomena .
+
+
+###  http://sweetontology.net/phenHydro/Infiltration
+surf:Infiltration rdf:type owl:Class ;
+                  rdfs:subClassOf surf:LandWaterCirculation .
+
+
+###  http://sweetontology.net/phenHydro/Intrusion
+surf:Intrusion rdf:type owl:Class ;
+               rdfs:subClassOf surf:LandWaterCirculation .
+
+
+###  http://sweetontology.net/phenHydro/LandWaterCirculation
+surf:LandWaterCirculation rdf:type owl:Class ;
+                          rdfs:subClassOf surf:HydrospherePhenomena ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty rela:hasPhenomena ;
+                                            owl:allValuesFrom trans:Transport
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty rela:hasRealm ;
+                                            owl:allValuesFrom realm:UndergroundWater
+                                          ] .
+
+
+###  http://sweetontology.net/phenHydro/OpenChannelFlow
+surf:OpenChannelFlow rdf:type owl:Class ;
+                     rdfs:subClassOf surf:WaterFlow .
+
+
+###  http://sweetontology.net/phenHydro/Outflow
+surf:Outflow rdf:type owl:Class ;
+             rdfs:subClassOf surf:WaterFlow .
+
+
+###  http://sweetontology.net/phenHydro/OverlandFlow
+surf:OverlandFlow rdf:type owl:Class ;
+                  rdfs:subClassOf surf:Runoff .
+
+
+###  http://sweetontology.net/phenHydro/Percolate
+surf:Percolate rdf:type owl:Class ;
+               owl:equivalentClass surf:Percolation .
+
+
+###  http://sweetontology.net/phenHydro/Percolation
+surf:Percolation rdf:type owl:Class ;
+                 rdfs:subClassOf trans:Transport .
+
+
+###  http://sweetontology.net/phenHydro/RadionucleiRetardation
+surf:RadionucleiRetardation rdf:type owl:Class ;
+                            rdfs:subClassOf surf:HydrospherePhenomena .
+
+
+###  http://sweetontology.net/phenHydro/Recharge
+surf:Recharge rdf:type owl:Class ;
+              rdfs:subClassOf trans:Transport ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rela:hasRealm ;
+                                owl:allValuesFrom realm:Aquifer
+                              ] .
+
+
+###  http://sweetontology.net/phenHydro/Runoff
+surf:Runoff rdf:type owl:Class ;
+            rdfs:subClassOf surf:WaterFlow .
+
+
+###  http://sweetontology.net/phenHydro/SnowCover
+surf:SnowCover rdf:type owl:Class ;
+               rdfs:subClassOf surf:HydrospherePhenomena .
+
+
+###  http://sweetontology.net/phenHydro/Snowslide
+surf:Snowslide rdf:type owl:Class ;
+               rdfs:subClassOf geom:Avalanche .
+
+
+###  http://sweetontology.net/phenHydro/StreamDischarge
+surf:StreamDischarge rdf:type owl:Class ;
+                     rdfs:subClassOf surf:Discharge .
+
+
+###  http://sweetontology.net/phenHydro/Streamflow
+surf:Streamflow rdf:type owl:Class ;
+                rdfs:subClassOf surf:WaterFlow .
+
+
+###  http://sweetontology.net/phenHydro/Torrent
+surf:Torrent rdf:type owl:Class ;
+             rdfs:subClassOf surf:Discharge .
+
+
+###  http://sweetontology.net/phenHydro/WaterFlow
+surf:WaterFlow rdf:type owl:Class ;
+               rdfs:subClassOf fluid:Flow ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty crela:hasSubstance ;
+                                 owl:hasValue comp:Water
+                               ] .
+
+
+###  http://sweetontology.net/phenSystem/Inundation
+sys:Inundation rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenSystem/Removal
+sys:Removal rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmHydro/Aquifer
+realm:Aquifer rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmHydro/UndergroundWater
+realm:UndergroundWater rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSciComponent/Storage
+com:Storage rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

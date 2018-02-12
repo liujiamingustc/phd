@@ -1,0 +1,206 @@
+@prefix : <http://sweetontology.net/humanEnvirControl/> .
+@prefix com: <http://sweetontology.net/humanCommerce/> .
+@prefix con: <http://sweetontology.net/humanEnvirControl/> .
+@prefix dec: <http://sweetontology.net/humanDecision/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix land: <http://sweetontology.net/realmLandform/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://sweetontology.net/humanEnvirControl> .
+
+<http://sweetontology.net/humanEnvirControl> rdf:type owl:Ontology ;
+                                              owl:imports <http://sweetontology.net/humanCommerce> ,
+                                                          <http://sweetontology.net/humanDecision> ,
+                                                          <http://sweetontology.net/realmLandform> ;
+                                              rdfs:label "SWEET Ontology" ;
+                                              owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/humanEnvirControl/Abatement
+con:Abatement rdf:type owl:Class ;
+              rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/Afforestation
+con:Afforestation rdf:type owl:Class ;
+                  rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/AirTreatmentProcess
+con:AirTreatmentProcess rdf:type owl:Class ;
+                        rdfs:subClassOf con:EnvironmentalControlStrategy ,
+                                        con:Treatment .
+
+
+###  http://sweetontology.net/humanEnvirControl/BACT
+con:BACT rdf:type owl:Class ;
+         owl:equivalentClass con:BestAvailablControlTechnology .
+
+
+###  http://sweetontology.net/humanEnvirControl/BestAvailablControlTechnology
+con:BestAvailablControlTechnology rdf:type owl:Class ;
+                                  rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/Biosequestration
+con:Biosequestration rdf:type owl:Class ;
+                     rdfs:subClassOf con:CarbonSequestration .
+
+
+###  http://sweetontology.net/humanEnvirControl/CapAndTrade
+con:CapAndTrade rdf:type owl:Class ;
+                rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/CarbonOffset
+con:CarbonOffset rdf:type owl:Class ;
+                 rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/CarbonSequestration
+con:CarbonSequestration rdf:type owl:Class ;
+                        rdfs:subClassOf con:Sequester .
+
+
+###  http://sweetontology.net/humanEnvirControl/CloudSeeding
+con:CloudSeeding rdf:type owl:Class ;
+                 rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/Compliance
+con:Compliance rdf:type owl:Class ;
+               rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/ControlledBurn
+con:ControlledBurn rdf:type owl:Class ;
+                   rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/Distillation
+con:Distillation rdf:type owl:Class ;
+                 rdfs:subClassOf con:WaterTreatmentProcess .
+
+
+###  http://sweetontology.net/humanEnvirControl/DryScrubbing
+con:DryScrubbing rdf:type owl:Class ;
+                 rdfs:subClassOf con:Scrubbing .
+
+
+###  http://sweetontology.net/humanEnvirControl/EnvironmentalControlStrategy
+con:EnvironmentalControlStrategy rdf:type owl:Class ;
+                                 rdfs:subClassOf dec:ControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/Flocculation
+con:Flocculation rdf:type owl:Class ;
+                 rdfs:subClassOf con:WaterTreatmentProcess .
+
+
+###  http://sweetontology.net/humanEnvirControl/MACT
+con:MACT rdf:type owl:Class ;
+         owl:equivalentClass con:MaximumAchievableControlTechnology .
+
+
+###  http://sweetontology.net/humanEnvirControl/MaximumAchievableControlTechnology
+con:MaximumAchievableControlTechnology rdf:type owl:Class ;
+                                       rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/Pretreatment
+con:Pretreatment rdf:type owl:Class ;
+                 rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/PrimaryTreatment
+con:PrimaryTreatment rdf:type owl:Class ;
+                     rdfs:subClassOf con:WaterTreatmentProcess .
+
+
+###  http://sweetontology.net/humanEnvirControl/Reclamation
+con:Reclamation rdf:type owl:Class ;
+                rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/Reforestation
+con:Reforestation rdf:type owl:Class ;
+                  rdfs:subClassOf con:Revegetation .
+
+
+###  http://sweetontology.net/humanEnvirControl/Remediation
+con:Remediation rdf:type owl:Class ;
+                rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/Restoration
+con:Restoration rdf:type owl:Class ;
+                rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/Revegetation
+con:Revegetation rdf:type owl:Class ;
+                 rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/Scrubbing
+con:Scrubbing rdf:type owl:Class ;
+              rdfs:subClassOf con:AirTreatmentProcess .
+
+
+###  http://sweetontology.net/humanEnvirControl/SecondaryTreatment
+con:SecondaryTreatment rdf:type owl:Class ;
+                       rdfs:subClassOf con:WaterTreatmentProcess .
+
+
+###  http://sweetontology.net/humanEnvirControl/Sequester
+con:Sequester rdf:type owl:Class ;
+              rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/StateImplementationPlan
+con:StateImplementationPlan rdf:type owl:Class ;
+                            rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/TertiaryTreatment
+con:TertiaryTreatment rdf:type owl:Class ;
+                      rdfs:subClassOf con:WaterTreatmentProcess .
+
+
+###  http://sweetontology.net/humanEnvirControl/Treatment
+con:Treatment rdf:type owl:Class ;
+              rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/WastewaterTreatment
+con:WastewaterTreatment rdf:type owl:Class ;
+                        rdfs:subClassOf con:Treatment .
+
+
+###  http://sweetontology.net/humanEnvirControl/WaterManagement
+con:WaterManagement rdf:type owl:Class ;
+                    rdfs:subClassOf com:Management .
+
+
+###  http://sweetontology.net/humanEnvirControl/WaterTreatmentProcess
+con:WaterTreatmentProcess rdf:type owl:Class ;
+                          rdfs:subClassOf con:EnvironmentalControlStrategy ,
+                                          con:Treatment .
+
+
+###  http://sweetontology.net/humanEnvirControl/WellInjection
+con:WellInjection rdf:type owl:Class ;
+                  rdfs:subClassOf con:EnvironmentalControlStrategy .
+
+
+###  http://sweetontology.net/humanEnvirControl/WetScrubbing
+con:WetScrubbing rdf:type owl:Class ;
+                 rdfs:subClassOf con:Scrubbing .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

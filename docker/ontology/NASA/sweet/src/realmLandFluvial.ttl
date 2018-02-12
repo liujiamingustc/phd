@@ -1,0 +1,233 @@
+@prefix : <http://sweetontology.net/realmLandFluvial/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fluv: <http://sweetontology.net/realmLandFluvial/> .
+@prefix geol: <http://sweetontology.net/phenGeol/> .
+@prefix geom: <http://sweetontology.net/phenGeolGeomorphology/> .
+@prefix land: <http://sweetontology.net/realmLandform/> .
+@prefix phen: <http://sweetontology.net/phen/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix obj3d: <http://sweetontology.net/reprSpaceGeometry3D/> .
+@base <http://sweetontology.net/realmLandFluvial> .
+
+<http://sweetontology.net/realmLandFluvial> rdf:type owl:Ontology ;
+                                             owl:imports <http://sweetontology.net/phen> ,
+                                                         <http://sweetontology.net/phenGeol> ,
+                                                         <http://sweetontology.net/phenGeolGeomorphology> ,
+                                                         <http://sweetontology.net/realmLandform> ,
+                                                         <http://sweetontology.net/rela> ,
+                                                         <http://sweetontology.net/reprSpaceGeometry3D> ;
+                                             rdfs:label "SWEET Ontology" ;
+                                             owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/contains
+rela:contains rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmLandFluvial/Alluvial
+fluv:Alluvial rdf:type owl:Class ;
+              rdfs:subClassOf geom:SedimentFormation .
+
+
+###  http://sweetontology.net/realmLandFluvial/AlluvialFan
+fluv:AlluvialFan rdf:type owl:Class ;
+                 rdfs:subClassOf fluv:PiedmontSlope .
+
+
+###  http://sweetontology.net/realmLandFluvial/AlluvialPlain
+fluv:AlluvialPlain rdf:type owl:Class ;
+                   rdfs:subClassOf fluv:FluvialPlain ,
+                                   fluv:PiedmontSlope .
+
+
+###  http://sweetontology.net/realmLandFluvial/Bajada
+fluv:Bajada rdf:type owl:Class ;
+            rdfs:subClassOf fluv:PiedmontSlope .
+
+
+###  http://sweetontology.net/realmLandFluvial/Bedform
+fluv:Bedform rdf:type owl:Class ;
+             rdfs:subClassOf fluv:FluvialLandform .
+
+
+###  http://sweetontology.net/realmLandFluvial/Canyon
+fluv:Canyon rdf:type owl:Class ;
+            rdfs:subClassOf fluv:FluvialLandform .
+
+
+###  http://sweetontology.net/realmLandFluvial/Catchment
+fluv:Catchment rdf:type owl:Class ;
+               rdfs:subClassOf fluv:Watershed .
+
+
+###  http://sweetontology.net/realmLandFluvial/Cave
+fluv:Cave rdf:type owl:Class ;
+          rdfs:subClassOf fluv:FluvialLandform ,
+                          obj3d:Cavity ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty rela:contains ;
+                            owl:someValuesFrom fluv:Tunnel
+                          ] .
+
+
+###  http://sweetontology.net/realmLandFluvial/DrainageBasin
+fluv:DrainageBasin rdf:type owl:Class ;
+                   owl:equivalentClass fluv:Watershed .
+
+
+###  http://sweetontology.net/realmLandFluvial/DryLake
+fluv:DryLake rdf:type owl:Class ;
+             owl:equivalentClass fluv:Playa .
+
+
+###  http://sweetontology.net/realmLandFluvial/FloodPlain
+fluv:FloodPlain rdf:type owl:Class ;
+                rdfs:subClassOf fluv:FluvialPlain .
+
+
+###  http://sweetontology.net/realmLandFluvial/FluvialLandform
+fluv:FluvialLandform rdf:type owl:Class ;
+                     rdfs:subClassOf land:Landform .
+
+
+###  http://sweetontology.net/realmLandFluvial/FluvialPlain
+fluv:FluvialPlain rdf:type owl:Class ;
+                  rdfs:subClassOf land:Plain .
+
+
+###  http://sweetontology.net/realmLandFluvial/Gorge
+fluv:Gorge rdf:type owl:Class ;
+           rdfs:subClassOf fluv:Canyon .
+
+
+###  http://sweetontology.net/realmLandFluvial/Gulley
+fluv:Gulley rdf:type owl:Class ;
+            rdfs:subClassOf fluv:FluvialLandform .
+
+
+###  http://sweetontology.net/realmLandFluvial/KarstLandform
+fluv:KarstLandform rdf:type owl:Class ;
+                   rdfs:subClassOf land:Landform ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty rela:hasPhenomena ;
+                                     owl:someValuesFrom geom:Karst
+                                   ] .
+
+
+###  http://sweetontology.net/realmLandFluvial/LacustrinePlain
+fluv:LacustrinePlain rdf:type owl:Class ;
+                     rdfs:subClassOf fluv:FluvialPlain .
+
+
+###  http://sweetontology.net/realmLandFluvial/PiedmontSlope
+fluv:PiedmontSlope rdf:type owl:Class ;
+                   rdfs:subClassOf fluv:FluvialLandform .
+
+
+###  http://sweetontology.net/realmLandFluvial/Playa
+fluv:Playa rdf:type owl:Class ;
+           owl:equivalentClass fluv:SaltLake ;
+           rdfs:subClassOf fluv:FluvialPlain .
+
+
+###  http://sweetontology.net/realmLandFluvial/Ripple
+fluv:Ripple rdf:type owl:Class ;
+            rdfs:subClassOf fluv:Bedform .
+
+
+###  http://sweetontology.net/realmLandFluvial/RiverBed
+fluv:RiverBed rdf:type owl:Class ;
+              rdfs:subClassOf fluv:Bedform .
+
+
+###  http://sweetontology.net/realmLandFluvial/Sabkha
+fluv:Sabkha rdf:type owl:Class ;
+            rdfs:subClassOf fluv:SaltFlat .
+
+
+###  http://sweetontology.net/realmLandFluvial/SaltFlat
+fluv:SaltFlat rdf:type owl:Class ;
+              rdfs:subClassOf fluv:FluvialLandform .
+
+
+###  http://sweetontology.net/realmLandFluvial/SaltLake
+fluv:SaltLake rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandFluvial/ScrollPlain
+fluv:ScrollPlain rdf:type owl:Class ;
+                 rdfs:subClassOf fluv:FluvialPlain .
+
+
+###  http://sweetontology.net/realmLandFluvial/Trench
+fluv:Trench rdf:type owl:Class ;
+            rdfs:subClassOf fluv:Canyon .
+
+
+###  http://sweetontology.net/realmLandFluvial/Tunnel
+fluv:Tunnel rdf:type owl:Class ;
+            rdfs:subClassOf fluv:FluvialLandform ,
+                            obj3d:Tube .
+
+
+###  http://sweetontology.net/realmLandFluvial/Turbidite
+fluv:Turbidite rdf:type owl:Class ;
+               rdfs:subClassOf fluv:FluvialLandform .
+
+
+###  http://sweetontology.net/realmLandFluvial/Valley
+fluv:Valley rdf:type owl:Class ;
+            rdfs:subClassOf fluv:FluvialLandform .
+
+
+###  http://sweetontology.net/realmLandFluvial/Wall
+fluv:Wall rdf:type owl:Class ;
+          rdfs:subClassOf fluv:FluvialLandform .
+
+
+###  http://sweetontology.net/realmLandFluvial/Wash
+fluv:Wash rdf:type owl:Class ;
+          rdfs:subClassOf fluv:PiedmontSlope .
+
+
+###  http://sweetontology.net/realmLandFluvial/Watershed
+fluv:Watershed rdf:type owl:Class ;
+               rdfs:subClassOf land:LandRegion .
+
+
+###  http://sweetontology.net/realmLandform/LandRegion
+land:LandRegion rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandform/Landform
+land:Landform rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandform/Plain
+land:Plain rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSpaceGeometry3D/Cavity
+obj3d:Cavity rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSpaceGeometry3D/Tube
+obj3d:Tube rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

@@ -1,0 +1,192 @@
+@prefix : <http://sweetontology.net/phenGeolGeomorphology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sed: <http://sweetontology.net/matrSediment/> .
+@prefix sys: <http://sweetontology.net/phenSystemComplexity/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix comp: <http://sweetontology.net/matrCompound/> .
+@prefix geol: <http://sweetontology.net/phenGeol/> .
+@prefix impa: <http://sweetontology.net/stateRoleImpact/> .
+@prefix petr: <http://sweetontology.net/matrRock/> .
+@prefix phen: <http://sweetontology.net/phen/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix crela: <http://sweetontology.net/relaChemical/> .
+@prefix solid: <http://sweetontology.net/phenSolid/> .
+@prefix trans: <http://sweetontology.net/phenFluidTransport/> .
+@prefix geomor: <http://sweetontology.net/phenGeolGeomorphology/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@prefix screla: <http://sweetontology.net/relaSci/> .
+@base <http://sweetontology.net/phenGeolGeomorphology> .
+
+<http://sweetontology.net/phenGeolGeomorphology> rdf:type owl:Ontology ;
+                                                  owl:imports <http://sweetontology.net/matrCompound> ,
+                                                              <http://sweetontology.net/matrRock> ,
+                                                              <http://sweetontology.net/matrSediment> ,
+                                                              <http://sweetontology.net/phen> ,
+                                                              <http://sweetontology.net/phenFluidTransport> ,
+                                                              <http://sweetontology.net/phenGeol> ,
+                                                              <http://sweetontology.net/phenSolid> ,
+                                                              <http://sweetontology.net/phenSystemComplexity> ,
+                                                              <http://sweetontology.net/realm> ,
+                                                              <http://sweetontology.net/rela> ,
+                                                              <http://sweetontology.net/relaChemical> ,
+                                                              <http://sweetontology.net/relaSci> ,
+                                                              <http://sweetontology.net/stateRoleImpact> ;
+                                                  rdfs:label "SWEET Ontology" ;
+                                                  owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/phenGeolGeomorphology/Abrasion
+geomor:Abrasion rdf:type owl:Class ;
+                rdfs:subClassOf geomor:MaterialDisplacement .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Avalanche
+geomor:Avalanche rdf:type owl:Class ;
+                 rdfs:subClassOf geomor:Slide ,
+                                 sys:Collapse .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Compaction
+geomor:Compaction rdf:type owl:Class ;
+                  rdfs:subClassOf geomor:SedimentFormation .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Creep
+geomor:Creep rdf:type owl:Class ;
+             owl:equivalentClass geomor:Reptation ;
+             rdfs:subClassOf geomor:MaterialDisplacement .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Denundation
+geomor:Denundation rdf:type owl:Class ;
+                   rdfs:subClassOf geomor:MaterialDisplacement .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Diagenesis
+geomor:Diagenesis rdf:type owl:Class ;
+                  rdfs:subClassOf geomor:SedimentFormation .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Exfoliation
+geomor:Exfoliation rdf:type owl:Class ;
+                   rdfs:subClassOf geomor:Weathering .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Haloclasty
+geomor:Haloclasty rdf:type owl:Class ;
+                  rdfs:subClassOf geomor:Weathering ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasPhenomena ;
+                                    owl:hasValue comp:Salt
+                                  ] .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Karst
+geomor:Karst rdf:type owl:Class ;
+             rdfs:subClassOf geol:GeologicalPhenomena .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Landslide
+geomor:Landslide rdf:type owl:Class ;
+                 rdfs:subClassOf geomor:Slide ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasRealm ;
+                                   owl:allValuesFrom planet:Land
+                                 ] .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/MassWasting
+geomor:MassWasting rdf:type owl:Class ;
+                   rdfs:subClassOf geomor:MaterialDisplacement .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/MaterialDisplacement
+geomor:MaterialDisplacement rdf:type owl:Class ;
+                            rdfs:subClassOf phen:PlanetaryPhenomena .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Mudslide
+geomor:Mudslide rdf:type owl:Class ;
+                rdfs:subClassOf geomor:Slide .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Reptation
+geomor:Reptation rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/RockSlopeFailure
+geomor:RockSlopeFailure rdf:type owl:Class ;
+                        rdfs:subClassOf geomor:MaterialDisplacement .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Saltation
+geomor:Saltation rdf:type owl:Class ;
+                 rdfs:subClassOf geomor:MaterialDisplacement .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/SedimentFormation
+geomor:SedimentFormation rdf:type owl:Class ;
+                         rdfs:subClassOf geomor:MaterialDisplacement ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty crela:hasSubstance ;
+                                           owl:allValuesFrom sed:Sediment
+                                         ] .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Sedimentation
+geomor:Sedimentation rdf:type owl:Class ;
+                     rdfs:subClassOf geol:GeologicalPhenomena ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rela:hasPhenomena ;
+                                       owl:allValuesFrom trans:Deposition
+                                     ] .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Slide
+geomor:Slide rdf:type owl:Class ;
+             rdfs:subClassOf phen:Phenomena ,
+                             geomor:MaterialDisplacement ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty screla:hasImpact ;
+                               owl:hasValue impa:Hazard
+                             ] .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Slump
+geomor:Slump rdf:type owl:Class ;
+             rdfs:subClassOf geomor:MaterialDisplacement .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Solifluction
+geomor:Solifluction rdf:type owl:Class ;
+                    rdfs:subClassOf geomor:MaterialDisplacement .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Subsidence
+geomor:Subsidence rdf:type owl:Class ;
+                  rdfs:subClassOf geomor:MaterialDisplacement .
+
+
+###  http://sweetontology.net/phenGeolGeomorphology/Weathering
+geomor:Weathering rdf:type owl:Class ;
+                  rdfs:subClassOf geomor:MaterialDisplacement ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty crela:hasSubstance ;
+                                    owl:allValuesFrom petr:Rock
+                                  ] ;
+                  owl:disjointWith solid:Erosion .
+
+
+###  http://sweetontology.net/phenSolid/Erosion
+
+###  http://sweetontology.net/phenSystemComplexity/Collapse
+sys:Collapse rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

@@ -1,0 +1,153 @@
+@prefix : <http://sweetontology.net/matrNaturalResource/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix comp: <http://sweetontology.net/matrCompound/> .
+@prefix nres: <http://sweetontology.net/matrNaturalResource/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix hydro: <http://sweetontology.net/realmHydroBody/> .
+@prefix realm: <http://sweetontology.net/realm/> .
+@prefix pstate: <http://sweetontology.net/statePhysical/> .
+@base <http://sweetontology.net/matrNaturalResource> .
+
+<http://sweetontology.net/matrNaturalResource> rdf:type owl:Ontology ;
+                                                owl:imports <http://sweetontology.net/matrCompound> ,
+                                                            <http://sweetontology.net/realm> ,
+                                                            <http://sweetontology.net/realmHydroBody> ,
+                                                            <http://sweetontology.net/rela> ,
+                                                            <http://sweetontology.net/statePhysical> ;
+                                                rdfs:label "SWEET Ontology" ;
+                                                owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/matrNaturalResource/Anthracite
+nres:Anthracite rdf:type owl:Class ;
+                rdfs:subClassOf nres:Coal .
+
+
+###  http://sweetontology.net/matrNaturalResource/Bituminous
+nres:Bituminous rdf:type owl:Class ;
+                rdfs:subClassOf nres:Coal .
+
+
+###  http://sweetontology.net/matrNaturalResource/Coal
+nres:Coal rdf:type owl:Class ;
+          rdfs:subClassOf nres:FossilFuel .
+
+
+###  http://sweetontology.net/matrNaturalResource/CoralDeposit
+nres:CoralDeposit rdf:type owl:Class ;
+                  rdfs:subClassOf nres:Deposit ,
+                                  nres:NaturalResource .
+
+
+###  http://sweetontology.net/matrNaturalResource/CrudeOil
+nres:CrudeOil rdf:type owl:Class ;
+              owl:equivalentClass nres:Petroleum .
+
+
+###  http://sweetontology.net/matrNaturalResource/Deposit
+nres:Deposit rdf:type owl:Class ;
+             rdfs:subClassOf pstate:SubstanceForm .
+
+
+###  http://sweetontology.net/matrNaturalResource/FiniteResource
+nres:FiniteResource rdf:type owl:Class ;
+                    rdfs:subClassOf nres:NaturalResource ;
+                    owl:disjointWith nres:RenewableResource .
+
+
+###  http://sweetontology.net/matrNaturalResource/FossilFuel
+nres:FossilFuel rdf:type owl:Class ;
+                rdfs:subClassOf nres:NaturalResource .
+
+
+###  http://sweetontology.net/matrNaturalResource/LandResource
+nres:LandResource rdf:type owl:Class ;
+                  rdfs:subClassOf nres:NaturalResource ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasRealm ;
+                                    owl:someValuesFrom realm:Land
+                                  ] .
+
+
+###  http://sweetontology.net/matrNaturalResource/Lignite
+nres:Lignite rdf:type owl:Class ;
+             rdfs:subClassOf nres:Coal .
+
+
+###  http://sweetontology.net/matrNaturalResource/NaturalGas
+nres:NaturalGas rdf:type owl:Class ;
+                rdfs:subClassOf nres:FossilFuel .
+
+
+###  http://sweetontology.net/matrNaturalResource/NaturalResource
+nres:NaturalResource rdf:type owl:Class ;
+                     rdfs:subClassOf comp:Compound .
+
+
+###  http://sweetontology.net/matrNaturalResource/Oil
+nres:Oil rdf:type owl:Class ;
+         rdfs:subClassOf nres:FossilFuel .
+
+
+###  http://sweetontology.net/matrNaturalResource/OilShale
+nres:OilShale rdf:type owl:Class ;
+              rdfs:subClassOf nres:Oil .
+
+
+###  http://sweetontology.net/matrNaturalResource/Ore
+nres:Ore rdf:type owl:Class ;
+         rdfs:subClassOf nres:NaturalResource .
+
+
+###  http://sweetontology.net/matrNaturalResource/Petroleum
+nres:Petroleum rdf:type owl:Class ;
+               rdfs:subClassOf nres:Oil .
+
+
+###  http://sweetontology.net/matrNaturalResource/RenewableResource
+nres:RenewableResource rdf:type owl:Class ;
+                       rdfs:subClassOf nres:NaturalResource .
+
+
+###  http://sweetontology.net/matrNaturalResource/SubBituminous
+nres:SubBituminous rdf:type owl:Class ;
+                   rdfs:subClassOf nres:Coal .
+
+
+###  http://sweetontology.net/matrNaturalResource/WaterResource
+nres:WaterResource rdf:type owl:Class ;
+                   rdfs:subClassOf nres:NaturalResource ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty rela:hasRealm ;
+                                     owl:someValuesFrom hydro:BodyOfWater
+                                   ] .
+
+
+###  http://sweetontology.net/realm/Land
+realm:Land rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmHydroBody/BodyOfWater
+hydro:BodyOfWater rdf:type owl:Class .
+
+
+###  http://sweetontology.net/statePhysical/SubstanceForm
+pstate:SubstanceForm rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

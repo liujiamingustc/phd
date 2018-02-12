@@ -1,0 +1,372 @@
+@prefix : <http://sweetontology.net/propPressure/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dist: <http://sweetontology.net/propSpaceDistance/> .
+@prefix mass: <http://sweetontology.net/propMass/> .
+@prefix mult: <http://sweetontology.net/propSpaceMultidimensional/> .
+@prefix oper: <http://sweetontology.net/reprMathOperation/> .
+@prefix pres: <http://sweetontology.net/propPressure/> .
+@prefix proc: <http://sweetontology.net/procPhysical/> .
+@prefix prop: <http://sweetontology.net/prop/> .
+@prefix quan: <http://sweetontology.net/propQuantity/> .
+@prefix rate: <http://sweetontology.net/propTimeFrequency/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix sdir: <http://sweetontology.net/reprSpaceDirection/> .
+@prefix mrela: <http://sweetontology.net/relaMath/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@prefix units: <http://sweetontology.net/reprSciUnits/> .
+@prefix screla: <http://sweetontology.net/relaSci/> .
+@base <http://sweetontology.net/propPressure> .
+
+<http://sweetontology.net/propPressure> rdf:type owl:Ontology ;
+                                         owl:imports <http://sweetontology.net/procPhysical> ,
+                                                     <http://sweetontology.net/prop> ,
+                                                     <http://sweetontology.net/propMass> ,
+                                                     <http://sweetontology.net/propQuantity> ,
+                                                     <http://sweetontology.net/propSpaceDistance> ,
+                                                     <http://sweetontology.net/propSpaceMultidimensional> ,
+                                                     <http://sweetontology.net/propTimeFrequency> ,
+                                                     <http://sweetontology.net/rela> ,
+                                                     <http://sweetontology.net/relaMath> ,
+                                                     <http://sweetontology.net/relaSci> ,
+                                                     <http://sweetontology.net/relaSpace> ,
+                                                     <http://sweetontology.net/reprMathOperation> ,
+                                                     <http://sweetontology.net/reprSciUnits> ,
+                                                     <http://sweetontology.net/reprSpaceDirection> ;
+                                         rdfs:label "SWEET Ontology" ;
+                                         owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasProperty
+rela:hasProperty rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaMath/derivativeWithRespectTo
+mrela:derivativeWithRespectTo rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaMath/hasFirstOperand
+mrela:hasFirstOperand rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaMath/hasSecondOperand
+mrela:hasSecondOperand rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaMath/isDerivativeOf
+mrela:isDerivativeOf rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSci/hasDefaultUnit
+screla:hasDefaultUnit rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSci/measureOf
+screla:measureOf rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSpace/hasDirection
+srela:hasDirection rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/propPressure/AirPressure
+pres:AirPressure rdf:type owl:Class ;
+                 owl:equivalentClass pres:BarometricPressure .
+
+
+###  http://sweetontology.net/propPressure/AtmosphericPressure
+pres:AtmosphericPressure rdf:type owl:Class ;
+                         owl:equivalentClass pres:BarometricPressure .
+
+
+###  http://sweetontology.net/propPressure/BarometricPressure
+pres:BarometricPressure rdf:type owl:Class ;
+                        rdfs:subClassOf pres:Pressure .
+
+
+###  http://sweetontology.net/propPressure/BarometricTendency
+pres:BarometricTendency rdf:type owl:Class ;
+                        rdfs:subClassOf pres:PressureTendency .
+
+
+###  http://sweetontology.net/propPressure/BulkModulus
+pres:BulkModulus rdf:type owl:Class ;
+                 rdfs:subClassOf quan:PhysicalQuantity .
+
+
+###  http://sweetontology.net/propPressure/Compressibility
+pres:Compressibility rdf:type owl:Class ;
+                     rdfs:subClassOf quan:PhysicalQuantity ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty screla:hasDefaultUnit ;
+                                       owl:hasValue units:perPascal
+                                     ] .
+
+
+###  http://sweetontology.net/propPressure/CompressiveStrength
+pres:CompressiveStrength rdf:type owl:Class ;
+                         rdfs:subClassOf pres:Strength .
+
+
+###  http://sweetontology.net/propPressure/DifferentialPressure
+pres:DifferentialPressure rdf:type owl:Class ;
+                          rdfs:subClassOf pres:Pressure .
+
+
+###  http://sweetontology.net/propPressure/DynamicViscosity
+pres:DynamicViscosity rdf:type owl:Class ;
+                      owl:equivalentClass pres:Viscosity .
+
+
+###  http://sweetontology.net/propPressure/ExnerFunction
+pres:ExnerFunction rdf:type owl:Class ;
+                   rdfs:subClassOf pres:Pressure .
+
+
+###  http://sweetontology.net/propPressure/HydrostaticPressure
+pres:HydrostaticPressure rdf:type owl:Class ;
+                         rdfs:subClassOf pres:Pressure .
+
+
+###  http://sweetontology.net/propPressure/ModulusOfElasticity
+pres:ModulusOfElasticity rdf:type owl:Class ;
+                         owl:equivalentClass pres:YoungsModulus .
+
+
+###  http://sweetontology.net/propPressure/MomentumFlux
+pres:MomentumFlux rdf:type owl:Class ;
+                  rdfs:subClassOf pres:Pressure ,
+                                  quan:Flux .
+
+
+###  http://sweetontology.net/propPressure/NormalStress
+pres:NormalStress rdf:type owl:Class ;
+                  owl:equivalentClass pres:TensileStress .
+
+
+###  http://sweetontology.net/propPressure/PartialPressure
+pres:PartialPressure rdf:type owl:Class ;
+                     rdfs:subClassOf pres:Pressure .
+
+
+###  http://sweetontology.net/propPressure/Pressure
+pres:Pressure rdf:type owl:Class ;
+              rdfs:subClassOf quan:IntensiveProperty ,
+                              oper:Ratio ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty mrela:hasFirstOperand ;
+                                owl:allValuesFrom quan:Force
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty mrela:hasSecondOperand ;
+                                owl:allValuesFrom mult:Area
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty screla:hasDefaultUnit ;
+                                owl:hasValue units:pascal
+                              ] .
+
+
+###  http://sweetontology.net/propPressure/PressureGradient
+pres:PressureGradient rdf:type owl:Class ;
+                      rdfs:subClassOf quan:PhysicalQuantity ,
+                                      oper:Gradient ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty mrela:derivativeWithRespectTo ;
+                                        owl:allValuesFrom dist:Distance
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty mrela:isDerivativeOf ;
+                                        owl:allValuesFrom pres:Pressure
+                                      ] .
+
+
+###  http://sweetontology.net/propPressure/PressureTendency
+pres:PressureTendency rdf:type owl:Class ;
+                      rdfs:subClassOf rate:Tendency ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty rela:hasProperty ;
+                                        owl:allValuesFrom pres:Pressure
+                                      ] .
+
+
+###  http://sweetontology.net/propPressure/SeaLevelPressure
+pres:SeaLevelPressure rdf:type owl:Class ;
+                      rdfs:subClassOf pres:AtmosphericPressure .
+
+
+###  http://sweetontology.net/propPressure/ShearModulus
+pres:ShearModulus rdf:type owl:Class ;
+                  rdfs:subClassOf mass:MaterialProperty ,
+                                  quan:PhysicalQuantity ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty srela:hasDirection ;
+                                    owl:hasValue sdir:Shear
+                                  ] .
+
+
+###  http://sweetontology.net/propPressure/ShearStress
+pres:ShearStress rdf:type owl:Class ;
+                 rdfs:subClassOf pres:Stress ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty srela:hasDirection ;
+                                   owl:hasValue sdir:Shear
+                                 ] ;
+                 owl:disjointWith pres:TensileStress .
+
+
+###  http://sweetontology.net/propPressure/StaticPressure
+pres:StaticPressure rdf:type owl:Class ;
+                    rdfs:subClassOf pres:Pressure .
+
+
+###  http://sweetontology.net/propPressure/Stiffness
+pres:Stiffness rdf:type owl:Class ;
+               rdfs:subClassOf mass:StrengthProperty ,
+                               quan:PhysicalQuantity ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty screla:hasDefaultUnit ;
+                                 owl:hasValue units:newtonPerMeter
+                               ] .
+
+
+###  http://sweetontology.net/propPressure/Strength
+pres:Strength rdf:type owl:Class ;
+              rdfs:subClassOf mass:StrengthProperty .
+
+
+###  http://sweetontology.net/propPressure/Stress
+pres:Stress rdf:type owl:Class ;
+            rdfs:subClassOf pres:Pressure .
+
+
+###  http://sweetontology.net/propPressure/Suction
+pres:Suction rdf:type owl:Class ;
+             rdfs:subClassOf pres:Pressure .
+
+
+###  http://sweetontology.net/propPressure/SurfaceTension
+pres:SurfaceTension rdf:type owl:Class ;
+                    rdfs:subClassOf proc:Tension ,
+                                    prop:FluidProperty ,
+                                    quan:PhysicalQuantity ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty screla:hasDefaultUnit ;
+                                      owl:hasValue units:newtonPerMeter
+                                    ] .
+
+
+###  http://sweetontology.net/propPressure/TensileStrength
+pres:TensileStrength rdf:type owl:Class ;
+                     rdfs:subClassOf pres:Strength .
+
+
+###  http://sweetontology.net/propPressure/TensileStress
+pres:TensileStress rdf:type owl:Class ;
+                   rdfs:subClassOf pres:Stress ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty srela:hasDirection ;
+                                     owl:hasValue sdir:Perpendicular
+                                   ] .
+
+
+###  http://sweetontology.net/propPressure/TotalPressure
+pres:TotalPressure rdf:type owl:Class ;
+                   rdfs:subClassOf pres:Pressure .
+
+
+###  http://sweetontology.net/propPressure/Viscosity
+pres:Viscosity rdf:type owl:Class ;
+               rdfs:subClassOf prop:FluidProperty ,
+                               quan:PhysicalQuantity ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty screla:measureOf ;
+                                 owl:allValuesFrom proc:ViscousForce
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty screla:hasDefaultUnit ;
+                                 owl:hasValue units:pascalSecond
+                               ] .
+
+
+###  http://sweetontology.net/propPressure/YoungsModulus
+pres:YoungsModulus rdf:type owl:Class ;
+                   rdfs:subClassOf mass:MaterialProperty ,
+                                   quan:PhysicalQuantity .
+
+
+###  http://sweetontology.net/propQuantity/Flux
+quan:Flux rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propQuantity/Force
+quan:Force rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propQuantity/IntensiveProperty
+quan:IntensiveProperty rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propQuantity/PhysicalQuantity
+quan:PhysicalQuantity rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propSpaceDistance/Distance
+dist:Distance rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/Area
+mult:Area rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propTimeFrequency/Tendency
+rate:Tendency rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprMathOperation/Gradient
+oper:Gradient rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprMathOperation/Ratio
+oper:Ratio rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/reprSciUnits/newtonPerMeter
+units:newtonPerMeter rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/pascal
+units:pascal rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/pascalSecond
+units:pascalSecond rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/perPascal
+units:perPascal rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSpaceDirection/Perpendicular
+sdir:Perpendicular rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSpaceDirection/Shear
+sdir:Shear rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

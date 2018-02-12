@@ -1,0 +1,297 @@
+@prefix : <http://sweetontology.net/phenAtmo/> .
+@prefix day: <http://sweetontology.net/reprTimeDay/> .
+@prefix fog: <http://sweetontology.net/phenAtmoFog/> .
+@prefix mod: <http://sweetontology.net/reprSciModel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sys: <http://sweetontology.net/phenSystemComplexity/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix atmo: <http://sweetontology.net/realmAtmo/> .
+@prefix atmp: <http://sweetontology.net/phenAtmo/> .
+@prefix boun: <http://sweetontology.net/realmAtmoBoundaryLayer/> .
+@prefix chem: <http://sweetontology.net/matr/> .
+@prefix inst: <http://sweetontology.net/phenFluidInstability/> .
+@prefix orog: <http://sweetontology.net/realmLandOrographic/> .
+@prefix phen: <http://sweetontology.net/phen/> .
+@prefix plan: <http://sweetontology.net/realm/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix wave: <http://sweetontology.net/phenWave/> .
+@prefix wind: <http://sweetontology.net/phenAtmoWind/> .
+@prefix scale: <http://sweetontology.net/stateSpaceScale/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@prefix trela: <http://sweetontology.net/relaTime/> .
+@prefix water: <http://sweetontology.net/matrWater/> .
+@base <http://sweetontology.net/phenAtmo> .
+
+<http://sweetontology.net/phenAtmo> rdf:type owl:Ontology ;
+                                     owl:imports <http://sweetontology.net/matr> ,
+                                                 <http://sweetontology.net/matrWater> ,
+                                                 <http://sweetontology.net/phen> ,
+                                                 <http://sweetontology.net/phenAtmoFog> ,
+                                                 <http://sweetontology.net/phenAtmoWind> ,
+                                                 <http://sweetontology.net/phenFluidInstability> ,
+                                                 <http://sweetontology.net/phenSystemComplexity> ,
+                                                 <http://sweetontology.net/phenWave> ,
+                                                 <http://sweetontology.net/realm> ,
+                                                 <http://sweetontology.net/realmAtmo> ,
+                                                 <http://sweetontology.net/realmAtmoBoundaryLayer> ,
+                                                 <http://sweetontology.net/realmLandOrographic> ,
+                                                 <http://sweetontology.net/rela> ,
+                                                 <http://sweetontology.net/relaSpace> ,
+                                                 <http://sweetontology.net/relaTime> ,
+                                                 <http://sweetontology.net/reprSciModel> ,
+                                                 <http://sweetontology.net/reprTimeDay> ,
+                                                 <http://sweetontology.net/stateSpaceScale> ;
+                                     rdfs:label "SWEET Ontology" ;
+                                     owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaTime/hasTime
+trela:hasTime rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/phenAtmo/AirMass
+atmp:AirMass rdf:type owl:Class ;
+             rdfs:subClassOf chem:Air ,
+                             mod:Model .
+
+
+###  http://sweetontology.net/phenAtmo/AtmosphericDisturbance
+atmp:AtmosphericDisturbance rdf:type owl:Class ;
+                            rdfs:subClassOf atmp:AtmosphericWave .
+
+
+###  http://sweetontology.net/phenAtmo/AtmosphericPhenomena
+atmp:AtmosphericPhenomena rdf:type owl:Class ;
+                          rdfs:subClassOf phen:PlanetaryPhenomena .
+
+
+###  http://sweetontology.net/phenAtmo/AtmosphericWave
+atmp:AtmosphericWave rdf:type owl:Class ;
+                     rdfs:subClassOf wave:FluidWave ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rela:hasRealm ;
+                                       owl:allValuesFrom plan:Atmosphere
+                                     ] .
+
+
+###  http://sweetontology.net/phenAtmo/CappingInversion
+atmp:CappingInversion rdf:type owl:Class ;
+                      rdfs:subClassOf atmp:MeteorologicalPhenomena .
+
+
+###  http://sweetontology.net/phenAtmo/EasterlyWave
+atmp:EasterlyWave rdf:type owl:Class ;
+                  rdfs:subClassOf atmp:AtmosphericWave ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasPhenomena ;
+                                    owl:allValuesFrom wind:EasterlyWind
+                                  ] .
+
+
+###  http://sweetontology.net/phenAtmo/FoehnWave
+atmp:FoehnWave rdf:type owl:Class ;
+               rdfs:subClassOf atmp:MountainWave .
+
+
+###  http://sweetontology.net/phenAtmo/FrontalWave
+atmp:FrontalWave rdf:type owl:Class ;
+                 rdfs:subClassOf atmp:AtmosphericWave .
+
+
+###  http://sweetontology.net/phenAtmo/GroundInversion
+atmp:GroundInversion rdf:type owl:Class ;
+                     rdfs:subClassOf atmp:MeteorologicalPhenomena .
+
+
+###  http://sweetontology.net/phenAtmo/Icing
+atmp:Icing rdf:type owl:Class ;
+           rdfs:subClassOf atmp:MeteorologicalPhenomena .
+
+
+###  http://sweetontology.net/phenAtmo/KillingFreeze
+atmp:KillingFreeze rdf:type owl:Class ;
+                   rdfs:subClassOf water:Frost .
+
+
+###  http://sweetontology.net/phenAtmo/LeeWave
+atmp:LeeWave rdf:type owl:Class ;
+             rdfs:subClassOf atmp:MountainWave .
+
+
+###  http://sweetontology.net/phenAtmo/LightFreeze
+atmp:LightFreeze rdf:type owl:Class ;
+                 rdfs:subClassOf water:Frost .
+
+
+###  http://sweetontology.net/phenAtmo/LightFrost
+atmp:LightFrost rdf:type owl:Class ;
+                rdfs:subClassOf water:Frost .
+
+
+###  http://sweetontology.net/phenAtmo/MesoscaleDisturbance
+atmp:MesoscaleDisturbance rdf:type owl:Class ;
+                          rdfs:subClassOf atmp:AtmosphericDisturbance ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty srela:hasSpatialScale ;
+                                            owl:hasValue scale:Mesoscale
+                                          ] .
+
+
+###  http://sweetontology.net/phenAtmo/MeteorologicalPhenomena
+atmp:MeteorologicalPhenomena rdf:type owl:Class ;
+                             rdfs:subClassOf atmp:AtmosphericPhenomena .
+
+
+###  http://sweetontology.net/phenAtmo/MixedLayerCappingInversion
+atmp:MixedLayerCappingInversion rdf:type owl:Class ;
+                                rdfs:subClassOf atmp:CappingInversion .
+
+
+###  http://sweetontology.net/phenAtmo/MixedLayerEvolution
+atmp:MixedLayerEvolution rdf:type owl:Class ;
+                         rdfs:subClassOf sys:Evolution ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty rela:hasRealm ;
+                                           owl:allValuesFrom boun:MixedLayer
+                                         ] .
+
+
+###  http://sweetontology.net/phenAtmo/MoisturePooling
+atmp:MoisturePooling rdf:type owl:Class ;
+                     rdfs:subClassOf atmp:MeteorologicalPhenomena .
+
+
+###  http://sweetontology.net/phenAtmo/MountainWave
+atmp:MountainWave rdf:type owl:Class ;
+                  rdfs:subClassOf atmp:AtmosphericWave ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasRealm ;
+                                    owl:allValuesFrom orog:Mountain
+                                  ] .
+
+
+###  http://sweetontology.net/phenAtmo/NocturnalCooling
+atmp:NocturnalCooling rdf:type owl:Class ;
+                      rdfs:subClassOf phen:RadiationalCooling ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty trela:hasTime ;
+                                        owl:allValuesFrom day:Nocturnal
+                                      ] .
+
+
+###  http://sweetontology.net/phenAtmo/Obscuration
+atmp:Obscuration rdf:type owl:Class ;
+                 rdfs:subClassOf fog:Fog .
+
+
+###  http://sweetontology.net/phenAtmo/OrographicLifting
+atmp:OrographicLifting rdf:type owl:Class ;
+                       rdfs:subClassOf inst:Lifting ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty rela:hasPhenomena ;
+                                         owl:someValuesFrom orog:Orographic
+                                       ] .
+
+
+###  http://sweetontology.net/phenAtmo/Rainbow
+atmp:Rainbow rdf:type owl:Class ;
+             rdfs:subClassOf atmp:MeteorologicalPhenomena .
+
+
+###  http://sweetontology.net/phenAtmo/Sunlight
+atmp:Sunlight rdf:type owl:Class ;
+              rdfs:subClassOf phen:RadiativeHeating .
+
+
+###  http://sweetontology.net/phenAtmo/Sunlit
+atmp:Sunlit rdf:type owl:Class ;
+            rdfs:subClassOf atmp:WeatherCondition .
+
+
+###  http://sweetontology.net/phenAtmo/Thermal
+atmp:Thermal rdf:type owl:Class ;
+             rdfs:subClassOf atmp:MeteorologicalPhenomena .
+
+
+###  http://sweetontology.net/phenAtmo/Weather
+atmp:Weather rdf:type owl:Class ;
+             owl:equivalentClass atmp:WeatherCondition ;
+             rdfs:subClassOf atmp:MeteorologicalPhenomena .
+
+
+###  http://sweetontology.net/phenAtmo/WeatherCondition
+atmp:WeatherCondition rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenAtmo/Whiteout
+atmp:Whiteout rdf:type owl:Class ;
+              rdfs:subClassOf atmp:Obscuration .
+
+
+###  http://sweetontology.net/phenAtmoFog/Fog
+fog:Fog rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenAtmoWind/EasterlyWind
+wind:EasterlyWind rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenFluidInstability/Lifting
+inst:Lifting rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenSystemComplexity/Evolution
+sys:Evolution rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenWave/FluidWave
+wave:FluidWave rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/MixedLayer
+boun:MixedLayer rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandOrographic/Mountain
+orog:Mountain rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandOrographic/Orographic
+orog:Orographic rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSciModel/Model
+mod:Model rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprTimeDay/Nocturnal
+day:Nocturnal rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/stateSpaceScale/Mesoscale
+scale:Mesoscale rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

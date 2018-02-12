@@ -1,0 +1,124 @@
+@prefix : <http://sweetontology.net/reprSciLaw/> .
+@prefix law: <http://sweetontology.net/reprSciLaw/> .
+@prefix mod: <http://sweetontology.net/reprSciModel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix know: <http://sweetontology.net/repr/> .
+@prefix prec: <http://sweetontology.net/phenAtmoPrecipitation/> .
+@prefix pres: <http://sweetontology.net/propPressure/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix velo: <http://sweetontology.net/propSpeed/> .
+@prefix wave: <http://sweetontology.net/procWave/> .
+@prefix wind: <http://sweetontology.net/phenAtmoWind/> .
+@prefix pstate: <http://sweetontology.net/statePhysical/> .
+@base <http://sweetontology.net/reprSciLaw> .
+
+<http://sweetontology.net/reprSciLaw> rdf:type owl:Ontology ;
+                                       owl:imports <http://sweetontology.net/phenAtmoPrecipitation> ,
+                                                   <http://sweetontology.net/phenAtmoWind> ,
+                                                   <http://sweetontology.net/procWave> ,
+                                                   <http://sweetontology.net/propPressure> ,
+                                                   <http://sweetontology.net/propSpeed> ,
+                                                   <http://sweetontology.net/rela> ,
+                                                   <http://sweetontology.net/repr> ,
+                                                   <http://sweetontology.net/reprSciModel> ,
+                                                   <http://sweetontology.net/statePhysical> ;
+                                       rdfs:label "SWEET Ontology" ;
+                                       owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/reprSciLaw/BernoulliTheorem
+law:BernoulliTheorem rdf:type owl:Class ;
+                     rdfs:subClassOf law:PhysicalLaw ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rela:hasProperty ;
+                                       owl:someValuesFrom velo:Velocity
+                                     ] .
+
+
+###  http://sweetontology.net/reprSciLaw/BouguerLaw
+law:BouguerLaw rdf:type owl:Class ;
+               rdfs:subClassOf law:EmpiricalLaw ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rela:hasProcess ;
+                                 owl:allValuesFrom wave:Attenuation
+                               ] .
+
+
+###  http://sweetontology.net/reprSciLaw/BuysBallotLaw
+law:BuysBallotLaw rdf:type owl:Class ;
+                  rdfs:subClassOf law:EmpiricalLaw ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasProperty ;
+                                    owl:someValuesFrom pres:Pressure
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasPhenomena ;
+                                    owl:allValuesFrom wind:Wind
+                                  ] .
+
+
+###  http://sweetontology.net/reprSciLaw/DarcysLaw
+law:DarcysLaw rdf:type owl:Class ;
+              rdfs:subClassOf law:EmpiricalLaw .
+
+
+###  http://sweetontology.net/reprSciLaw/EmpiricalLaw
+law:EmpiricalLaw rdf:type owl:Class ;
+                 rdfs:subClassOf know:Knowledge .
+
+
+###  http://sweetontology.net/reprSciLaw/HookesLaw
+law:HookesLaw rdf:type owl:Class ;
+              rdfs:subClassOf law:EmpiricalLaw .
+
+
+###  http://sweetontology.net/reprSciLaw/IdealGasLaw
+law:IdealGasLaw rdf:type owl:Class ;
+                rdfs:subClassOf law:PhysicalLaw ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasState ;
+                                  owl:hasValue pstate:Gas
+                                ] .
+
+
+###  http://sweetontology.net/reprSciLaw/MathematicalTheorem
+law:MathematicalTheorem rdf:type owl:Class ;
+                        rdfs:subClassOf know:Knowledge .
+
+
+###  http://sweetontology.net/reprSciLaw/PhysicalLaw
+law:PhysicalLaw rdf:type owl:Class ;
+                rdfs:subClassOf know:Knowledge .
+
+
+###  http://sweetontology.net/reprSciLaw/StokesLaw
+law:StokesLaw rdf:type owl:Class ;
+              rdfs:subClassOf mod:PhysicalApproximation .
+
+
+###  http://sweetontology.net/reprSciLaw/WalthersLaw
+law:WalthersLaw rdf:type owl:Class ;
+                rdfs:subClassOf law:EmpiricalLaw .
+
+
+###  http://sweetontology.net/reprSciLaw/Z_RRelation
+law:Z_RRelation rdf:type owl:Class ;
+                rdfs:subClassOf law:EmpiricalLaw ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasPhenomena ;
+                                  owl:allValuesFrom prec:Rainfall
+                                ] .
+
+
+###  http://sweetontology.net/reprSciModel/PhysicalApproximation
+mod:PhysicalApproximation rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

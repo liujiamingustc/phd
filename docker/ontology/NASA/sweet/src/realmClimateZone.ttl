@@ -1,0 +1,586 @@
+@prefix : <http://sweetontology.net/realmClimateZone/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cate: <http://sweetontology.net/propCategorical/> .
+@prefix math: <http://sweetontology.net/reprMath/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix sreg: <http://sweetontology.net/realmRegion/> .
+@prefix temp: <http://sweetontology.net/propTemperature/> .
+@prefix thic: <http://sweetontology.net/propSpaceThickness/> .
+@prefix time: <http://sweetontology.net/reprTimeSeason/> .
+@prefix zone: <http://sweetontology.net/realmClimateZone/> .
+@prefix crela: <http://sweetontology.net/relaClimate/> .
+@prefix mrela: <http://sweetontology.net/relaMath/> .
+@prefix ptime: <http://sweetontology.net/propTime/> .
+@prefix srela: <http://sweetontology.net/relaSci/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@prefix climate: <http://sweetontology.net/phenPlanetClimate/> .
+@base <http://sweetontology.net/realmClimateZone> .
+
+<http://sweetontology.net/realmClimateZone> rdf:type owl:Ontology ;
+                                             owl:imports <http://sweetontology.net/phenPlanetClimate> ,
+                                                         <http://sweetontology.net/propCategorical> ,
+                                                         <http://sweetontology.net/propTemperature> ,
+                                                         <http://sweetontology.net/propTime> ,
+                                                         <http://sweetontology.net/realm> ,
+                                                         <http://sweetontology.net/realmRegion> ,
+                                                         <http://sweetontology.net/rela> ,
+                                                         <http://sweetontology.net/relaClimate> ,
+                                                         <http://sweetontology.net/relaMath> ,
+                                                         <http://sweetontology.net/relaSci> ,
+                                                         <http://sweetontology.net/reprMath> ,
+                                                         <http://sweetontology.net/reprTimeSeason> ;
+                                             rdfs:label "SWEET Ontology" ;
+                                             owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#versionInfo
+owl:versionInfo rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaClimate/hasAverageAnnualPrecipitation
+crela:hasAverageAnnualPrecipitation rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaClimate/hasAverageColdestMonthTemperature
+crela:hasAverageColdestMonthTemperature rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaClimate/hasAverageMonthlyTemperature
+crela:hasAverageMonthlyTemperature rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaClimate/hasAverageWarmestMonthTemperature
+crela:hasAverageWarmestMonthTemperature rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaClimate/hasDrySeason
+crela:hasDrySeason rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaClimate/hasWetSeason
+crela:hasWetSeason rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/propSpaceThickness/PrecipitationRange
+thic:PrecipitationRange rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propSpaceThickness/PrecipitationRange_cm
+thic:PrecipitationRange_cm rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmClimateZone/A
+zone:A rdf:type owl:Class ;
+       owl:equivalentClass zone:TropicalClimate ;
+       rdfs:subClassOf zone:ClimateClassification ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty crela:hasAverageAnnualPrecipitation ;
+                         owl:hasValue _:genid2
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty crela:hasAverageMonthlyTemperature ;
+                         owl:hasValue _:genid4
+                       ] .
+
+_:genid2 rdf:type thic:PrecipitationRange .
+
+_:genid4 rdf:type temp:TemperatureRange .
+
+
+###  http://sweetontology.net/realmClimateZone/B
+zone:B rdf:type owl:Class ;
+       owl:equivalentClass zone:DryClimate ;
+       rdfs:subClassOf zone:ClimateClassification ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty crela:hasAverageAnnualPrecipitation ;
+                         owl:hasValue _:genid6
+                       ] .
+
+_:genid6 rdf:type thic:PrecipitationRange .
+
+
+###  http://sweetontology.net/realmClimateZone/C
+zone:C rdf:type owl:Class ;
+       owl:equivalentClass zone:TemperateClimate ;
+       rdfs:subClassOf zone:ClimateClassification ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty crela:hasAverageColdestMonthTemperature ;
+                         owl:hasValue _:genid8
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty crela:hasAverageWarmestMonthTemperature ;
+                         owl:hasValue _:genid10
+                       ] .
+
+_:genid8 rdf:type temp:TemperatureRange .
+
+_:genid10 rdf:type temp:TemperatureRange .
+
+
+###  http://sweetontology.net/realmClimateZone/ClimateClassification
+zone:ClimateClassification rdf:type owl:Class ;
+                           rdfs:subClassOf cate:Category .
+
+
+###  http://sweetontology.net/realmClimateZone/ClimateZoneType
+zone:ClimateZoneType rdf:type owl:Class ;
+                     rdfs:subClassOf zone:ClimateClassification .
+
+
+###  http://sweetontology.net/realmClimateZone/D
+zone:D rdf:type owl:Class ;
+       rdfs:subClassOf zone:ClimateClassification ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty crela:hasAverageColdestMonthTemperature ;
+                         owl:hasValue _:genid12
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty crela:hasAverageWarmestMonthTemperature ;
+                         owl:hasValue _:genid14
+                       ] .
+
+_:genid12 rdf:type temp:TemperatureRange .
+
+_:genid14 rdf:type temp:TemperatureRange .
+
+
+###  http://sweetontology.net/realmClimateZone/DesertClimateZone
+zone:DesertClimateZone rdf:type owl:Class ;
+                       rdfs:subClassOf zone:ClimateZoneType .
+
+
+###  http://sweetontology.net/realmClimateZone/Doldrums
+zone:Doldrums rdf:type owl:Class ;
+              rdfs:subClassOf zone:ClimateZoneType ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rela:hasRealm ;
+                                owl:hasValue sreg:LowLatitude
+                              ] .
+
+
+###  http://sweetontology.net/realmClimateZone/DryClimate
+zone:DryClimate rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmClimateZone/DryWinterClimate
+zone:DryWinterClimate rdf:type owl:Class ;
+                      rdfs:subClassOf zone:ClimateClassification ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty crela:hasDrySeason ;
+                                        owl:hasValue time:Winter
+                                      ] .
+
+
+###  http://sweetontology.net/realmClimateZone/E
+zone:E rdf:type owl:Class ;
+       rdfs:subClassOf zone:ClimateClassification .
+
+
+###  http://sweetontology.net/realmClimateZone/Equator
+zone:Equator rdf:type owl:Class ;
+             rdfs:subClassOf zone:TropicalClimateZone .
+
+
+###  http://sweetontology.net/realmClimateZone/ITCZ
+zone:ITCZ rdf:type owl:Class ;
+          owl:equivalentClass zone:IntertropicalConvergenceZone .
+
+
+###  http://sweetontology.net/realmClimateZone/IntertropicalConvergenceZone
+zone:IntertropicalConvergenceZone rdf:type owl:Class ;
+                                  rdfs:subClassOf zone:ClimateZoneType ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty rela:hasRealm ;
+                                                    owl:allValuesFrom zone:Equator
+                                                  ] .
+
+
+###  http://sweetontology.net/realmClimateZone/MarineClimate
+zone:MarineClimate rdf:type owl:Class ;
+                   rdfs:subClassOf zone:ClimateClassification ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty rela:hasRealm ;
+                                     owl:someValuesFrom planet:Ocean
+                                   ] .
+
+
+###  http://sweetontology.net/realmClimateZone/RainShadow
+zone:RainShadow rdf:type owl:Class ;
+                rdfs:subClassOf zone:ClimateZoneType .
+
+
+###  http://sweetontology.net/realmClimateZone/SubtropicalClimateZone
+zone:SubtropicalClimateZone rdf:type owl:Class ;
+                            rdfs:subClassOf zone:ClimateZoneType .
+
+
+###  http://sweetontology.net/realmClimateZone/TemperateClimate
+zone:TemperateClimate rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmClimateZone/TropicalClimate
+zone:TropicalClimate rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmClimateZone/TropicalClimateZone
+zone:TropicalClimateZone rdf:type owl:Class ;
+                         rdfs:subClassOf zone:ClimateZoneType .
+
+
+###  http://sweetontology.net/realmClimateZone/WetSummerClimate
+zone:WetSummerClimate rdf:type owl:Class ;
+                      rdfs:subClassOf zone:ClimateClassification ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty crela:hasWetSeason ;
+                                        owl:hasValue time:Summer
+                                      ] .
+
+
+###  http://sweetontology.net/realmClimateZone/WetSummerDryWinterClimate
+zone:WetSummerDryWinterClimate rdf:type owl:Class ;
+                               rdfs:subClassOf zone:DryWinterClimate ,
+                                               zone:WetSummerClimate .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/realmClimateZone/Af
+zone:Af rdf:type owl:NamedIndividual ,
+                 zone:A ;
+        owl:sameAs zone:TropicalRainForestClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/Am
+zone:Am rdf:type owl:NamedIndividual ,
+                 zone:A ;
+        owl:sameAs zone:TropicalMonsoonClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/Arid
+zone:Arid rdf:type owl:NamedIndividual ,
+                   zone:B ;
+          owl:sameAs zone:BW .
+
+
+###  http://sweetontology.net/realmClimateZone/AridClimate
+zone:AridClimate rdf:type owl:NamedIndividual ,
+                          zone:B ;
+                 owl:sameAs zone:BW .
+
+
+###  http://sweetontology.net/realmClimateZone/Aw
+zone:Aw rdf:type owl:NamedIndividual ,
+                 zone:A ,
+                 zone:WetSummerDryWinterClimate ;
+        owl:sameAs zone:TropicalSavannaClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/BS
+zone:BS rdf:type owl:NamedIndividual ,
+                 zone:B ;
+        owl:sameAs zone:SemiAridClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/BSh
+zone:BSh rdf:type owl:NamedIndividual ,
+                  zone:B ;
+         owl:sameAs zone:HotLowLatitudeSteppeClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/BSk
+zone:BSk rdf:type owl:NamedIndividual ,
+                  zone:B ;
+         owl:sameAs zone:ColdMidlatitudeSteppeClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/BW
+zone:BW rdf:type owl:NamedIndividual ,
+                 zone:B .
+
+
+###  http://sweetontology.net/realmClimateZone/BWh
+zone:BWh rdf:type owl:NamedIndividual ,
+                  zone:B ;
+         owl:sameAs zone:HotLowLatitudeDesertClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/BWk
+zone:BWk rdf:type owl:NamedIndividual ,
+                  zone:B ;
+         owl:sameAs zone:ColdMidlatitudeDesertClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/Cfa
+zone:Cfa rdf:type owl:NamedIndividual ,
+                  zone:C .
+
+
+###  http://sweetontology.net/realmClimateZone/Cfb
+zone:Cfb rdf:type owl:NamedIndividual ,
+                  zone:C .
+
+
+###  http://sweetontology.net/realmClimateZone/Cfc
+zone:Cfc rdf:type owl:NamedIndividual ,
+                  zone:C .
+
+
+###  http://sweetontology.net/realmClimateZone/ColdMidlatitudeDesertClimate
+zone:ColdMidlatitudeDesertClimate rdf:type owl:NamedIndividual ,
+                                           zone:B .
+
+
+###  http://sweetontology.net/realmClimateZone/ColdMidlatitudeSteppeClimate
+zone:ColdMidlatitudeSteppeClimate rdf:type owl:NamedIndividual ,
+                                           zone:B .
+
+
+###  http://sweetontology.net/realmClimateZone/Csa
+zone:Csa rdf:type owl:NamedIndividual ,
+                  zone:C .
+
+
+###  http://sweetontology.net/realmClimateZone/Csb
+zone:Csb rdf:type owl:NamedIndividual ,
+                  zone:C ,
+                  zone:WetSummerDryWinterClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/Cwa
+zone:Cwa rdf:type owl:NamedIndividual ,
+                  zone:C ,
+                  zone:WetSummerDryWinterClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/Dfa
+zone:Dfa rdf:type owl:NamedIndividual ,
+                  zone:D .
+
+
+###  http://sweetontology.net/realmClimateZone/Dfb
+zone:Dfb rdf:type owl:NamedIndividual ,
+                  zone:D .
+
+
+###  http://sweetontology.net/realmClimateZone/Dfc
+zone:Dfc rdf:type owl:NamedIndividual ,
+                  zone:D .
+
+
+###  http://sweetontology.net/realmClimateZone/Dwa
+zone:Dwa rdf:type owl:NamedIndividual ,
+                  zone:D ,
+                  zone:DryWinterClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/Dwb
+zone:Dwb rdf:type owl:NamedIndividual ,
+                  zone:D ,
+                  zone:DryWinterClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/Dwc
+zone:Dwc rdf:type owl:NamedIndividual ,
+                  zone:D ,
+                  zone:DryWinterClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/Dwd
+zone:Dwd rdf:type owl:NamedIndividual ,
+                  zone:D ,
+                  zone:DryWinterClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/EF
+zone:EF rdf:type owl:NamedIndividual ,
+                 zone:E ;
+        owl:sameAs zone:IceCapClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/EM
+zone:EM rdf:type owl:NamedIndividual ,
+                 zone:E ;
+        owl:sameAs zone:PolarMarineClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/ET
+zone:ET rdf:type owl:NamedIndividual ,
+                 zone:E ;
+        owl:sameAs zone:TundraClimate .
+
+
+###  http://sweetontology.net/realmClimateZone/HotLowLatitudeDesertClimate
+zone:HotLowLatitudeDesertClimate rdf:type owl:NamedIndividual ,
+                                          zone:B .
+
+
+###  http://sweetontology.net/realmClimateZone/HotLowLatitudeSteppeClimate
+zone:HotLowLatitudeSteppeClimate rdf:type owl:NamedIndividual ,
+                                          zone:B .
+
+
+###  http://sweetontology.net/realmClimateZone/IceCapClimate
+zone:IceCapClimate rdf:type owl:NamedIndividual ,
+                            zone:E .
+
+
+###  http://sweetontology.net/realmClimateZone/PolarMarineClimate
+zone:PolarMarineClimate rdf:type owl:NamedIndividual ,
+                                 zone:E .
+
+
+###  http://sweetontology.net/realmClimateZone/SemiAridClimate
+zone:SemiAridClimate rdf:type owl:NamedIndividual ,
+                              zone:B .
+
+
+###  http://sweetontology.net/realmClimateZone/TropicalMonsoonClimate
+zone:TropicalMonsoonClimate rdf:type owl:NamedIndividual ,
+                                     zone:A .
+
+
+###  http://sweetontology.net/realmClimateZone/TropicalRainForestClimate
+zone:TropicalRainForestClimate rdf:type owl:NamedIndividual ,
+                                        zone:A .
+
+
+###  http://sweetontology.net/realmClimateZone/TropicalSavannaClimate
+zone:TropicalSavannaClimate rdf:type owl:NamedIndividual ,
+                                     zone:A .
+
+
+###  http://sweetontology.net/realmClimateZone/TundraClimate
+zone:TundraClimate rdf:type owl:NamedIndividual ,
+                            zone:E .
+
+
+###  http://sweetontology.net/realmRegion/LowLatitude
+sreg:LowLatitude rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprTimeSeason/Summer
+time:Summer rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprTimeSeason/Winter
+time:Winter rdf:type owl:NamedIndividual .
+
+
+[ rdf:type thic:PrecipitationRange_cm
+] .
+
+[ rdf:type thic:PrecipitationRange_cm
+ ] .
+
+[ rdf:type ptime:MonthRange
+ ] .
+
+[ rdf:type ptime:MonthRange
+ ] .
+
+[ rdf:type thic:PrecipitationRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type thic:PrecipitationRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type ptime:MonthRange
+ ] .
+
+[ rdf:type ptime:MonthRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type ptime:MonthRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type ptime:MonthRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type thic:PrecipitationRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type ptime:MonthRange
+ ] .
+
+[ rdf:type temp:TemperatureRange
+ ] .
+
+[ rdf:type thic:PrecipitationRange
+ ] .
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

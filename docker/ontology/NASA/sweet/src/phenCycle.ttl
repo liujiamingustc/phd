@@ -1,0 +1,263 @@
+@prefix : <http://sweetontology.net/phenCycle/> .
+@prefix osc: <http://sweetontology.net/phenCycle/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sys: <http://sweetontology.net/phenSystem/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix spac: <http://sweetontology.net/stateSpaceScale/> .
+@prefix star: <http://sweetontology.net/phenStar/> .
+@prefix prela: <http://sweetontology.net/relaPhysical/> .
+@prefix sfreq: <http://sweetontology.net/stateTimeFrequency/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@prefix trela: <http://sweetontology.net/relaTime/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@base <http://sweetontology.net/phenCycle> .
+
+<http://sweetontology.net/phenCycle> rdf:type owl:Ontology ;
+                                      owl:imports <http://sweetontology.net/phenStar> ,
+                                                  <http://sweetontology.net/phenSystem> ,
+                                                  <http://sweetontology.net/realm> ,
+                                                  <http://sweetontology.net/rela> ,
+                                                  <http://sweetontology.net/relaPhysical> ,
+                                                  <http://sweetontology.net/relaSpace> ,
+                                                  <http://sweetontology.net/relaTime> ,
+                                                  <http://sweetontology.net/stateSpaceScale> ,
+                                                  <http://sweetontology.net/stateTimeFrequency> ;
+                                      rdfs:label "SWEET Ontology" ;
+                                      owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaPhysical/hasAstronomicalBody
+prela:hasAstronomicalBody rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSpace/hasSpatialScale
+srela:hasSpatialScale rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaTime/hasFrequency
+trela:hasFrequency rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/phenCycle/AnnualCycle
+osc:AnnualCycle rdf:type owl:Class ;
+                rdfs:subClassOf osc:GlobalCycle ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty trela:hasFrequency ;
+                                  owl:hasValue sfreq:Annual
+                                ] .
+
+
+###  http://sweetontology.net/phenCycle/AntarcticOscillation
+osc:AntarcticOscillation rdf:type owl:Class ;
+                         rdfs:subClassOf osc:EarthOscillation .
+
+
+###  http://sweetontology.net/phenCycle/ArcticOscillation
+osc:ArcticOscillation rdf:type owl:Class ;
+                      rdfs:subClassOf osc:EarthOscillation .
+
+
+###  http://sweetontology.net/phenCycle/BodyTide
+osc:BodyTide rdf:type owl:Class ;
+             rdfs:subClassOf osc:Tide .
+
+
+###  http://sweetontology.net/phenCycle/ChandlerWobble
+osc:ChandlerWobble rdf:type owl:Class ;
+                   rdfs:subClassOf osc:EarthOscillation .
+
+
+###  http://sweetontology.net/phenCycle/DiurnalCycle
+osc:DiurnalCycle rdf:type owl:Class ;
+                 rdfs:subClassOf osc:GlobalCycle ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty trela:hasFrequency ;
+                                   owl:hasValue sfreq:Daily
+                                 ] .
+
+
+###  http://sweetontology.net/phenCycle/ENSO
+osc:ENSO rdf:type owl:Class ;
+         owl:equivalentClass osc:ElNinoSouthernOscillation ,
+                             osc:SouthernOscillation .
+
+
+###  http://sweetontology.net/phenCycle/EarthOscillation
+osc:EarthOscillation rdf:type owl:Class ;
+                     rdfs:subClassOf osc:PlanetaryOscillation ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty prela:hasAstronomicalBody ;
+                                       owl:hasValue planet:Earth
+                                     ] .
+
+
+###  http://sweetontology.net/phenCycle/ElNinoSouthernOscillation
+osc:ElNinoSouthernOscillation rdf:type owl:Class ;
+                              rdfs:subClassOf osc:EarthOscillation ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty rela:hasRealm ;
+                                                owl:allValuesFrom planet:Ocean
+                                              ] .
+
+
+###  http://sweetontology.net/phenCycle/GlobalCycle
+osc:GlobalCycle rdf:type owl:Class ;
+                rdfs:subClassOf sys:Oscillation ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty srela:hasSpatialScale ;
+                                  owl:hasValue spac:Global
+                                ] .
+
+
+###  http://sweetontology.net/phenCycle/IceAgeCycle
+osc:IceAgeCycle rdf:type owl:Class ;
+                rdfs:subClassOf osc:EarthOscillation .
+
+
+###  http://sweetontology.net/phenCycle/MaddenJulianOscillation
+osc:MaddenJulianOscillation rdf:type owl:Class ;
+                            rdfs:subClassOf osc:EarthOscillation ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty trela:hasFrequency ;
+                                              owl:hasValue sfreq:Decadal
+                                            ] .
+
+
+###  http://sweetontology.net/phenCycle/MilankovitchCycle
+osc:MilankovitchCycle rdf:type owl:Class ;
+                      rdfs:subClassOf osc:EarthOscillation .
+
+
+###  http://sweetontology.net/phenCycle/NAO
+osc:NAO rdf:type owl:Class ;
+        owl:equivalentClass osc:NorthAtlanticOscillation .
+
+
+###  http://sweetontology.net/phenCycle/NorthAtlanticOscillation
+osc:NorthAtlanticOscillation rdf:type owl:Class ;
+                             rdfs:subClassOf osc:EarthOscillation .
+
+
+###  http://sweetontology.net/phenCycle/PDO
+osc:PDO rdf:type owl:Class ;
+        owl:equivalentClass osc:PacificDecadalOscillation .
+
+
+###  http://sweetontology.net/phenCycle/PacificDecadalOscillation
+osc:PacificDecadalOscillation rdf:type owl:Class ;
+                              rdfs:subClassOf osc:EarthOscillation .
+
+
+###  http://sweetontology.net/phenCycle/PacificNorthAmericanPattern
+osc:PacificNorthAmericanPattern rdf:type owl:Class ;
+                                rdfs:subClassOf osc:EarthOscillation .
+
+
+###  http://sweetontology.net/phenCycle/PlanetaryOscillation
+osc:PlanetaryOscillation rdf:type owl:Class ;
+                         rdfs:subClassOf osc:GlobalCycle .
+
+
+###  http://sweetontology.net/phenCycle/PolarWander
+osc:PolarWander rdf:type owl:Class ;
+                rdfs:subClassOf osc:EarthOscillation .
+
+
+###  http://sweetontology.net/phenCycle/PoleTide
+osc:PoleTide rdf:type owl:Class ;
+             rdfs:subClassOf osc:Tide .
+
+
+###  http://sweetontology.net/phenCycle/QBO
+osc:QBO rdf:type owl:Class ;
+        owl:equivalentClass osc:QuasiBiennialOscillation .
+
+
+###  http://sweetontology.net/phenCycle/QuasiBiennialOscillation
+osc:QuasiBiennialOscillation rdf:type owl:Class ;
+                             rdfs:subClassOf osc:EarthOscillation ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty trela:hasFrequency ;
+                                               owl:hasValue sfreq:Biannual
+                                             ] .
+
+
+###  http://sweetontology.net/phenCycle/SolarCycle
+osc:SolarCycle rdf:type owl:Class ;
+               rdfs:subClassOf osc:GlobalCycle ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rela:hasPhenomena ;
+                                 owl:allValuesFrom star:SolarActivity
+                               ] .
+
+
+###  http://sweetontology.net/phenCycle/SouthernOscillation
+osc:SouthernOscillation rdf:type owl:Class ;
+                        rdfs:subClassOf osc:EarthOscillation .
+
+
+###  http://sweetontology.net/phenCycle/Tide
+osc:Tide rdf:type owl:Class ;
+         rdfs:subClassOf osc:PlanetaryOscillation .
+
+
+###  http://sweetontology.net/phenStar/SolarActivity
+star:SolarActivity rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenSystem/Oscillation
+sys:Oscillation rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realm/Ocean
+planet:Ocean rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/realm/Earth
+planet:Earth rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/stateSpaceScale/Global
+spac:Global rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/stateTimeFrequency/Annual
+sfreq:Annual rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/stateTimeFrequency/Biannual
+sfreq:Biannual rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/stateTimeFrequency/Daily
+sfreq:Daily rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/stateTimeFrequency/Decadal
+sfreq:Decadal rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

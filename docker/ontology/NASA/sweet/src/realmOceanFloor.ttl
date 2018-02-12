@@ -1,0 +1,153 @@
+@prefix : <http://sweetontology.net/realmOceanFloor/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix body: <http://sweetontology.net/realmHydroBody/> .
+@prefix fail: <http://sweetontology.net/phenSolid/> .
+@prefix fluv: <http://sweetontology.net/realmLandFluvial/> .
+@prefix land: <http://sweetontology.net/realmLandform/> .
+@prefix orog: <http://sweetontology.net/realmLandOrographic/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix volc: <http://sweetontology.net/realmLandVolcanic/> .
+@prefix xten: <http://sweetontology.net/propSpaceDistance/> .
+@prefix floor: <http://sweetontology.net/realmOceanFloor/> .
+@base <http://sweetontology.net/realmOceanFloor> .
+
+<http://sweetontology.net/realmOceanFloor> rdf:type owl:Ontology ;
+                                            owl:imports <http://sweetontology.net/phenSolid> ,
+                                                        <http://sweetontology.net/propSpaceDistance> ,
+                                                        <http://sweetontology.net/realmHydroBody> ,
+                                                        <http://sweetontology.net/realmLandFluvial> ,
+                                                        <http://sweetontology.net/realmLandOrographic> ,
+                                                        <http://sweetontology.net/realmLandVolcanic> ,
+                                                        <http://sweetontology.net/realmLandform> ,
+                                                        <http://sweetontology.net/rela> ;
+                                            rdfs:label "SWEET Ontology" ;
+                                            owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmOceanFloor/AbyssalHill
+floor:AbyssalHill rdf:type owl:Class ;
+                  rdfs:subClassOf orog:Hill ,
+                                  floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/AbyssalPlain
+floor:AbyssalPlain rdf:type owl:Class ;
+                   rdfs:subClassOf land:Plain ,
+                                   floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/AbyssalTrench
+floor:AbyssalTrench rdf:type owl:Class ;
+                    owl:equivalentClass floor:DeepSeaTrench .
+
+
+###  http://sweetontology.net/realmOceanFloor/AlgalFlat
+floor:AlgalFlat rdf:type owl:Class ;
+                rdfs:subClassOf floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/ColdSeep
+floor:ColdSeep rdf:type owl:Class ;
+               rdfs:subClassOf fail:Fissure ,
+                               floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/ContinentalRise
+floor:ContinentalRise rdf:type owl:Class ;
+                      rdfs:subClassOf floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/ContinentalShelf
+floor:ContinentalShelf rdf:type owl:Class ;
+                       rdfs:subClassOf floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/ContinentalSlope
+floor:ContinentalSlope rdf:type owl:Class ;
+                       rdfs:subClassOf floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/DeepOceanBasin
+floor:DeepOceanBasin rdf:type owl:Class ;
+                     rdfs:subClassOf floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/DeepSeaTrench
+floor:DeepSeaTrench rdf:type owl:Class ;
+                    rdfs:subClassOf fluv:Trench ,
+                                    floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/Guyot
+floor:Guyot rdf:type owl:Class ;
+            rdfs:subClassOf floor:Seamount .
+
+
+###  http://sweetontology.net/realmOceanFloor/HydrothermalVent
+floor:HydrothermalVent rdf:type owl:Class ;
+                       rdfs:subClassOf volc:Geyser ,
+                                       floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/MidOceanRidge
+floor:MidOceanRidge rdf:type owl:Class ;
+                    rdfs:subClassOf floor:OceanRidge .
+
+
+###  http://sweetontology.net/realmOceanFloor/OceanFloor
+floor:OceanFloor rdf:type owl:Class ;
+                 owl:equivalentClass floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/OceanRidge
+floor:OceanRidge rdf:type owl:Class ;
+                 rdfs:subClassOf orog:Ridge ,
+                                 floor:SeaFloor .
+
+
+###  http://sweetontology.net/realmOceanFloor/OceanicPlateau
+floor:OceanicPlateau rdf:type owl:Class ;
+                     rdfs:subClassOf floor:OceanRidge .
+
+
+###  http://sweetontology.net/realmOceanFloor/Reef
+floor:Reef rdf:type owl:Class ;
+           rdfs:subClassOf floor:OceanRidge .
+
+
+###  http://sweetontology.net/realmOceanFloor/SeaFloor
+floor:SeaFloor rdf:type owl:Class ;
+               owl:equivalentClass floor:Seabed ;
+               rdfs:subClassOf body:WaterBodyBoundary .
+
+
+###  http://sweetontology.net/realmOceanFloor/Seabed
+floor:Seabed rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmOceanFloor/Seamount
+floor:Seamount rdf:type owl:Class ;
+               rdfs:subClassOf orog:Mountain ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rela:hasRealm ;
+                                 owl:allValuesFrom floor:SeaFloor
+                               ] .
+
+
+###  http://sweetontology.net/realmOceanFloor/SubmarineCanyon
+floor:SubmarineCanyon rdf:type owl:Class ;
+                      rdfs:subClassOf fluv:Canyon ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty rela:hasRealm ;
+                                        owl:allValuesFrom floor:SeaFloor
+                                      ] .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

@@ -1,0 +1,184 @@
+@prefix : <http://sweetontology.net/realmAstroHelio/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix band: <http://sweetontology.net/stateSpectralBand/> .
+@prefix ordi: <http://sweetontology.net/propOrdinal/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix helio: <http://sweetontology.net/realmAstroHelio/> .
+@prefix prela: <http://sweetontology.net/relaPhysical/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@prefix state: <http://sweetontology.net/state/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@prefix pstate: <http://sweetontology.net/statePhysical/> .
+@base <http://sweetontology.net/realmAstroHelio> .
+
+<http://sweetontology.net/realmAstroHelio> rdf:type owl:Ontology ;
+                                            owl:imports <http://sweetontology.net/propOrdinal> ,
+                                                        <http://sweetontology.net/realm> ,
+                                                        <http://sweetontology.net/rela> ,
+                                                        <http://sweetontology.net/relaPhysical> ,
+                                                        <http://sweetontology.net/relaSpace> ,
+                                                        <http://sweetontology.net/state> ,
+                                                        <http://sweetontology.net/statePhysical> ,
+                                                        <http://sweetontology.net/stateSpectralBand> ;
+                                            rdfs:label "SWEET Ontology" ;
+                                            owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#versionInfo
+owl:versionInfo rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/relaPhysical/hasSpectralBand
+prela:hasSpectralBand rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmAstroHelio/DLayer
+helio:DLayer rdf:type owl:Class ;
+             rdfs:subClassOf planet:PlanetaryLayer ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rela:hasRealm ;
+                               owl:someValuesFrom helio:Ionosphere
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty prela:hasSpectralBand ;
+                               owl:hasValue band:HardXRay
+                             ] .
+
+
+###  http://sweetontology.net/realmAstroHelio/ELayer
+helio:ELayer rdf:type owl:Class ;
+             rdfs:subClassOf planet:PlanetaryLayer ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rela:hasRealm ;
+                               owl:someValuesFrom helio:Ionosphere
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty prela:hasSpectralBand ;
+                               owl:hasValue band:SoftXRay
+                             ] .
+
+
+###  http://sweetontology.net/realmAstroHelio/Exosphere
+helio:Exosphere rdf:type owl:Class ;
+                rdfs:subClassOf planet:PlanetaryLayer .
+
+
+###  http://sweetontology.net/realmAstroHelio/FLayer
+helio:FLayer rdf:type owl:Class ;
+             rdfs:subClassOf planet:PlanetaryLayer ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rela:hasRealm ;
+                               owl:someValuesFrom helio:Ionosphere
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty prela:hasSpectralBand ;
+                               owl:hasValue band:EUV
+                             ] .
+
+
+###  http://sweetontology.net/realmAstroHelio/Heliopause
+helio:Heliopause rdf:type owl:Class ;
+                 rdfs:subClassOf planet:PlanetarySurfaceLevel .
+
+
+###  http://sweetontology.net/realmAstroHelio/Heliosphere
+helio:Heliosphere rdf:type owl:Class ;
+                  rdfs:subClassOf planet:PlanetaryLayer .
+
+
+###  http://sweetontology.net/realmAstroHelio/Ionosphere
+helio:Ionosphere rdf:type owl:Class ;
+                 rdfs:subClassOf planet:PlanetaryLayer .
+
+
+###  http://sweetontology.net/realmAstroHelio/LowerHeliosphere
+helio:LowerHeliosphere rdf:type owl:Class ;
+                       rdfs:subClassOf planet:PlanetaryLayer ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty rela:hasRealm ;
+                                         owl:someValuesFrom helio:Heliosphere
+                                       ] .
+
+
+###  http://sweetontology.net/realmAstroHelio/Magnetosphere
+helio:Magnetosphere rdf:type owl:Class ;
+                    rdfs:subClassOf planet:PlanetaryLayer .
+
+
+###  http://sweetontology.net/realmAstroHelio/Plasmapause
+helio:Plasmapause rdf:type owl:Class ;
+                  rdfs:subClassOf planet:PlanetaryBoundary .
+
+
+###  http://sweetontology.net/realmAstroHelio/Plasmasphere
+helio:Plasmasphere rdf:type owl:Class ;
+                   rdfs:subClassOf planet:PlanetaryLayer ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty rela:hasRealm ;
+                                     owl:someValuesFrom helio:LowerHeliosphere
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty srela:hasUpperBoundary ;
+                                     owl:allValuesFrom helio:Plasmapause
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty rela:hasState ;
+                                     owl:hasValue pstate:Plasma
+                                   ] .
+
+
+###  http://sweetontology.net/realmAstroHelio/RadiationBelt
+helio:RadiationBelt rdf:type owl:Class ;
+                    owl:equivalentClass helio:VanAllenBelt ;
+                    rdfs:subClassOf planet:PlanetaryLayer ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty rela:hasRealm ;
+                                      owl:allValuesFrom helio:Heliosphere
+                                    ] .
+
+
+###  http://sweetontology.net/realmAstroHelio/UpperHeliosphere
+helio:UpperHeliosphere rdf:type owl:Class ;
+                       rdfs:subClassOf planet:PlanetaryLayer ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty rela:hasRealm ;
+                                         owl:allValuesFrom helio:Heliosphere
+                                       ] .
+
+
+###  http://sweetontology.net/realmAstroHelio/VanAllenBelt
+helio:VanAllenBelt rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/stateSpectralBand/EUV
+band:EUV rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/stateSpectralBand/HardXRay
+band:HardXRay rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/stateSpectralBand/SoftXRay
+band:SoftXRay rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

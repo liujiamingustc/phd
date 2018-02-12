@@ -1,0 +1,215 @@
+@prefix : <http://sweetontology.net/realmGeolConstituent/> .
+@prefix con: <http://sweetontology.net/realmGeolConstituent/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix petr: <http://sweetontology.net/matrRock/> .
+@prefix prop: <http://sweetontology.net/propChemical/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix crela: <http://sweetontology.net/relaChemical/> .
+@prefix obj3d: <http://sweetontology.net/reprSpaceGeometry3D/> .
+@base <http://sweetontology.net/realmGeolConstituent> .
+
+<http://sweetontology.net/realmGeolConstituent> rdf:type owl:Ontology ;
+                                                 owl:imports <http://sweetontology.net/matrRock> ,
+                                                             <http://sweetontology.net/propChemical> ,
+                                                             <http://sweetontology.net/relaChemical> ,
+                                                             <http://sweetontology.net/reprSpaceGeometry3D> ;
+                                                 rdfs:label "SWEET Ontology" ;
+                                                 owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmGeolConstituent/ArmoredRelictInclusion
+con:ArmoredRelictInclusion rdf:type owl:Class ;
+                           rdfs:subClassOf con:Inclusion .
+
+
+###  http://sweetontology.net/realmGeolConstituent/ArmouredRelictCrystal
+con:ArmouredRelictCrystal rdf:type owl:Class ;
+                          rdfs:subClassOf con:ParticulateConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Chadacryst
+con:Chadacryst rdf:type owl:Class ;
+               rdfs:subClassOf con:ParticulateConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/ClastSupportingOrthomatrix
+con:ClastSupportingOrthomatrix rdf:type owl:Class ;
+                               rdfs:subClassOf con:Orthomatrix .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Clot
+con:Clot rdf:type owl:Class ;
+         rdfs:subClassOf con:StructuralConfiguration .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Corona
+con:Corona rdf:type owl:Class ;
+           rdfs:subClassOf con:StructuralConfiguration .
+
+
+###  http://sweetontology.net/realmGeolConstituent/CorrosionRim
+con:CorrosionRim rdf:type owl:Class ;
+                 rdfs:subClassOf con:Corona .
+
+
+###  http://sweetontology.net/realmGeolConstituent/CrystallineFramework
+con:CrystallineFramework rdf:type owl:Class ;
+                         rdfs:subClassOf con:ParticulateConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Dropstone
+con:Dropstone rdf:type owl:Class ;
+              rdfs:subClassOf con:StructuralConfiguration .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Epimatrix
+con:Epimatrix rdf:type owl:Class ;
+              rdfs:subClassOf con:Matrix .
+
+
+###  http://sweetontology.net/realmGeolConstituent/FloatingClast
+con:FloatingClast rdf:type owl:Class ;
+                  rdfs:subClassOf con:StructuralConfiguration .
+
+
+###  http://sweetontology.net/realmGeolConstituent/GranularFramework
+con:GranularFramework rdf:type owl:Class ;
+                      rdfs:subClassOf con:ParticulateConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Groundmass
+con:Groundmass rdf:type owl:Class ;
+               rdfs:subClassOf con:RockConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Inclusion
+con:Inclusion rdf:type owl:Class ;
+              rdfs:subClassOf con:StructuralConfiguration .
+
+
+###  http://sweetontology.net/realmGeolConstituent/InterstitialConstituent
+con:InterstitialConstituent rdf:type owl:Class ;
+                            rdfs:subClassOf con:RockConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Irregular
+con:Irregular rdf:type owl:Class ;
+              rdfs:subClassOf con:StructuralConfiguration .
+
+
+###  http://sweetontology.net/realmGeolConstituent/KelyphiticRim
+con:KelyphiticRim rdf:type owl:Class ;
+                  rdfs:subClassOf con:Corona .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Layer
+con:Layer rdf:type owl:Class ;
+          rdfs:subClassOf con:StructuralConfiguration .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Matrix
+con:Matrix rdf:type owl:Class ;
+           rdfs:subClassOf con:RockConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Megacryst
+con:Megacryst rdf:type owl:Class ;
+              rdfs:subClassOf con:ParticulateConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Oikocryst
+con:Oikocryst rdf:type owl:Class ;
+              rdfs:subClassOf con:ParticulateConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Orthomatrix
+con:Orthomatrix rdf:type owl:Class ;
+                rdfs:subClassOf con:Matrix .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Overgrowth
+con:Overgrowth rdf:type owl:Class ;
+               rdfs:subClassOf con:StructuralConfiguration .
+
+
+###  http://sweetontology.net/realmGeolConstituent/ParticulateConstituent
+con:ParticulateConstituent rdf:type owl:Class ;
+                           rdfs:subClassOf con:RockConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Phenoclast
+con:Phenoclast rdf:type owl:Class ;
+               rdfs:subClassOf con:ParticulateConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Phenocryst
+con:Phenocryst rdf:type owl:Class ;
+               rdfs:subClassOf con:Megacryst .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Porphyroblast
+con:Porphyroblast rdf:type owl:Class ;
+                  rdfs:subClassOf con:Megacryst .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Porphyroclast
+con:Porphyroclast rdf:type owl:Class ;
+                  rdfs:subClassOf con:Megacryst .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Protomatrix
+con:Protomatrix rdf:type owl:Class ;
+                rdfs:subClassOf con:Matrix .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Pseudomatrix
+con:Pseudomatrix rdf:type owl:Class ;
+                 rdfs:subClassOf con:Matrix .
+
+
+###  http://sweetontology.net/realmGeolConstituent/RockConstituent
+con:RockConstituent rdf:type owl:Class ;
+                    rdfs:subClassOf prop:Constituent ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty crela:hasSubstance ;
+                                      owl:allValuesFrom petr:Rock
+                                    ] .
+
+
+###  http://sweetontology.net/realmGeolConstituent/SedimentaryRockCement
+con:SedimentaryRockCement rdf:type owl:Class ;
+                          rdfs:subClassOf con:RockConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/SmallConcretion
+con:SmallConcretion rdf:type owl:Class ;
+                    rdfs:subClassOf con:StructuralConfiguration .
+
+
+###  http://sweetontology.net/realmGeolConstituent/StructuralConfiguration
+con:StructuralConfiguration rdf:type owl:Class ;
+                            rdfs:subClassOf con:RockConstituent .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Vein
+con:Vein rdf:type owl:Class ;
+         rdfs:subClassOf con:StructuralConfiguration .
+
+
+###  http://sweetontology.net/realmGeolConstituent/Vug
+con:Vug rdf:type owl:Class ;
+        rdfs:subClassOf con:StructuralConfiguration ,
+                        obj3d:Cavity .
+
+
+###  http://sweetontology.net/reprSpaceGeometry3D/Cavity
+obj3d:Cavity rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

@@ -1,0 +1,133 @@
+@prefix : <http://sweetontology.net/realmAtmoWeather/> .
+@prefix ht: <http://sweetontology.net/propSpaceHeight/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix atmo: <http://sweetontology.net/realmAtmo/> .
+@prefix atmp: <http://sweetontology.net/phenAtmo/> .
+@prefix inst: <http://sweetontology.net/phenFluidInstability/> .
+@prefix prec: <http://sweetontology.net/phenAtmoPrecipitation/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix weat: <http://sweetontology.net/realmAtmoWeather/> .
+@prefix prela: <http://sweetontology.net/relaPhysical/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@prefix statec: <http://sweetontology.net/procStateChange/> .
+@base <http://sweetontology.net/realmAtmoWeather> .
+
+<http://sweetontology.net/realmAtmoWeather> rdf:type owl:Ontology ;
+                                             owl:imports <http://sweetontology.net/phenAtmo> ,
+                                                         <http://sweetontology.net/phenAtmoPrecipitation> ,
+                                                         <http://sweetontology.net/phenFluidInstability> ,
+                                                         <http://sweetontology.net/procStateChange> ,
+                                                         <http://sweetontology.net/propSpaceHeight> ,
+                                                         <http://sweetontology.net/realm> ,
+                                                         <http://sweetontology.net/realmAtmo> ,
+                                                         <http://sweetontology.net/rela> ,
+                                                         <http://sweetontology.net/relaPhysical> ;
+                                             rdfs:label "SWEET Ontology" ;
+                                             owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmAtmoWeather/AdiabaticCondensationLevel
+weat:AdiabaticCondensationLevel rdf:type owl:Class ;
+                                rdfs:subClassOf weat:CondensationLevel .
+
+
+###  http://sweetontology.net/realmAtmoWeather/CloudBase
+weat:CloudBase rdf:type owl:Class ;
+               rdfs:subClassOf planet:PlanetaryBoundary .
+
+
+###  http://sweetontology.net/realmAtmoWeather/CloudTop
+weat:CloudTop rdf:type owl:Class ;
+              rdfs:subClassOf planet:PlanetaryBoundary .
+
+
+###  http://sweetontology.net/realmAtmoWeather/CondensationLevel
+weat:CondensationLevel rdf:type owl:Class ;
+                       rdfs:subClassOf ht:Level .
+
+
+###  http://sweetontology.net/realmAtmoWeather/ConvectiveCloudBase
+weat:ConvectiveCloudBase rdf:type owl:Class ;
+                         rdfs:subClassOf planet:PlanetaryBoundary .
+
+
+###  http://sweetontology.net/realmAtmoWeather/ConvectiveCloudTop
+weat:ConvectiveCloudTop rdf:type owl:Class ;
+                        rdfs:subClassOf planet:PlanetaryBoundary .
+
+
+###  http://sweetontology.net/realmAtmoWeather/ConvectiveCondensationLevel
+weat:ConvectiveCondensationLevel rdf:type owl:Class ;
+                                 rdfs:subClassOf weat:CondensationLevel .
+
+
+###  http://sweetontology.net/realmAtmoWeather/FreeConvectiveLayer
+weat:FreeConvectiveLayer rdf:type owl:Class ;
+                         rdfs:subClassOf atmo:AtmosphereLayer ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty rela:hasPhenomena ;
+                                           owl:allValuesFrom inst:FreeInstability
+                                         ] .
+
+
+###  http://sweetontology.net/realmAtmoWeather/FreezingLevel
+weat:FreezingLevel rdf:type owl:Class ;
+                   rdfs:subClassOf atmp:MeteorologicalPhenomena ,
+                                   planet:PlanetarySurfaceLevel .
+
+
+###  http://sweetontology.net/realmAtmoWeather/LFC
+weat:LFC rdf:type owl:Class ;
+         owl:equivalentClass weat:LevelOfFreeConvection ;
+         rdfs:subClassOf planet:PlanetarySurfaceLevel .
+
+
+###  http://sweetontology.net/realmAtmoWeather/LevelOfFreeConvection
+weat:LevelOfFreeConvection rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmAtmoWeather/MaximumWindSpeedLevel
+weat:MaximumWindSpeedLevel rdf:type owl:Class ;
+                           rdfs:subClassOf planet:PlanetarySurfaceLevel .
+
+
+###  http://sweetontology.net/realmAtmoWeather/MeltingLayer
+weat:MeltingLayer rdf:type owl:Class ;
+                  rdfs:subClassOf planet:PlanetaryLayer ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty prela:hasStateChange ;
+                                    owl:allValuesFrom statec:Melting
+                                  ] .
+
+
+###  http://sweetontology.net/realmAtmoWeather/MeltingLevel
+weat:MeltingLevel rdf:type owl:Class ;
+                  rdfs:subClassOf planet:PlanetarySurfaceLevel ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty prela:hasStateChange ;
+                                    owl:allValuesFrom statec:Melting
+                                  ] .
+
+
+###  http://sweetontology.net/realmAtmoWeather/SnowGeneratingLevel
+weat:SnowGeneratingLevel rdf:type owl:Class ;
+                         rdfs:subClassOf planet:PlanetarySurfaceLevel ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty rela:hasPhenomena ;
+                                           owl:allValuesFrom prec:Snowfall
+                                         ] .
+
+
+###  http://sweetontology.net/realmAtmoWeather/ZoneOfMaximumPrecipitation
+weat:ZoneOfMaximumPrecipitation rdf:type owl:Class ;
+                                rdfs:subClassOf atmo:AtmosphereLayer .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

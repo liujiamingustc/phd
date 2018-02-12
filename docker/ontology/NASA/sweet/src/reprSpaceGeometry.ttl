@@ -1,0 +1,262 @@
+@prefix : <http://sweetontology.net/reprSpaceGeometry/> .
+@prefix obj: <http://sweetontology.net/reprSpaceGeometry/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix math: <http://sweetontology.net/reprMath/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix repr: <http://sweetontology.net/repr/> .
+@prefix mathp: <http://sweetontology.net/reprMathFunction/> .
+@prefix mrela: <http://sweetontology.net/relaMath/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@base <http://sweetontology.net/reprSpaceGeometry> .
+
+<http://sweetontology.net/reprSpaceGeometry> rdf:type owl:Ontology ;
+                                              owl:imports <http://sweetontology.net/relaMath> ,
+                                                          <http://sweetontology.net/relaSpace> ,
+                                                          <http://sweetontology.net/repr> ,
+                                                          <http://sweetontology.net/reprMath> ,
+                                                          <http://sweetontology.net/reprMathFunction> ;
+                                              rdfs:label "SWEET Ontology" ;
+                                              owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/reprSpaceGeometry/Arc
+obj:Arc rdf:type owl:Class ;
+        rdfs:subClassOf obj:GeometricalObject_1D .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/BoundingBox
+obj:BoundingBox rdf:type owl:Class ;
+                rdfs:subClassOf obj:Rectangle .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Circle
+obj:Circle rdf:type owl:Class ;
+           rdfs:subClassOf obj:ConicSection .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Circular
+obj:Circular rdf:type owl:Class ;
+             rdfs:subClassOf obj:GeometricalObject_2D .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Cluster
+obj:Cluster rdf:type owl:Class ;
+            owl:equivalentClass obj:Family ,
+                                obj:Swarm ;
+            rdfs:subClassOf math:Collection .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Conic
+obj:Conic rdf:type owl:Class ;
+          owl:equivalentClass obj:ConicSection ;
+          rdfs:subClassOf obj:GeometricalObject_2D .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/ConicSection
+obj:ConicSection rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Contour
+obj:Contour rdf:type owl:Class ;
+            rdfs:subClassOf obj:Surface .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Crescent
+obj:Crescent rdf:type owl:Class ;
+             rdfs:subClassOf obj:GeometricalObject_2D .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Curve
+obj:Curve rdf:type owl:Class ;
+          rdfs:subClassOf obj:GeometricalObject_1D .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Depression
+obj:Depression rdf:type owl:Class ;
+               rdfs:subClassOf obj:GeometricalObject .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Ellipse
+obj:Ellipse rdf:type owl:Class ;
+            rdfs:subClassOf obj:ConicSection .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Family
+obj:Family rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/GeometricalObject
+obj:GeometricalObject rdf:type owl:Class ;
+                      rdfs:subClassOf math:NumericalEntity .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/GeometricalObject_0D
+obj:GeometricalObject_0D rdf:type owl:Class ;
+                         owl:equivalentClass obj:Point ;
+                         rdfs:subClassOf obj:GeometricalObject ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty mrela:hasDimension ;
+                                           owl:hasValue 0
+                                         ] .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/GeometricalObject_1D
+obj:GeometricalObject_1D rdf:type owl:Class ;
+                         rdfs:subClassOf repr:D ,
+                                         obj:GeometricalObject .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/GeometricalObject_2D
+obj:GeometricalObject_2D rdf:type owl:Class ;
+                         rdfs:subClassOf repr:D ,
+                                         obj:GeometricalObject .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/GreatCircle
+obj:GreatCircle rdf:type owl:Class ;
+                rdfs:subClassOf obj:Circle ;
+                owl:disjointWith obj:SmallCircle .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Helical
+obj:Helical rdf:type owl:Class ;
+            rdfs:subClassOf obj:GeometricalObject_2D .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Hyperbola
+obj:Hyperbola rdf:type owl:Class ;
+              rdfs:subClassOf obj:ConicSection .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Hyperplane
+obj:Hyperplane rdf:type owl:Class ;
+               rdfs:subClassOf obj:GeometricalObject .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Lattice
+obj:Lattice rdf:type owl:Class ;
+            rdfs:subClassOf mathp:Discrete ,
+                            obj:GeometricalObject .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Line
+obj:Line rdf:type owl:Class ;
+         rdfs:subClassOf obj:Curve .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Parabola
+obj:Parabola rdf:type owl:Class ;
+             rdfs:subClassOf obj:ConicSection .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Parabolic
+obj:Parabolic rdf:type owl:Class ;
+              rdfs:subClassOf obj:GeometricalObject_2D .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Patch
+obj:Patch rdf:type owl:Class ;
+          rdfs:subClassOf obj:Surface .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Path
+obj:Path rdf:type owl:Class ;
+         owl:equivalentClass obj:Trajectory .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Peak
+obj:Peak rdf:type owl:Class ;
+         rdfs:subClassOf obj:GeometricalObject .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Plane
+obj:Plane rdf:type owl:Class ;
+          rdfs:subClassOf obj:GeometricalObject_2D ,
+                          obj:Surface .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Point
+obj:Point rdf:type owl:Class ;
+          rdfs:subClassOf obj:GeometricalObject_0D .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Polygon
+obj:Polygon rdf:type owl:Class ;
+            rdfs:subClassOf obj:GeometricalObject_2D ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty srela:hasVertices ;
+                              owl:allValuesFrom obj:Point
+                            ] .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Rectangle
+obj:Rectangle rdf:type owl:Class ;
+              rdfs:subClassOf obj:Polygon .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Region
+obj:Region rdf:type owl:Class ;
+           rdfs:subClassOf obj:GeometricalObject .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Ridge
+obj:Ridge rdf:type owl:Class ;
+          rdfs:subClassOf obj:GeometricalObject .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Route
+obj:Route rdf:type owl:Class ;
+          rdfs:subClassOf obj:Path .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/SmallCircle
+obj:SmallCircle rdf:type owl:Class ;
+                rdfs:subClassOf obj:Circle .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Spiral
+obj:Spiral rdf:type owl:Class ;
+           rdfs:subClassOf obj:Arc .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Square
+obj:Square rdf:type owl:Class ;
+           rdfs:subClassOf obj:Rectangle .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Star
+obj:Star rdf:type owl:Class ;
+         rdfs:subClassOf obj:GeometricalObject_2D .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Surface
+obj:Surface rdf:type owl:Class ;
+            rdfs:subClassOf obj:GeometricalObject .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Swarm
+obj:Swarm rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Trajectory
+obj:Trajectory rdf:type owl:Class ;
+               rdfs:subClassOf obj:Curve .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Trough
+obj:Trough rdf:type owl:Class ;
+           rdfs:subClassOf obj:GeometricalObject .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Zone
+obj:Zone rdf:type owl:Class ;
+         rdfs:subClassOf obj:Region .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

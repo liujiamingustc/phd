@@ -1,0 +1,247 @@
+@prefix : <http://sweetontology.net/matr/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix chem: <http://sweetontology.net/matr/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix role: <http://sweetontology.net/stateRole/> .
+@prefix state: <http://sweetontology.net/state/> .
+@prefix pstate: <http://sweetontology.net/statePhysical/> .
+@base <http://sweetontology.net/matr> .
+
+<http://sweetontology.net/matr> rdf:type owl:Ontology ;
+                                 owl:imports <http://sweetontology.net/rela> ,
+                                             <http://sweetontology.net/state> ,
+                                             <http://sweetontology.net/statePhysical> ,
+                                             <http://sweetontology.net/stateRole> ;
+                                 rdfs:label "SWEET Ontology" ;
+                                 owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasRole
+rela:hasRole rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasState
+rela:hasState rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/matr/Air
+chem:Air rdf:type owl:Class ;
+         rdfs:subClassOf chem:Mixture .
+
+
+###  http://sweetontology.net/matr/BDOC
+chem:BDOC rdf:type owl:Class ;
+          owl:equivalentClass chem:BiodegradableDissolvedOrganicCarbon .
+
+
+###  http://sweetontology.net/matr/BiodegradableDissolvedOrganicCarbon
+chem:BiodegradableDissolvedOrganicCarbon rdf:type owl:Class ;
+                                         rdfs:subClassOf chem:DissolvedOrganicCarbon .
+
+
+###  http://sweetontology.net/matr/Chemical
+chem:Chemical rdf:type owl:Class ;
+              owl:equivalentClass chem:ChemicalSubstance ;
+              rdfs:subClassOf chem:Substance .
+
+
+###  http://sweetontology.net/matr/ChemicalSubstance
+chem:ChemicalSubstance rdf:type owl:Class .
+
+
+###  http://sweetontology.net/matr/DO
+chem:DO rdf:type owl:Class ;
+        owl:equivalentClass chem:DissolvedOxygen .
+
+
+###  http://sweetontology.net/matr/DOC
+chem:DOC rdf:type owl:Class ;
+         owl:equivalentClass chem:DissolvedOrganicCarbon .
+
+
+###  http://sweetontology.net/matr/DissolvedGas
+chem:DissolvedGas rdf:type owl:Class ;
+                  rdfs:subClassOf chem:DissolvedSubstance ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasState ;
+                                    owl:hasValue pstate:Gas
+                                  ] .
+
+
+###  http://sweetontology.net/matr/DissolvedOrganicCarbon
+chem:DissolvedOrganicCarbon rdf:type owl:Class ;
+                            rdfs:subClassOf chem:DissolvedSubstance .
+
+
+###  http://sweetontology.net/matr/DissolvedOxygen
+chem:DissolvedOxygen rdf:type owl:Class ;
+                     rdfs:subClassOf chem:DissolvedSubstance .
+
+
+###  http://sweetontology.net/matr/DissolvedSolid
+chem:DissolvedSolid rdf:type owl:Class ;
+                    rdfs:subClassOf chem:DissolvedSubstance ,
+                                    chem:SolidSubstance .
+
+
+###  http://sweetontology.net/matr/DissolvedSubstance
+chem:DissolvedSubstance rdf:type owl:Class ;
+                        rdfs:subClassOf chem:Substance ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty rela:hasState ;
+                                          owl:hasValue pstate:Dissolved
+                                        ] .
+
+
+###  http://sweetontology.net/matr/GreenhouseGas
+chem:GreenhouseGas rdf:type owl:Class ;
+                   rdfs:subClassOf chem:ChemicalSubstance ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty rela:hasState ;
+                                     owl:hasValue pstate:Gas
+                                   ] .
+
+
+###  http://sweetontology.net/matr/Inorganic
+chem:Inorganic rdf:type owl:Class ;
+               owl:equivalentClass chem:InorganicSubstance ;
+               rdfs:subClassOf chem:ChemicalSubstance .
+
+
+###  http://sweetontology.net/matr/InorganicSubstance
+chem:InorganicSubstance rdf:type owl:Class .
+
+
+###  http://sweetontology.net/matr/Medium
+chem:Medium rdf:type owl:Class ;
+            rdfs:subClassOf chem:Substance .
+
+
+###  http://sweetontology.net/matr/MixedChemicalSubstance
+chem:MixedChemicalSubstance rdf:type owl:Class ;
+                            owl:equivalentClass chem:Mixture .
+
+
+###  http://sweetontology.net/matr/Mixture
+chem:Mixture rdf:type owl:Class ;
+             rdfs:subClassOf chem:ChemicalSubstance .
+
+
+###  http://sweetontology.net/matr/NeutralGas
+chem:NeutralGas rdf:type owl:Class ;
+                rdfs:subClassOf chem:ChemicalSubstance ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasState ;
+                                  owl:hasValue pstate:Gas
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasState ;
+                                  owl:hasValue pstate:Neutral
+                                ] .
+
+
+###  http://sweetontology.net/matr/OrganicLoading
+chem:OrganicLoading rdf:type owl:Class ;
+                    rdfs:subClassOf chem:DissolvedSubstance .
+
+
+###  http://sweetontology.net/matr/SolidSubstance
+chem:SolidSubstance rdf:type owl:Class ;
+                    rdfs:subClassOf chem:Substance ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty rela:hasState ;
+                                      owl:hasValue pstate:Solid
+                                    ] .
+
+
+###  http://sweetontology.net/matr/Solution
+chem:Solution rdf:type owl:Class ;
+              rdfs:subClassOf chem:Mixture .
+
+
+###  http://sweetontology.net/matr/Substance
+chem:Substance rdf:type owl:Class .
+
+
+###  http://sweetontology.net/matr/SuspendedGas
+chem:SuspendedGas rdf:type owl:Class ;
+                  rdfs:subClassOf chem:SuspendedSubstance ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasState ;
+                                    owl:hasValue pstate:Gas
+                                  ] .
+
+
+###  http://sweetontology.net/matr/SuspendedSolid
+chem:SuspendedSolid rdf:type owl:Class ;
+                    rdfs:subClassOf chem:SolidSubstance ,
+                                    chem:SuspendedSubstance .
+
+
+###  http://sweetontology.net/matr/SuspendedSubstance
+chem:SuspendedSubstance rdf:type owl:Class ;
+                        rdfs:subClassOf chem:Substance ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty rela:hasState ;
+                                          owl:hasValue pstate:Suspended
+                                        ] .
+
+
+###  http://sweetontology.net/matr/TraceGas
+chem:TraceGas rdf:type owl:Class ;
+              rdfs:subClassOf chem:TraceSubstance ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rela:hasState ;
+                                owl:hasValue pstate:Gas
+                              ] .
+
+
+###  http://sweetontology.net/matr/TraceSubstance
+chem:TraceSubstance rdf:type owl:Class ;
+                    rdfs:subClassOf chem:Substance ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty rela:hasRole ;
+                                      owl:hasValue role:Trace
+                                    ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/statePhysical/Dissolved
+pstate:Dissolved rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/statePhysical/Gas
+pstate:Gas rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/statePhysical/Neutral
+pstate:Neutral rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/statePhysical/Solid
+pstate:Solid rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/statePhysical/Suspended
+pstate:Suspended rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/stateRole/Trace
+role:Trace rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

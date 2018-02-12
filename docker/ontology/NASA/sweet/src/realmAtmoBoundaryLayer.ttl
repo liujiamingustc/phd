@@ -1,0 +1,159 @@
+@prefix : <http://sweetontology.net/realmAtmoBoundaryLayer/> .
+@prefix ht: <http://sweetontology.net/propSpaceHeight/> .
+@prefix mix: <http://sweetontology.net/phenMixing/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix atmo: <http://sweetontology.net/realmAtmo/> .
+@prefix atmp: <http://sweetontology.net/phenAtmo/> .
+@prefix boun: <http://sweetontology.net/realmAtmoBoundaryLayer/> .
+@prefix cont: <http://sweetontology.net/stateSolid/> .
+@prefix inst: <http://sweetontology.net/phenFluidInstability/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix realm: <http://sweetontology.net/realm/> .
+@prefix trans: <http://sweetontology.net/phenFluidTransport/> .
+@base <http://sweetontology.net/realmAtmoBoundaryLayer> .
+
+<http://sweetontology.net/realmAtmoBoundaryLayer> rdf:type owl:Ontology ;
+                                                   owl:imports <http://sweetontology.net/phenAtmo> ,
+                                                               <http://sweetontology.net/phenFluidInstability> ,
+                                                               <http://sweetontology.net/phenFluidTransport> ,
+                                                               <http://sweetontology.net/phenMixing> ,
+                                                               <http://sweetontology.net/propSpaceHeight> ,
+                                                               <http://sweetontology.net/realm> ,
+                                                               <http://sweetontology.net/realmAtmo> ,
+                                                               <http://sweetontology.net/rela> ,
+                                                               <http://sweetontology.net/stateSolid> ;
+                                                   rdfs:label "SWEET Ontology" ;
+                                                   owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasState
+rela:hasState rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/AtmosphericBoundaryLayer
+boun:AtmosphericBoundaryLayer rdf:type owl:Class ;
+                              owl:equivalentClass boun:BoundaryLayer ;
+                              rdfs:subClassOf atmo:AtmosphereLayer .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/BoundaryLayer
+boun:BoundaryLayer rdf:type owl:Class ;
+                   owl:equivalentClass boun:PlanetaryBoundaryLayer .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/Cap
+boun:Cap rdf:type owl:Class ;
+         rdfs:subClassOf ht:Level .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/ConstantFluxLayer
+boun:ConstantFluxLayer rdf:type owl:Class ;
+                       rdfs:subClassOf boun:AtmosphericBoundaryLayer .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/InternalBoundaryLayer
+boun:InternalBoundaryLayer rdf:type owl:Class ;
+                           rdfs:subClassOf boun:AtmosphericBoundaryLayer .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/MechanicalInternalBoundaryLayer
+boun:MechanicalInternalBoundaryLayer rdf:type owl:Class ;
+                                     rdfs:subClassOf boun:InternalBoundaryLayer ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty rela:hasPhenomena ;
+                                                       owl:allValuesFrom trans:Advection
+                                                     ] .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/MixedLayer
+boun:MixedLayer rdf:type owl:Class ;
+                rdfs:subClassOf boun:BoundaryLayer ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasPhenomena ;
+                                  owl:allValuesFrom inst:Turbulence
+                                ] .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/NocturnalBoundaryLayer
+boun:NocturnalBoundaryLayer rdf:type owl:Class ;
+                            rdfs:subClassOf boun:BoundaryLayer ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty rela:hasPhenomena ;
+                                              owl:someValuesFrom atmp:NocturnalCooling
+                                            ] .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/OuterLayer
+boun:OuterLayer rdf:type owl:Class ;
+                rdfs:subClassOf boun:BoundaryLayer .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/PlanetaryBoundaryLayer
+boun:PlanetaryBoundaryLayer rdf:type owl:Class ;
+                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                              owl:onProperty rela:hasRealm ;
+                                              owl:someValuesFrom realm:Atmosphere
+                                            ] .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/ResidualLayer
+boun:ResidualLayer rdf:type owl:Class ;
+                   rdfs:subClassOf boun:AtmosphericBoundaryLayer .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/RoughnessSublayer
+boun:RoughnessSublayer rdf:type owl:Class ;
+                       rdfs:subClassOf boun:AtmosphericBoundaryLayer ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty rela:hasState ;
+                                         owl:hasValue cont:Rough
+                                       ] .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/SkinLayer
+boun:SkinLayer rdf:type owl:Class ;
+               rdfs:subClassOf boun:AtmosphericBoundaryLayer .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/StableBoundaryLayer
+boun:StableBoundaryLayer rdf:type owl:Class ;
+                         rdfs:subClassOf boun:AtmosphericBoundaryLayer .
+
+
+###  http://sweetontology.net/realmAtmoBoundaryLayer/WellMixedLayer
+boun:WellMixedLayer rdf:type owl:Class ;
+                    rdfs:subClassOf boun:AtmosphericBoundaryLayer ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty rela:hasPhenomena ;
+                                      owl:allValuesFrom mix:Mixing
+                                    ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/stateSolid/Rough
+cont:Rough rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

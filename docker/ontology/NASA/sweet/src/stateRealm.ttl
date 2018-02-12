@@ -1,0 +1,200 @@
+@prefix : <http://sweetontology.net/stateRealm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix srea: <http://sweetontology.net/stateRealm/> .
+@prefix pstate: <http://sweetontology.net/statePhysical/> .
+@base <http://sweetontology.net/stateRealm> .
+
+<http://sweetontology.net/stateRealm> rdf:type owl:Ontology ;
+                                       owl:imports <http://sweetontology.net/statePhysical> ;
+                                       rdfs:label "SWEET Ontology" ;
+                                       owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/stateRealm/RealmConfiguration
+srea:RealmConfiguration rdf:type owl:Class ;
+                        rdfs:subClassOf pstate:PhysicalState .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/stateRealm/Airborne
+srea:Airborne rdf:type owl:NamedIndividual ,
+                       srea:RealmConfiguration ;
+              owl:sameAs srea:Aloft .
+
+
+###  http://sweetontology.net/stateRealm/Aloft
+srea:Aloft rdf:type owl:NamedIndividual ,
+                    srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Aquatic
+srea:Aquatic rdf:type owl:NamedIndividual ,
+                      srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Atmospheric
+srea:Atmospheric rdf:type owl:NamedIndividual ,
+                          srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Benthic
+srea:Benthic rdf:type owl:NamedIndividual ,
+                      srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Buried
+srea:Buried rdf:type owl:NamedIndividual ,
+                     srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Extraterrestrial
+srea:Extraterrestrial rdf:type owl:NamedIndividual ,
+                               srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Geologic
+srea:Geologic rdf:type owl:NamedIndividual ,
+                       srea:RealmConfiguration ;
+              owl:sameAs srea:Geological .
+
+
+###  http://sweetontology.net/stateRealm/Geological
+srea:Geological rdf:type owl:NamedIndividual ,
+                         srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Neritic
+srea:Neritic rdf:type owl:NamedIndividual ,
+                      srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Oceanic
+srea:Oceanic rdf:type owl:NamedIndividual ,
+                      srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Offshore
+srea:Offshore rdf:type owl:NamedIndividual ,
+                       srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Onshore
+srea:Onshore rdf:type owl:NamedIndividual ,
+                      srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Spaceborne
+srea:Spaceborne rdf:type owl:NamedIndividual ,
+                         srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Subaqueous
+srea:Subaqueous rdf:type owl:NamedIndividual ,
+                         srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Submerged
+srea:Submerged rdf:type owl:NamedIndividual ,
+                        srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Sunken
+srea:Sunken rdf:type owl:NamedIndividual ,
+                     srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Terrestrial
+srea:Terrestrial rdf:type owl:NamedIndividual ,
+                          srea:RealmConfiguration .
+
+
+###  http://sweetontology.net/stateRealm/Underwater
+srea:Underwater rdf:type owl:NamedIndividual ,
+                         srea:RealmConfiguration .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( srea:Airborne
+                        srea:Spaceborne
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( srea:Airborne
+                        srea:Subaqueous
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( srea:Airborne
+                        srea:Sunken
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( srea:Atmospheric
+                        srea:Oceanic
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( srea:Extraterrestrial
+                        srea:Oceanic
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( srea:Extraterrestrial
+                        srea:Terrestrial
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( srea:Oceanic
+                        srea:Terrestrial
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( srea:Offshore
+                        srea:Onshore
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( srea:Spaceborne
+                        srea:Subaqueous
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( srea:Spaceborne
+                        srea:Sunken
+                      )
+] .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

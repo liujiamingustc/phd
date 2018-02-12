@@ -1,0 +1,248 @@
+@prefix : <http://sweetontology.net/propSpaceHeight/> .
+@prefix ht: <http://sweetontology.net/propSpaceHeight/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix quan: <http://sweetontology.net/propQuantity/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix xten: <http://sweetontology.net/propSpaceDistance/> .
+@prefix realm: <http://sweetontology.net/realm/> .
+@prefix space: <http://sweetontology.net/propSpace/> .
+@prefix units: <http://sweetontology.net/reprSciUnits/> .
+@prefix screla: <http://sweetontology.net/relaSci/> .
+@base <http://sweetontology.net/propSpaceHeight> .
+
+<http://sweetontology.net/propSpaceHeight> rdf:type owl:Ontology ;
+                                            owl:imports <http://sweetontology.net/propQuantity> ,
+                                                        <http://sweetontology.net/propSpace> ,
+                                                        <http://sweetontology.net/propSpaceDistance> ,
+                                                        <http://sweetontology.net/realm> ,
+                                                        <http://sweetontology.net/rela> ,
+                                                        <http://sweetontology.net/relaSci> ,
+                                                        <http://sweetontology.net/reprSciUnits> ;
+                                            rdfs:label "SWEET Ontology" ;
+                                            owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSci/hasUnit
+screla:hasUnit rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSci/rangeOf
+screla:rangeOf rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/propSpaceHeight/Altitude
+ht:Altitude rdf:type owl:Class ;
+            owl:equivalentClass ht:Elevation ;
+            rdfs:subClassOf ht:Height .
+
+
+###  http://sweetontology.net/propSpaceHeight/BarometricAltitude
+ht:BarometricAltitude rdf:type owl:Class ;
+                      rdfs:subClassOf ht:Altitude .
+
+
+###  http://sweetontology.net/propSpaceHeight/Bathymetry
+ht:Bathymetry rdf:type owl:Class ;
+              rdfs:subClassOf realm:PlanetarySurfaceLevel .
+
+
+###  http://sweetontology.net/propSpaceHeight/Ceiling
+ht:Ceiling rdf:type owl:Class ;
+           rdfs:subClassOf ht:VerticalExtent .
+
+
+###  http://sweetontology.net/propSpaceHeight/Crest
+ht:Crest rdf:type owl:Class ;
+         rdfs:subClassOf ht:Height .
+
+
+###  http://sweetontology.net/propSpaceHeight/DampingDepth
+ht:DampingDepth rdf:type owl:Class ;
+                rdfs:subClassOf ht:Depth .
+
+
+###  http://sweetontology.net/propSpaceHeight/Depth
+ht:Depth rdf:type owl:Class ;
+         rdfs:subClassOf xten:Distance ,
+                         ht:VerticalExtent .
+
+
+###  http://sweetontology.net/propSpaceHeight/DepthRange
+ht:DepthRange rdf:type owl:Class ;
+              rdfs:subClassOf quan:IntervalQuantity ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty screla:rangeOf ;
+                                owl:someValuesFrom ht:Depth
+                              ] .
+
+
+###  http://sweetontology.net/propSpaceHeight/DepthRange_km
+ht:DepthRange_km rdf:type owl:Class ;
+                 rdfs:subClassOf ht:DepthRange ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty screla:hasUnit ;
+                                   owl:hasValue units:kilometer
+                                 ] .
+
+
+###  http://sweetontology.net/propSpaceHeight/Drawdown
+ht:Drawdown rdf:type owl:Class ;
+            rdfs:subClassOf ht:Depth .
+
+
+###  http://sweetontology.net/propSpaceHeight/DynamicTopography
+ht:DynamicTopography rdf:type owl:Class ;
+                     rdfs:subClassOf ht:Topography .
+
+
+###  http://sweetontology.net/propSpaceHeight/Elevation
+ht:Elevation rdf:type owl:Class ;
+             rdfs:subClassOf ht:Height .
+
+
+###  http://sweetontology.net/propSpaceHeight/EstimatedCeiling
+ht:EstimatedCeiling rdf:type owl:Class ;
+                    rdfs:subClassOf ht:Ceiling .
+
+
+###  http://sweetontology.net/propSpaceHeight/FlightLevel
+ht:FlightLevel rdf:type owl:Class ;
+               rdfs:subClassOf ht:Altitude .
+
+
+###  http://sweetontology.net/propSpaceHeight/Freeboard
+ht:Freeboard rdf:type owl:Class ;
+             rdfs:subClassOf ht:Height .
+
+
+###  http://sweetontology.net/propSpaceHeight/Geoid
+ht:Geoid rdf:type owl:Class ;
+         rdfs:subClassOf realm:PlanetarySurfaceLevel .
+
+
+###  http://sweetontology.net/propSpaceHeight/GeopotentialHeight
+ht:GeopotentialHeight rdf:type owl:Class ;
+                      rdfs:subClassOf ht:Height .
+
+
+###  http://sweetontology.net/propSpaceHeight/Height
+ht:Height rdf:type owl:Class ;
+          rdfs:subClassOf xten:Distance ,
+                          ht:VerticalExtent .
+
+
+###  http://sweetontology.net/propSpaceHeight/HeightRange
+ht:HeightRange rdf:type owl:Class ;
+               rdfs:subClassOf quan:IntervalQuantity ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty screla:rangeOf ;
+                                 owl:someValuesFrom ht:Height
+                               ] .
+
+
+###  http://sweetontology.net/propSpaceHeight/HeightRange_km
+ht:HeightRange_km rdf:type owl:Class ;
+                  rdfs:subClassOf ht:HeightRange ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty screla:hasUnit ;
+                                    owl:hasValue units:kilometer
+                                  ] .
+
+
+###  http://sweetontology.net/propSpaceHeight/Level
+ht:Level rdf:type owl:Class ;
+         rdfs:subClassOf ht:VerticalExtent .
+
+
+###  http://sweetontology.net/propSpaceHeight/MixingHeight
+ht:MixingHeight rdf:type owl:Class ;
+                rdfs:subClassOf ht:Height .
+
+
+###  http://sweetontology.net/propSpaceHeight/ScaleHeight
+ht:ScaleHeight rdf:type owl:Class ;
+               rdfs:subClassOf ht:Height .
+
+
+###  http://sweetontology.net/propSpaceHeight/SeaLevel
+ht:SeaLevel rdf:type owl:Class ;
+            rdfs:subClassOf realm:PlanetarySurfaceLevel .
+
+
+###  http://sweetontology.net/propSpaceHeight/SeaState
+ht:SeaState rdf:type owl:Class ;
+            rdfs:subClassOf ht:Height ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rela:hasRealm ;
+                              owl:allValuesFrom realm:Ocean
+                            ] .
+
+
+###  http://sweetontology.net/propSpaceHeight/SecchiDepth
+ht:SecchiDepth rdf:type owl:Class ;
+               rdfs:subClassOf quan:RadiationMediumInteractionQuantity ,
+                               ht:Depth .
+
+
+###  http://sweetontology.net/propSpaceHeight/SignificantHeight
+ht:SignificantHeight rdf:type owl:Class ;
+                     rdfs:subClassOf ht:Height .
+
+
+###  http://sweetontology.net/propSpaceHeight/SkinDepth
+ht:SkinDepth rdf:type owl:Class ;
+             rdfs:subClassOf ht:Depth .
+
+
+###  http://sweetontology.net/propSpaceHeight/TopographicProminence
+ht:TopographicProminence rdf:type owl:Class ;
+                         rdfs:subClassOf ht:Height .
+
+
+###  http://sweetontology.net/propSpaceHeight/Topography
+ht:Topography rdf:type owl:Class ;
+              rdfs:subClassOf ht:Height .
+
+
+###  http://sweetontology.net/propSpaceHeight/UpperLevel
+ht:UpperLevel rdf:type owl:Class ;
+              rdfs:subClassOf ht:Level .
+
+
+###  http://sweetontology.net/propSpaceHeight/VerticalExtent
+ht:VerticalExtent rdf:type owl:Class ;
+                  rdfs:subClassOf space:SpatialExtent .
+
+
+###  http://sweetontology.net/realm/Ocean
+realm:Ocean rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realm/PlanetarySurfaceLevel
+realm:PlanetarySurfaceLevel rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/reprSciUnits/kilometer
+units:kilometer rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

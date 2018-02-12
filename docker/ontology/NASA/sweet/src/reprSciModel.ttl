@@ -1,0 +1,160 @@
+@prefix : <http://sweetontology.net/reprSciModel/> .
+@prefix mod: <http://sweetontology.net/reprSciModel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix res: <http://sweetontology.net/humanResearch/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix atmo: <http://sweetontology.net/phenAtmo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix repr: <http://sweetontology.net/repr/> .
+@base <http://sweetontology.net/reprSciModel> .
+
+<http://sweetontology.net/reprSciModel> rdf:type owl:Ontology ;
+                                         owl:imports <http://sweetontology.net/humanResearch> ,
+                                                     <http://sweetontology.net/phenAtmo> ,
+                                                     <http://sweetontology.net/rela> ,
+                                                     <http://sweetontology.net/repr> ;
+                                         rdfs:label "SWEET Ontology" ;
+                                         owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/reprSciModel/BoussinesqApproximation
+mod:BoussinesqApproximation rdf:type owl:Class ;
+                            rdfs:subClassOf mod:PhysicalApproximation .
+
+
+###  http://sweetontology.net/reprSciModel/ClimateModel
+mod:ClimateModel rdf:type owl:Class ;
+                 rdfs:subClassOf mod:Model .
+
+
+###  http://sweetontology.net/reprSciModel/EnsembleForecast
+mod:EnsembleForecast rdf:type owl:Class ;
+                     rdfs:subClassOf mod:Forecast .
+
+
+###  http://sweetontology.net/reprSciModel/Estimate
+mod:Estimate rdf:type owl:Class ;
+             rdfs:subClassOf mod:Prediction .
+
+
+###  http://sweetontology.net/reprSciModel/ExtendedForecast
+mod:ExtendedForecast rdf:type owl:Class ;
+                     rdfs:subClassOf mod:WeatherForecast .
+
+
+###  http://sweetontology.net/reprSciModel/FiniteElement
+mod:FiniteElement rdf:type owl:Class ;
+                  rdfs:subClassOf mod:Model .
+
+
+###  http://sweetontology.net/reprSciModel/FluxCorrection
+mod:FluxCorrection rdf:type owl:Class ;
+                   rdfs:subClassOf mod:PhysicalApproximation .
+
+
+###  http://sweetontology.net/reprSciModel/Forecast
+mod:Forecast rdf:type owl:Class ;
+             rdfs:subClassOf mod:Prediction .
+
+
+###  http://sweetontology.net/reprSciModel/GCM
+mod:GCM rdf:type owl:Class ;
+        owl:equivalentClass mod:GeneralCirculationModel .
+
+
+###  http://sweetontology.net/reprSciModel/GeneralCirculationModel
+mod:GeneralCirculationModel rdf:type owl:Class ;
+                            rdfs:subClassOf mod:Model .
+
+
+###  http://sweetontology.net/reprSciModel/Hypothesis
+mod:Hypothesis rdf:type owl:Class ;
+               rdfs:subClassOf res:ExperimentActivity .
+
+
+###  http://sweetontology.net/reprSciModel/MixingScheme
+mod:MixingScheme rdf:type owl:Class ;
+                 rdfs:subClassOf mod:Parameterization .
+
+
+###  http://sweetontology.net/reprSciModel/Model
+mod:Model rdf:type owl:Class ;
+          owl:equivalentClass mod:ScientificModel ;
+          rdfs:subClassOf repr:Representation .
+
+
+###  http://sweetontology.net/reprSciModel/Parameterization
+mod:Parameterization rdf:type owl:Class ;
+                     rdfs:subClassOf mod:Model .
+
+
+###  http://sweetontology.net/reprSciModel/Parcel
+mod:Parcel rdf:type owl:Class ;
+           rdfs:subClassOf mod:Model .
+
+
+###  http://sweetontology.net/reprSciModel/PhysicalApproximation
+mod:PhysicalApproximation rdf:type owl:Class ;
+                          rdfs:subClassOf mod:Model .
+
+
+###  http://sweetontology.net/reprSciModel/Predict
+mod:Predict rdf:type owl:Class ;
+            owl:equivalentClass mod:Prediction ;
+            rdfs:subClassOf res:ExperimentActivity .
+
+
+###  http://sweetontology.net/reprSciModel/Prediction
+mod:Prediction rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSciModel/ReactionPathModel
+mod:ReactionPathModel rdf:type owl:Class ;
+                      rdfs:subClassOf mod:Model .
+
+
+###  http://sweetontology.net/reprSciModel/RigidLidApproximation
+mod:RigidLidApproximation rdf:type owl:Class ;
+                          rdfs:subClassOf mod:PhysicalApproximation .
+
+
+###  http://sweetontology.net/reprSciModel/ScientificModel
+mod:ScientificModel rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSciModel/Spectral
+mod:Spectral rdf:type owl:Class ;
+             rdfs:subClassOf mod:Model .
+
+
+###  http://sweetontology.net/reprSciModel/SpectralElement
+mod:SpectralElement rdf:type owl:Class ;
+                    rdfs:subClassOf mod:Model .
+
+
+###  http://sweetontology.net/reprSciModel/Theoretical
+mod:Theoretical rdf:type owl:Class ;
+                owl:equivalentClass mod:Theory .
+
+
+###  http://sweetontology.net/reprSciModel/Theory
+mod:Theory rdf:type owl:Class ;
+           rdfs:subClassOf res:ExperimentActivity .
+
+
+###  http://sweetontology.net/reprSciModel/WeatherForecast
+mod:WeatherForecast rdf:type owl:Class ;
+                    rdfs:subClassOf mod:Forecast ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty rela:hasPhenomena ;
+                                      owl:allValuesFrom atmo:Weather
+                                    ] .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

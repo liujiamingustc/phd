@@ -1,0 +1,175 @@
+@prefix : <http://sweetontology.net/reprDataServiceGeospatial/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix anal: <http://sweetontology.net/reprDataServiceAnalysis/> .
+@prefix geos: <http://sweetontology.net/reprDataServiceGeospatial/> .
+@prefix oper: <http://sweetontology.net/reprMathOperation/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix redu: <http://sweetontology.net/reprDataServiceReduction/> .
+@prefix serv: <http://sweetontology.net/reprDataService/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@base <http://sweetontology.net/reprDataServiceGeospatial> .
+
+<http://sweetontology.net/reprDataServiceGeospatial> rdf:type owl:Ontology ;
+                                                      owl:imports <http://sweetontology.net/relaSpace> ,
+                                                                  <http://sweetontology.net/reprDataService> ,
+                                                                  <http://sweetontology.net/reprDataServiceAnalysis> ,
+                                                                  <http://sweetontology.net/reprDataServiceReduction> ,
+                                                                  <http://sweetontology.net/reprMathOperation> ;
+                                                      rdfs:label "SWEET Ontology" ;
+                                                      owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Buffer
+geos:Buffer rdf:type owl:Class ;
+            rdfs:subClassOf geos:Proximity .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Clip
+geos:Clip rdf:type owl:Class ;
+          rdfs:subClassOf geos:GeospatialService .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/CoordinateTransformation
+geos:CoordinateTransformation rdf:type owl:Class ;
+                              rdfs:subClassOf geos:Regridding .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Gazetteer
+geos:Gazetteer rdf:type owl:Class ;
+               rdfs:subClassOf serv:DiscoveryService ,
+                               geos:GeospatialService .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Generalization
+geos:Generalization rdf:type owl:Class ;
+                    rdfs:subClassOf geos:GeospatialService ,
+                                    redu:DataReductionService .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Geocode
+geos:Geocode rdf:type owl:Class ;
+             rdfs:subClassOf geos:GeospatialService .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Geolocate
+geos:Geolocate rdf:type owl:Class ;
+               owl:equivalentClass geos:Geolocation ;
+               rdfs:subClassOf geos:GeospatialService .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Geolocation
+geos:Geolocation rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Georeference
+geos:Georeference rdf:type owl:Class ;
+                  owl:equivalentClass geos:Georeferencing ;
+                  rdfs:subClassOf geos:GeospatialService .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Georeferencing
+geos:Georeferencing rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/GeospatialInterfaceProtocol
+geos:GeospatialInterfaceProtocol rdf:type owl:Class ;
+                                 rdfs:subClassOf serv:InterfaceProtocol .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/GeospatialService
+geos:GeospatialService rdf:type owl:Class ;
+                       rdfs:subClassOf serv:DataService ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty srela:hasLocation ;
+                                         owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                       ] .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Gridding
+geos:Gridding rdf:type owl:Class ;
+              rdfs:subClassOf geos:GeospatialService .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/LBS
+geos:LBS rdf:type owl:Class ;
+         owl:equivalentClass geos:LocationBasedService .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/LocationBasedService
+geos:LocationBasedService rdf:type owl:Class ;
+                          rdfs:subClassOf geos:GeospatialService .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Map
+geos:Map rdf:type owl:Class ;
+         owl:equivalentClass geos:Mapping ;
+         rdfs:subClassOf anal:Visualization .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Mapping
+geos:Mapping rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Proximity
+geos:Proximity rdf:type owl:Class ;
+               rdfs:subClassOf geos:GeospatialService .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Regrid
+geos:Regrid rdf:type owl:Class ;
+            owl:equivalentClass geos:Regridding ;
+            rdfs:subClassOf anal:Interpolate .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/Regridding
+geos:Regridding rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprDataServiceReduction/DataReductionService
+redu:DataReductionService rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/reprDataServiceGeospatial/WCS
+geos:WCS rdf:type owl:NamedIndividual ,
+                  geos:GeospatialInterfaceProtocol ;
+         owl:sameAs geos:WebCoverageServer .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/WFS
+geos:WFS rdf:type owl:NamedIndividual ,
+                  geos:GeospatialInterfaceProtocol ;
+         owl:sameAs geos:WebFeatureServer .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/WMS
+geos:WMS rdf:type owl:NamedIndividual ,
+                  geos:GeospatialInterfaceProtocol ;
+         owl:sameAs geos:WebMapServer .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/WebCoverageServer
+geos:WebCoverageServer rdf:type owl:NamedIndividual ,
+                                geos:GeospatialInterfaceProtocol .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/WebFeatureServer
+geos:WebFeatureServer rdf:type owl:NamedIndividual ,
+                               geos:GeospatialInterfaceProtocol .
+
+
+###  http://sweetontology.net/reprDataServiceGeospatial/WebMapServer
+geos:WebMapServer rdf:type owl:NamedIndividual ,
+                           geos:GeospatialInterfaceProtocol .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

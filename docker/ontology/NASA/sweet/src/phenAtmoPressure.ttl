@@ -1,0 +1,453 @@
+@prefix : <http://sweetontology.net/phenAtmoPressure/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix reg: <http://sweetontology.net/realmRegion/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix atmo: <http://sweetontology.net/phenAtmo/> .
+@prefix phen: <http://sweetontology.net/phen/> .
+@prefix prop: <http://sweetontology.net/prop/> .
+@prefix rate: <http://sweetontology.net/propTimeFrequency/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix role: <http://sweetontology.net/stateRole/> .
+@prefix fluid: <http://sweetontology.net/phenFluidDynamics/> .
+@prefix press: <http://sweetontology.net/phenAtmoPressure/> .
+@prefix scale: <http://sweetontology.net/stateSpaceScale/> .
+@prefix space: <http://sweetontology.net/reprSpaceGeometry/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@prefix trans: <http://sweetontology.net/phenFluidTransport/> .
+@prefix precip: <http://sweetontology.net/phenAtmoPrecipitation/> .
+@base <http://sweetontology.net/phenAtmoPressure> .
+
+<http://sweetontology.net/phenAtmoPressure> rdf:type owl:Ontology ;
+                                             owl:imports <http://sweetontology.net/phen> ,
+                                                         <http://sweetontology.net/phenAtmo> ,
+                                                         <http://sweetontology.net/phenAtmoPrecipitation> ,
+                                                         <http://sweetontology.net/phenFluidDynamics> ,
+                                                         <http://sweetontology.net/phenFluidTransport> ,
+                                                         <http://sweetontology.net/prop> ,
+                                                         <http://sweetontology.net/propTimeFrequency> ,
+                                                         <http://sweetontology.net/realmRegion> ,
+                                                         <http://sweetontology.net/rela> ,
+                                                         <http://sweetontology.net/relaSpace> ,
+                                                         <http://sweetontology.net/reprSpaceGeometry> ,
+                                                         <http://sweetontology.net/stateRole> ,
+                                                         <http://sweetontology.net/stateSpaceScale> ;
+                                             rdfs:label "SWEET Ontology" ;
+                                             owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasRole
+rela:hasRole rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSpace/clusterOf
+srela:clusterOf rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSpace/hasSpatialScale
+srela:hasSpatialScale rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSpace/originatesFrom
+srela:originatesFrom rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/phenAtmo/AtmosphericPhenomena
+atmo:AtmosphericPhenomena rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenAtmo/MeteorologicalPhenomena
+atmo:MeteorologicalPhenomena rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenAtmoPrecipitation/ConvectiveStorm
+precip:ConvectiveStorm rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenAtmoPrecipitation/Monsoon
+precip:Monsoon rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenAtmoPrecipitation/Storm
+precip:Storm rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenAtmoPressure/AtmosphericAnticyclone
+press:AtmosphericAnticyclone rdf:type owl:Class ;
+                             rdfs:subClassOf atmo:AtmosphericPhenomena ,
+                                             fluid:Anticyclone .
+
+
+###  http://sweetontology.net/phenAtmoPressure/AtmosphericCyclone
+press:AtmosphericCyclone rdf:type owl:Class ;
+                         rdfs:subClassOf atmo:AtmosphericPhenomena ,
+                                         fluid:Cyclone .
+
+
+###  http://sweetontology.net/phenAtmoPressure/AtmosphericHighPressure
+press:AtmosphericHighPressure rdf:type owl:Class ;
+                              rdfs:subClassOf atmo:AtmosphericPhenomena ,
+                                              fluid:HighPressure .
+
+
+###  http://sweetontology.net/phenAtmoPressure/AtmosphericLowPressure
+press:AtmosphericLowPressure rdf:type owl:Class ;
+                             rdfs:subClassOf atmo:AtmosphericPhenomena ,
+                                             fluid:LowPressure .
+
+
+###  http://sweetontology.net/phenAtmoPressure/AtmosphericRidge
+press:AtmosphericRidge rdf:type owl:Class ;
+                       rdfs:subClassOf atmo:AtmosphericPhenomena ,
+                                       fluid:Ridge .
+
+
+###  http://sweetontology.net/phenAtmoPressure/AtmosphericTrough
+press:AtmosphericTrough rdf:type owl:Class ;
+                        rdfs:subClassOf atmo:AtmosphericPhenomena ,
+                                        fluid:Trough .
+
+
+###  http://sweetontology.net/phenAtmoPressure/Barometric
+press:Barometric rdf:type owl:Class ;
+                 rdfs:subClassOf atmo:MeteorologicalPhenomena .
+
+
+###  http://sweetontology.net/phenAtmoPressure/Blocking
+press:Blocking rdf:type owl:Class ;
+               rdfs:subClassOf atmo:MeteorologicalPhenomena ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rela:hasPhenomena ;
+                                 owl:allValuesFrom fluid:Cyclone
+                               ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/BowEcho
+press:BowEcho rdf:type owl:Class ;
+              rdfs:subClassOf fluid:CellCluster .
+
+
+###  http://sweetontology.net/phenAtmoPressure/ConvectionCell
+press:ConvectionCell rdf:type owl:Class ;
+                     rdfs:subClassOf fluid:CellCluster .
+
+
+###  http://sweetontology.net/phenAtmoPressure/CutOffHigh
+press:CutOffHigh rdf:type owl:Class ;
+                 rdfs:subClassOf press:AtmosphericHighPressure .
+
+
+###  http://sweetontology.net/phenAtmoPressure/CutOffLow
+press:CutOffLow rdf:type owl:Class ;
+                rdfs:subClassOf press:AtmosphericLowPressure .
+
+
+###  http://sweetontology.net/phenAtmoPressure/Cyclogenesis
+press:Cyclogenesis rdf:type owl:Class ;
+                   rdfs:subClassOf atmo:MeteorologicalPhenomena .
+
+
+###  http://sweetontology.net/phenAtmoPressure/DeepConvection
+press:DeepConvection rdf:type owl:Class ;
+                     rdfs:subClassOf trans:Convection .
+
+
+###  http://sweetontology.net/phenAtmoPressure/Deepening
+press:Deepening rdf:type owl:Class ;
+                rdfs:subClassOf atmo:MeteorologicalPhenomena .
+
+
+###  http://sweetontology.net/phenAtmoPressure/DryConvection
+press:DryConvection rdf:type owl:Class ;
+                    rdfs:subClassOf trans:Convection .
+
+
+###  http://sweetontology.net/phenAtmoPressure/ElevatedConvection
+press:ElevatedConvection rdf:type owl:Class ;
+                         rdfs:subClassOf trans:Convection .
+
+
+###  http://sweetontology.net/phenAtmoPressure/ExtratropicalCyclone
+press:ExtratropicalCyclone rdf:type owl:Class ;
+                           rdfs:subClassOf press:AtmosphericCyclone ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty srela:originatesFrom ;
+                                             owl:hasValue reg:Extratropics
+                                           ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/KatallobaticCenter
+press:KatallobaticCenter rdf:type owl:Class ;
+                         rdfs:subClassOf press:AtmosphericLowPressure .
+
+
+###  http://sweetontology.net/phenAtmoPressure/LeesideConvergence
+press:LeesideConvergence rdf:type owl:Class ;
+                         rdfs:subClassOf rate:Convergence .
+
+
+###  http://sweetontology.net/phenAtmoPressure/LongmontAnticyclone
+press:LongmontAnticyclone rdf:type owl:Class ;
+                          rdfs:subClassOf press:AtmosphericAnticyclone .
+
+
+###  http://sweetontology.net/phenAtmoPressure/Mesoanticyclone
+press:Mesoanticyclone rdf:type owl:Class ;
+                      rdfs:subClassOf press:AtmosphericAnticyclone ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty rela:hasPhenomena ;
+                                        owl:someValuesFrom trans:Convection
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty srela:hasSpatialScale ;
+                                        owl:hasValue scale:Mesoscale
+                                      ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/Mesocyclone
+press:Mesocyclone rdf:type owl:Class ;
+                  rdfs:subClassOf press:AtmosphericCyclone ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasPhenomena ;
+                                    owl:someValuesFrom trans:Convection
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty srela:hasSpatialScale ;
+                                    owl:hasValue scale:Mesoscale
+                                  ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/Mesolow
+press:Mesolow rdf:type owl:Class ;
+              rdfs:subClassOf press:AtmosphericLowPressure .
+
+
+###  http://sweetontology.net/phenAtmoPressure/MesoscaleCellularConvection
+press:MesoscaleCellularConvection rdf:type owl:Class ;
+                                  rdfs:subClassOf fluid:CellCluster ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty srela:hasSpatialScale ;
+                                                    owl:hasValue scale:Mesoscale
+                                                  ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/MesoscaleConvectiveComplex
+press:MesoscaleConvectiveComplex rdf:type owl:Class ;
+                                 rdfs:subClassOf press:MesoscaleConvectiveSystem .
+
+
+###  http://sweetontology.net/phenAtmoPressure/MesoscaleConvectiveSystem
+press:MesoscaleConvectiveSystem rdf:type owl:Class ;
+                                rdfs:subClassOf precip:Storm ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty srela:hasSpatialScale ;
+                                                  owl:hasValue scale:Mesoscale
+                                                ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/MiniSupercell
+press:MiniSupercell rdf:type owl:Class ;
+                    rdfs:subClassOf precip:ConvectiveStorm .
+
+
+###  http://sweetontology.net/phenAtmoPressure/MinorRidge
+press:MinorRidge rdf:type owl:Class ;
+                 rdfs:subClassOf press:AtmosphericRidge ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasRole ;
+                                   owl:hasValue role:Minor
+                                 ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/MinorTrough
+press:MinorTrough rdf:type owl:Class ;
+                  rdfs:subClassOf press:AtmosphericTrough ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasRole ;
+                                    owl:hasValue role:Minor
+                                  ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/MoistConvection
+press:MoistConvection rdf:type owl:Class ;
+                      rdfs:subClassOf trans:Convection .
+
+
+###  http://sweetontology.net/phenAtmoPressure/MonsoonDepression
+press:MonsoonDepression rdf:type owl:Class ;
+                        rdfs:subClassOf precip:Monsoon .
+
+
+###  http://sweetontology.net/phenAtmoPressure/MonsoonGyre
+press:MonsoonGyre rdf:type owl:Class ;
+                  rdfs:subClassOf fluid:Circulation ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasPhenomena ;
+                                    owl:someValuesFrom trans:Convection
+                                  ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/MonsoonLow
+press:MonsoonLow rdf:type owl:Class ;
+                 rdfs:subClassOf press:AtmosphericLowPressure ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasPhenomena ;
+                                   owl:allValuesFrom precip:Monsoon
+                                 ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/Multivortex
+press:Multivortex rdf:type owl:Class ;
+                  rdfs:subClassOf space:Cluster ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty srela:clusterOf ;
+                                    owl:allValuesFrom fluid:Vortex
+                                  ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/PolarCyclone
+press:PolarCyclone rdf:type owl:Class ;
+                   rdfs:subClassOf press:AtmosphericCyclone ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty srela:originatesFrom ;
+                                     owl:hasValue reg:Polar
+                                   ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/PolarLow
+press:PolarLow rdf:type owl:Class ;
+               rdfs:subClassOf press:AtmosphericLowPressure ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty srela:originatesFrom ;
+                                 owl:hasValue reg:Polar
+                               ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/ShallowConvection
+press:ShallowConvection rdf:type owl:Class ;
+                        rdfs:subClassOf trans:Convection .
+
+
+###  http://sweetontology.net/phenAtmoPressure/SubtropicalCyclone
+press:SubtropicalCyclone rdf:type owl:Class ;
+                         rdfs:subClassOf press:AtmosphericCyclone ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty srela:originatesFrom ;
+                                           owl:hasValue reg:Subtropics
+                                         ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/TUTT
+press:TUTT rdf:type owl:Class ;
+           owl:equivalentClass press:TropicalUpperTroposphericTrough .
+
+
+###  http://sweetontology.net/phenAtmoPressure/TropicalCyclone
+press:TropicalCyclone rdf:type owl:Class ;
+                      rdfs:subClassOf press:AtmosphericCyclone ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty srela:originatesFrom ;
+                                        owl:hasValue reg:Tropics
+                                      ] .
+
+
+###  http://sweetontology.net/phenAtmoPressure/TropicalUpperTroposphericTrough
+press:TropicalUpperTroposphericTrough rdf:type owl:Class ;
+                                      rdfs:subClassOf press:TropicalCyclone .
+
+
+###  http://sweetontology.net/phenAtmoPressure/UpdraftCurtain
+press:UpdraftCurtain rdf:type owl:Class ;
+                     rdfs:subClassOf trans:Convection .
+
+
+###  http://sweetontology.net/phenFluidDynamics/Anticyclone
+fluid:Anticyclone rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenFluidDynamics/CellCluster
+fluid:CellCluster rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenFluidDynamics/Circulation
+fluid:Circulation rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenFluidDynamics/Cyclone
+fluid:Cyclone rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenFluidDynamics/HighPressure
+fluid:HighPressure rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenFluidDynamics/LowPressure
+fluid:LowPressure rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenFluidDynamics/Ridge
+fluid:Ridge rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenFluidDynamics/Trough
+fluid:Trough rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenFluidDynamics/Vortex
+fluid:Vortex rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenFluidTransport/Convection
+trans:Convection rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propTimeFrequency/Convergence
+rate:Convergence rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Cluster
+space:Cluster rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/realmRegion/Extratropics
+reg:Extratropics rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/realmRegion/Polar
+reg:Polar rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/realmRegion/Subtropics
+reg:Subtropics rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/realmRegion/Tropics
+reg:Tropics rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/stateRole/Minor
+role:Minor rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/stateSpaceScale/Mesoscale
+scale:Mesoscale rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

@@ -1,0 +1,180 @@
+@prefix : <http://sweetontology.net/phenFluidTransport/> .
+@prefix imp: <http://sweetontology.net/phenEnvirImpact/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix chem: <http://sweetontology.net/matr/> .
+@prefix phen: <http://sweetontology.net/phen/> .
+@prefix quan: <http://sweetontology.net/propQuantity/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix etrans: <http://sweetontology.net/phenFluidTransport/> .
+@prefix pstate: <http://sweetontology.net/statePhysical/> .
+@base <http://sweetontology.net/phenFluidTransport> .
+
+<http://sweetontology.net/phenFluidTransport> rdf:type owl:Ontology ;
+                                               owl:imports <http://sweetontology.net/matr> ,
+                                                           <http://sweetontology.net/phen> ,
+                                                           <http://sweetontology.net/phenEnvirImpact> ,
+                                                           <http://sweetontology.net/propQuantity> ,
+                                                           <http://sweetontology.net/rela> ,
+                                                           <http://sweetontology.net/statePhysical> ;
+                                               rdfs:label "SWEET Ontology" ;
+                                               owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/phenFluidTransport/Advection
+etrans:Advection rdf:type owl:Class ;
+                 rdfs:subClassOf phen:Phenomena ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasPhenomena ;
+                                   owl:allValuesFrom etrans:Transport
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasState ;
+                                   owl:hasValue pstate:Fluid
+                                 ] .
+
+
+###  http://sweetontology.net/phenFluidTransport/BolusAdvection
+etrans:BolusAdvection rdf:type owl:Class ;
+                      rdfs:subClassOf etrans:Advection .
+
+
+###  http://sweetontology.net/phenFluidTransport/Buoyancy
+etrans:Buoyancy rdf:type owl:Class ;
+                rdfs:subClassOf phen:Phenomena .
+
+
+###  http://sweetontology.net/phenFluidTransport/Coning
+etrans:Coning rdf:type owl:Class ;
+              rdfs:subClassOf etrans:Plume .
+
+
+###  http://sweetontology.net/phenFluidTransport/Convection
+etrans:Convection rdf:type owl:Class ;
+                  rdfs:subClassOf phen:Phenomena .
+
+
+###  http://sweetontology.net/phenFluidTransport/ConvectivePlume
+etrans:ConvectivePlume rdf:type owl:Class ;
+                       rdfs:subClassOf etrans:Plume ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty rela:hasPhenomena ;
+                                         owl:allValuesFrom etrans:Convection
+                                       ] .
+
+
+###  http://sweetontology.net/phenFluidTransport/CounterGradientFlux
+etrans:CounterGradientFlux rdf:type owl:Class ;
+                           rdfs:subClassOf quan:Flux .
+
+
+###  http://sweetontology.net/phenFluidTransport/Deposition
+etrans:Deposition rdf:type owl:Class ;
+                  rdfs:subClassOf phen:Phenomena .
+
+
+###  http://sweetontology.net/phenFluidTransport/Fanning
+etrans:Fanning rdf:type owl:Class ;
+               rdfs:subClassOf etrans:Plume .
+
+
+###  http://sweetontology.net/phenFluidTransport/HTAP
+etrans:HTAP rdf:type owl:Class ;
+            owl:equivalentClass etrans:HemisphericTransportOfAirPollutants .
+
+
+###  http://sweetontology.net/phenFluidTransport/HemisphericTransportOfAirPollutants
+etrans:HemisphericTransportOfAirPollutants rdf:type owl:Class ;
+                                           rdfs:subClassOf etrans:Transport ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty rela:hasPhenomena ;
+                                                             owl:someValuesFrom imp:AirPollution
+                                                           ] .
+
+
+###  http://sweetontology.net/phenFluidTransport/Lofting
+etrans:Lofting rdf:type owl:Class ;
+               rdfs:subClassOf etrans:Convection .
+
+
+###  http://sweetontology.net/phenFluidTransport/LongRangeTransport
+etrans:LongRangeTransport rdf:type owl:Class ;
+                          rdfs:subClassOf etrans:Transport .
+
+
+###  http://sweetontology.net/phenFluidTransport/Plume
+etrans:Plume rdf:type owl:Class ;
+             rdfs:subClassOf chem:SuspendedSubstance ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rela:hasState ;
+                               owl:hasValue pstate:Fluid
+                             ] .
+
+
+###  http://sweetontology.net/phenFluidTransport/Puff
+etrans:Puff rdf:type owl:Class ;
+            rdfs:subClassOf etrans:Plume .
+
+
+###  http://sweetontology.net/phenFluidTransport/SlantWiseConvection
+etrans:SlantWiseConvection rdf:type owl:Class ;
+                           rdfs:subClassOf etrans:Convection .
+
+
+###  http://sweetontology.net/phenFluidTransport/StackEffect
+etrans:StackEffect rdf:type owl:Class ;
+                   rdfs:subClassOf etrans:Convection .
+
+
+###  http://sweetontology.net/phenFluidTransport/Surge
+etrans:Surge rdf:type owl:Class ;
+             rdfs:subClassOf quan:Flux .
+
+
+###  http://sweetontology.net/phenFluidTransport/Transport
+etrans:Transport rdf:type owl:Class ;
+                 rdfs:subClassOf phen:Phenomena .
+
+
+###  http://sweetontology.net/phenFluidTransport/Uptake
+etrans:Uptake rdf:type owl:Class ;
+              rdfs:subClassOf etrans:Transport .
+
+
+###  http://sweetontology.net/phenFluidTransport/VorticityAdvection
+etrans:VorticityAdvection rdf:type owl:Class ;
+                          rdfs:subClassOf etrans:Advection .
+
+
+###  http://sweetontology.net/phenFluidTransport/WestEastTransport
+etrans:WestEastTransport rdf:type owl:Class ;
+                         rdfs:subClassOf etrans:Transport .
+
+
+###  http://sweetontology.net/propQuantity/Flux
+quan:Flux rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/statePhysical/Fluid
+pstate:Fluid rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

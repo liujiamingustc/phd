@@ -1,0 +1,220 @@
+@prefix : <http://sweetontology.net/matrSediment/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sed: <http://sweetontology.net/matrSediment/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix chem: <http://sweetontology.net/matr/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix solid: <http://sweetontology.net/phenSolid/> .
+@prefix prrela: <http://sweetontology.net/relaProvenance/> .
+@base <http://sweetontology.net/matrSediment> .
+
+<http://sweetontology.net/matrSediment> rdf:type owl:Ontology ;
+                                         owl:imports <http://sweetontology.net/matr> ,
+                                                     <http://sweetontology.net/phenSolid> ,
+                                                     <http://sweetontology.net/relaProvenance> ;
+                                         rdfs:label "SWEET Ontology" ;
+                                         owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/relaProvenance/hasGenesis
+prrela:hasGenesis rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/matrSediment/Alluvium
+sed:Alluvium rdf:type owl:Class ;
+             rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/AshFlow
+sed:AshFlow rdf:type owl:Class ;
+            rdfs:subClassOf sed:DebrisFlow .
+
+
+###  http://sweetontology.net/matrSediment/Ashfall
+sed:Ashfall rdf:type owl:Class ;
+            rdfs:subClassOf sed:Ejecta .
+
+
+###  http://sweetontology.net/matrSediment/Bentonite
+sed:Bentonite rdf:type owl:Class ;
+              rdfs:subClassOf sed:Clay .
+
+
+###  http://sweetontology.net/matrSediment/Block
+sed:Block rdf:type owl:Class ;
+          rdfs:subClassOf sed:Ejecta .
+
+
+###  http://sweetontology.net/matrSediment/Bomb
+sed:Bomb rdf:type owl:Class ;
+         rdfs:subClassOf sed:Ejecta .
+
+
+###  http://sweetontology.net/matrSediment/Boulder
+sed:Boulder rdf:type owl:Class ;
+            rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Clast
+sed:Clast rdf:type owl:Class ;
+          rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Clay
+sed:Clay rdf:type owl:Class ;
+         rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Cobble
+sed:Cobble rdf:type owl:Class ;
+           rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Colluvium
+sed:Colluvium rdf:type owl:Class ;
+              rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Debris
+sed:Debris rdf:type owl:Class ;
+           rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/DebrisAvalanche
+sed:DebrisAvalanche rdf:type owl:Class ;
+                    rdfs:subClassOf sed:DebrisFlow .
+
+
+###  http://sweetontology.net/matrSediment/DebrisFlow
+sed:DebrisFlow rdf:type owl:Class ;
+               rdfs:subClassOf chem:Mixture .
+
+
+###  http://sweetontology.net/matrSediment/DrillingMud
+sed:DrillingMud rdf:type owl:Class ;
+                rdfs:subClassOf sed:Mud .
+
+
+###  http://sweetontology.net/matrSediment/Ejecta
+sed:Ejecta rdf:type owl:Class ;
+           rdfs:subClassOf chem:Mixture .
+
+
+###  http://sweetontology.net/matrSediment/Gibber
+sed:Gibber rdf:type owl:Class ;
+           rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Granule
+sed:Granule rdf:type owl:Class ;
+            rdfs:subClassOf sed:Gravel .
+
+
+###  http://sweetontology.net/matrSediment/Gravel
+sed:Gravel rdf:type owl:Class ;
+           rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/HydrogenousSediment
+sed:HydrogenousSediment rdf:type owl:Class ;
+                        rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Hypoclastite
+sed:Hypoclastite rdf:type owl:Class ;
+                 rdfs:subClassOf sed:VolcanicDeposit .
+
+
+###  http://sweetontology.net/matrSediment/Lahar
+sed:Lahar rdf:type owl:Class ;
+          rdfs:subClassOf sed:Mudflow .
+
+
+###  http://sweetontology.net/matrSediment/Loam
+sed:Loam rdf:type owl:Class ;
+         rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Loess
+sed:Loess rdf:type owl:Class ;
+          rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/MarineSediment
+sed:MarineSediment rdf:type owl:Class ;
+                   rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Mud
+sed:Mud rdf:type owl:Class ;
+        rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Mudflow
+sed:Mudflow rdf:type owl:Class ;
+            rdfs:subClassOf sed:DebrisFlow .
+
+
+###  http://sweetontology.net/matrSediment/Peat
+sed:Peat rdf:type owl:Class ;
+         rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Pebble
+sed:Pebble rdf:type owl:Class ;
+           rdfs:subClassOf sed:Gravel .
+
+
+###  http://sweetontology.net/matrSediment/Sand
+sed:Sand rdf:type owl:Class ;
+         rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Sediment
+sed:Sediment rdf:type owl:Class ;
+             rdfs:subClassOf chem:Mixture .
+
+
+###  http://sweetontology.net/matrSediment/Silt
+sed:Silt rdf:type owl:Class ;
+         rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/Soil
+sed:Soil rdf:type owl:Class ;
+         rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/TerrigenousSediment
+sed:TerrigenousSediment rdf:type owl:Class ;
+                        rdfs:subClassOf sed:Sediment ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty prrela:hasGenesis ;
+                                          owl:allValuesFrom solid:Erosion
+                                        ] .
+
+
+###  http://sweetontology.net/matrSediment/Varve
+sed:Varve rdf:type owl:Class ;
+          rdfs:subClassOf sed:Sediment .
+
+
+###  http://sweetontology.net/matrSediment/VolcanicDeposit
+sed:VolcanicDeposit rdf:type owl:Class ;
+                    rdfs:subClassOf chem:Substance .
+
+
+###  http://sweetontology.net/phenSolid/Erosion
+solid:Erosion rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

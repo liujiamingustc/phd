@@ -1,0 +1,738 @@
+@prefix : <http://sweetontology.net/phenAtmoWindMesoscale/> .
+@prefix fog: <http://sweetontology.net/phenAtmoFog/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix aeol: <http://sweetontology.net/realmLandAeolian/> .
+@prefix atmo: <http://sweetontology.net/phenAtmo/> .
+@prefix body: <http://sweetontology.net/realmHydroBody/> .
+@prefix cryo: <http://sweetontology.net/realmCryo/> .
+@prefix fluv: <http://sweetontology.net/realmLandFluvial/> .
+@prefix meso: <http://sweetontology.net/phenAtmoWindMesoscale/> .
+@prefix orog: <http://sweetontology.net/realmLandOrographic/> .
+@prefix proc: <http://sweetontology.net/procPhysical/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix sdir: <http://sweetontology.net/reprSpaceDirection/> .
+@prefix wind: <http://sweetontology.net/phenAtmoWind/> .
+@prefix fluid: <http://sweetontology.net/phenFluidDynamics/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@prefix precip: <http://sweetontology.net/phenAtmoPrecipitation/> .
+@base <http://sweetontology.net/phenAtmoWindMesoscale> .
+
+<http://sweetontology.net/phenAtmoWindMesoscale> rdf:type owl:Ontology ;
+                                                  owl:imports <http://sweetontology.net/phenAtmo> ,
+                                                              <http://sweetontology.net/phenAtmoFog> ,
+                                                              <http://sweetontology.net/phenAtmoPrecipitation> ,
+                                                              <http://sweetontology.net/phenFluidDynamics> ,
+                                                              <http://sweetontology.net/procPhysical> ,
+                                                              <http://sweetontology.net/realm> ,
+                                                              <http://sweetontology.net/realmCryo> ,
+                                                              <http://sweetontology.net/realmHydroBody> ,
+                                                              <http://sweetontology.net/realmLandAeolian> ,
+                                                              <http://sweetontology.net/realmLandFluvial> ,
+                                                              <http://sweetontology.net/realmLandOrographic> ,
+                                                              <http://sweetontology.net/rela> ,
+                                                              <http://sweetontology.net/relaSpace> ,
+                                                              <http://sweetontology.net/reprSpaceDirection> ;
+                                                  rdfs:label "SWEET Ontology" ;
+                                                  owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasProcess
+rela:hasProcess rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSpace/hasDirection
+srela:hasDirection rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSpace/originatesFrom
+srela:originatesFrom rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/AnabaticWind
+meso:AnabaticWind rdf:type owl:Class ;
+                  rdfs:subClassOf meso:MountainWind ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasProcess ;
+                                    owl:allValuesFrom proc:Heating
+                                  ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/BarrierJet
+meso:BarrierJet rdf:type owl:Class ;
+                rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/BlackSquall
+meso:BlackSquall rdf:type owl:Class ;
+                 rdfs:subClassOf meso:Squall .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/BookEndVorticities
+meso:BookEndVorticities rdf:type owl:Class ;
+                        rdfs:subClassOf atmo:AtmosphericPhenomena ,
+                                        fluid:Vortex .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Bora
+meso:Bora rdf:type owl:Class ;
+          rdfs:subClassOf meso:FallWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/CanyonWind
+meso:CanyonWind rdf:type owl:Class ;
+                rdfs:subClassOf meso:MountainWind ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasProcess ;
+                                  owl:allValuesFrom proc:Cooling
+                                ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/CherguiWind
+meso:CherguiWind rdf:type owl:Class ;
+                 rdfs:subClassOf meso:DesertWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/ChinookWind
+meso:ChinookWind rdf:type owl:Class ;
+                 owl:equivalentClass meso:Foehn .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/DesertWind
+meso:DesertWind rdf:type owl:Class ;
+                rdfs:subClassOf meso:MesoscaleWind ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasRealm ;
+                                  owl:allValuesFrom aeol:Desert
+                                ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/DownslopeWind
+meso:DownslopeWind rdf:type owl:Class ;
+                   rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/DownslopeWindStorm
+meso:DownslopeWindStorm rdf:type owl:Class ;
+                        rdfs:subClassOf meso:DownslopeWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/FallWind
+meso:FallWind rdf:type owl:Class ;
+              rdfs:subClassOf meso:KatabaticWind ,
+                              meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Foehn
+meso:Foehn rdf:type owl:Class ;
+           rdfs:subClassOf meso:MountainWind ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rela:hasProcess ;
+                             owl:allValuesFrom proc:Heating
+                           ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/FogWind
+meso:FogWind rdf:type owl:Class ;
+             rdfs:subClassOf meso:Squall ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rela:hasPhenomena ;
+                               owl:allValuesFrom fog:Fog
+                             ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Forano
+meso:Forano rdf:type owl:Class ;
+            rdfs:subClassOf meso:SeaBreeze .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Galerne
+meso:Galerne rdf:type owl:Class ;
+             rdfs:subClassOf meso:Squall .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Gallego
+meso:Gallego rdf:type owl:Class ;
+             rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Garbin
+meso:Garbin rdf:type owl:Class ;
+            rdfs:subClassOf meso:SeaBreeze .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Gending
+meso:Gending rdf:type owl:Class ;
+             rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Gharbi
+meso:Gharbi rdf:type owl:Class ;
+            rdfs:subClassOf meso:OceanWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Gharra
+meso:Gharra rdf:type owl:Class ;
+            rdfs:subClassOf meso:Squall .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Ghibli
+meso:Ghibli rdf:type owl:Class ;
+            rdfs:subClassOf meso:DesertWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/GlacierWind
+meso:GlacierWind rdf:type owl:Class ;
+                 rdfs:subClassOf meso:GravityWind ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasRealm ;
+                                   owl:allValuesFrom cryo:Glacier
+                                 ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/GorgeWind
+meso:GorgeWind rdf:type owl:Class ;
+               rdfs:subClassOf meso:MesoscaleWind ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rela:hasRealm ;
+                                 owl:allValuesFrom fluv:Gorge
+                               ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/GravityWind
+meso:GravityWind rdf:type owl:Class ;
+                 rdfs:subClassOf meso:MountainWind ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasProcess ;
+                                   owl:allValuesFrom proc:Gravity
+                                 ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Greco
+meso:Greco rdf:type owl:Class ;
+           rdfs:subClassOf meso:OceanWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Gregale
+meso:Gregale rdf:type owl:Class ;
+             rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/GregauWind
+meso:GregauWind rdf:type owl:Class ;
+                rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/GullySquall
+meso:GullySquall rdf:type owl:Class ;
+                 rdfs:subClassOf meso:MountainWind ,
+                                 meso:Squall .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Haboob
+meso:Haboob rdf:type owl:Class ;
+            rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/IbeWind
+meso:IbeWind rdf:type owl:Class ;
+             rdfs:subClassOf meso:Foehn .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/InlandSeaBreeze
+meso:InlandSeaBreeze rdf:type owl:Class ;
+                     rdfs:subClassOf meso:SeaBreeze .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Kachchan
+meso:Kachchan rdf:type owl:Class ;
+              rdfs:subClassOf meso:Foehn .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/KalBaisakhi
+meso:KalBaisakhi rdf:type owl:Class ;
+                 rdfs:subClassOf meso:Squall ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasPhenomena ;
+                                   owl:allValuesFrom precip:Monsoon
+                                 ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Karaburan
+meso:Karaburan rdf:type owl:Class ;
+               rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Karajol
+meso:Karajol rdf:type owl:Class ;
+             rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Karema
+meso:Karema rdf:type owl:Class ;
+            rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Karif
+meso:Karif rdf:type owl:Class ;
+           rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/KatabaticWind
+meso:KatabaticWind rdf:type owl:Class ;
+                   rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Kaus
+meso:Kaus rdf:type owl:Class ;
+          rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Khamsin
+meso:Khamsin rdf:type owl:Class ;
+             rdfs:subClassOf meso:DesertWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/KloofWind
+meso:KloofWind rdf:type owl:Class ;
+               rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/KnikWind
+meso:KnikWind rdf:type owl:Class ;
+              rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Koembang
+meso:Koembang rdf:type owl:Class ;
+              rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Kona
+meso:Kona rdf:type owl:Class ;
+          rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Kossava
+meso:Kossava rdf:type owl:Class ;
+             rdfs:subClassOf meso:Squall .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/KrakatoaWind
+meso:KrakatoaWind rdf:type owl:Class ;
+                  rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Labbe
+meso:Labbe rdf:type owl:Class ;
+           rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Laheimar
+meso:Laheimar rdf:type owl:Class ;
+              rdfs:subClassOf meso:Squall .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/LakeBreeze
+meso:LakeBreeze rdf:type owl:Class ;
+                rdfs:subClassOf meso:MesoscaleWind ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty srela:originatesFrom ;
+                                  owl:allValuesFrom body:Lake
+                                ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/LandBreeze
+meso:LandBreeze rdf:type owl:Class ;
+                rdfs:subClassOf meso:OffshoreWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Leste
+meso:Leste rdf:type owl:Class ;
+           rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Levante
+meso:Levante rdf:type owl:Class ;
+             rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Levantera
+meso:Levantera rdf:type owl:Class ;
+               rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Leveche
+meso:Leveche rdf:type owl:Class ;
+             rdfs:subClassOf meso:MesoscaleWind ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rela:hasProcess ;
+                               owl:allValuesFrom proc:Heating
+                             ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Libeccio
+meso:Libeccio rdf:type owl:Class ;
+              rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Liberator
+meso:Liberator rdf:type owl:Class ;
+               rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/LineSquall
+meso:LineSquall rdf:type owl:Class ;
+                rdfs:subClassOf meso:Squall .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Lombarde
+meso:Lombarde rdf:type owl:Class ;
+              rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/LongShoreWind
+meso:LongShoreWind rdf:type owl:Class ;
+                   rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MackerelBreeze
+meso:MackerelBreeze rdf:type owl:Class ;
+                    owl:equivalentClass meso:MackerelGale ;
+                    rdfs:subClassOf meso:OceanWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MackerelGale
+meso:MackerelGale rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Maestro
+meso:Maestro rdf:type owl:Class ;
+             rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MajolaWind
+meso:MajolaWind rdf:type owl:Class ;
+                rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MalojaWind
+meso:MalojaWind rdf:type owl:Class ;
+                rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Mamatele
+meso:Mamatele rdf:type owl:Class ;
+              rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Marin
+meso:Marin rdf:type owl:Class ;
+           rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MatanuskaWind
+meso:MatanuskaWind rdf:type owl:Class ;
+                   rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Matinal
+meso:Matinal rdf:type owl:Class ;
+             rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Meltem
+meso:Meltem rdf:type owl:Class ;
+            rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Mergozzo
+meso:Mergozzo rdf:type owl:Class ;
+              rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Mesojet
+meso:Mesojet rdf:type owl:Class ;
+             rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MesoscaleWind
+meso:MesoscaleWind rdf:type owl:Class ;
+                   rdfs:subClassOf wind:Wind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Miejour
+meso:Miejour rdf:type owl:Class ;
+             rdfs:subClassOf meso:SeaBreeze .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MoazagotlWind
+meso:MoazagotlWind rdf:type owl:Class ;
+                   rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Molan
+meso:Molan rdf:type owl:Class ;
+           rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MonsoonSurge
+meso:MonsoonSurge rdf:type owl:Class ;
+                  rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Morget
+meso:Morget rdf:type owl:Class ;
+            rdfs:subClassOf meso:LandBreeze .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MountainBreeze
+meso:MountainBreeze rdf:type owl:Class ;
+                    rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MountainGapWind
+meso:MountainGapWind rdf:type owl:Class ;
+                     rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MountainPlainWind
+meso:MountainPlainWind rdf:type owl:Class ;
+                       rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MountainValleyWind
+meso:MountainValleyWind rdf:type owl:Class ;
+                        rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/MountainWind
+meso:MountainWind rdf:type owl:Class ;
+                  rdfs:subClassOf meso:MesoscaleWind ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasRealm ;
+                                    owl:allValuesFrom orog:Mountain
+                                  ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/N_aschi
+meso:N_aschi rdf:type owl:Class ;
+             rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Narbonnais
+meso:Narbonnais rdf:type owl:Class ;
+                rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/NightWind
+meso:NightWind rdf:type owl:Class ;
+               rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Nortada
+meso:Nortada rdf:type owl:Class ;
+             rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Norte
+meso:Norte rdf:type owl:Class ;
+           rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/NorthFoehn
+meso:NorthFoehn rdf:type owl:Class ;
+                rdfs:subClassOf meso:Foehn .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Northeaster
+meso:Northeaster rdf:type owl:Class ;
+                 rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Norther
+meso:Norther rdf:type owl:Class ;
+             rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Northwester
+meso:Northwester rdf:type owl:Class ;
+                 rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/OceanWind
+meso:OceanWind rdf:type owl:Class ;
+               rdfs:subClassOf meso:MesoscaleWind ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rela:hasRealm ;
+                                 owl:allValuesFrom planet:Ocean
+                               ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/OffshoreWind
+meso:OffshoreWind rdf:type owl:Class ;
+                  rdfs:subClassOf meso:MesoscaleWind ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty srela:originatesFrom ;
+                                    owl:allValuesFrom planet:Land
+                                  ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/OnshoreWind
+meso:OnshoreWind rdf:type owl:Class ;
+                 rdfs:subClassOf meso:MesoscaleWind ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty srela:originatesFrom ;
+                                   owl:allValuesFrom planet:Ocean
+                                 ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/OutflowJet
+meso:OutflowJet rdf:type owl:Class ;
+                rdfs:subClassOf meso:MesoscaleWind ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasRealm ;
+                                  owl:someValuesFrom fluv:Canyon
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasRealm ;
+                                  owl:someValuesFrom fluv:Valley
+                                ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/PlowWind
+meso:PlowWind rdf:type owl:Class ;
+              rdfs:subClassOf meso:MesoscaleWind ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rela:hasPhenomena ;
+                                owl:allValuesFrom precip:Thunderstorm
+                              ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/SeaBreeze
+meso:SeaBreeze rdf:type owl:Class ;
+               rdfs:subClassOf meso:OnshoreWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Squall
+meso:Squall rdf:type owl:Class ;
+            rdfs:subClassOf meso:MountainWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/ThunderstormOutflow
+meso:ThunderstormOutflow rdf:type owl:Class ;
+                         rdfs:subClassOf meso:MesoscaleWind ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty rela:hasPhenomena ;
+                                           owl:allValuesFrom precip:Thunderstorm
+                                         ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/UpslopeWind
+meso:UpslopeWind rdf:type owl:Class ;
+                 rdfs:subClassOf meso:MountainWind ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty srela:hasDirection ;
+                                   owl:hasValue sdir:Upslope
+                                 ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/ValleyWind
+meso:ValleyWind rdf:type owl:Class ;
+                rdfs:subClassOf meso:MesoscaleWind ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasRealm ;
+                                  owl:allValuesFrom fluv:Valley
+                                ] .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/YellowWind
+meso:YellowWind rdf:type owl:Class ;
+                rdfs:subClassOf meso:DesertWind .
+
+
+###  http://sweetontology.net/phenAtmoWindMesoscale/Zephyr
+meso:Zephyr rdf:type owl:Class ;
+            rdfs:subClassOf meso:MesoscaleWind .
+
+
+###  http://sweetontology.net/phenFluidDynamics/Vortex
+fluid:Vortex rdf:type owl:Class .
+
+
+###  http://sweetontology.net/procPhysical/Cooling
+proc:Cooling rdf:type owl:Class .
+
+
+###  http://sweetontology.net/procPhysical/Gravity
+proc:Gravity rdf:type owl:Class .
+
+
+###  http://sweetontology.net/procPhysical/Heating
+proc:Heating rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realm/Land
+planet:Land rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realm/Ocean
+planet:Ocean rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmCryo/Glacier
+cryo:Glacier rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmHydroBody/Lake
+body:Lake rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandAeolian/Desert
+aeol:Desert rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandFluvial/Canyon
+fluv:Canyon rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandFluvial/Gorge
+fluv:Gorge rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandFluvial/Valley
+fluv:Valley rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandOrographic/Mountain
+orog:Mountain rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/reprSpaceDirection/Upslope
+sdir:Upslope rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

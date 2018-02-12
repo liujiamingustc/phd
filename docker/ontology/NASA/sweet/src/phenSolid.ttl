@@ -1,0 +1,354 @@
+@prefix : <http://sweetontology.net/phenSolid/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix phen: <http://sweetontology.net/phen/> .
+@prefix proc: <http://sweetontology.net/procPhysical/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix sgeo: <http://sweetontology.net/stateRoleGeographic/> .
+@prefix solid: <http://sweetontology.net/phenSolid/> .
+@prefix pstate: <http://sweetontology.net/statePhysical/> .
+@base <http://sweetontology.net/phenSolid> .
+
+<http://sweetontology.net/phenSolid> rdf:type owl:Ontology ;
+                                      owl:imports <http://sweetontology.net/phen> ,
+                                                  <http://sweetontology.net/procPhysical> ,
+                                                  <http://sweetontology.net/rela> ,
+                                                  <http://sweetontology.net/statePhysical> ,
+                                                  <http://sweetontology.net/stateRoleGeographic> ;
+                                      rdfs:label "SWEET Ontology" ;
+                                      owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/phenSolid/Ablation
+solid:Ablation rdf:type owl:Class ;
+               rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Accretion
+solid:Accretion rdf:type owl:Class ;
+                owl:equivalentClass solid:Coalescence ;
+                rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Bend
+solid:Bend rdf:type owl:Class ;
+           rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/BergeronFindeisenProcess
+solid:BergeronFindeisenProcess rdf:type owl:Class ;
+                               rdfs:subClassOf solid:Coalescence .
+
+
+###  http://sweetontology.net/phenSolid/Break
+solid:Break rdf:type owl:Class ;
+            rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Buckle
+solid:Buckle rdf:type owl:Class ;
+             rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Cataclasis
+solid:Cataclasis rdf:type owl:Class ;
+                 rdfs:subClassOf solid:Fracture .
+
+
+###  http://sweetontology.net/phenSolid/Cementation
+solid:Cementation rdf:type owl:Class ;
+                  rdfs:subClassOf solid:Consolidation .
+
+
+###  http://sweetontology.net/phenSolid/Cleavage
+solid:Cleavage rdf:type owl:Class ;
+               rdfs:subClassOf solid:Crack .
+
+
+###  http://sweetontology.net/phenSolid/Clump
+solid:Clump rdf:type owl:Class ;
+            owl:equivalentClass solid:Clumping ;
+            rdfs:subClassOf solid:Accretion .
+
+
+###  http://sweetontology.net/phenSolid/Clumping
+solid:Clumping rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenSolid/Coalescence
+solid:Coalescence rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenSolid/Comminution
+solid:Comminution rdf:type owl:Class ;
+                  rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Compaction
+solid:Compaction rdf:type owl:Class ;
+                 rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Conchoidal
+solid:Conchoidal rdf:type owl:Class ;
+                 rdfs:subClassOf solid:Fracture .
+
+
+###  http://sweetontology.net/phenSolid/Congelation
+solid:Congelation rdf:type owl:Class ;
+                  rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Consolidation
+solid:Consolidation rdf:type owl:Class ;
+                    rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Crack
+solid:Crack rdf:type owl:Class ;
+            rdfs:subClassOf sgeo:Separation .
+
+
+###  http://sweetontology.net/phenSolid/Deform
+solid:Deform rdf:type owl:Class ;
+             owl:equivalentClass solid:Deformation .
+
+
+###  http://sweetontology.net/phenSolid/Deformation
+solid:Deformation rdf:type owl:Class ;
+                  rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Diagenesis
+solid:Diagenesis rdf:type owl:Class ;
+                 rdfs:subClassOf solid:Consolidation .
+
+
+###  http://sweetontology.net/phenSolid/Disintegrate
+solid:Disintegrate rdf:type owl:Class ;
+                   owl:equivalentClass solid:Disintegration ;
+                   rdfs:subClassOf solid:Failure .
+
+
+###  http://sweetontology.net/phenSolid/Disintegration
+solid:Disintegration rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenSolid/Dislocation
+solid:Dislocation rdf:type owl:Class ;
+                  rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Distortion
+solid:Distortion rdf:type owl:Class ;
+                 rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Earthy
+solid:Earthy rdf:type owl:Class ;
+             rdfs:subClassOf solid:Fracture .
+
+
+###  http://sweetontology.net/phenSolid/Elongate
+solid:Elongate rdf:type owl:Class ;
+               owl:equivalentClass solid:Stretch .
+
+
+###  http://sweetontology.net/phenSolid/Elongation
+solid:Elongation rdf:type owl:Class ;
+                 owl:equivalentClass solid:Stretch .
+
+
+###  http://sweetontology.net/phenSolid/Erode
+solid:Erode rdf:type owl:Class ;
+            owl:equivalentClass solid:Erosion ;
+            rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Erosion
+solid:Erosion rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenSolid/Extension
+solid:Extension rdf:type owl:Class ;
+                rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Failure
+solid:Failure rdf:type owl:Class ;
+              rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Fault
+solid:Fault rdf:type owl:Class ;
+            owl:equivalentClass solid:FaultLine ;
+            rdfs:subClassOf solid:Fracture .
+
+
+###  http://sweetontology.net/phenSolid/FaultLine
+solid:FaultLine rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenSolid/Fissure
+solid:Fissure rdf:type owl:Class ;
+              rdfs:subClassOf solid:Crack .
+
+
+###  http://sweetontology.net/phenSolid/Fold
+solid:Fold rdf:type owl:Class ;
+           rdfs:subClassOf solid:Deformation .
+
+
+###  http://sweetontology.net/phenSolid/Fracture
+solid:Fracture rdf:type owl:Class ;
+               rdfs:subClassOf solid:Failure .
+
+
+###  http://sweetontology.net/phenSolid/GrainSizeSorting
+solid:GrainSizeSorting rdf:type owl:Class ;
+                       rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Harden
+solid:Harden rdf:type owl:Class ;
+             rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Jagged
+solid:Jagged rdf:type owl:Class ;
+             rdfs:subClassOf solid:Fracture .
+
+
+###  http://sweetontology.net/phenSolid/Joint
+solid:Joint rdf:type owl:Class ;
+            rdfs:subClassOf solid:Crack .
+
+
+###  http://sweetontology.net/phenSolid/Metamorphism
+solid:Metamorphism rdf:type owl:Class ;
+                   rdfs:subClassOf solid:Consolidation .
+
+
+###  http://sweetontology.net/phenSolid/Microfracture
+solid:Microfracture rdf:type owl:Class ;
+                    rdfs:subClassOf solid:Fracture .
+
+
+###  http://sweetontology.net/phenSolid/Pore
+solid:Pore rdf:type owl:Class ;
+           owl:equivalentClass solid:PoreSpace ;
+           rdfs:subClassOf sgeo:Separation .
+
+
+###  http://sweetontology.net/phenSolid/PoreSpace
+solid:PoreSpace rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenSolid/Ridging
+solid:Ridging rdf:type owl:Class ;
+              rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Rip
+solid:Rip rdf:type owl:Class ;
+          rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Rupture
+solid:Rupture rdf:type owl:Class ;
+              rdfs:subClassOf solid:Fracture .
+
+
+###  http://sweetontology.net/phenSolid/Shatter
+solid:Shatter rdf:type owl:Class ;
+              rdfs:subClassOf solid:Failure .
+
+
+###  http://sweetontology.net/phenSolid/Shear
+solid:Shear rdf:type owl:Class ;
+            rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Slip
+solid:Slip rdf:type owl:Class ;
+           rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/SolidPhenomena
+solid:SolidPhenomena rdf:type owl:Class ;
+                     rdfs:subClassOf phen:Phenomena ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rela:hasState ;
+                                       owl:hasValue pstate:Solid
+                                     ] .
+
+
+###  http://sweetontology.net/phenSolid/Solidification
+solid:Solidification rdf:type owl:Class ;
+                     rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Solidify
+solid:Solidify rdf:type owl:Class ;
+               rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Spintery
+solid:Spintery rdf:type owl:Class ;
+               rdfs:subClassOf solid:Fracture .
+
+
+###  http://sweetontology.net/phenSolid/Strain
+solid:Strain rdf:type owl:Class ;
+             rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Stretch
+solid:Stretch rdf:type owl:Class ;
+              rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Subconchoidal
+solid:Subconchoidal rdf:type owl:Class ;
+                    rdfs:subClassOf solid:Fracture .
+
+
+###  http://sweetontology.net/phenSolid/Subside
+solid:Subside rdf:type owl:Class ;
+              owl:equivalentClass solid:Subsidence ;
+              rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Subsidence
+solid:Subsidence rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenSolid/Thinning
+solid:Thinning rdf:type owl:Class ;
+               rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/phenSolid/Wasting
+solid:Wasting rdf:type owl:Class ;
+              rdfs:subClassOf solid:SolidPhenomena .
+
+
+###  http://sweetontology.net/stateRoleGeographic/Separation
+sgeo:Separation rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/statePhysical/Solid
+pstate:Solid rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

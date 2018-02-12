@@ -1,0 +1,226 @@
+@prefix : <http://sweetontology.net/reprMath/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix math: <http://sweetontology.net/reprMath/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix repr: <http://sweetontology.net/repr/> .
+@prefix mrela: <http://sweetontology.net/relaMath/> .
+@prefix mrela2: <http://sweetontology.net/relaMath/> .
+@base <http://sweetontology.net/reprMath> .
+
+<http://sweetontology.net/reprMath> rdf:type owl:Ontology ;
+                                     owl:imports <http://sweetontology.net/relaMath> ,
+                                                 <http://sweetontology.net/repr> ;
+                                     rdfs:label "SWEET Ontology" ;
+                                     owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/reprMath/Array
+math:Array rdf:type owl:Class ;
+           rdfs:subClassOf math:Seq .
+
+
+###  http://sweetontology.net/reprMath/Bag
+math:Bag rdf:type owl:Class ;
+         owl:equivalentClass math:Multiset ;
+         rdfs:subClassOf math:Container .
+
+
+###  http://sweetontology.net/reprMath/Collection
+math:Collection rdf:type owl:Class ;
+                rdfs:subClassOf math:NumericalEntity .
+
+
+###  http://sweetontology.net/reprMath/Constant
+math:Constant rdf:type owl:Class ;
+              rdfs:subClassOf math:NumericalEntity .
+
+
+###  http://sweetontology.net/reprMath/Container
+math:Container rdf:type owl:Class ;
+               rdfs:subClassOf math:NumericalEntity .
+
+
+###  http://sweetontology.net/reprMath/Equation
+math:Equation rdf:type owl:Class ;
+              rdfs:subClassOf math:Relation .
+
+
+###  http://sweetontology.net/reprMath/Exponent
+math:Exponent rdf:type owl:Class ;
+              rdfs:subClassOf math:NumericalEntity .
+
+
+###  http://sweetontology.net/reprMath/FuzzyPoint
+math:FuzzyPoint rdf:type owl:Class ;
+                rdfs:subClassOf math:Neighborhood .
+
+
+###  http://sweetontology.net/reprMath/FuzzySet
+math:FuzzySet rdf:type owl:Class ;
+              rdfs:subClassOf math:NumericalEntity .
+
+
+###  http://sweetontology.net/reprMath/Inequality
+math:Inequality rdf:type owl:Class ;
+                rdfs:subClassOf math:Relation .
+
+
+###  http://sweetontology.net/reprMath/Interval
+math:Interval rdf:type owl:Class ;
+              rdfs:subClassOf math:NumericalEntity ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty mrela2:hasDimension ;
+                                owl:hasValue 1
+                              ] ;
+              owl:disjointWith math:Point .
+
+
+###  http://sweetontology.net/reprMath/Matrix
+math:Matrix rdf:type owl:Class ;
+            rdfs:subClassOf math:Seq ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty mrela2:eachElementHasType ;
+                              owl:allValuesFrom math:Array
+                            ] .
+
+
+###  http://sweetontology.net/reprMath/Multiset
+math:Multiset rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprMath/Neighborhood
+math:Neighborhood rdf:type owl:Class ;
+                  rdfs:subClassOf math:NumericalEntity .
+
+
+###  http://sweetontology.net/reprMath/NumericalEntity
+math:NumericalEntity rdf:type owl:Class ;
+                     rdfs:subClassOf repr:Representation .
+
+
+###  http://sweetontology.net/reprMath/Order
+math:Order rdf:type owl:Class ;
+           owl:equivalentClass math:Seq .
+
+
+###  http://sweetontology.net/reprMath/OrderedPair
+math:OrderedPair rdf:type owl:Class ;
+                 rdfs:subClassOf repr:D ,
+                                 math:Array ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty mrela2:hasFirstOperand ;
+                                   owl:cardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty mrela2:hasSecondOperand ;
+                                   owl:cardinality "1"^^xsd:nonNegativeInteger
+                                 ] .
+
+
+###  http://sweetontology.net/reprMath/OrderedTriple
+math:OrderedTriple rdf:type owl:Class ;
+                   rdfs:subClassOf repr:D ,
+                                   math:Array ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty mrela2:hasFirstOperand ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty mrela2:hasSecondOperand ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty mrela2:hasThirdOperand ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] .
+
+
+###  http://sweetontology.net/reprMath/Point
+math:Point rdf:type owl:Class ;
+           rdfs:subClassOf math:NumericalEntity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty mrela2:hasDimension ;
+                             owl:hasValue 0
+                           ] .
+
+
+###  http://sweetontology.net/reprMath/Relation
+math:Relation rdf:type owl:Class ;
+              rdfs:subClassOf math:NumericalEntity .
+
+
+###  http://sweetontology.net/reprMath/Scalar
+math:Scalar rdf:type owl:Class ;
+            rdfs:subClassOf math:NumericalEntity ;
+            owl:disjointWith math:Vector .
+
+
+###  http://sweetontology.net/reprMath/Seq
+math:Seq rdf:type owl:Class ;
+         owl:equivalentClass math:Sequence ;
+         rdfs:subClassOf math:Container .
+
+
+###  http://sweetontology.net/reprMath/Sequence
+math:Sequence rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprMath/Set
+math:Set rdf:type owl:Class ;
+         rdfs:subClassOf math:Bag .
+
+
+###  http://sweetontology.net/reprMath/Tensor
+math:Tensor rdf:type owl:Class ;
+            rdfs:subClassOf math:Seq ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty mrela2:eachElementHasType ;
+                              owl:allValuesFrom math:Matrix
+                            ] .
+
+
+###  http://sweetontology.net/reprMath/UnorderedPair
+math:UnorderedPair rdf:type owl:Class ;
+                   rdfs:subClassOf repr:D ,
+                                   math:Bag .
+
+
+###  http://sweetontology.net/reprMath/Variable
+math:Variable rdf:type owl:Class ;
+              rdfs:subClassOf math:NumericalEntity .
+
+
+###  http://sweetontology.net/reprMath/Vector
+math:Vector rdf:type owl:Class ;
+            rdfs:subClassOf math:Array .
+
+
+###  http://sweetontology.net/reprMath/Vector_3D
+math:Vector_3D rdf:type owl:Class ;
+               rdfs:subClassOf repr:D ,
+                               math:Vector .
+
+
+###  http://sweetontology.net/reprMath/Window
+math:Window rdf:type owl:Class ;
+            rdfs:subClassOf math:Interval .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/reprMath/NormalizedRange
+math:NormalizedRange rdf:type owl:NamedIndividual ,
+                              math:Interval ;
+                     mrela2:hasLowerBound "0.0"^^xsd:double ;
+                     mrela2:hasUpperBound "1.0"^^xsd:double .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

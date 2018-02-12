@@ -1,0 +1,134 @@
+@prefix : <http://sweetontology.net/phenMixing/> .
+@prefix mix: <http://sweetontology.net/phenMixing/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sed: <http://sweetontology.net/matrSediment/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix phen: <http://sweetontology.net/phen/> .
+@prefix proc: <http://sweetontology.net/procPhysical/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix crela: <http://sweetontology.net/relaChemical/> .
+@prefix prela: <http://sweetontology.net/relaPhysical/> .
+@prefix statec: <http://sweetontology.net/procStateChange/> .
+@base <http://sweetontology.net/phenMixing> .
+
+<http://sweetontology.net/phenMixing> rdf:type owl:Ontology ;
+                                       owl:imports <http://sweetontology.net/matrSediment> ,
+                                                   <http://sweetontology.net/phen> ,
+                                                   <http://sweetontology.net/procPhysical> ,
+                                                   <http://sweetontology.net/procStateChange> ,
+                                                   <http://sweetontology.net/rela> ,
+                                                   <http://sweetontology.net/relaChemical> ,
+                                                   <http://sweetontology.net/relaPhysical> ;
+                                       rdfs:label "SWEET Ontology" ;
+                                       owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaChemical/hasSubstance
+crela:hasSubstance rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaPhysical/hasStateChange
+prela:hasStateChange rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/phenMixing/Aeration
+mix:Aeration rdf:type owl:Class ;
+             rdfs:subClassOf mix:Mixing .
+
+
+###  http://sweetontology.net/phenMixing/Bioturbation
+mix:Bioturbation rdf:type owl:Class ;
+                 rdfs:subClassOf mix:Mixing ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty crela:hasSubstance ;
+                                   owl:allValuesFrom sed:Sediment
+                                 ] .
+
+
+###  http://sweetontology.net/phenMixing/Cryoturbation
+mix:Cryoturbation rdf:type owl:Class ;
+                  rdfs:subClassOf mix:Mixing ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty prela:hasStateChange ;
+                                    owl:allValuesFrom statec:Freezing
+                                  ] .
+
+
+###  http://sweetontology.net/phenMixing/Diffuse
+mix:Diffuse rdf:type owl:Class ;
+            owl:equivalentClass mix:Diffusion .
+
+
+###  http://sweetontology.net/phenMixing/Diffusion
+mix:Diffusion rdf:type owl:Class ;
+              rdfs:subClassOf proc:PhysicalProcess .
+
+
+###  http://sweetontology.net/phenMixing/EddyDiffusion
+mix:EddyDiffusion rdf:type owl:Class ;
+                  rdfs:subClassOf mix:Diffusion .
+
+
+###  http://sweetontology.net/phenMixing/Entrainment
+mix:Entrainment rdf:type owl:Class ;
+                rdfs:subClassOf proc:PhysicalProcess ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rela:hasPhenomena ;
+                                  owl:allValuesFrom mix:Mixing
+                                ] .
+
+
+###  http://sweetontology.net/phenMixing/FickianDiffusion
+mix:FickianDiffusion rdf:type owl:Class ;
+                     rdfs:subClassOf mix:Diffusion .
+
+
+###  http://sweetontology.net/phenMixing/Mix
+mix:Mix rdf:type owl:Class ;
+        owl:equivalentClass mix:Mixing .
+
+
+###  http://sweetontology.net/phenMixing/Mixing
+mix:Mixing rdf:type owl:Class ;
+           rdfs:subClassOf phen:DynamicalPhenomena ;
+           owl:disjointWith mix:Separation .
+
+
+###  http://sweetontology.net/phenMixing/Separation
+mix:Separation rdf:type owl:Class ;
+               rdfs:subClassOf phen:DynamicalPhenomena .
+
+
+###  http://sweetontology.net/phenMixing/Settling
+mix:Settling rdf:type owl:Class ;
+             rdfs:subClassOf phen:DynamicalPhenomena .
+
+
+###  http://sweetontology.net/phenMixing/TurbulentDiffusion
+mix:TurbulentDiffusion rdf:type owl:Class ;
+                       rdfs:subClassOf mix:Diffusion .
+
+
+###  http://sweetontology.net/procPhysical/PhysicalProcess
+proc:PhysicalProcess rdf:type owl:Class .
+
+
+###  http://sweetontology.net/procStateChange/Freezing
+statec:Freezing rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

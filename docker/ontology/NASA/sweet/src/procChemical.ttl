@@ -1,0 +1,275 @@
+@prefix : <http://sweetontology.net/procChemical/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix part: <http://sweetontology.net/matrParticle/> .
+@prefix proc: <http://sweetontology.net/proc/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix cproc: <http://sweetontology.net/procChemical/> .
+@prefix pproc: <http://sweetontology.net/procPhysical/> .
+@prefix state: <http://sweetontology.net/stateSystem/> .
+@base <http://sweetontology.net/procChemical> .
+
+<http://sweetontology.net/procChemical> rdf:type owl:Ontology ;
+                                         owl:imports <http://sweetontology.net/matrParticle> ,
+                                                     <http://sweetontology.net/proc> ,
+                                                     <http://sweetontology.net/procPhysical> ,
+                                                     <http://sweetontology.net/rela> ,
+                                                     <http://sweetontology.net/stateSystem> ;
+                                         rdfs:label "SWEET Ontology" ;
+                                         owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasProcess
+rela:hasProcess rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/procChemical/Absorption
+cproc:Absorption rdf:type owl:Class ;
+                 rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Acidification
+cproc:Acidification rdf:type owl:Class ;
+                    rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Adsorption
+cproc:Adsorption rdf:type owl:Class ;
+                 rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Bioluminescence
+cproc:Bioluminescence rdf:type owl:Class ;
+                      rdfs:subClassOf cproc:Luminescence .
+
+
+###  http://sweetontology.net/procChemical/Bond
+cproc:Bond rdf:type owl:Class ;
+           rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Burning
+cproc:Burning rdf:type owl:Class ;
+              rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Calcification
+cproc:Calcification rdf:type owl:Class ;
+                    rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Calcination
+cproc:Calcination rdf:type owl:Class ;
+                  rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/ChargeExchange
+cproc:ChargeExchange rdf:type owl:Class ;
+                     rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/ChemicalProcess
+cproc:ChemicalProcess rdf:type owl:Class ;
+                      owl:equivalentClass cproc:ChemicalReaction ,
+                                          cproc:Reaction ;
+                      rdfs:subClassOf proc:Process .
+
+
+###  http://sweetontology.net/procChemical/ChemicalReaction
+cproc:ChemicalReaction rdf:type owl:Class .
+
+
+###  http://sweetontology.net/procChemical/Combustion
+cproc:Combustion rdf:type owl:Class ;
+                 rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Corrosion
+cproc:Corrosion rdf:type owl:Class ;
+                rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Crystallization
+cproc:Crystallization rdf:type owl:Class ;
+                      rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Dehydration
+cproc:Dehydration rdf:type owl:Class ;
+                  rdfs:subClassOf cproc:ChemicalProcess ;
+                  owl:disjointWith cproc:Hydration .
+
+
+###  http://sweetontology.net/procChemical/Desalinization
+cproc:Desalinization rdf:type owl:Class ;
+                     rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Dilution
+cproc:Dilution rdf:type owl:Class ;
+               rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Dissolution
+cproc:Dissolution rdf:type owl:Class ;
+                  owl:equivalentClass cproc:Solvation ;
+                  rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Electrolysis
+cproc:Electrolysis rdf:type owl:Class ;
+                   rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Enrichment
+cproc:Enrichment rdf:type owl:Class ;
+                 rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Fixation
+cproc:Fixation rdf:type owl:Class ;
+               rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Fluorescence
+cproc:Fluorescence rdf:type owl:Class ;
+                   rdfs:subClassOf cproc:Luminescence .
+
+
+###  http://sweetontology.net/procChemical/Hydration
+cproc:Hydration rdf:type owl:Class ;
+                rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Hydrolysis
+cproc:Hydrolysis rdf:type owl:Class ;
+                 rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Leaching
+cproc:Leaching rdf:type owl:Class ;
+               rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Luminescence
+cproc:Luminescence rdf:type owl:Class ;
+                   rdfs:subClassOf pproc:Radiation .
+
+
+###  http://sweetontology.net/procChemical/Neutralization
+cproc:Neutralization rdf:type owl:Class ;
+                     rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Nitrification
+cproc:Nitrification rdf:type owl:Class ;
+                    rdfs:subClassOf cproc:Reaction .
+
+
+###  http://sweetontology.net/procChemical/NuclearFusion
+cproc:NuclearFusion rdf:type owl:Class ;
+                    rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Nucleation
+cproc:Nucleation rdf:type owl:Class ;
+                 rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Outgas
+cproc:Outgas rdf:type owl:Class ;
+             rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Oxidation
+cproc:Oxidation rdf:type owl:Class ;
+                rdfs:subClassOf cproc:Reaction ;
+                owl:disjointWith cproc:Reduction .
+
+
+###  http://sweetontology.net/procChemical/Phosphorescence
+cproc:Phosphorescence rdf:type owl:Class ;
+                      rdfs:subClassOf cproc:Fluorescence .
+
+
+###  http://sweetontology.net/procChemical/Photodecomposition
+cproc:Photodecomposition rdf:type owl:Class ;
+                         owl:equivalentClass cproc:Photolysis .
+
+
+###  http://sweetontology.net/procChemical/Photodissociation
+cproc:Photodissociation rdf:type owl:Class ;
+                        owl:equivalentClass cproc:Photolysis .
+
+
+###  http://sweetontology.net/procChemical/Photolysis
+cproc:Photolysis rdf:type owl:Class ;
+                 rdfs:subClassOf cproc:ChemicalProcess ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rela:hasProcess ;
+                                   owl:allValuesFrom cproc:Absorption
+                                 ] .
+
+
+###  http://sweetontology.net/procChemical/Reaction
+cproc:Reaction rdf:type owl:Class .
+
+
+###  http://sweetontology.net/procChemical/Recrystalization
+cproc:Recrystalization rdf:type owl:Class ;
+                       rdfs:subClassOf cproc:Crystallization .
+
+
+###  http://sweetontology.net/procChemical/Reduction
+cproc:Reduction rdf:type owl:Class ;
+                rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Solvation
+cproc:Solvation rdf:type owl:Class .
+
+
+###  http://sweetontology.net/procChemical/Sorption
+cproc:Sorption rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:unionOf ( cproc:Absorption
+                                                   cproc:Adsorption
+                                                 )
+                                   ] .
+
+
+###  http://sweetontology.net/procChemical/Thermoluminescence
+cproc:Thermoluminescence rdf:type owl:Class ;
+                         rdfs:subClassOf cproc:Luminescence .
+
+
+###  http://sweetontology.net/procChemical/Titration
+cproc:Titration rdf:type owl:Class ;
+                rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Transmutation
+cproc:Transmutation rdf:type owl:Class ;
+                    rdfs:subClassOf cproc:ChemicalProcess .
+
+
+###  http://sweetontology.net/procChemical/Triboluminescence
+cproc:Triboluminescence rdf:type owl:Class ;
+                        rdfs:subClassOf cproc:Luminescence .
+
+
+###  http://sweetontology.net/procPhysical/Radiation
+pproc:Radiation rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

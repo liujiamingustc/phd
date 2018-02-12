@@ -1,0 +1,310 @@
+@prefix : <http://sweetontology.net/realmHydroBody/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sed: <http://sweetontology.net/matrSediment/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix body: <http://sweetontology.net/realmHydroBody/> .
+@prefix chem: <http://sweetontology.net/matr/> .
+@prefix cryo: <http://sweetontology.net/realmCryo/> .
+@prefix fluv: <http://sweetontology.net/realmLandFluvial/> .
+@prefix hydr: <http://sweetontology.net/realmHydro/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix body2: <http://sweetontology.net/realmHydroBody/> .
+@prefix crela: <http://sweetontology.net/relaChemical/> .
+@prefix plant: <http://sweetontology.net/matrPlant/> .
+@prefix state: <http://sweetontology.net/state/> .
+@prefix water: <http://sweetontology.net/matrWater/> .
+@prefix cstate: <http://sweetontology.net/stateChemical/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@prefix screla: <http://sweetontology.net/relaSci/> .
+@base <http://sweetontology.net/realmHydroBody> .
+
+<http://sweetontology.net/realmHydroBody> rdf:type owl:Ontology ;
+                                           owl:imports <http://sweetontology.net/matr> ,
+                                                       <http://sweetontology.net/matrPlant> ,
+                                                       <http://sweetontology.net/matrSediment> ,
+                                                       <http://sweetontology.net/matrWater> ,
+                                                       <http://sweetontology.net/realm> ,
+                                                       <http://sweetontology.net/realmCryo> ,
+                                                       <http://sweetontology.net/realmHydro> ,
+                                                       <http://sweetontology.net/realmLandFluvial> ,
+                                                       <http://sweetontology.net/rela> ,
+                                                       <http://sweetontology.net/relaChemical> ,
+                                                       <http://sweetontology.net/relaSci> ,
+                                                       <http://sweetontology.net/state> ,
+                                                       <http://sweetontology.net/stateChemical> ;
+                                           rdfs:label "SWEET Ontology" ;
+                                           owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasState
+rela:hasState rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaChemical/hasSubstance
+crela:hasSubstance rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSci/hasSpecies
+screla:hasSpecies rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmHydroBody/Aqueduct
+body2:Aqueduct rdf:type owl:Class ;
+               rdfs:subClassOf body2:Channel .
+
+
+###  http://sweetontology.net/realmHydroBody/Arroyo
+body2:Arroyo rdf:type owl:Class ;
+             rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/BarrierLagoon
+body2:BarrierLagoon rdf:type owl:Class ;
+                    rdfs:subClassOf body2:Lagoon .
+
+
+###  http://sweetontology.net/realmHydroBody/Basin
+body2:Basin rdf:type owl:Class ;
+            rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/Bay
+body2:Bay rdf:type owl:Class ;
+          rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/BlanketBog
+body2:BlanketBog rdf:type owl:Class ;
+                 rdfs:subClassOf body2:Bog .
+
+
+###  http://sweetontology.net/realmHydroBody/BodyOfWater
+body2:BodyOfWater rdf:type owl:Class ;
+                  rdfs:subClassOf hydr:HydrosphereFeature .
+
+
+###  http://sweetontology.net/realmHydroBody/Bog
+body2:Bog rdf:type owl:Class ;
+          rdfs:subClassOf body2:Wetland .
+
+
+###  http://sweetontology.net/realmHydroBody/Bolson
+body2:Bolson rdf:type owl:Class ;
+             rdfs:subClassOf body2:Basin .
+
+
+###  http://sweetontology.net/realmHydroBody/Canal
+body2:Canal rdf:type owl:Class ;
+            rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/CarbonateCompensationLevel
+body2:CarbonateCompensationLevel rdf:type owl:Class ;
+                                 owl:equivalentClass body2:WaterBodyBoundary .
+
+
+###  http://sweetontology.net/realmHydroBody/Channel
+body2:Channel rdf:type owl:Class ;
+              rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/CheckDam
+body2:CheckDam rdf:type owl:Class ;
+               rdfs:subClassOf body2:Dam .
+
+
+###  http://sweetontology.net/realmHydroBody/Creek
+body2:Creek rdf:type owl:Class ;
+            rdfs:subClassOf body2:Stream .
+
+
+###  http://sweetontology.net/realmHydroBody/Dam
+body2:Dam rdf:type owl:Class ;
+          rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/Estuary
+body2:Estuary rdf:type owl:Class ;
+              rdfs:subClassOf body2:BodyOfWater ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty crela:hasSubstance ;
+                                owl:someValuesFrom water:BrackishWater
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty crela:hasSubstance ;
+                                owl:allValuesFrom sed:Sediment
+                              ] .
+
+
+###  http://sweetontology.net/realmHydroBody/Fiord
+body2:Fiord rdf:type owl:Class ;
+            owl:equivalentClass body2:Fjord .
+
+
+###  http://sweetontology.net/realmHydroBody/Fjord
+body2:Fjord rdf:type owl:Class ;
+            rdfs:subClassOf body2:Estuary ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rela:hasRealm ;
+                              owl:allValuesFrom cryo:Glacier
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rela:hasRealm ;
+                              owl:allValuesFrom fluv:Valley
+                            ] .
+
+
+###  http://sweetontology.net/realmHydroBody/FreshwaterLake
+body2:FreshwaterLake rdf:type owl:Class ;
+                     rdfs:subClassOf body2:Lake ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty crela:hasSubstance ;
+                                       owl:allValuesFrom water:FreshWater
+                                     ] .
+
+
+###  http://sweetontology.net/realmHydroBody/Inlet
+body2:Inlet rdf:type owl:Class ;
+            rdfs:subClassOf body2:Estuary .
+
+
+###  http://sweetontology.net/realmHydroBody/Lagoon
+body2:Lagoon rdf:type owl:Class ;
+             rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/Lake
+body2:Lake rdf:type owl:Class ;
+           rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/Marsh
+body2:Marsh rdf:type owl:Class ;
+            rdfs:subClassOf body2:Wetland .
+
+
+###  http://sweetontology.net/realmHydroBody/Mouth
+body2:Mouth rdf:type owl:Class ;
+            rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/Peatland
+body2:Peatland rdf:type owl:Class ;
+               rdfs:subClassOf body2:Wetland ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty crela:hasSubstance ;
+                                 owl:allValuesFrom sed:Peat
+                               ] .
+
+
+###  http://sweetontology.net/realmHydroBody/Pond
+body2:Pond rdf:type owl:Class ;
+           rdfs:subClassOf body2:BodyOfWater ,
+                           body2:Channel .
+
+
+###  http://sweetontology.net/realmHydroBody/RaisedBog
+body2:RaisedBog rdf:type owl:Class ;
+                rdfs:subClassOf body2:Bog .
+
+
+###  http://sweetontology.net/realmHydroBody/Reservoir
+body2:Reservoir rdf:type owl:Class ;
+                rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/River
+body2:River rdf:type owl:Class ;
+            rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/SeaSurface
+body2:SeaSurface rdf:type owl:Class ;
+                 rdfs:subClassOf planet:PlanetarySurface ,
+                                 body2:WaterBodyBoundary .
+
+
+###  http://sweetontology.net/realmHydroBody/Sound
+body2:Sound rdf:type owl:Class ;
+            rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/Spring
+body2:Spring rdf:type owl:Class ;
+             rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/Strait
+body2:Strait rdf:type owl:Class ;
+             rdfs:subClassOf body2:Channel .
+
+
+###  http://sweetontology.net/realmHydroBody/Stream
+body2:Stream rdf:type owl:Class ;
+             rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmHydroBody/Swamp
+body2:Swamp rdf:type owl:Class ;
+            rdfs:subClassOf body2:Wetland ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty screla:hasSpecies ;
+                              owl:allValuesFrom plant:Vegetation
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rela:hasState ;
+                              owl:hasValue cstate:Saturation
+                            ] .
+
+
+###  http://sweetontology.net/realmHydroBody/ValleyBog
+body2:ValleyBog rdf:type owl:Class ;
+                rdfs:subClassOf body2:Bog .
+
+
+###  http://sweetontology.net/realmHydroBody/WaterBodyBoundary
+body2:WaterBodyBoundary rdf:type owl:Class ;
+                        rdfs:subClassOf planet:PlanetaryBoundary ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty rela:hasRealm ;
+                                          owl:allValuesFrom planet:Ocean
+                                        ] .
+
+
+###  http://sweetontology.net/realmHydroBody/Wetland
+body2:Wetland rdf:type owl:Class ;
+              rdfs:subClassOf body2:BodyOfWater .
+
+
+###  http://sweetontology.net/realmLandFluvial/Valley
+fluv:Valley rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/realmHydroBody/FramStrait
+body2:FramStrait rdf:type owl:NamedIndividual ,
+                          body2:Strait .
+
+
+###  http://sweetontology.net/stateChemical/Saturation
+cstate:Saturation rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

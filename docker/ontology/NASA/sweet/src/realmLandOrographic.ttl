@@ -1,0 +1,178 @@
+@prefix : <http://sweetontology.net/realmLandOrographic/> .
+@prefix ht: <http://sweetontology.net/propSpaceHeight/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix land: <http://sweetontology.net/realmLandform/> .
+@prefix orog: <http://sweetontology.net/realmLandOrographic/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix realm: <http://sweetontology.net/realm/> .
+@prefix space: <http://sweetontology.net/reprSpaceGeometry/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@base <http://sweetontology.net/realmLandOrographic> .
+
+<http://sweetontology.net/realmLandOrographic> rdf:type owl:Ontology ;
+                                                owl:imports <http://sweetontology.net/propSpaceHeight> ,
+                                                            <http://sweetontology.net/realm> ,
+                                                            <http://sweetontology.net/realmLandform> ,
+                                                            <http://sweetontology.net/rela> ,
+                                                            <http://sweetontology.net/relaSpace> ,
+                                                            <http://sweetontology.net/reprSpaceGeometry> ;
+                                                rdfs:label "SWEET Ontology" ;
+                                                owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSpace/clusterOf
+srela:clusterOf rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmLandOrographic/Alpine
+orog:Alpine rdf:type owl:Class ;
+            rdfs:subClassOf orog:MountainRegion .
+
+
+###  http://sweetontology.net/realmLandOrographic/Bluff
+orog:Bluff rdf:type owl:Class ;
+           rdfs:subClassOf orog:Hill .
+
+
+###  http://sweetontology.net/realmLandOrographic/Butte
+orog:Butte rdf:type owl:Class ;
+           rdfs:subClassOf orog:Hill .
+
+
+###  http://sweetontology.net/realmLandOrographic/Cliff
+orog:Cliff rdf:type owl:Class ;
+           rdfs:subClassOf orog:Hill .
+
+
+###  http://sweetontology.net/realmLandOrographic/Foothill
+orog:Foothill rdf:type owl:Class ;
+              rdfs:subClassOf orog:MountainRegion .
+
+
+###  http://sweetontology.net/realmLandOrographic/Hill
+orog:Hill rdf:type owl:Class ;
+          rdfs:subClassOf land:Landform .
+
+
+###  http://sweetontology.net/realmLandOrographic/Hummock
+orog:Hummock rdf:type owl:Class ;
+             rdfs:subClassOf land:Landform .
+
+
+###  http://sweetontology.net/realmLandOrographic/Mesa
+orog:Mesa rdf:type owl:Class ;
+          rdfs:subClassOf orog:MountainRegion .
+
+
+###  http://sweetontology.net/realmLandOrographic/Mountain
+orog:Mountain rdf:type owl:Class ;
+              owl:equivalentClass orog:Orography ;
+              rdfs:subClassOf land:Landform .
+
+
+###  http://sweetontology.net/realmLandOrographic/MountainRange
+orog:MountainRange rdf:type owl:Class ;
+                   rdfs:subClassOf space:Cluster ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty srela:clusterOf ;
+                                     owl:allValuesFrom orog:Mountain
+                                   ] .
+
+
+###  http://sweetontology.net/realmLandOrographic/MountainRegion
+orog:MountainRegion rdf:type owl:Class ;
+                    rdfs:subClassOf land:LandRegion ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty rela:hasRealm ;
+                                      owl:allValuesFrom orog:Mountain
+                                    ] .
+
+
+###  http://sweetontology.net/realmLandOrographic/NonOrographic
+orog:NonOrographic rdf:type owl:Class ;
+                   rdfs:subClassOf land:Landform ;
+                   owl:disjointWith orog:Orographic .
+
+
+###  http://sweetontology.net/realmLandOrographic/Orographic
+orog:Orographic rdf:type owl:Class ;
+                owl:equivalentClass orog:Orography .
+
+
+###  http://sweetontology.net/realmLandOrographic/Orography
+orog:Orography rdf:type owl:Class ;
+               rdfs:subClassOf land:Landform .
+
+
+###  http://sweetontology.net/realmLandOrographic/Pass
+orog:Pass rdf:type owl:Class ;
+          rdfs:subClassOf orog:MountainRegion .
+
+
+###  http://sweetontology.net/realmLandOrographic/Plateau
+orog:Plateau rdf:type owl:Class ;
+             rdfs:subClassOf orog:MountainRegion .
+
+
+###  http://sweetontology.net/realmLandOrographic/Protrusion
+orog:Protrusion rdf:type owl:Class ;
+                rdfs:subClassOf orog:Ridge .
+
+
+###  http://sweetontology.net/realmLandOrographic/Ridge
+orog:Ridge rdf:type owl:Class ;
+           rdfs:subClassOf orog:MountainRegion .
+
+
+###  http://sweetontology.net/realmLandOrographic/Summit
+orog:Summit rdf:type owl:Class ;
+            rdfs:subClassOf orog:MountainRegion .
+
+
+###  http://sweetontology.net/realmLandOrographic/Talus
+orog:Talus rdf:type owl:Class ;
+           rdfs:subClassOf orog:MountainRegion .
+
+
+###  http://sweetontology.net/realmLandOrographic/TopographicalRegion
+orog:TopographicalRegion rdf:type owl:Class ;
+                         rdfs:subClassOf land:SurfaceRegion .
+
+
+###  http://sweetontology.net/realmLandOrographic/Ubac
+orog:Ubac rdf:type owl:Class ;
+          rdfs:subClassOf orog:MountainRegion .
+
+
+###  http://sweetontology.net/realmLandform/LandRegion
+land:LandRegion rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandform/Landform
+land:Landform rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandform/SurfaceRegion
+land:SurfaceRegion rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Cluster
+space:Cluster rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

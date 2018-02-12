@@ -1,0 +1,348 @@
+@prefix : <http://sweetontology.net/propEnergyFlux/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix quan: <http://sweetontology.net/propQuantity/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix repr: <http://sweetontology.net/repr/> .
+@prefix seis: <http://sweetontology.net/phenGeolSeismicity/> .
+@prefix star: <http://sweetontology.net/phenStar/> .
+@prefix eflux: <http://sweetontology.net/propEnergyFlux/> .
+@prefix prela: <http://sweetontology.net/relaPhysical/> .
+@prefix units: <http://sweetontology.net/reprSciUnits/> .
+@prefix energy: <http://sweetontology.net/propEnergy/> .
+@prefix screla: <http://sweetontology.net/relaSci/> .
+@prefix screla2: <http://sweetontology.net/relaSci/> .
+@base <http://sweetontology.net/propEnergyFlux> .
+
+<http://sweetontology.net/propEnergyFlux> rdf:type owl:Ontology ;
+                                           owl:imports <http://sweetontology.net/phenGeolSeismicity> ,
+                                                       <http://sweetontology.net/phenStar> ,
+                                                       <http://sweetontology.net/propEnergy> ,
+                                                       <http://sweetontology.net/propQuantity> ,
+                                                       <http://sweetontology.net/rela> ,
+                                                       <http://sweetontology.net/relaPhysical> ,
+                                                       <http://sweetontology.net/relaSci> ,
+                                                       <http://sweetontology.net/repr> ,
+                                                       <http://sweetontology.net/reprSciUnits> ;
+                                           rdfs:label "SWEET Ontology" ;
+                                           owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaPhysical/transportOf
+prela:transportOf rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSci/hasDefaultUnit
+screla2:hasDefaultUnit rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSci/hasSource
+screla2:hasSource rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSci/hasUnit
+screla2:hasUnit rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/propEnergyFlux/AbsorbedSolarRadiation
+eflux:AbsorbedSolarRadiation rdf:type owl:Class ;
+                             rdfs:subClassOf eflux:SolarRadiation .
+
+
+###  http://sweetontology.net/propEnergyFlux/AbsorptionCoefficient
+eflux:AbsorptionCoefficient rdf:type owl:Class ;
+                            owl:equivalentClass eflux:Opacity .
+
+
+###  http://sweetontology.net/propEnergyFlux/Brightness
+eflux:Brightness rdf:type owl:Class ;
+                 owl:equivalentClass eflux:SpecificIntensity ;
+                 rdfs:subClassOf eflux:Luminance ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty screla2:hasDefaultUnit ;
+                                   owl:hasValue units:wattPerMeterSquaredPerSteradianPerWavelength
+                                 ] .
+
+
+###  http://sweetontology.net/propEnergyFlux/BulkHeatFlux
+eflux:BulkHeatFlux rdf:type owl:Class ;
+                   rdfs:subClassOf eflux:ThermalFlux .
+
+
+###  http://sweetontology.net/propEnergyFlux/CloudForcing
+eflux:CloudForcing rdf:type owl:Class ;
+                   rdfs:subClassOf eflux:RadiativeForcing .
+
+
+###  http://sweetontology.net/propEnergyFlux/EarthquakeScale
+eflux:EarthquakeScale rdf:type owl:Class ;
+                      rdfs:subClassOf repr:LogarithmicScale ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty rela:hasPhenomena ;
+                                        owl:allValuesFrom seis:Earthquake
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty screla2:hasUnit ;
+                                        owl:hasValue units:db
+                                      ] .
+
+
+###  http://sweetontology.net/propEnergyFlux/EnergyFlux
+eflux:EnergyFlux rdf:type owl:Class ;
+                 rdfs:subClassOf quan:Flux ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty prela:transportOf ;
+                                   owl:someValuesFrom energy:Energy
+                                 ] .
+
+
+###  http://sweetontology.net/propEnergyFlux/EnergyFlux_Wm2
+eflux:EnergyFlux_Wm2 rdf:type owl:Class ;
+                     rdfs:subClassOf eflux:EnergyFlux ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty screla2:hasUnit ;
+                                       owl:hasValue units:wattPerMeterSquared
+                                     ] .
+
+
+###  http://sweetontology.net/propEnergyFlux/FluxDensity
+eflux:FluxDensity rdf:type owl:Class ;
+                  owl:equivalentClass eflux:Intensity ;
+                  rdfs:subClassOf quan:Flux ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty screla2:hasDefaultUnit ;
+                                    owl:hasValue units:wattPerMeterSquared
+                                  ] .
+
+
+###  http://sweetontology.net/propEnergyFlux/HeatFlow
+eflux:HeatFlow rdf:type owl:Class ;
+               owl:equivalentClass eflux:ThermalFlux .
+
+
+###  http://sweetontology.net/propEnergyFlux/HeatFlux
+eflux:HeatFlux rdf:type owl:Class ;
+               owl:equivalentClass eflux:ThermalFlux .
+
+
+###  http://sweetontology.net/propEnergyFlux/Illuminance
+eflux:Illuminance rdf:type owl:Class ;
+                  rdfs:subClassOf eflux:EnergyFlux ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty screla2:hasDefaultUnit ;
+                                    owl:hasValue units:lux
+                                  ] .
+
+
+###  http://sweetontology.net/propEnergyFlux/Insolation
+eflux:Insolation rdf:type owl:Class ;
+                 rdfs:subClassOf eflux:SolarRadiation .
+
+
+###  http://sweetontology.net/propEnergyFlux/Intensity
+eflux:Intensity rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propEnergyFlux/Irradiance
+eflux:Irradiance rdf:type owl:Class ;
+                 rdfs:subClassOf eflux:FluxDensity ,
+                                 quan:ElectromagneticRadiationQuantity .
+
+
+###  http://sweetontology.net/propEnergyFlux/Luminance
+eflux:Luminance rdf:type owl:Class ;
+                rdfs:subClassOf quan:ElectromagneticRadiationQuantity ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty screla2:hasDefaultUnit ;
+                                  owl:hasValue units:candelaPerMeterSquared
+                                ] .
+
+
+###  http://sweetontology.net/propEnergyFlux/LuminousFlux
+eflux:LuminousFlux rdf:type owl:Class ;
+                   rdfs:subClassOf eflux:EnergyFlux ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty screla2:hasDefaultUnit ;
+                                     owl:hasValue units:lumen
+                                   ] .
+
+
+###  http://sweetontology.net/propEnergyFlux/LuminousIntensity
+eflux:LuminousIntensity rdf:type owl:Class ;
+                        rdfs:subClassOf quan:ElectromagneticRadiationQuantity ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty screla2:hasDefaultUnit ;
+                                          owl:hasValue units:candela
+                                        ] .
+
+
+###  http://sweetontology.net/propEnergyFlux/Opacity
+eflux:Opacity rdf:type owl:Class ;
+              rdfs:subClassOf quan:RadiationMediumInteractionQuantity ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty screla2:hasDefaultUnit ;
+                                owl:hasValue units:meterSquaredPerKilogram
+                              ] .
+
+
+###  http://sweetontology.net/propEnergyFlux/PoyntingVector
+eflux:PoyntingVector rdf:type owl:Class ;
+                     rdfs:subClassOf eflux:FluxDensity .
+
+
+###  http://sweetontology.net/propEnergyFlux/Radiance
+eflux:Radiance rdf:type owl:Class ;
+               rdfs:subClassOf quan:ElectromagneticRadiationQuantity ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty screla2:hasDefaultUnit ;
+                                 owl:hasValue units:wattPerMeterSquaredPerSteradian
+                               ] .
+
+
+###  http://sweetontology.net/propEnergyFlux/RadiantFlux
+eflux:RadiantFlux rdf:type owl:Class ;
+                  rdfs:subClassOf eflux:RadiativeForcing .
+
+
+###  http://sweetontology.net/propEnergyFlux/RadiativeFlux
+eflux:RadiativeFlux rdf:type owl:Class ;
+                    rdfs:subClassOf eflux:EnergyFlux ,
+                                    eflux:RadiativeForcing .
+
+
+###  http://sweetontology.net/propEnergyFlux/RadiativeForcing
+eflux:RadiativeForcing rdf:type owl:Class ;
+                       rdfs:subClassOf eflux:FluxDensity ,
+                                       eflux:RadiantFlux .
+
+
+###  http://sweetontology.net/propEnergyFlux/RichterScale
+eflux:RichterScale rdf:type owl:Class ;
+                   rdfs:subClassOf eflux:EarthquakeScale .
+
+
+###  http://sweetontology.net/propEnergyFlux/SolarFlux
+eflux:SolarFlux rdf:type owl:Class ;
+                rdfs:subClassOf eflux:RadiativeFlux .
+
+
+###  http://sweetontology.net/propEnergyFlux/SolarForcing
+eflux:SolarForcing rdf:type owl:Class ;
+                   rdfs:subClassOf eflux:RadiativeForcing .
+
+
+###  http://sweetontology.net/propEnergyFlux/SolarRadiation
+eflux:SolarRadiation rdf:type owl:Class ;
+                     rdfs:subClassOf quan:ElectromagneticRadiationQuantity .
+
+
+###  http://sweetontology.net/propEnergyFlux/SpecificIntensity
+eflux:SpecificIntensity rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propEnergyFlux/SpectralRadiance
+eflux:SpectralRadiance rdf:type owl:Class ;
+                       rdfs:subClassOf eflux:Radiance .
+
+
+###  http://sweetontology.net/propEnergyFlux/TerrestrialRadiation
+eflux:TerrestrialRadiation rdf:type owl:Class ;
+                           rdfs:subClassOf eflux:RadiativeFlux .
+
+
+###  http://sweetontology.net/propEnergyFlux/ThermalFlux
+eflux:ThermalFlux rdf:type owl:Class ;
+                  rdfs:subClassOf eflux:EnergyFlux ,
+                                  quan:ThermodynamicQuantity .
+
+
+###  http://sweetontology.net/propQuantity/ElectromagneticRadiationQuantity
+quan:ElectromagneticRadiationQuantity rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propQuantity/Flux
+quan:Flux rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propQuantity/PhysicalConstant
+quan:PhysicalConstant rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propQuantity/RadiationMediumInteractionQuantity
+quan:RadiationMediumInteractionQuantity rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propQuantity/ThermodynamicQuantity
+quan:ThermodynamicQuantity rdf:type owl:Class .
+
+
+###  http://sweetontology.net/repr/LogarithmicScale
+repr:LogarithmicScale rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/phenStar/Sun
+star:Sun rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/propEnergyFlux/SolarConstant
+eflux:SolarConstant rdf:type owl:NamedIndividual ,
+                             eflux:RadiativeFlux ,
+                             quan:PhysicalConstant ;
+                    screla2:hasSource star:Sun .
+
+
+###  http://sweetontology.net/reprSciUnits/candela
+units:candela rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/candelaPerMeterSquared
+units:candelaPerMeterSquared rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/db
+units:db rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/lumen
+units:lumen rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/lux
+units:lux rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/meterSquaredPerKilogram
+units:meterSquaredPerKilogram rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/wattPerMeterSquared
+units:wattPerMeterSquared rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/wattPerMeterSquaredPerSteradian
+units:wattPerMeterSquaredPerSteradian rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/wattPerMeterSquaredPerSteradianPerWavelength
+units:wattPerMeterSquaredPerSteradianPerWavelength rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

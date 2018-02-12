@@ -1,0 +1,183 @@
+@prefix : <http://sweetontology.net/phenGeolTectonic/> .
+@prefix dyn: <http://sweetontology.net/propSpeed/> .
+@prefix fld: <http://sweetontology.net/phenFluidDynamics/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tec: <http://sweetontology.net/phenGeolTectonic/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geol: <http://sweetontology.net/phenGeol/> .
+@prefix proc: <http://sweetontology.net/proc/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix soli: <http://sweetontology.net/phenSolid/> .
+@prefix tecl: <http://sweetontology.net/realmLandTectonic/> .
+@prefix geolr: <http://sweetontology.net/realmGeol/> .
+@base <http://sweetontology.net/phenGeolTectonic> .
+
+<http://sweetontology.net/phenGeolTectonic> rdf:type owl:Ontology ;
+                                             owl:imports <http://sweetontology.net/phenFluidDynamics> ,
+                                                         <http://sweetontology.net/phenGeol> ,
+                                                         <http://sweetontology.net/phenSolid> ,
+                                                         <http://sweetontology.net/proc> ,
+                                                         <http://sweetontology.net/propSpeed> ,
+                                                         <http://sweetontology.net/realmGeol> ,
+                                                         <http://sweetontology.net/realmLandTectonic> ,
+                                                         <http://sweetontology.net/rela> ;
+                                             rdfs:label "SWEET Ontology" ;
+                                             owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/rela/hasRealm
+rela:hasRealm rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/phenGeolTectonic/AsymmetricHeatFlow
+tec:AsymmetricHeatFlow rdf:type owl:Class ;
+                       rdfs:subClassOf fld:Flow .
+
+
+###  http://sweetontology.net/phenGeolTectonic/CompositeProcess
+tec:CompositeProcess rdf:type owl:Class ;
+                     rdfs:subClassOf tec:TectonicPhenomena .
+
+
+###  http://sweetontology.net/phenGeolTectonic/ContinenetalDrift
+tec:ContinenetalDrift rdf:type owl:Class ;
+                      rdfs:subClassOf tec:TectonicPhenomena .
+
+
+###  http://sweetontology.net/phenGeolTectonic/ContinentalBreakup
+tec:ContinentalBreakup rdf:type owl:Class ;
+                       rdfs:subClassOf tec:TectonicPhenomena .
+
+
+###  http://sweetontology.net/phenGeolTectonic/ContinentalCollision
+tec:ContinentalCollision rdf:type owl:Class ;
+                         rdfs:subClassOf tec:TectonicPhenomena .
+
+
+###  http://sweetontology.net/phenGeolTectonic/Creep
+tec:Creep rdf:type owl:Class ;
+          rdfs:subClassOf tec:TectonicPhenomena .
+
+
+###  http://sweetontology.net/phenGeolTectonic/ExtensionEvent
+tec:ExtensionEvent rdf:type owl:Class ;
+                   rdfs:subClassOf tec:TectonicPhenomena .
+
+
+###  http://sweetontology.net/phenGeolTectonic/IsostaticAdjustment
+tec:IsostaticAdjustment rdf:type owl:Class ;
+                        owl:equivalentClass tec:IsostaticRebound .
+
+
+###  http://sweetontology.net/phenGeolTectonic/IsostaticRebound
+tec:IsostaticRebound rdf:type owl:Class ;
+                     rdfs:subClassOf tec:TectonicPhenomena .
+
+
+###  http://sweetontology.net/phenGeolTectonic/PlateConvergence
+tec:PlateConvergence rdf:type owl:Class ;
+                     rdfs:subClassOf tec:TectonicPhenomena ;
+                     owl:disjointWith tec:PlateDivergence .
+
+
+###  http://sweetontology.net/phenGeolTectonic/PlateDivergence
+tec:PlateDivergence rdf:type owl:Class ;
+                    rdfs:subClassOf tec:TectonicPhenomena .
+
+
+###  http://sweetontology.net/phenGeolTectonic/Spreading
+tec:Spreading rdf:type owl:Class ;
+              rdfs:subClassOf tec:TectonicPhenomena .
+
+
+###  http://sweetontology.net/phenGeolTectonic/Subduction
+tec:Subduction rdf:type owl:Class ;
+               rdfs:subClassOf tec:TectonicPhenomena .
+
+
+###  http://sweetontology.net/phenGeolTectonic/TectonicAssemblage
+tec:TectonicAssemblage rdf:type owl:Class ;
+                       rdfs:subClassOf geolr:GeologicFeature .
+
+
+###  http://sweetontology.net/phenGeolTectonic/TectonicForce
+tec:TectonicForce rdf:type owl:Class ;
+                  owl:equivalentClass tec:TectonicProcess ;
+                  rdfs:subClassOf proc:Force ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rela:hasPhenomena ;
+                                    owl:allValuesFrom tec:TectonicPhenomena
+                                  ] .
+
+
+###  http://sweetontology.net/phenGeolTectonic/TectonicPhenomena
+tec:TectonicPhenomena rdf:type owl:Class ;
+                      rdfs:subClassOf geol:GeospherePhenomena ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty rela:hasPhenomena ;
+                                        owl:allValuesFrom soli:Deformation
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty rela:hasRealm ;
+                                        owl:allValuesFrom geolr:Crust
+                                      ] .
+
+
+###  http://sweetontology.net/phenGeolTectonic/TectonicProcess
+tec:TectonicProcess rdf:type owl:Class .
+
+
+###  http://sweetontology.net/phenGeolTectonic/TectonicUplift
+tec:TectonicUplift rdf:type owl:Class ;
+                   rdfs:subClassOf tec:TectonicPhenomena .
+
+
+###  http://sweetontology.net/phenGeolTectonic/Terrane
+tec:Terrane rdf:type owl:Class ;
+            rdfs:subClassOf tec:TectonicAssemblage .
+
+
+###  http://sweetontology.net/phenGeolTectonic/TransformFaulting
+tec:TransformFaulting rdf:type owl:Class ;
+                      rdfs:subClassOf tec:TectonicPhenomena ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty rela:hasRealm ;
+                                        owl:allValuesFrom tecl:TransformFault
+                                      ] .
+
+
+###  http://sweetontology.net/phenSolid/Deformation
+soli:Deformation rdf:type owl:Class .
+
+
+###  http://sweetontology.net/proc/Force
+proc:Force rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmGeol/Crust
+geolr:Crust rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmGeol/GeologicFeature
+geolr:GeologicFeature rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandTectonic/TransformFault
+tecl:TransformFault rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

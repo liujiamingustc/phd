@@ -1,0 +1,259 @@
+@prefix : <http://sweetontology.net/propSpaceThickness/> .
+@prefix ht: <http://sweetontology.net/propSpaceHeight/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix func: <http://sweetontology.net/propFunction/> .
+@prefix pres: <http://sweetontology.net/propPressure/> .
+@prefix prop: <http://sweetontology.net/prop/> .
+@prefix quan: <http://sweetontology.net/propQuantity/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix seas: <http://sweetontology.net/reprTimeSeason/> .
+@prefix thic: <http://sweetontology.net/propSpaceThickness/> .
+@prefix crela: <http://sweetontology.net/relaChemical/> .
+@prefix trela: <http://sweetontology.net/relaTime/> .
+@prefix units: <http://sweetontology.net/reprSciUnits/> .
+@prefix water: <http://sweetontology.net/matrWater/> .
+@prefix cstate: <http://sweetontology.net/statePhysical/> .
+@prefix screla: <http://sweetontology.net/relaSci/> .
+@base <http://sweetontology.net/propSpaceThickness> .
+
+<http://sweetontology.net/propSpaceThickness> rdf:type owl:Ontology ;
+                                               owl:imports <http://sweetontology.net/matrWater> ,
+                                                           <http://sweetontology.net/prop> ,
+                                                           <http://sweetontology.net/propFunction> ,
+                                                           <http://sweetontology.net/propPressure> ,
+                                                           <http://sweetontology.net/propQuantity> ,
+                                                           <http://sweetontology.net/propSpaceHeight> ,
+                                                           <http://sweetontology.net/rela> ,
+                                                           <http://sweetontology.net/relaChemical> ,
+                                                           <http://sweetontology.net/relaSci> ,
+                                                           <http://sweetontology.net/relaTime> ,
+                                                           <http://sweetontology.net/reprSciUnits> ,
+                                                           <http://sweetontology.net/reprTimeSeason> ,
+                                                           <http://sweetontology.net/statePhysical> ;
+                                               rdfs:label "SWEET Ontology" ;
+                                               owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/propSpaceThickness/AverageAnnualPrecipitation
+thic:AverageAnnualPrecipitation rdf:type owl:Class ;
+                                rdfs:subClassOf func:AnnualAverage ,
+                                                thic:Precipitation .
+
+
+###  http://sweetontology.net/propSpaceThickness/AverageDrySeasonPrecipitation
+thic:AverageDrySeasonPrecipitation rdf:type owl:Class ;
+                                   rdfs:subClassOf func:AnnualAverage ,
+                                                   thic:Precipitation ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty trela:hasTime ;
+                                                     owl:someValuesFrom seas:DrySeason
+                                                   ] .
+
+
+###  http://sweetontology.net/propSpaceThickness/AverageMonthlyPrecipitation
+thic:AverageMonthlyPrecipitation rdf:type owl:Class ;
+                                 rdfs:subClassOf func:MonthlyAverage ,
+                                                 thic:Precipitation .
+
+
+###  http://sweetontology.net/propSpaceThickness/EquivalentThickness
+thic:EquivalentThickness rdf:type owl:Class ;
+                         rdfs:subClassOf thic:Thickness .
+
+
+###  http://sweetontology.net/propSpaceThickness/Evapotranspiration
+thic:Evapotranspiration rdf:type owl:Class ;
+                        rdfs:subClassOf thic:Thickness .
+
+
+###  http://sweetontology.net/propSpaceThickness/FluidHead
+thic:FluidHead rdf:type owl:Class ;
+               rdfs:subClassOf prop:FluidProperty ,
+                               thic:Thickness .
+
+
+###  http://sweetontology.net/propSpaceThickness/GaugeHeight
+thic:GaugeHeight rdf:type owl:Class ;
+                 rdfs:subClassOf thic:WaterHeight .
+
+
+###  http://sweetontology.net/propSpaceThickness/HalfPotentialEvapotranspiration
+thic:HalfPotentialEvapotranspiration rdf:type owl:Class ;
+                                     rdfs:subClassOf thic:Evapotranspiration .
+
+
+###  http://sweetontology.net/propSpaceThickness/HydraulicHead
+thic:HydraulicHead rdf:type owl:Class ;
+                   rdfs:subClassOf thic:FluidHead ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty rela:hasState ;
+                                     owl:hasValue cstate:Liquid
+                                   ] .
+
+
+###  http://sweetontology.net/propSpaceThickness/LWE
+thic:LWE rdf:type owl:Class ;
+         owl:equivalentClass thic:LiquidWaterEquivalent .
+
+
+###  http://sweetontology.net/propSpaceThickness/LakeStage
+thic:LakeStage rdf:type owl:Class ;
+               rdfs:subClassOf thic:StageHeight .
+
+
+###  http://sweetontology.net/propSpaceThickness/LiquidWaterEquivalent
+thic:LiquidWaterEquivalent rdf:type owl:Class ;
+                           rdfs:subClassOf thic:WaterContent .
+
+
+###  http://sweetontology.net/propSpaceThickness/OpticalDepth
+thic:OpticalDepth rdf:type owl:Class ;
+                  owl:equivalentClass thic:OpticalThickness ;
+                  rdfs:subClassOf quan:RadiationMediumInteractionQuantity ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty screla:hasDefaultUnit ;
+                                    owl:hasValue units:dimensionlessUnit
+                                  ] .
+
+
+###  http://sweetontology.net/propSpaceThickness/OpticalThickness
+thic:OpticalThickness rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propSpaceThickness/PotentialEvapotranspiration
+thic:PotentialEvapotranspiration rdf:type owl:Class ;
+                                 rdfs:subClassOf thic:Evapotranspiration .
+
+
+###  http://sweetontology.net/propSpaceThickness/PrecipitableWater
+thic:PrecipitableWater rdf:type owl:Class ;
+                       rdfs:subClassOf thic:WaterContent .
+
+
+###  http://sweetontology.net/propSpaceThickness/Precipitation
+thic:Precipitation rdf:type owl:Class ;
+                   rdfs:subClassOf thic:WaterContent .
+
+
+###  http://sweetontology.net/propSpaceThickness/PrecipitationRange
+thic:PrecipitationRange rdf:type owl:Class ;
+                        rdfs:subClassOf ht:HeightRange ,
+                                        thic:Precipitation .
+
+
+###  http://sweetontology.net/propSpaceThickness/PrecipitationRange_cm
+thic:PrecipitationRange_cm rdf:type owl:Class ;
+                           rdfs:subClassOf thic:PrecipitationRange ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty screla:hasUnit ;
+                                             owl:hasValue units:centimeter
+                                           ] .
+
+
+###  http://sweetontology.net/propSpaceThickness/PressureThickness
+thic:PressureThickness rdf:type owl:Class ;
+                       rdfs:subClassOf thic:Thickness ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty rela:hasProcess ;
+                                         owl:allValuesFrom pres:Pressure
+                                       ] .
+
+
+###  http://sweetontology.net/propSpaceThickness/SWE
+thic:SWE rdf:type owl:Class ;
+         owl:equivalentClass thic:SnowWaterEquivalent .
+
+
+###  http://sweetontology.net/propSpaceThickness/SnowCover
+thic:SnowCover rdf:type owl:Class ;
+               rdfs:subClassOf thic:Thickness ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty crela:hasSubstance ;
+                                 owl:allValuesFrom water:Snow
+                               ] .
+
+
+###  http://sweetontology.net/propSpaceThickness/SnowWaterEquivalent
+thic:SnowWaterEquivalent rdf:type owl:Class ;
+                         rdfs:subClassOf thic:LiquidWaterEquivalent .
+
+
+###  http://sweetontology.net/propSpaceThickness/Snowpack
+thic:Snowpack rdf:type owl:Class ;
+              rdfs:subClassOf thic:SnowCover .
+
+
+###  http://sweetontology.net/propSpaceThickness/StageHeight
+thic:StageHeight rdf:type owl:Class ;
+                 rdfs:subClassOf thic:WaterHeight .
+
+
+###  http://sweetontology.net/propSpaceThickness/StaticHead
+thic:StaticHead rdf:type owl:Class ;
+                rdfs:subClassOf thic:FluidHead .
+
+
+###  http://sweetontology.net/propSpaceThickness/StreamStage
+thic:StreamStage rdf:type owl:Class ;
+                 rdfs:subClassOf thic:StageHeight .
+
+
+###  http://sweetontology.net/propSpaceThickness/Thickness
+thic:Thickness rdf:type owl:Class ;
+               rdfs:subClassOf quan:PhysicalQuantity ,
+                               ht:VerticalExtent .
+
+
+###  http://sweetontology.net/propSpaceThickness/TotalHead
+thic:TotalHead rdf:type owl:Class ;
+               rdfs:subClassOf thic:FluidHead .
+
+
+###  http://sweetontology.net/propSpaceThickness/WaterContent
+thic:WaterContent rdf:type owl:Class ;
+                  rdfs:subClassOf thic:Thickness ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty crela:hasChemical ;
+                                    owl:allValuesFrom water:LiquidWater
+                                  ] .
+
+
+###  http://sweetontology.net/propSpaceThickness/WaterHeight
+thic:WaterHeight rdf:type owl:Class ;
+                 rdfs:subClassOf thic:Thickness ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty crela:hasSubstance ;
+                                   owl:allValuesFrom water:LiquidWater
+                                 ] .
+
+
+###  http://sweetontology.net/reprTimeSeason/DrySeason
+seas:DrySeason rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/propSpaceThickness/AnnualHalfPotentialEvapotranspiration
+thic:AnnualHalfPotentialEvapotranspiration rdf:type owl:NamedIndividual ,
+                                                    thic:HalfPotentialEvapotranspiration .
+
+
+###  http://sweetontology.net/propSpaceThickness/AnnualPotentialEvapotranspiration
+thic:AnnualPotentialEvapotranspiration rdf:type owl:NamedIndividual ,
+                                                thic:PotentialEvapotranspiration .
+
+
+###  http://sweetontology.net/reprSciUnits/dimensionlessUnit
+units:dimensionlessUnit rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

@@ -1,0 +1,320 @@
+@prefix : <http://sweetontology.net/realmBiolBiome/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix anim: <http://sweetontology.net/matrAnimal/> .
+@prefix biol: <http://sweetontology.net/matrBiomass/> .
+@prefix chem: <http://sweetontology.net/matr/> .
+@prefix comm: <http://sweetontology.net/humanCommerce/> .
+@prefix comp: <http://sweetontology.net/reprSciComponent/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix zone: <http://sweetontology.net/realmClimateZone/> .
+@prefix biome: <http://sweetontology.net/realmBiolBiome/> .
+@prefix crela: <http://sweetontology.net/relaClimate/> .
+@prefix hrela: <http://sweetontology.net/relaHuman/> .
+@prefix plant: <http://sweetontology.net/matrPlant/> .
+@prefix srela: <http://sweetontology.net/relaSci/> .
+@prefix bstate: <http://sweetontology.net/stateBiological/> .
+@prefix planet: <http://sweetontology.net/realm/> .
+@base <http://sweetontology.net/realmBiolBiome> .
+
+<http://sweetontology.net/realmBiolBiome> rdf:type owl:Ontology ;
+                                           owl:imports <http://sweetontology.net/humanCommerce> ,
+                                                       <http://sweetontology.net/matr> ,
+                                                       <http://sweetontology.net/matrAnimal> ,
+                                                       <http://sweetontology.net/matrBiomass> ,
+                                                       <http://sweetontology.net/matrPlant> ,
+                                                       <http://sweetontology.net/realm> ,
+                                                       <http://sweetontology.net/realmClimateZone> ,
+                                                       <http://sweetontology.net/rela> ,
+                                                       <http://sweetontology.net/relaClimate> ,
+                                                       <http://sweetontology.net/relaHuman> ,
+                                                       <http://sweetontology.net/relaSci> ,
+                                                       <http://sweetontology.net/reprSciComponent> ,
+                                                       <http://sweetontology.net/stateBiological> ;
+                                           rdfs:label "SWEET Ontology" ;
+                                           owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/relaClimate/hasClimateZone
+crela:hasClimateZone rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaHuman/hasLandUse
+hrela:hasLandUse rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSci/hasSpecies
+srela:hasSpecies rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmBiolBiome/Anthromes
+biome:Anthromes rdf:type owl:Class ;
+                rdfs:subClassOf biome:TerrestrialBiome ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty hrela:hasLandUse ;
+                                  owl:hasValue bstate:Anthropogenic
+                                ] .
+
+
+###  http://sweetontology.net/realmBiolBiome/AquaticEcosystem
+biome:AquaticEcosystem rdf:type owl:Class ;
+                       rdfs:subClassOf biome:Ecosystem ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty rela:hasRealm ;
+                                         owl:allValuesFrom planet:Ocean
+                                       ] .
+
+
+###  http://sweetontology.net/realmBiolBiome/Barren
+biome:Barren rdf:type owl:Class ;
+             rdfs:subClassOf biome:Wildlands .
+
+
+###  http://sweetontology.net/realmBiolBiome/Biome
+biome:Biome rdf:type owl:Class ;
+            rdfs:subClassOf comp:Environment .
+
+
+###  http://sweetontology.net/realmBiolBiome/Biota
+biome:Biota rdf:type owl:Class ;
+            rdfs:subClassOf biome:TerrestrialBiome .
+
+
+###  http://sweetontology.net/realmBiolBiome/BorealForest
+biome:BorealForest rdf:type owl:Class ;
+                   rdfs:subClassOf biome:Taiga .
+
+
+###  http://sweetontology.net/realmBiolBiome/CaveEcosystem
+biome:CaveEcosystem rdf:type owl:Class ;
+                    rdfs:subClassOf biome:TerrestrialEcosystem .
+
+
+###  http://sweetontology.net/realmBiolBiome/CoralReef
+biome:CoralReef rdf:type owl:Class ;
+                rdfs:subClassOf biome:MarineEcosystem ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty srela:hasSpecies ;
+                                  owl:allValuesFrom anim:Coral
+                                ] .
+
+
+###  http://sweetontology.net/realmBiolBiome/Croplands
+biome:Croplands rdf:type owl:Class ;
+                rdfs:subClassOf biome:TerrestrialBiome .
+
+
+###  http://sweetontology.net/realmBiolBiome/DenseSettlements
+biome:DenseSettlements rdf:type owl:Class ;
+                       rdfs:subClassOf biome:TerrestrialBiome .
+
+
+###  http://sweetontology.net/realmBiolBiome/Ecosystem
+biome:Ecosystem rdf:type owl:Class ;
+                rdfs:subClassOf comp:Environment .
+
+
+###  http://sweetontology.net/realmBiolBiome/EmergentLayer
+biome:EmergentLayer rdf:type owl:Class ;
+                    rdfs:subClassOf biome:TerrestrialEcosystem .
+
+
+###  http://sweetontology.net/realmBiolBiome/Fishery
+biome:Fishery rdf:type owl:Class ;
+              rdfs:subClassOf biome:AquaticEcosystem .
+
+
+###  http://sweetontology.net/realmBiolBiome/Forest
+biome:Forest rdf:type owl:Class ;
+             rdfs:subClassOf biome:TerrestrialEcosystem ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty srela:hasSpecies ;
+                               owl:allValuesFrom plant:Vegetation
+                             ] .
+
+
+###  http://sweetontology.net/realmBiolBiome/Forested
+biome:Forested rdf:type owl:Class ;
+               rdfs:subClassOf biome:TerrestrialBiome .
+
+
+###  http://sweetontology.net/realmBiolBiome/FreshwaterEcosystem
+biome:FreshwaterEcosystem rdf:type owl:Class ;
+                          rdfs:subClassOf biome:AquaticEcosystem ;
+                          owl:disjointWith biome:MarineEcosystem .
+
+
+###  http://sweetontology.net/realmBiolBiome/Grassland
+biome:Grassland rdf:type owl:Class ;
+                rdfs:subClassOf biome:TerrestrialEcosystem ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty srela:hasSpecies ;
+                                  owl:allValuesFrom plant:Grass
+                                ] .
+
+
+###  http://sweetontology.net/realmBiolBiome/MarineEcosystem
+biome:MarineEcosystem rdf:type owl:Class ;
+                      rdfs:subClassOf biome:AquaticEcosystem .
+
+
+###  http://sweetontology.net/realmBiolBiome/Montane
+biome:Montane rdf:type owl:Class ;
+              rdfs:subClassOf biome:TerrestrialEcosystem .
+
+
+###  http://sweetontology.net/realmBiolBiome/Pasture
+biome:Pasture rdf:type owl:Class ;
+              rdfs:subClassOf biome:TerrestrialEcosystem .
+
+
+###  http://sweetontology.net/realmBiolBiome/Rangelands
+biome:Rangelands rdf:type owl:Class ;
+                 rdfs:subClassOf biome:TerrestrialBiome .
+
+
+###  http://sweetontology.net/realmBiolBiome/Savanna
+biome:Savanna rdf:type owl:Class ;
+              rdfs:subClassOf biome:TerrestrialEcosystem .
+
+
+###  http://sweetontology.net/realmBiolBiome/Scrubland
+biome:Scrubland rdf:type owl:Class ;
+                rdfs:subClassOf biome:TerrestrialEcosystem ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty srela:hasSpecies ;
+                                  owl:allValuesFrom plant:Scrub
+                                ] .
+
+
+###  http://sweetontology.net/realmBiolBiome/SeaGrass
+biome:SeaGrass rdf:type owl:Class ;
+               rdfs:subClassOf biome:AquaticEcosystem .
+
+
+###  http://sweetontology.net/realmBiolBiome/SparseTrees
+biome:SparseTrees rdf:type owl:Class ;
+                  rdfs:subClassOf biome:Wildlands .
+
+
+###  http://sweetontology.net/realmBiolBiome/Steppe
+biome:Steppe rdf:type owl:Class ;
+             rdfs:subClassOf biome:Grassland .
+
+
+###  http://sweetontology.net/realmBiolBiome/Taiga
+biome:Taiga rdf:type owl:Class ;
+            rdfs:subClassOf biome:Forest ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty crela:hasClimateZone ;
+                              owl:hasValue zone:Cfc
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty crela:hasClimateZone ;
+                              owl:hasValue zone:Dfb
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty crela:hasClimateZone ;
+                              owl:hasValue zone:Dfc
+                            ] .
+
+
+###  http://sweetontology.net/realmBiolBiome/TemperateForest
+biome:TemperateForest rdf:type owl:Class ;
+                      rdfs:subClassOf biome:Forest ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty crela:hasClimateZone ;
+                                        owl:allValuesFrom zone:C
+                                      ] .
+
+
+###  http://sweetontology.net/realmBiolBiome/Terrain
+biome:Terrain rdf:type owl:Class ;
+              rdfs:subClassOf biome:TerrestrialBiome .
+
+
+###  http://sweetontology.net/realmBiolBiome/TerrestrialBiome
+biome:TerrestrialBiome rdf:type owl:Class ;
+                       rdfs:subClassOf biome:Biome ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty rela:hasRealm ;
+                                         owl:allValuesFrom planet:Land
+                                       ] .
+
+
+###  http://sweetontology.net/realmBiolBiome/TerrestrialEcosystem
+biome:TerrestrialEcosystem rdf:type owl:Class ;
+                           rdfs:subClassOf biome:Ecosystem ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty rela:hasRealm ;
+                                             owl:allValuesFrom planet:Land
+                                           ] .
+
+
+###  http://sweetontology.net/realmBiolBiome/TropicalForest
+biome:TropicalForest rdf:type owl:Class ;
+                     rdfs:subClassOf biome:Forest ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty crela:hasClimateZone ;
+                                       owl:hasValue zone:TropicalRainForestClimate
+                                     ] .
+
+
+###  http://sweetontology.net/realmBiolBiome/Villages
+biome:Villages rdf:type owl:Class ;
+               rdfs:subClassOf biome:TerrestrialBiome .
+
+
+###  http://sweetontology.net/realmBiolBiome/Wildlands
+biome:Wildlands rdf:type owl:Class ;
+                rdfs:subClassOf biome:TerrestrialBiome .
+
+
+###  http://sweetontology.net/realmBiolBiome/Woodland
+biome:Woodland rdf:type owl:Class ;
+               rdfs:subClassOf biome:Forest .
+
+
+###  http://sweetontology.net/realmClimateZone/C
+zone:C rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSciComponent/Environment
+comp:Environment rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/realmClimateZone/Cfc
+zone:Cfc rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/realmClimateZone/Dfb
+zone:Dfb rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/realmClimateZone/Dfc
+zone:Dfc rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/realmClimateZone/TropicalRainForestClimate
+zone:TropicalRainForestClimate rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/stateBiological/Anthropogenic
+bstate:Anthropogenic rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

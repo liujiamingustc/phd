@@ -1,0 +1,266 @@
+@prefix : <http://sweetontology.net/matrRockIgneous/> .
+@prefix ign: <http://sweetontology.net/matrRockIgneous/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix chem: <http://sweetontology.net/matr/> .
+@prefix geol: <http://sweetontology.net/phenGeol/> .
+@prefix petr: <http://sweetontology.net/matrRock/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix state: <http://sweetontology.net/state/> .
+@prefix prrela: <http://sweetontology.net/relaProvenance/> .
+@prefix sstate: <http://sweetontology.net/stateSolid/> .
+@base <http://sweetontology.net/matrRockIgneous> .
+
+<http://sweetontology.net/matrRockIgneous> rdf:type owl:Ontology ;
+                                            owl:imports <http://sweetontology.net/matr> ,
+                                                        <http://sweetontology.net/matrRock> ,
+                                                        <http://sweetontology.net/phenGeol> ,
+                                                        <http://sweetontology.net/rela> ,
+                                                        <http://sweetontology.net/relaProvenance> ,
+                                                        <http://sweetontology.net/state> ,
+                                                        <http://sweetontology.net/stateSolid> ;
+                                            rdfs:label "SWEET Ontology" ;
+                                            owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/matrRockIgneous/Aa
+ign:Aa rdf:type owl:Class ;
+       rdfs:subClassOf ign:ExtrusiveRock ,
+                       ign:Lava .
+
+
+###  http://sweetontology.net/matrRockIgneous/Andesite
+ign:Andesite rdf:type owl:Class ;
+             rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/AnorogenicIgneousRock
+ign:AnorogenicIgneousRock rdf:type owl:Class ;
+                          rdfs:subClassOf ign:IntrusiveRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Anorthosite
+ign:Anorthosite rdf:type owl:Class ;
+                rdfs:subClassOf ign:IgneousRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Aphanite
+ign:Aphanite rdf:type owl:Class ;
+             rdfs:subClassOf ign:IgneousRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Basalt
+ign:Basalt rdf:type owl:Class ;
+           rdfs:subClassOf ign:ExtrusiveRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/CinderCone
+ign:CinderCone rdf:type owl:Class ;
+               rdfs:subClassOf ign:VolcanicCone .
+
+
+###  http://sweetontology.net/matrRockIgneous/CompositeCone
+ign:CompositeCone rdf:type owl:Class ;
+                  rdfs:subClassOf ign:VolcanicCone .
+
+
+###  http://sweetontology.net/matrRockIgneous/Dacite
+ign:Dacite rdf:type owl:Class ;
+           rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/ExtrusiveRock
+ign:ExtrusiveRock rdf:type owl:Class ;
+                  rdfs:subClassOf ign:IgneousRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Felsic
+ign:Felsic rdf:type owl:Class ;
+           rdfs:subClassOf ign:IgneousRock ;
+           owl:disjointWith ign:Mafic .
+
+
+###  http://sweetontology.net/matrRockIgneous/Hypabyssal
+ign:Hypabyssal rdf:type owl:Class ;
+               rdfs:subClassOf ign:IgneousRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/IgneousRock
+ign:IgneousRock rdf:type owl:Class ;
+                rdfs:subClassOf petr:Rock ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty prrela:hasGenesis ;
+                                  owl:allValuesFrom geol:Igneous
+                                ] .
+
+
+###  http://sweetontology.net/matrRockIgneous/IntrusiveRock
+ign:IntrusiveRock rdf:type owl:Class ;
+                  rdfs:subClassOf ign:IgneousRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Kimberlite
+ign:Kimberlite rdf:type owl:Class ;
+               rdfs:subClassOf ign:IgneousRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Lava
+ign:Lava rdf:type owl:Class ;
+         rdfs:subClassOf ign:ExtrusiveRock ,
+                         ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Mafic
+ign:Mafic rdf:type owl:Class ;
+          rdfs:subClassOf ign:IgneousRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Magma
+ign:Magma rdf:type owl:Class ;
+          rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Obsidian
+ign:Obsidian rdf:type owl:Class ;
+             rdfs:subClassOf ign:ExtrusiveRock ,
+                             ign:Lava .
+
+
+###  http://sweetontology.net/matrRockIgneous/Pahoehoe
+ign:Pahoehoe rdf:type owl:Class ;
+             rdfs:subClassOf ign:ExtrusiveRock ,
+                             ign:Lava .
+
+
+###  http://sweetontology.net/matrRockIgneous/Peridotite
+ign:Peridotite rdf:type owl:Class ;
+               rdfs:subClassOf ign:IgneousRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/PillowLava
+ign:PillowLava rdf:type owl:Class ;
+               rdfs:subClassOf ign:ExtrusiveRock ,
+                               ign:Lava .
+
+
+###  http://sweetontology.net/matrRockIgneous/Pluton
+ign:Pluton rdf:type owl:Class ;
+           owl:equivalentClass ign:PlutonicRock ;
+           rdfs:subClassOf ign:IntrusiveRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/PlutonicRock
+ign:PlutonicRock rdf:type owl:Class .
+
+
+###  http://sweetontology.net/matrRockIgneous/Pumice
+ign:Pumice rdf:type owl:Class ;
+           rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Pyroclastic
+ign:Pyroclastic rdf:type owl:Class ;
+                rdfs:subClassOf ign:ExtrusiveRock ,
+                                ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Rhyolite
+ign:Rhyolite rdf:type owl:Class ;
+             rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/SpatterCone
+ign:SpatterCone rdf:type owl:Class ;
+                rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Tephra
+ign:Tephra rdf:type owl:Class ;
+           rdfs:subClassOf ign:ExtrusiveRock ,
+                           ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Trachyandesite
+ign:Trachyandesite rdf:type owl:Class ;
+                   rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Trachybasalt
+ign:Trachybasalt rdf:type owl:Class ;
+                 rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Trachyte
+ign:Trachyte rdf:type owl:Class ;
+             rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Tuff
+ign:Tuff rdf:type owl:Class ;
+         rdfs:subClassOf ign:Pyroclastic .
+
+
+###  http://sweetontology.net/matrRockIgneous/TuffCone
+ign:TuffCone rdf:type owl:Class ;
+             rdfs:subClassOf ign:VolcanicCone .
+
+
+###  http://sweetontology.net/matrRockIgneous/TuffRing
+ign:TuffRing rdf:type owl:Class ;
+             rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Ultramaphic
+ign:Ultramaphic rdf:type owl:Class ;
+                rdfs:subClassOf ign:ExtrusiveRock ,
+                                ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/VolcanicCone
+ign:VolcanicCone rdf:type owl:Class ;
+                 rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/VolcanicNeck
+ign:VolcanicNeck rdf:type owl:Class ;
+                 rdfs:subClassOf ign:VolcanicRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/VolcanicRock
+ign:VolcanicRock rdf:type owl:Class ;
+                 rdfs:subClassOf ign:ExtrusiveRock .
+
+
+###  http://sweetontology.net/matrRockIgneous/Xenocryst
+ign:Xenocryst rdf:type owl:Class ;
+              rdfs:subClassOf chem:Mixture ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rela:hasState ;
+                                owl:hasValue sstate:Crystal
+                              ] .
+
+
+###  http://sweetontology.net/matrRockIgneous/Xenolith
+ign:Xenolith rdf:type owl:Class ;
+             rdfs:subClassOf petr:Rock .
+
+
+###  http://sweetontology.net/phenGeol/Igneous
+geol:Igneous rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/stateSolid/Crystal
+sstate:Crystal rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

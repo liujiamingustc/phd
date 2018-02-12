@@ -1,0 +1,179 @@
+@prefix : <http://sweetontology.net/realmGeolOrogen/> .
+@prefix def: <http://sweetontology.net/phenSolid/> .
+@prefix dir: <http://sweetontology.net/propSpaceDirection/> .
+@prefix ign: <http://sweetontology.net/matrRockIgneous/> .
+@prefix oro: <http://sweetontology.net/realmGeolOrogen/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tec: <http://sweetontology.net/realmLandTectonic/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix chem: <http://sweetontology.net/matr/> .
+@prefix geol: <http://sweetontology.net/phenGeol/> .
+@prefix geom: <http://sweetontology.net/reprSpaceGeometry/> .
+@prefix petr: <http://sweetontology.net/matrRock/> .
+@prefix phen: <http://sweetontology.net/phen/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rela: <http://sweetontology.net/rela/> .
+@prefix tecp: <http://sweetontology.net/phenGeolTectonic/> .
+@prefix basin: <http://sweetontology.net/realmGeolBasin/> .
+@prefix crela: <http://sweetontology.net/relaChemical/> .
+@prefix geolr: <http://sweetontology.net/realmGeol/> .
+@prefix prela: <http://sweetontology.net/relaPhysical/> .
+@prefix srela: <http://sweetontology.net/relaSpace/> .
+@prefix geomor: <http://sweetontology.net/phenGeolGeomorphology/> .
+@base <http://sweetontology.net/realmGeolOrogen> .
+
+<http://sweetontology.net/realmGeolOrogen> rdf:type owl:Ontology ;
+                                            owl:imports <http://sweetontology.net/matr> ,
+                                                        <http://sweetontology.net/matrRock> ,
+                                                        <http://sweetontology.net/matrRockIgneous> ,
+                                                        <http://sweetontology.net/phen> ,
+                                                        <http://sweetontology.net/phenGeol> ,
+                                                        <http://sweetontology.net/phenGeolGeomorphology> ,
+                                                        <http://sweetontology.net/phenGeolTectonic> ,
+                                                        <http://sweetontology.net/phenSolid> ,
+                                                        <http://sweetontology.net/propSpaceDirection> ,
+                                                        <http://sweetontology.net/realmGeol> ,
+                                                        <http://sweetontology.net/realmGeolBasin> ,
+                                                        <http://sweetontology.net/realmLandTectonic> ,
+                                                        <http://sweetontology.net/rela> ,
+                                                        <http://sweetontology.net/relaChemical> ,
+                                                        <http://sweetontology.net/relaPhysical> ,
+                                                        <http://sweetontology.net/relaSpace> ,
+                                                        <http://sweetontology.net/reprSpaceGeometry> ;
+                                            rdfs:label "SWEET Ontology" ;
+                                            owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/rela/hasPhenomena
+rela:hasPhenomena rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaChemical/hasSubstance
+crela:hasSubstance rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaPhysical/hasPlanetaryStructure
+prela:hasPlanetaryStructure rdf:type owl:ObjectProperty .
+
+
+###  http://sweetontology.net/relaSpace/hasAxis
+srela:hasAxis rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/realmGeolOrogen/Arc
+oro:Arc rdf:type owl:Class ;
+        rdfs:subClassOf geolr:GeologicFeature ,
+                        geom:Arc .
+
+
+###  http://sweetontology.net/realmGeolOrogen/ArcAxis
+oro:ArcAxis rdf:type owl:Class ;
+            rdfs:subClassOf dir:Axis .
+
+
+###  http://sweetontology.net/realmGeolOrogen/BackArc
+oro:BackArc rdf:type owl:Class ;
+            owl:equivalentClass oro:RearArc ,
+                                oro:RetroArc ;
+            rdfs:subClassOf oro:Arc .
+
+
+###  http://sweetontology.net/realmGeolOrogen/ForeArc
+oro:ForeArc rdf:type owl:Class ;
+            rdfs:subClassOf oro:Arc ,
+                            tec:SupraSubductionZoneComplex .
+
+
+###  http://sweetontology.net/realmGeolOrogen/MagmaticArc
+oro:MagmaticArc rdf:type owl:Class ;
+                rdfs:subClassOf oro:Arc ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty prela:hasPlanetaryStructure ;
+                                  owl:someValuesFrom oro:ForeArc
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty prela:hasPlanetaryStructure ;
+                                  owl:someValuesFrom oro:RearArc
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty srela:hasAxis ;
+                                  owl:allValuesFrom oro:ArcAxis
+                                ] .
+
+
+###  http://sweetontology.net/realmGeolOrogen/Orogen
+oro:Orogen rdf:type owl:Class ;
+           rdfs:subClassOf geolr:GeologicProvince ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rela:hasPhenomena ;
+                             owl:someValuesFrom geol:OrogenicCollapse
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rela:hasPhenomena ;
+                             owl:someValuesFrom geol:Orogeny
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rela:hasPhenomena ;
+                             owl:someValuesFrom def:Deformation
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty crela:hasSubstance ;
+                             owl:someValuesFrom petr:Melange
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty prela:hasPlanetaryStructure ;
+                             owl:someValuesFrom tecp:Terrane
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty prela:hasPlanetaryStructure ;
+                             owl:someValuesFrom basin:ForelandBasin
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty prela:hasPlanetaryStructure ;
+                             owl:someValuesFrom tec:Suture
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty prela:hasPlanetaryStructure ;
+                             owl:someValuesFrom tec:ThrustSystem
+                           ] .
+
+
+###  http://sweetontology.net/realmGeolOrogen/RearArc
+oro:RearArc rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmGeolOrogen/RemnantArc
+oro:RemnantArc rdf:type owl:Class ;
+               rdfs:subClassOf oro:Arc .
+
+
+###  http://sweetontology.net/realmGeolOrogen/RetroArc
+oro:RetroArc rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandTectonic/SupraSubductionZoneComplex
+tec:SupraSubductionZoneComplex rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandTectonic/Suture
+tec:Suture rdf:type owl:Class .
+
+
+###  http://sweetontology.net/realmLandTectonic/ThrustSystem
+tec:ThrustSystem rdf:type owl:Class .
+
+
+###  http://sweetontology.net/reprSpaceGeometry/Arc
+geom:Arc rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/

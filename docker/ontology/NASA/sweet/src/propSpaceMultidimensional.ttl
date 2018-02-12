@@ -1,0 +1,146 @@
+@prefix : <http://sweetontology.net/propSpaceMultidimensional/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dist: <http://sweetontology.net/propSpace/> .
+@prefix mult: <http://sweetontology.net/propSpaceMultidimensional/> .
+@prefix quan: <http://sweetontology.net/propQuantity/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix repr: <http://sweetontology.net/repr/> .
+@prefix mrela: <http://sweetontology.net/relaMath/> .
+@prefix units: <http://sweetontology.net/reprSciUnits/> .
+@prefix screla: <http://sweetontology.net/relaSci/> .
+@base <http://sweetontology.net/propSpaceMultidimensional> .
+
+<http://sweetontology.net/propSpaceMultidimensional> rdf:type owl:Ontology ;
+                                                      owl:imports <http://sweetontology.net/propQuantity> ,
+                                                                  <http://sweetontology.net/propSpace> ,
+                                                                  <http://sweetontology.net/relaMath> ,
+                                                                  <http://sweetontology.net/relaSci> ,
+                                                                  <http://sweetontology.net/repr> ,
+                                                                  <http://sweetontology.net/reprSciUnits> ;
+                                                      rdfs:label "SWEET Ontology" ;
+                                                      owl:versionInfo "3.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://sweetontology.net/relaSci/hasDefaultUnit
+screla:hasDefaultUnit rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://sweetontology.net/relaMath/hasDimension
+mrela:hasDimension rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://sweetontology.net/propQuantity/RadiationMediumInteractionQuantity
+quan:RadiationMediumInteractionQuantity rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propSpace/SpatialMeasure
+dist:SpatialMeasure rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/AngularExtent
+mult:AngularExtent rdf:type owl:Class ;
+                   rdfs:subClassOf dist:SpatialMeasure ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty screla:hasDefaultUnit ;
+                                     owl:hasValue units:radian
+                                   ] .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/Area
+mult:Area rdf:type owl:Class ;
+          rdfs:subClassOf dist:SpatialMeasure ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty screla:hasDefaultUnit ;
+                            owl:hasValue units:meterSquared
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty mrela:hasDimension ;
+                            owl:hasValue 2
+                          ] .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/Capacity
+mult:Capacity rdf:type owl:Class ;
+              rdfs:subClassOf mult:Volume .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/CarbonFootprint
+mult:CarbonFootprint rdf:type owl:Class ;
+                     rdfs:subClassOf mult:Footprint .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/CrossSection
+mult:CrossSection rdf:type owl:Class ;
+                  owl:equivalentClass mult:CrossSectionalArea ;
+                  rdfs:subClassOf mult:Area .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/CrossSectionalArea
+mult:CrossSectionalArea rdf:type owl:Class .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/FieldOfView
+mult:FieldOfView rdf:type owl:Class ;
+                 rdfs:subClassOf mult:AngularExtent .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/Footprint
+mult:Footprint rdf:type owl:Class ;
+               rdfs:subClassOf mult:Area .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/RadarCrossSection
+mult:RadarCrossSection rdf:type owl:Class ;
+                       rdfs:subClassOf quan:RadiationMediumInteractionQuantity ,
+                                       mult:CrossSection .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/Resolution
+mult:Resolution rdf:type owl:Class ;
+                rdfs:subClassOf mult:AngularExtent .
+
+
+###  http://sweetontology.net/propSpaceMultidimensional/Volume
+mult:Volume rdf:type owl:Class ;
+            rdfs:subClassOf dist:SpatialMeasure ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty screla:hasDefaultUnit ;
+                              owl:hasValue units:meterCubed
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty mrela:hasDimension ;
+                              owl:hasValue 3
+                            ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://sweetontology.net/reprSciUnits/meterCubed
+units:meterCubed rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/meterSquared
+units:meterSquared rdf:type owl:NamedIndividual .
+
+
+###  http://sweetontology.net/reprSciUnits/radian
+units:radian rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 5.1.2.2017-10-13T07:13:07Z) https://github.com/owlcs/owlapi/
