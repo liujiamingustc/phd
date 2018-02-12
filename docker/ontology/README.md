@@ -28,7 +28,31 @@ Semantic Web
 
 ## Demo
 
-### WISDOM Project [link](http://www.wisdom-project.eu)
+### SWIM [link](http://www.semanticwater.com/SWIM)
+
+```xml
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticwater.com/SWIM#"
+     xml:base="http://www.semanticwater.com/SWIM"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     
+     ...
+     
+</rdf:RDF>
+```
+
+| Asset        | Graph |
+|--------------|-------|
+| ControlAsset | ![SWIM-Asset.ControlAsset](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/SWIM.Asset.ControlAsset.png) |
+| FixedAsset   | ![SWIM-Asset.FixedAsset](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/SWIM.Asset.FixedAsset.png) |
+| Plant        | ![SWIM-Asset.Plant](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/SWIM.Asset.Plant.png) |
+| Sensor       | ![SWIM-Asset.Sensor](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/SWIM.Asset.Sensor.png) |
+
+### WISDOM [link](http://www.semanticwater.com/WISDOM)
 
 ```xml
 <?xml version="1.0"?>
