@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
 # Epanet
 RUN df -h
 
-ADD epanet/tags/2.0.12 /epanet
+ADD epanet/tags/v2.0.12 /epanet
 RUN ["chmod", "+x", "/epanet/configure"]
 
 RUN cd /epanet \
