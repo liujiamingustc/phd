@@ -74,7 +74,7 @@ ENV PKG_CONFIG_PATH=$MPICH2_3_2_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
 # errors in the delft3d build script
 RUN df -h
 
-ADD delft3d/tags/6686 /delft3d
+ADD delft3d/tags/v6686 /delft3d
 RUN ["chmod", "+x", "/delft3d/src/build_ubuntu1604.sh"]
 
 # RUN cd /delft3d/src \
