@@ -68,9 +68,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'phd'
-copyright = u'2018, Quan Pan'
-author = u'Quan Pan'
+project = surrogate.__project__
+copyright = surrogate.__copyright__
+author = surrogate.__author__
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

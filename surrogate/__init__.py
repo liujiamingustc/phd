@@ -25,7 +25,9 @@ Links:
     NumPy: https://docs.scipy.org/doc/numpy-dev/reference/
 
 """
-
+__project__ = "phd"
+__copyright__ = "2016, Quan Pan"
 __author__ = "Quan Pan"
+
 __version__ = "1.0"
 __revision__ = "1.0.1"
