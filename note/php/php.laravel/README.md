@@ -1,3 +1,3 @@
 # Awesome laravel
 
-Frome github repositories
+From github repositories

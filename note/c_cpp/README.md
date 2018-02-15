@@ -1,3 +1,3 @@
 # Awesome c_cpp
 
-Frome github repositories
+From github repositories

@@ -1,3 +1,3 @@
 # Awesome data
 
-Frome github repositories
+From github repositories

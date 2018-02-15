@@ -1,3 +1,3 @@
 # Awesome javascript
 
-Frome github repositories
+From github repositories

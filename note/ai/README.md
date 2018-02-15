@@ -1,3 +1,3 @@
 # Awesome ai
 
-Frome github repositories
+From github repositories

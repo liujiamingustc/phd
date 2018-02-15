@@ -1,3 +1,3 @@
 # Awesome database
 
-Frome github repositories
+From github repositories

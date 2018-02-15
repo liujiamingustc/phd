@@ -1,3 +1,3 @@
 # Awesome docker
 
-Frome github repositories
+From github repositories

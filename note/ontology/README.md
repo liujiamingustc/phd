@@ -1,3 +1,3 @@
 # Awesome ontology
 
-Frome github repositories
+From github repositories
