@@ -1,0 +1,125 @@
+# this file is generated via https://github.com/nodejs/docker-node/blob/f941101d4d706cea27fab3b628c19e870a78d194/generate-stackbrew-library.sh
+
+Maintainers: The Node.js Docker Team <https://github.com/nodejs/docker-node> (@nodejs)
+GitRepo: https://github.com/nodejs/docker-node.git
+
+Tags: 9.3.0, 9.3, 9, latest
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: a7e88f1dd2102689180f485c51133212f45fa064
+Directory: 9
+
+Tags: 9.3.0-alpine, 9.3-alpine, 9-alpine, alpine
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v6, i386
+GitCommit: a7e88f1dd2102689180f485c51133212f45fa064
+Directory: 9/alpine
+
+Tags: 9.3.0-onbuild, 9.3-onbuild, 9-onbuild, onbuild
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: a7e88f1dd2102689180f485c51133212f45fa064
+Directory: 9/onbuild
+
+Tags: 9.3.0-slim, 9.3-slim, 9-slim, slim
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: a7e88f1dd2102689180f485c51133212f45fa064
+Directory: 9/slim
+
+Tags: 9.3.0-stretch, 9.3-stretch, 9-stretch, stretch
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: a7e88f1dd2102689180f485c51133212f45fa064
+Directory: 9/stretch
+
+Tags: 9.3.0-wheezy, 9.3-wheezy, 9-wheezy, wheezy
+Architectures: amd64
+GitCommit: a7e88f1dd2102689180f485c51133212f45fa064
+Directory: 9/wheezy
+
+Tags: 8.9.3, 8.9, 8, carbon
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: 6b8d86d6ad59e0d1e7a94cec2e909cad137a028f
+Directory: 8
+
+Tags: 8.9.3-alpine, 8.9-alpine, 8-alpine, carbon-alpine
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v6, i386
+GitCommit: 6b8d86d6ad59e0d1e7a94cec2e909cad137a028f
+Directory: 8/alpine
+
+Tags: 8.9.3-onbuild, 8.9-onbuild, 8-onbuild, carbon-onbuild
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: 6b8d86d6ad59e0d1e7a94cec2e909cad137a028f
+Directory: 8/onbuild
+
+Tags: 8.9.3-slim, 8.9-slim, 8-slim, carbon-slim
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: 6b8d86d6ad59e0d1e7a94cec2e909cad137a028f
+Directory: 8/slim
+
+Tags: 8.9.3-stretch, 8.9-stretch, 8-stretch, carbon-stretch
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: 6b8d86d6ad59e0d1e7a94cec2e909cad137a028f
+Directory: 8/stretch
+
+Tags: 8.9.3-wheezy, 8.9-wheezy, 8-wheezy, carbon-wheezy
+Architectures: amd64
+GitCommit: 6b8d86d6ad59e0d1e7a94cec2e909cad137a028f
+Directory: 8/wheezy
+
+Tags: 6.12.2, 6.12, 6, boron
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: 632df638ab53acc1e4608cc9c9dd6cac539cbb23
+Directory: 6
+
+Tags: 6.12.2-alpine, 6.12-alpine, 6-alpine, boron-alpine
+Architectures: amd64
+GitCommit: 632df638ab53acc1e4608cc9c9dd6cac539cbb23
+Directory: 6/alpine
+
+Tags: 6.12.2-onbuild, 6.12-onbuild, 6-onbuild, boron-onbuild
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: 632df638ab53acc1e4608cc9c9dd6cac539cbb23
+Directory: 6/onbuild
+
+Tags: 6.12.2-slim, 6.12-slim, 6-slim, boron-slim
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: 632df638ab53acc1e4608cc9c9dd6cac539cbb23
+Directory: 6/slim
+
+Tags: 6.12.2-stretch, 6.12-stretch, 6-stretch, boron-stretch
+Architectures: amd64, ppc64le, s390x, arm64v8, arm32v7, i386
+GitCommit: 632df638ab53acc1e4608cc9c9dd6cac539cbb23
+Directory: 6/stretch
+
+Tags: 6.12.2-wheezy, 6.12-wheezy, 6-wheezy, boron-wheezy
+Architectures: amd64
+GitCommit: 632df638ab53acc1e4608cc9c9dd6cac539cbb23
+Directory: 6/wheezy
+
+Tags: 4.8.7, 4.8, 4, argon
+Architectures: amd64, ppc64le, arm64v8, arm32v7, i386
+GitCommit: 2dfcf38dafc79c0e163293b8a84f4daf7c0d6898
+Directory: 4
+
+Tags: 4.8.7-alpine, 4.8-alpine, 4-alpine, argon-alpine
+Architectures: amd64
+GitCommit: 2dfcf38dafc79c0e163293b8a84f4daf7c0d6898
+Directory: 4/alpine
+
+Tags: 4.8.7-onbuild, 4.8-onbuild, 4-onbuild, argon-onbuild
+Architectures: amd64, ppc64le, arm64v8, arm32v7, i386
+GitCommit: 2dfcf38dafc79c0e163293b8a84f4daf7c0d6898
+Directory: 4/onbuild
+
+Tags: 4.8.7-slim, 4.8-slim, 4-slim, argon-slim
+Architectures: amd64, ppc64le, arm64v8, arm32v7, i386
+GitCommit: 2dfcf38dafc79c0e163293b8a84f4daf7c0d6898
+Directory: 4/slim
+
+Tags: 4.8.7-stretch, 4.8-stretch, 4-stretch, argon-stretch
+Architectures: amd64, ppc64le, arm64v8, arm32v7, i386
+GitCommit: 2dfcf38dafc79c0e163293b8a84f4daf7c0d6898
+Directory: 4/stretch
+
+Tags: 4.8.7-wheezy, 4.8-wheezy, 4-wheezy, argon-wheezy
+Architectures: amd64
+GitCommit: 2dfcf38dafc79c0e163293b8a84f4daf7c0d6898
+Directory: 4/wheezy
+

@@ -1,0 +1,15 @@
+# this file is generated via https://github.com/jessfraz/irssi/blob/29e5068c23e0f12f3db8d99f3a7dcff5329ecad0/generate-stackbrew-library.sh
+
+Maintainers: Jessie Frazelle <acidburn@google.com> (@jessfraz),
+             Tianon Gravi <admwiggin@gmail.com> (@tianon)
+GitRepo: https://github.com/jessfraz/irssi.git
+
+Tags: 1.0.5, 1.0, 1, latest
+Architectures: amd64, arm32v5, arm32v7, arm64v8, i386, ppc64le, s390x
+GitCommit: baf8c9887dcbe070d522ebd50e8cfd272e0618fd
+Directory: debian
+
+Tags: 1.0.5-alpine, 1.0-alpine, 1-alpine, alpine
+Architectures: amd64, arm32v6, arm64v8, i386, ppc64le, s390x
+GitCommit: baf8c9887dcbe070d522ebd50e8cfd272e0618fd
+Directory: alpine

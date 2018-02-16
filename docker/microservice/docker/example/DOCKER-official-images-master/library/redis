@@ -1,0 +1,35 @@
+# this file is generated via https://github.com/docker-library/redis/blob/66af9ba4c515c48f296342bcb42e7283a487a56e/generate-stackbrew-library.sh
+
+Maintainers: Tianon Gravi <admwiggin@gmail.com> (@tianon),
+             Joseph Ferguson <yosifkit@gmail.com> (@yosifkit)
+GitRepo: https://github.com/docker-library/redis.git
+
+Tags: 3.2.11, 3.2, 3
+Architectures: amd64, arm32v5, arm32v7, arm64v8, i386, ppc64le, s390x
+GitCommit: 99a06c057297421f9ea46934c342a2fc00644c4f
+Directory: 3.2
+
+Tags: 3.2.11-32bit, 3.2-32bit, 3-32bit
+Architectures: amd64
+GitCommit: 99a06c057297421f9ea46934c342a2fc00644c4f
+Directory: 3.2/32bit
+
+Tags: 3.2.11-alpine, 3.2-alpine, 3-alpine
+Architectures: amd64, arm32v6, arm64v8, i386, ppc64le, s390x
+GitCommit: 99a06c057297421f9ea46934c342a2fc00644c4f
+Directory: 3.2/alpine
+
+Tags: 4.0.6, 4.0, 4, latest
+Architectures: amd64, arm32v5, arm32v7, arm64v8, i386, ppc64le, s390x
+GitCommit: 9c63bd5fc7b52cc3d8f3441a660a593028a0ed15
+Directory: 4.0
+
+Tags: 4.0.6-32bit, 4.0-32bit, 4-32bit, 32bit
+Architectures: amd64
+GitCommit: 9c63bd5fc7b52cc3d8f3441a660a593028a0ed15
+Directory: 4.0/32bit
+
+Tags: 4.0.6-alpine, 4.0-alpine, 4-alpine, alpine
+Architectures: amd64, arm32v6, arm64v8, i386, ppc64le, s390x
+GitCommit: 9c63bd5fc7b52cc3d8f3441a660a593028a0ed15
+Directory: 4.0/alpine

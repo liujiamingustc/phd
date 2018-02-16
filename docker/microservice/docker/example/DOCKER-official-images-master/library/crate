@@ -1,0 +1,19 @@
+Maintainers: Bernd Dorn <bernddorn@gmail.com> (@dobe),
+             Mathias Fußenegger <mathias@crate.io> (@mfussenegger),
+             Matthias Wahl <matthias@crate.io> (@mfelsche),
+             Michael Beer <michael.beer@crate.io> (@mikethebeer),
+             Christian Haudum <christian.haudum@crate.io> (@chaudum),
+             Ruslan Kovalov <ruslan@crate.io> (@kovrus),
+             Claus Matzinger <claus@crate.io> (@celaus),
+             Christian Bader <christian.bader@crate.io> (@christianbader),
+             Mika Naylor <mika@crate.io> (@autophagy)
+GitRepo: https://github.com/crate/docker-crate.git
+
+Tags: 2.2.4, 2.2, latest
+GitCommit: 6ecacdbc7ed8b042775b6a47c6d5268de6be7777
+
+Tags: 2.1.10, 2.1
+GitCommit: ed8cda8b567628dd733716dc5c8f507512587783
+
+Tags: 2.0.7, 2.0
+GitCommit: 79d51bb263104ccd2d3c57a5d74c16d6f0466d21

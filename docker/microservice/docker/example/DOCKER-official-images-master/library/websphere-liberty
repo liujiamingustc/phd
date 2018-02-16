@@ -1,0 +1,25 @@
+Maintainers: David Currie <david_currie@uk.ibm.com> (@davidcurrie),
+             Jamie Coleman <jlcoleman@uk.ibm.com> (@jamiecoleman92),
+             Wendy Raschke <wraschke@us.ibm.com> (@wraschke),
+             Andy Naumann <naumann@us.ibm.com> (@naumanna)
+GitRepo: https://github.com/WASdev/ci.docker.git
+GitCommit: ffc9807ad5f27dd092210164d34cb7d045cdb6ea
+Architectures: amd64, i386, ppc64le, s390x
+
+Tags: kernel
+Directory: ga/developer/kernel
+
+Tags: microProfile
+Directory: ga/developer/microProfile
+
+Tags: webProfile6
+Directory: ga/developer/webProfile6
+
+Tags: webProfile7
+Directory: ga/developer/webProfile7
+
+Tags: javaee7, latest
+Directory: ga/developer/javaee7
+
+Tags: beta
+Directory: beta

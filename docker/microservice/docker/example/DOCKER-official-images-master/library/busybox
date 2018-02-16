@@ -1,0 +1,54 @@
+# this file is generated via https://github.com/docker-library/busybox/blob/cba1373b305b3676b0a41a8da05c9885e420d5e9/generate-stackbrew-library.sh
+
+Maintainers: Tianon Gravi <admwiggin@gmail.com> (@tianon),
+             Joseph Ferguson <yosifkit@gmail.com> (@yosifkit),
+             Jérôme Petazzoni <jerome@docker.com> (@jpetazzo)
+GitRepo: https://github.com/docker-library/busybox.git
+GitCommit: cba1373b305b3676b0a41a8da05c9885e420d5e9
+# https://github.com/docker-library/busybox/tree/dist-amd64
+amd64-GitFetch: refs/heads/dist-amd64
+amd64-GitCommit: 8d817055ba8420f907825ca650370a727c4cb1f2
+# https://github.com/docker-library/busybox/tree/dist-arm32v5
+arm32v5-GitFetch: refs/heads/dist-arm32v5
+arm32v5-GitCommit: 716440082330ad364ac3e4cebcb08d537fb6172b
+# https://github.com/docker-library/busybox/tree/dist-arm32v6
+arm32v6-GitFetch: refs/heads/dist-arm32v6
+arm32v6-GitCommit: f8deca5b343a6e1118fcb0da2fdfd4649000ebae
+# https://github.com/docker-library/busybox/tree/dist-arm32v7
+arm32v7-GitFetch: refs/heads/dist-arm32v7
+arm32v7-GitCommit: 0f31ff300c3fe878e922dc378af2a9ff0ca98570
+# https://github.com/docker-library/busybox/tree/dist-arm64v8
+arm64v8-GitFetch: refs/heads/dist-arm64v8
+arm64v8-GitCommit: fd80d345c01369022955be4bd3a9422f3f6e0776
+# https://github.com/docker-library/busybox/tree/dist-i386
+i386-GitFetch: refs/heads/dist-i386
+i386-GitCommit: ed7b5a0b21c9918b693e87a0f97c452a09841757
+# https://github.com/docker-library/busybox/tree/dist-ppc64le
+ppc64le-GitFetch: refs/heads/dist-ppc64le
+ppc64le-GitCommit: 8bdcee6aeae1988740983591baa95e62be575543
+# https://github.com/docker-library/busybox/tree/dist-s390x
+s390x-GitFetch: refs/heads/dist-s390x
+s390x-GitCommit: 1c111d7ce87a47b57067f9c9bbbedaba9b94763c
+
+Tags: 1.27.2-uclibc, 1.27-uclibc, 1-uclibc, uclibc
+Architectures: amd64, arm32v5, arm32v7, arm64v8, i386
+Directory: uclibc
+
+Tags: 1.27.2-glibc, 1.27-glibc, 1-glibc, glibc
+Architectures: amd64, arm32v5, arm32v7, arm64v8, i386, ppc64le, s390x
+Directory: glibc
+
+Tags: 1.27.2-musl, 1.27-musl, 1-musl, musl
+Architectures: amd64, arm32v6, arm64v8, i386, ppc64le, s390x
+Directory: musl
+
+Tags: 1.27.2, 1.27, 1, latest
+Architectures: amd64, arm32v5, arm32v6, arm32v7, arm64v8, i386, ppc64le, s390x
+amd64-Directory: uclibc
+arm32v5-Directory: uclibc
+arm32v6-Directory: musl
+arm32v7-Directory: uclibc
+arm64v8-Directory: uclibc
+i386-Directory: uclibc
+ppc64le-Directory: glibc
+s390x-Directory: glibc

@@ -1,0 +1,12 @@
+# this file was generated using https://github.com/composer/docker/blob/0759dcda9eb27ee6467166b658de3e03dea4e732/generate-manifest.sh
+
+Maintainers: Composer (@composer), Rob Bast (@alcohol)
+GitRepo: https://github.com/composer/docker.git
+
+Tags: 1.5.6, 1.5, 1, latest
+GitCommit: 6c112b3c58d927257a0a3ddd1d1b3f784761fbf7
+Directory: 1.5
+
+Tags: 1.4.3, 1.4
+GitCommit: ea0ec1efa4b15f4ad7b809793eecbb76633dcbb8
+Directory: 1.4

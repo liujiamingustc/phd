@@ -1,0 +1,35 @@
+# Header of manifest
+# Merge manifest files from each branch afterwards 
+# Maintainers, repo and constraints are common headers for every release
+Maintainers: Flavio Castelli <fcastelli@suse.com> (@flavio),
+             Aleksa Sarai <asarai@suse.com> (@cyphar),
+             Jordi Massaguer Pla <jmassaguerpla@suse.com> (@jordimassaguerpla),
+             David Cassany Viladomat <dcassany@suse.com> (@davidcassany)
+GitRepo: https://github.com/openSUSE/docker-containers-build.git
+Constraints: !aufs
+
+# This is the multiarch section specific for openSUSE-Leap-42.2
+Tags: 42.2
+Architectures: amd64
+GitFetch: refs/heads/openSUSE-Leap-42.2
+GitCommit: 1d0f087e51f5913ed932bf3fa52817dfacbdf48c
+amd64-Directory: x86_64/
+
+# This is the multiarch section specific for openSUSE-Leap-42.3
+Tags: 42.3,latest,leap
+Architectures: amd64, arm64v8, ppc64le
+GitFetch: refs/heads/openSUSE-Leap-42.3
+GitCommit: b148e2fb43d8e4a7ec3dcfed631c0249f3e33c4d
+amd64-Directory: x86_64/
+arm64v8-Directory: aarch64/
+ppc64le-Directory: ppc64le/
+
+# This is the multiarch section specific for openSUSE-Tumbleweed
+Tags: tumbleweed
+Architectures: amd64, arm64v8, ppc64le
+GitFetch: refs/heads/openSUSE-Tumbleweed
+GitCommit: 4ef0aa53acc6603d54402570705721f2c7b62796
+amd64-Directory: x86_64/
+arm64v8-Directory: aarch64/
+ppc64le-Directory: ppc64le/
+
