@@ -25,6 +25,10 @@ Semantic Web
 
 ## Demo
 
+### DBpedia [link](http://wiki.dbpedia.org)
+
+### NASA sweet [link](https://sweet.jpl.nasa.gov)
+
 ### SWIM [link](http://www.semanticwater.com/SWIM)
 
 ```xml
@@ -80,7 +84,3 @@ Semantic Web
 | Agent           | ![WISDOM-Object.Agent](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.Agent.png) |
 | Physical Object | ![WISDOM-Object.Physical Object](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.PhysicalObject.png) |
 | SocialObject    | ![WISDOM-Object.SocialObject](https://raw.githubusercontent.com/quanpan302/phd/master/docker/ontology/water/SemanticWater/WISDOM-Object.SocialObject.png) |
-
-### DBpedia [link](http://wiki.dbpedia.org)
-
-### NASA sweet [link](https://sweet.jpl.nasa.gov)
