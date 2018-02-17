@@ -17,14 +17,11 @@ Semantic Web
 
 > "Foundations of Semantic Web Technologies" - Pascal Hitzler, Markus Krtzsch, Sebastian Rudolph
 
-## socio
-
-1. water [purl](http://purl.org/socio/water)
-
-## water
-
-1. wsn [purl](http://purl.org/water/wsn)
-2. lake [purl](http://purl.org/water/lake)
+| domain     | sub-domain | purl |
+|------------|------------|------|
+| **socio**  | water      | [purl.org/socio/water](http://purl.org/socio/water) |
+| **water**  | wsn        | [purl.org/water/wsn](http://purl.org/water/wsn)     |
+| **water**  | lake       | [purl.org/water/lake](http://purl.org/water/lake)   |
 
 ## Demo
 
