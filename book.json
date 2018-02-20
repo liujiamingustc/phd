@@ -4,9 +4,13 @@
 	"author":  "Quan Pan <quanpan302@hotmail.com>",
 	"description": "This is my PhD thesis.",
 	"plugins": [
+		"ga",
 		"disqus"
 	],
 	"pluginsConfig": {
+		"ga": {
+			"token": "UA-101927109-2"
+		},
 		"disqus": {
 			"shortName": "quanpan302"
 		}
