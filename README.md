@@ -12,3 +12,5 @@ Thank you for any suggestions :blush:.
 | Images              | [Docker Hub](https://hub.docker.com/r/quanpan302/phd)  |
 | Ontology.water.wsn  | [purl.org](http://purl.org/water/wsn)                  |
 | Tutorial            | [Katacoda](https://www.katacoda.com/quanpan302)        |
+
+More collections are hosted in [Github DailyActie](https://github.com/DailyActie) repository.
