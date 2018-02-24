@@ -4,7 +4,7 @@ Dockerfile, Docker Hub, Source Codes.
 
 # Table of Contents
 
-[Dockerfile Reference](#dockerfile-reference-link)
+[**Dockerfile Reference**](#dockerfile-reference-link)
   1. [FROM](#from-dockerfile-reference)
   2. [RUN](#run-dockerfile-reference)
   3. [CMD](#cmd-dockerfile-reference)
@@ -22,7 +22,8 @@ Dockerfile, Docker Hub, Source Codes.
   15. [STOPSIGNAL](#stopsignal-dockerfile-reference)
   16. [HEALTHCHECK](#healthcheck-dockerfile-reference)
   17. [SHELL](#shell-dockerfile-reference)
-[Compose file version 3 reference](#compose-file-version-3-reference-link)
+
+[**Compose file version 3 reference**](#compose-file-version-3-reference-link)
   - [Service configuration reference](#service-configuration-reference-link)
   - [Specifying durations](#specifying-durations-link)
   - [Specifying byte values](#specifying-byte-values-link)
