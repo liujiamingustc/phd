@@ -10,6 +10,11 @@ Version:
 
 The source codes are stored under context folder `/water/delft3d/tags/6686`
 
+* ubuntu 14.04, ok
+* ubuntu 16.08, delwaq1.f90 line 548:
+  `Fortran runtime error: Inquire statement identifies an internal file`
+  Try to replace rdpart.f90 by v7545, same error.
+
 ## Epanet
 
 EPANET is a public domain hydraulic analysis package for water supply networks.
