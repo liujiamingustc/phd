@@ -2,7 +2,7 @@
 
 # Table of Contents
 
-- [**Manage data in Docker**](#manage-data-in-docker)
+- [**Manage data in Docker**](#manage-data-in-docker-link)
   - [Choose the right type of mount](#choose-the-right-type-of-mount-link)
   - [Good use cases](#good-use-cases)
 - [**Volumes**](#volumes-link)
@@ -18,9 +18,7 @@
   - [Use the ZFS storage driver](#use-the-zfs-storage-driver-link)
   - [Use the VFS storage driver](#use-the-vfs-storage-driver-link)
 
-# Manage data in Docker
-
-[link](https://docs.docker.com/storage/)
+# Manage data in Docker [link](https://docs.docker.com/storage/)
 
 It is possible to store data within the writable layer of a container, but there are some downsides:
 
