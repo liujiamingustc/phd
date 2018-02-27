@@ -65,7 +65,21 @@ Dockerfile, Docker Hub, Source Codes.
   - [Specifying durations](#specifying-durations-link)
   - [Specifying byte values](#specifying-byte-values-link)
   - [Volume configuration reference](#volume-configuration-reference-link)
+    - [driver](#driver-link)
+    - [driver\_opts](#driver_opts-link)
+    - [external](#external-link)
+    - [labels](#labels-link)
+    - [name](#name-link)
   - [Network configuration reference](#network-configuration-reference-link)
+    - [driver](#driver-link)
+    - [driver\_opts](#driver_opts-link)
+    - [attachable](#attachable-link)
+    - [enable\_ipv6](#enable_ipv6-link)
+    - [ipam](#ipam-link)
+    - [internal](#internal-link)
+    - [labels](#labels-link)
+    - [external](#external-link)
+    - [name](#name-link)
   - [configs configuration reference](#configs-configuration-reference-link)
   - [secrets configuration reference](#secrets-configuration-reference-link)
   - [Variable substitution](#variable-substitution-link)
@@ -940,33 +954,367 @@ restart: unless-stopped
 
 ## Specifying durations [link](https://docs.docker.com/compose/compose-file/#specifying-durations)
 
+Some configuration options, such as the `interval` and `timeout` sub-options for `check`, accept a duration as a string in a format that looks like this:
+
+```
+2.5s
+10s
+1m30s
+2h32m
+5h34m56s
+```
+
+> The supported units are `us`, `ms`, `s`, `m` and `h`.
+
 [_Back to TOC_](#table-of-contents)
 
 ## Specifying byte values [link](https://docs.docker.com/compose/compose-file/#specifying-byte-values)
+
+Some configuration options, such as the `shm_size` sub-option for `build`, accept a byte value as a string in a format that looks like this:
+
+```
+2b
+1024kb
+2048k
+300m
+1gb
+```
+
+> The supported units are `b`, `k`, `m` and `g`, and their alternative notation `kb`, `mb` and `gb`. 
+
+Decimal values are not supported at this time.
+
 
 [_Back to TOC_](#table-of-contents)
 
 ## Volume configuration reference [link](https://docs.docker.com/compose/compose-file/#volume-configuration-reference)
 
+While it is possible to declare volumes on the file as part of the service declaration,
+this section allows you to create named volumes (without relying on volumes_from)
+that can be reused across multiple services,
+and are easily retrieved and inspected using the docker command line or API.
+
+See the docker volume subcommand documentation for more information.
+
+```
+version: "3"
+
+services:
+  db:
+    image: db
+    volumes:
+      - data-volume:/var/lib/db
+  backup:
+    image: backup-service
+    volumes:
+      - data-volume:/var/lib/backup/data
+
+volumes:
+  data-volume:
+```
+
+[_Back to TOC_](#table-of-contents)
+
+### driver [link](https://docs.docker.com/compose/compose-file/#driver)
+  
+```
+driver: foobar
+```
+
+[_Back to TOC_](#table-of-contents)
+
+### driver\_opts [link](https://docs.docker.com/compose/compose-file/#driver_opts)
+
+```
+driver_opts:
+  foo: "bar"
+  baz: 1
+```
+
+[_Back to TOC_](#table-of-contents)
+
+### external [link](https://docs.docker.com/compose/compose-file/#external)
+
+```
+version: '2'
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - data:/var/lib/postgresql/data
+
+volumes:
+  data:
+    external: true
+```
+
+[_Back to TOC_](#table-of-contents)
+
+### labels [link](https://docs.docker.com/compose/compose-file/#labels-3)
+
+```
+labels:
+  com.example.description: "Database volume"
+  com.example.department: "IT/Ops"
+  com.example.label-with-empty-value: ""
+
+labels:
+  - "com.example.description=Database volume"
+  - "com.example.department=IT/Ops"
+  - "com.example.label-with-empty-value"
+```
+
+[_Back to TOC_](#table-of-contents)
+
+### name [link](https://docs.docker.com/compose/compose-file/#name)
+
+```
+version: '3.4'
+volumes:
+  data:
+    name: my-app-data
+```
+
 [_Back to TOC_](#table-of-contents)
 
 ## Network configuration reference [link](https://docs.docker.com/compose/compose-file/#network-configuration-reference)
+
+The top-level networks key lets you specify networks to be created.
+
+* For a full explanation of Compose’s use of Docker networking features and all network driver options, see the Networking guide.
+* For Docker Labs tutorials on networking, start with Designing Scalable, Portable Docker Container Networks
+
+[_Back to TOC_](#table-of-contents)
+
+### driver [link](https://docs.docker.com/compose/compose-file/#driver-1)
+
+Specify which driver should be used for this network.
+
+The default driver depends on how the Docker Engine you’re using is configured, but in most instances it is `bridge` on a single host and `overlay` on a Swarm.
+
+```
+driver: overlay
+```
+
+* BRIDGE
+* OVERLAY
+* HOST OR NONE
+
+[_Back to TOC_](#table-of-contents)
+
+### driver\_opts [link](https://docs.docker.com/compose/compose-file/#driver_opts-1)
+
+Specify a list of options as key-value pairs to pass to the driver for this network.
+
+Those options are driver-dependent - consult the driver’s documentation for more information. Optional.
+
+```
+driver_opts:
+  foo: "bar"
+  baz: 1
+```
+
+[_Back to TOC_](#table-of-contents)
+
+### attachable [link](https://docs.docker.com/compose/compose-file/#attachable)
+
+Only used when the driver is set to overlay.
+
+If set to true, then standalone containers can attach to this network, in addition to services.
+
+If a standalone container attaches to an overlay network,
+it can communicate with services and standalone containers that are also attached to the overlay network from other Docker daemons.
+
+```
+networks:
+  mynet1:
+    driver: overlay
+    attachable: true
+```
+
+[_Back to TOC_](#table-of-contents)
+
+### enable\_ipv6 [link](https://docs.docker.com/compose/compose-file/#enable_ipv6)
+
+Enable IPv6 networking on this network.
+
+[_Back to TOC_](#table-of-contents)
+
+### ipam [link](https://docs.docker.com/compose/compose-file/#ipam)
+
+Specify custom IPAM config.
+
+This is an object with several properties, each of which is optional:
+
+* `driver`: Custom IPAM driver, instead of the default.
+* `config`: A list with zero or more config blocks, each containing any of the following keys:
+  * `subnet`: Subnet in CIDR format that represents a network segment
+
+```
+ipam:
+  driver: default
+  config:
+    - subnet: 172.28.0.0/16
+```
+
+[_Back to TOC_](#table-of-contents)
+
+### internal [link](https://docs.docker.com/compose/compose-file/#internal)
+
+By default, Docker also connects a bridge network to it to provide external connectivity.
+
+If you want to create an externally isolated overlay network, you can set this option to `true`.
+
+[_Back to TOC_](#table-of-contents)
+
+### labels [link](https://docs.docker.com/compose/compose-file/#labels-4)
+
+Add metadata to containers using `Docker labels`.
+
+You can use either an array or a dictionary.
+
+```
+labels:
+  com.example.description: "Financial transaction network"
+  com.example.department: "Finance"
+  com.example.label-with-empty-value: ""
+
+labels:
+  - "com.example.description=Financial transaction network"
+  - "com.example.department=Finance"
+  - "com.example.label-with-empty-value"
+```
+
+[_Back to TOC_](#table-of-contents)
+
+### external [link](https://docs.docker.com/compose/compose-file/#external-1)
+
+If set to true, specifies that this network has been created outside of Compose.
+
+`docker-compose up` does not attempt to create it, and raises an error if it doesn’t exist.
+
+```
+version: '2'
+
+services:
+  proxy:
+    build: ./proxy
+    networks:
+      - outside
+      - default
+  app:
+    build: ./app
+    networks:
+      - default
+
+networks:
+  outside:
+    external: true
+```
+
+[_Back to TOC_](#table-of-contents)
+
+### name [link](https://docs.docker.com/compose/compose-file/#name-1)
+
+Set a custom name for this network.
+
+The name field can be used to reference networks which contain special characters.
+
+The name is used as is and will not be scoped with the stack name.
+
+```
+version: '3.5'
+networks:
+  network1:
+    name: my-app-net
+```
 
 [_Back to TOC_](#table-of-contents)
 
 ## configs configuration reference [link](https://docs.docker.com/compose/compose-file/#configs-configuration-reference)
 
+The top-level configs declaration defines or references configs that can be granted to the services in this stack.
+
+The source of the config is either file or external.
+
+* `file`: The config is created with the contents of the file at the specified path.
+* `external`: If set to true, specifies that this config has already been created. Docker does not attempt to create it, and if it does not exist, a config not found error occurs.
+* `name`: The name of the config object in Docker.
+  This field can be used to reference configs that contain special characters.
+  The name is used as is and will not be scoped with the stack name.
+  Introduced in version 3.5 file format.
+
+In this example, `my_first_config` is created (as `<stack_name>_my_first_config`),
+when the stack is deployed, and `my_second_config` already exists in Docker.
+
+```
+configs:
+  my_first_config:
+    file: ./config_data
+  my_second_config:
+    external: true
+```
+
 [_Back to TOC_](#table-of-contents)
 
 ## secrets configuration reference [link](https://docs.docker.com/compose/compose-file/#secrets-configuration-reference)
+
+The top-level secrets declaration defines or references secrets that can be granted to the services in this stack.
+
+The source of the secret is either file or external.
+
+* `file`: The secret is created with the contents of the file at the specified path.
+* `external`: If set to true, specifies that this secret has already been created. Docker does not attempt to create it, and if it does not exist, a secret not found error occurs.
+* `name`: The name of the secret object in Docker.
+  This field can be used to reference secrets that contain special characters.
+  The name is used as is and will not be scoped with the stack name.
+  Introduced in version 3.5 file format.
+
+In this example, `my_first_secret` is created (as `<stack_name>_my_first_secret`),
+when the stack is deployed, and `my_second_secret` already exists in Docker.
+
+```
+secrets:
+  my_first_secret:
+    file: ./secret_data
+  my_second_secret:
+    external: true
+```
 
 [_Back to TOC_](#table-of-contents)
 
 ## Variable substitution [link](https://docs.docker.com/compose/compose-file/#variable-substitution)
 
+Your configuration options can contain environment variables.
+
+Compose uses the variable values from the shell environment in which `docker-compose` is run.
+
+For example, suppose the shell contains `POSTGRES_VERSION=9.3` and you supply this configuration:
+
+```
+db:
+  image: "postgres:${POSTGRES_VERSION}"
+```
+
 [_Back to TOC_](#table-of-contents)
 
 ## Extension fields [link](https://docs.docker.com/compose/compose-file/#extension-fields)
+
+It is possible to re-use configuration fragments using extension fields.
+
+Those special fields can be of any format as long as they are located at the root of your Compose file and their name start with the `x-` character sequence.
+
+```
+version: '2.1'
+x-custom:
+  items:
+    - a
+    - b
+  options:
+    max-size: '12m'
+  name: "custom"
+```
 
 [_Back to TOC_](#table-of-contents)
 
