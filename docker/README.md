@@ -1322,6 +1322,8 @@ x-custom:
 
 _Here are some commands you might like to run to interact with your swarm and your VMs a bit_
 
+[_Back to TOC_](#table-of-contents)
+
 ## [Containers](http://devdocs.io/docker~17/get-started/part2/index)
 
 ```
