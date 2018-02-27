@@ -20,7 +20,7 @@ Docker Engine is a client-server application with these major components:
 * A REST API which specifies interfaces that programs can use to talk to the daemon and instruct it what to do.
 * A command line interface (CLI) client (the docker command).
 
-![engine-components-flow](https://raw.githubusercontent.com/quanpan302/phd/master/docker/engine-components-flow.png)
+![engine-components-flow](https://raw.githubusercontent.com/quanpan302/phd/master/docker/assets/img/docker-overview/engine-components-flow.png)
 
 [_Back to TOC_](#table-of-contents)
 
@@ -34,7 +34,7 @@ The Docker client and daemon can run on the same system, or you can connect a Do
 
 The Docker client and daemon communicate using a REST API, over UNIX sockets or a network interface.
 
-<img src="https://raw.githubusercontent.com/quanpan302/phd/master/docker/architecture.svg?sanitize=true">
+<img src="https://raw.githubusercontent.com/quanpan302/phd/master/docker/assets/img/docker-overview/architecture.svg?sanitize=true">
 
 [_Back to TOC_](#table-of-contents)
 
