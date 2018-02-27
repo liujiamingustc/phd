@@ -6,7 +6,9 @@ Dockerfile, Docker Hub, Source Codes.
 - [Docker Overview](DOCKER-OVERVIEW.md)
 - [Dockerfile](DOCKER-DOCKERFILE.md)
 - [Compose file](DOCKER-COMPOSE.md)
-- [Cheat Sheet](DOCKER-CHEAT_SHEET.md)
 
 ## Docker Storage
 - [Docker Storage](DOCKER-STORAGE.md)
+
+## Cheat Sheet
+- [Cheat Sheet](DOCKER-CHEAT_SHEET.md)
