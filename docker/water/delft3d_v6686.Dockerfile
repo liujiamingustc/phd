@@ -1,4 +1,5 @@
-FROM ubuntu:16.04
+#FROM ubuntu:16.04
+FROM ubuntu:14.04
 RUN apt-get update && apt-get install -y \
   autoconf \
   libtool \
@@ -75,18 +76,19 @@ ENV PKG_CONFIG_PATH=$MPICH2_3_2_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
 RUN df -h
 
 ADD delft3d/tags/v6686 /delft3d
-RUN ["chmod", "+x", "/delft3d/src/build_ubuntu1604.sh"]
+# RUN ["chmod", "+x", "/delft3d/src/build_ubuntu1604.sh"]
 
 # RUN cd /delft3d/src \
 #     && sed --in-place 's/~/\/root/' build_ubuntu1604.sh \
 #     && ./build_ubuntu1604.sh -gnu -64bit
 
 # 20180110-pan ok
-RUN cd /delft3d/src
-RUN /delft3d/src/build_ubuntu1604.sh -gnu -64bit
-
-RUN chmod -R 777 /root/Downloads/libraries/
-RUN chmod -R 777 /delft3d/
+RUN cd /delft3d/src \
+    && sed --in-place 's/~/\/root/' ./build_ubuntu1604.sh \
+    && chmod +x ./build_ubuntu1604.sh \
+    && ./build_ubuntu1604.sh -gnu -64bit \
+    && chmod -R 777 /root/Downloads/libraries/ \
+    && chmod -R 777 /delft3d/
 
 RUN cp /root/Downloads/libraries/mpich-3.2/bin/* /delft3d/bin/lnx64/flow2d3d/bin/
 RUN cp -R /root/Downloads/libraries/mpich-3.2/lib/* /delft3d/bin/lnx64/flow2d3d/bin/

@@ -1,4 +1,4 @@
-!!  Copyright (C)  Stichting Deltares, 2012-2017.
+!!  Copyright (C)  Stichting Deltares, 2012-2016.
 !!
 !!  This program is free software: you can redistribute it and/or modify
 !!  it under the terms of the GNU General Public License version 3,
@@ -147,7 +147,7 @@
          write(lun2,'(2x,a  )') ' Obsolete input file '
          write(lun2,'(2x,a  )') ' Version found             : ',filvers(1:19)
          write(lun2,'(2x,a  )') ' Lowest version requested  : ','V3.66.00'
-         call stop_exit(1)
+         stop
       endif
 
 !       read titles
@@ -2600,4 +2600,3 @@ subroutine getdim_asc ( lun , asc_file , npart_ini, nrowsmax , &
       call stop_exit(1)
 !
       end subroutine
-      
