@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
+#FROM ubuntu:14.04
 
 MAINTAINER Quan Pan <quanpan302@hotmail.com>
 
@@ -16,37 +17,29 @@ RUN apt-get update && apt-get install -y \
   libexpat1-dev \
   uuid-dev \
   build-essential \
-  wget \
   pkg-config \
-  gedit
-
-RUN apt-get install -y \
   libssl-dev \
-  libffi-dev
+  libffi-dev \
+  wget \
+  vim \
+  cmake \
+  git
 
 # python3
 RUN apt-get install -y \
   python3-pip \
   python3-dev
 
-# cmake
-RUN apt-get install -y \
-  cmake
-
-# git
-RUN apt-get install -y \
-  git
-
 
 # ===========
 # version old
 # ===========
-RUN gfortran --version
-RUN gcc --version
-RUN g++ --version
-RUN python3 -v
-RUN cmake --version
-RUN git --version
+RUN gfortran --version \
+    && gcc --version \
+    && g++ --version \
+    && python3 -v \
+    && cmake --version \
+    && git --version
 
 
 # ==============
@@ -97,12 +90,12 @@ RUN apt-get update && apt-get install -y \
 # ===========
 # version new
 # ===========
-RUN gfortran --version
-RUN gcc --version
-RUN g++ --version
-RUN python3 -v
-RUN cmake --version
-RUN git --version
+RUN gfortran --version \
+    && gcc --version \
+    && g++ --version \
+    && python3 -v \
+    && cmake --version \
+    && git --version
 
 # python3 pip3
 RUN pip3 install \
