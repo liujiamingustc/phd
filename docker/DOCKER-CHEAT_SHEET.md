@@ -28,7 +28,7 @@ docker run username/repository:tag                 # Run image from a registry
 ==============
 docker container ls                                # List all running containers
 docker container ls -a                             # List all containers, even those not running
-docker container ls -q                          # List container IDs
+docker container ls -q                             # List container IDs
 docker container stop <hash>                       # Gracefully stop the specified container
 docker container kill <hash>                       # Force shutdown of the specified container
 docker container rm <hash>                         # Remove specified container from this machine
