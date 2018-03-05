@@ -1,4 +1,4 @@
-# TOC
+# Table of Contents
 
 - [20171031a](#20171031a)
 - [20171113B](#20171113b)
@@ -59,6 +59,7 @@ GridSearchCV(cv=None, error_score='raise',
 	   pre_dispatch='2*n_jobs', refit=True, scoring=None, verbose=0)
 ```
 
+[_Back to TOC_](#table-of-contents)
 
 ## 20170721a
 
@@ -108,6 +109,8 @@ GridSearchCV(cv=None, error_score='raise',
 	   scoring=None, verbose=0)
 ```
 
+[_Back to TOC_](#table-of-contents)
+
 tune 02 incremental learning "sgd"
 
 ```
@@ -148,6 +151,8 @@ GridSearchCV(cv=None, error_score='raise',
 	   param_grid=[{'activation': ['logistic', 'tanh', 'relu'], 'random_state': [1, 5, 10], 'batch_size': [10, 20, 50, 100, 200], 'solver': ['sgd'], 'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}],
 	   pre_dispatch='2*n_jobs', refit=True, scoring=None, verbose=0)
 ```
+
+[_Back to TOC_](#table-of-contents)
 
 tune 02 incremental learning "sgd"
 
@@ -190,6 +195,8 @@ GridSearchCV(cv=None, error_score='raise',
 	   pre_dispatch='2*n_jobs', refit=True, return_train_score=True,
 	   scoring=None, verbose=0)
 ```
+
+[_Back to TOC_](#table-of-contents)
 
 # Grid, Delft3dWAQ, grid00, add decvar=0.0
 
@@ -236,6 +243,8 @@ GridSearchCV(cv=None, error_score='raise',
 	   pre_dispatch='2*n_jobs', refit=True, return_train_score=True,
 	   scoring=None, verbose=0)
 ```
+
+[_Back to TOC_](#table-of-contents)
 
 * NSGA2, ANN, without decvar=0.0:
   20170721b, obj1_obj2
@@ -307,6 +316,8 @@ GridSearchCV(cv=None, error_score='raise',
     ind.fitness.values = Ynew_obj[0]
 	```
 
+[_Back to TOC_](#table-of-contents)
+
 # 20171031a
 
 cPickle, without decvar=0.0
@@ -354,6 +365,8 @@ GridSearchCV(cv=None, error_score='raise',
 	   scoring=None, verbose=0)
 ```
 
+[_Back to TOC_](#table-of-contents)
+
 * NSGA2, ANN, without decvar=0.0:
   20171031b, obj1_obj2
   
@@ -373,6 +386,8 @@ GridSearchCV(cv=None, error_score='raise',
     init_variable = samRandom(n=numVar)
     ind.fitness.values = Ynew_obj[0]
 	```
+
+[_Back to TOC_](#table-of-contents)
 
 # 20171113B
 
@@ -424,6 +439,8 @@ GridSearchCV(cv=None, error_score='raise',
 	   scoring=None, verbose=0)
 ```
 
+[_Back to TOC_](#table-of-contents)
+
 # 20171113C
 
 priceTN, priceTP = 170.0, 1090.0 #euro/kg
@@ -462,6 +479,7 @@ priceTN, priceTP = 170.0, 1090.0 #euro/kg
     ind.fitness.values = [Ynew_obj[0][1],obj3]
 	```
 
+[_Back to TOC_](#table-of-contents)
 
 # 20180301A
 
@@ -506,3 +524,5 @@ priceTN, priceTP = 170.0, 1090.0 #euro/kg
     get result/moea/taihu.json result/moea/20180301A-taihu_cPickle-obj23.json
     get result/moea/taihu.json.png result/moea/20180301A-taihu_cPickle-obj23.json.png
 	```
+
+[_Back to TOC_](#table-of-contents)
