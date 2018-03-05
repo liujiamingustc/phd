@@ -1,0 +1,22 @@
+sudo: required
+
+language: sh
+
+services:
+  - docker
+
+before_install:
+  - shopt -s expand_aliases  # allow alias
+  - shopt -s globstar  # allow use of **
+  - export DOCKER_BASE_IMAGE=nlknguyen/alpine-mpich:latest
+  - export DOCKER_ONBUILD_IMAGE=nlknguyen/alpine-mpich:onbuild
+
+script:
+  - sh check_scripts.sh
+  - docker build -t $DOCKER_BASE_IMAGE base/
+  - docker build -t $DOCKER_ONBUILD_IMAGE onbuild/
+
+after_success:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push $DOCKER_BASE_IMAGE
+  - docker push $DOCKER_ONBUILD_IMAGE
