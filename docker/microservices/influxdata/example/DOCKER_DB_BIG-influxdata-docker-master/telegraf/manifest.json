@@ -1,0 +1,12 @@
+{
+  "name": "telegraf",
+  "versions": ["1.4", "1.5"],
+  "architectures": [
+    "amd64",
+    "arm32v7",
+    "arm64v8"
+  ],
+  "variants": [
+    {"name": "alpine"}
+  ]
+}
