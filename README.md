@@ -6,10 +6,10 @@ My PhD study focuses on testing existing DSS solutions and developing a universa
 
 |        |        |
 | ------ | ------ |
-| ![PFobj123](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-123.png) | ![PFobj12](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-12.png) |
-| obj123 | obj12  |
-| ![PFobj23](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-23.png)   | ![PFobj13](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-13.png) |
-| obj23  | obj13  |
+| ![PFobj123](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-123.png) | ![PFobj23](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-23.png) |
+| obj123 | obj23  |
+| ![PFobj13](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-13.png)   | ![PFobj12](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-12.png) |
+| obj13  | obj12  |
 
 > This is the place to host and share my results.
 
