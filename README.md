@@ -1,7 +1,8 @@
 # "Web-based Framework For Optimisation And Decision Support Using Complex Water Models"
 
-This is the place where I share all my PhD works.
-Thank you for any suggestions :blush:.
+My PhD study focuses on testing existing DSS solutions and developing a universal framework including process models, their surrogate models, optimization routines to support decision making for water management, as well as implementation and testing of this framework on two case studies. 
+
+> This is the place to host and share my results.
 
 | Resources            | Hosted                                                 |
 | -------------------- | ------------------------------------------------------ |
@@ -14,9 +15,11 @@ Thank you for any suggestions :blush:.
 | Ontology.water.lake  | [purl.org](http://purl.org/water/lake)                 |
 | Tutorial             | [Katacoda](https://www.katacoda.com/quanpan302)        |
 
-*More collections are hosted in [Github DailyActie](https://github.com/DailyActie) repository.*
-
 Welcome to my website [quanpan302.com](http://www.quanpan302.com).
 ![qrcode-qp-256x256](https://raw.githubusercontent.com/quanpan302/phd/master/qrcode-qp-256x256.png)
 
 LABEL maintainer="Quan Pan <quanpan302@hotmail.com>"
+
+_More Github repository collections are hosted in [Github DailyActie](https://github.com/DailyActie)._
+
+**Thank you for any suggestions :blush:!**
