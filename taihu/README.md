@@ -55,7 +55,13 @@ GridSearchCV(cv=None, error_score='raise',
 	   tol=0.0001, validation_fraction=0.1, verbose=False,
 	   warm_start=False),
 	   fit_params={}, iid=True, n_jobs=1,
-	   param_grid=[{'activation': ['logistic', 'tanh', 'relu'], 'random_state': [1, 5, 10], 'batch_size': [10, 20, 50, 100, 200], 'solver': ['lbfgs', 'sgd', 'adam'], 'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}],
+	   param_grid=[{
+	       'activation': ['logistic', 'tanh', 'relu'],
+	       'random_state': [1, 5, 10],
+	       'batch_size': [10, 20, 50, 100, 200],
+	       'solver': ['lbfgs', 'sgd', 'adam'],
+	       'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+	   }],
 	   pre_dispatch='2*n_jobs', refit=True, scoring=None, verbose=0)
 ```
 
@@ -104,7 +110,13 @@ GridSearchCV(cv=None, error_score='raise',
 	   solver='adam', tol=0.0001, validation_fraction=0.1, verbose=False,
 	   warm_start=False),
 	   fit_params={}, iid=True, n_jobs=1,
-	   param_grid=[{'random_state': [1, 5, 10], 'activation': ['logistic', 'tanh', 'relu'], 'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100], 'batch_size': [10, 20, 50, 100, 200], 'solver': ['lbfgs', 'sgd', 'adam']}],
+	   param_grid=[{
+	       'random_state': [1, 5, 10],
+	       'activation': ['logistic', 'tanh', 'relu'],
+	       'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+	       'batch_size': [10, 20, 50, 100, 200],
+	       'solver': ['lbfgs', 'sgd', 'adam']
+	   }],
 	   pre_dispatch='2*n_jobs', refit=True, return_train_score=True,
 	   scoring=None, verbose=0)
 ```
@@ -148,7 +160,13 @@ GridSearchCV(cv=None, error_score='raise',
 	   tol=0.0001, validation_fraction=0.1, verbose=False,
 	   warm_start=False),
 	   fit_params={}, iid=True, n_jobs=1,
-	   param_grid=[{'activation': ['logistic', 'tanh', 'relu'], 'random_state': [1, 5, 10], 'batch_size': [10, 20, 50, 100, 200], 'solver': ['sgd'], 'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}],
+	   param_grid=[{
+	       'activation': ['logistic', 'tanh', 'relu'],
+	       'random_state': [1, 5, 10],
+	       'batch_size': [10, 20, 50, 100, 200],
+	       'solver': ['sgd'],
+	       'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+	   }],
 	   pre_dispatch='2*n_jobs', refit=True, scoring=None, verbose=0)
 ```
 
@@ -191,7 +209,12 @@ GridSearchCV(cv=None, error_score='raise',
 	   solver='adam', tol=0.0001, validation_fraction=0.1, verbose=False,
 	   warm_start=False),
 	   fit_params={}, iid=True, n_jobs=1,
-	   param_grid=[{'random_state': [1, 5, 10], 'activation': ['logistic', 'tanh', 'relu'], 'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100], 'batch_size': [10, 20, 50, 100, 200], 'solver': ['sgd']}],
+	   param_grid=[{
+	       'random_state': [1, 5, 10],
+	       'activation': ['logistic', 'tanh', 'relu'],
+	       'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+	       'batch_size': [10, 20, 50, 100, 200], 'solver': ['sgd']
+	   }],
 	   pre_dispatch='2*n_jobs', refit=True, return_train_score=True,
 	   scoring=None, verbose=0)
 ```
@@ -239,7 +262,13 @@ GridSearchCV(cv=None, error_score='raise',
 	   solver='adam', tol=0.0001, validation_fraction=0.1, verbose=False,
 	   warm_start=False),
 	   fit_params={}, iid=True, n_jobs=1,
-	   param_grid=[{'random_state': [1, 5, 10], 'activation': ['logistic', 'tanh', 'relu'], 'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100], 'batch_size': [10, 20, 50, 100, 200], 'solver': ['lbfgs', 'sgd', 'adam']}],
+	   param_grid=[{
+	       'random_state': [1, 5, 10],
+	       'activation': ['logistic', 'tanh', 'relu'],
+	       'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+	       'batch_size': [10, 20, 50, 100, 200],
+	       'solver': ['lbfgs', 'sgd', 'adam']
+	   }],
 	   pre_dispatch='2*n_jobs', refit=True, return_train_score=True,
 	   scoring=None, verbose=0)
 ```
@@ -360,7 +389,13 @@ GridSearchCV(cv=None, error_score='raise',
 	   solver='adam', tol=0.0001, validation_fraction=0.1, verbose=False,
 	   warm_start=False),
 	   fit_params={}, iid=True, n_jobs=1,
-	   param_grid=[{'random_state': [1, 5, 10], 'activation': ['logistic', 'tanh', 'relu'], 'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100], 'batch_size': [10, 20, 50, 100, 200], 'solver': ['lbfgs', 'sgd', 'adam']}],
+	   param_grid=[{
+	       'random_state': [1, 5, 10],
+	       'activation': ['logistic', 'tanh', 'relu'],
+	       'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+	       'batch_size': [10, 20, 50, 100, 200],
+	       'solver': ['lbfgs', 'sgd', 'adam']
+	   }],
 	   pre_dispatch='2*n_jobs', refit=True, return_train_score=True,
 	   scoring=None, verbose=0)
 ```
@@ -434,7 +469,13 @@ GridSearchCV(cv=None, error_score='raise',
 	   solver='adam', tol=0.0001, validation_fraction=0.1, verbose=False,
 	   warm_start=False),
 	   fit_params={}, iid=True, n_jobs=1,
-	   param_grid=[{'random_state': [1, 5, 10], 'activation': ['logistic', 'tanh', 'relu'], 'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100], 'batch_size': [10, 20, 50, 100, 200], 'solver': ['lbfgs', 'sgd', 'adam']}],
+	   param_grid=[{
+	       'random_state': [1, 5, 10],
+	       'activation': ['logistic', 'tanh', 'relu'],
+	       'hidden_layer_sizes': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+	       'batch_size': [10, 20, 50, 100, 200],
+	       'solver': ['lbfgs', 'sgd', 'adam']
+	   }],
 	   pre_dispatch='2*n_jobs', refit=True, return_train_score=True,
 	   scoring=None, verbose=0)
 ```
