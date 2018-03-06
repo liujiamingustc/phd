@@ -29,6 +29,8 @@ Welcome to my website [quanpan302.com](http://www.quanpan302.com).
 
 LABEL maintainer="Quan Pan <quanpan302@hotmail.com>"
 
-_More Github repository collections are hosted on [Github DailyActie](https://github.com/DailyActie)._
+More Github repository collections are hosted on [Github DailyActie](https://github.com/DailyActie).
 
-**Thank you for any comments and suggestions :blush:! [Contact me](http://www.quanpan302.com/en/contact)**
+**Thank you for any comments and suggestions :blush:!**
+
+_You can find me [here](http://www.quanpan302.com/en/contact)._
