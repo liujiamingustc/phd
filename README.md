@@ -2,6 +2,10 @@
 
 My PhD study focuses on testing existing DSS solutions and developing a universal framework including process models, their surrogate models, optimization routines to support decision making for water management, as well as implementation and testing of this framework on two case studies. 
 
+**Pareto Front 3D**
+
+![20180306-Pareto_Front-3D](https://raw.githubusercontent.com/quanpan302/phd/master/20180306-Pareto_Front-3D.png)
+
 > This is the place to host and share my results.
 
 | Resources            | Hosted                                                 |

@@ -566,4 +566,16 @@ priceTN, priceTP = 170.0, 1090.0 #euro/kg
     get result/moea/taihu.json.png result/moea/20180301A-taihu_cPickle-obj23.json.png
 	```
 
+* NSGA2, ANN, cPickle:
+  20180301A, obj123
+  
+	```
+    ngen=200&ndim=82&npop=100&nobj=3&ncon=0&cxpb=0.9
+    run_moea_ann.py
+    init_variable = samRandom(n=numVar)
+    population[ipop].fitness.values = [deepcopy(Y) for Y in [obj1,obj2,obj2]]
+    get result/moea/taihu.json result/moea/20180301A-taihu_cPickle-obj123.json
+    get result/moea/taihu.json.png result/moea/20180301A-taihu_cPickle-obj123.json.png
+	```
+
 [_Back to TOC_](#table-of-contents)
