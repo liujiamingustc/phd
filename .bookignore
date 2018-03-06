@@ -5,10 +5,10 @@
 # README.md
 
 # Ignore everything in the directory "bin"
+awesome/*
 docker/*
 docs/*
 gist/*
-note/*
 surrogate/*
 taihu/*
 tutorial/*
