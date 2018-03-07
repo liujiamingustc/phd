@@ -13,6 +13,7 @@ Docker Hub, Docker Cloud, Dockerfile, Docker Compose, Docker Swarm.
     - [Compose file](DOCKER-COMPOSE.md)
   - [**Docker Storage**](DOCKER-STORAGE.md)
   - [**Cheat Sheet**](DOCKER-CHEAT_SHEET.md)
+- [**datascience**](./datascience)
 - [**microservices**](./microservices)
   - [blockchain](./microservices/blockchain)
   - [caffe](./microservices/caffe)
