@@ -3,13 +3,13 @@
 My PhD study focuses on testing existing DSS solutions and developing a universal framework including process models, their surrogate models, optimization routines to support decision making for water management, as well as implementation and testing of this framework on two case studies. 
 
 **Pareto Front 3D**
+MOEA,ML,Pop=100,Gen=200
 
-| MOEA,ML | Pop=100,Gen=200 |
-| ------- | --------------- |
-| ![PFobj123](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-123.png) | ![PFobj23](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-23.png) |
 | obj123  | obj23           |
-| ![PFobj13](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-13.png)   | ![PFobj12](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-12.png) |
+|:-------:|:---------------:|
+| ![PFobj123](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-123.png) | ![PFobj23](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-23.png) |
 | obj13   | obj12           |
+| ![PFobj13](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-13.png)   | ![PFobj12](https://raw.githubusercontent.com/quanpan302/phd/master/20180301A-MOEA-result-all-obj123.json-12.png) |
 
 > This is the place to host and share my results.
 
