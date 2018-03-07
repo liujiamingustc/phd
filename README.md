@@ -2,6 +2,8 @@
 
 My PhD study focuses on testing existing DSS solutions and developing a universal framework including process models, their surrogate models, optimization routines to support decision making for water management, as well as implementation and testing of this framework on two case studies. 
 
+**Keywords:** _Decision Support, Water Resource Management, Water Quality Management, Information and Communication Technology, Multi-objective Evolutionary Algorithms, Surrogate Model, EPANET, Delft3D_
+
 **Pareto Front 3D**
 MOEA,ML,Pop=100,Gen=200
 
