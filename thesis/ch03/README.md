@@ -1,3 +1,3 @@
-# ch3
+# Methodology
 
 
