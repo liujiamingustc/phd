@@ -1,1 +1,1 @@
-## 2_2-Multi-objective_Optimisation_Algorithms
+## 2.2. Multi-objective Optimisation Algorithms

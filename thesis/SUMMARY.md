@@ -28,7 +28,7 @@
   * [4.2. Simulation Results](ch04/4_3-Simulation_Results.md)
 * [5. Taihu Lake Water Quality Simulation Model](ch05/README.md)
   * [5.1. Data Collection and Analysis](ch05/5_1-Data_Collection_and_Analysis.md)
-  * [5.2. Simulation Model Steup](ch05/5_2-Simulation_Model_Steup.md)
+  * [5.2. Simulation Model Setup](ch05/5_2-Simulation_Model_Setup.md)
   * [5.2. Simulation Results](ch05/5_3-Simulation_Results.md)
 * [6. Milano Pump Scheduling Problem Optimisation](ch06/README.md)
   * [6.1. Problem Description](ch06/6_1-Problem_Description.md)
