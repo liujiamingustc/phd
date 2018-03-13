@@ -24,7 +24,7 @@
   * [3.5. Decision Support Framework](ch03/3_5-Decision_Support_Framework.md)
 * [4. Milano Water Supply Network Simulation Model](ch04/README.md)
   * [4.1. Data Collection and Analysis](ch04/4_1-Data_Collection_and_Analysis.md)
-  * [4.2. Simulation Model Steup](ch04/4_2-Simulation_Model_Steup.md)
+  * [4.2. Simulation Model Setup](ch04/4_2-Simulation_Model_Setup.md)
   * [4.2. Simulation Results](ch04/4_3-Simulation_Results.md)
 * [5. Taihu Lake Water Quality Simulation Model](ch05/README.md)
   * [5.1. Data Collection and Analysis](ch05/5_1-Data_Collection_and_Analysis.md)
