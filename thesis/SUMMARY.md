@@ -36,7 +36,7 @@
 * [7. Taihu Lake Waste Load Control Problem Optimisation](ch07/README.md)
   * [7.1. Problem Description](ch07/7_1-Problem_Description.md)
   * [7.2. Optimisation Results](ch07/7_2-Optimisation_Results.md)
-* [8. Surrogate Model Based Taihu Lake Waste Load Optimisation](ch08/README.md)
+* [8. Surrogate Model Based Taihu Lake Waste Load Control Problem Optimisation](ch08/README.md)
   * [8.1. Problem Description](ch08/8_1-Problem_Description.md)
   * [8.2. Surrogate Model Setup](ch08/8_2-Surrogate_Model_Setup.md)
   * [8.3. Surrogate Model Results](ch08/8_3-Surrogate_Model_Results.md)
