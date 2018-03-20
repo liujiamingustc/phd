@@ -83,7 +83,8 @@ docker-machine ssh myvm1 "docker swarm init --advertise-addr <node manager ip> "
 docker-machine ssh myvm2 "docker swarm join --token <SWMTKN> <node manager ip>:<port>"    # Worker
 docker-machine ssh myvm1 "docker node ls"                                                 # List the nodes in your swarm
 docker-machine ssh myvm1 "docker node inspect <node ID>"                                  # Inspect a node
-docker-machine ssh myvm1 "docker swarm join-token -q worker"                              # View join token
+docker-machine ssh myvm1 "docker swarm join-token -q manager"                             # View manager join token
+docker-machine ssh myvm1 "docker swarm join-token -q worker"                              # View worker join token
 ==============
 eval $(docker-machine env myvm1)                                                          # Mac command to connect shell to myvm1
                                                                                           # myvm1 ACTIVE *
