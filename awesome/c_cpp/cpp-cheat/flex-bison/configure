@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Ubuntu
+sudo aptitude update
+sudo aptitude install flex bison

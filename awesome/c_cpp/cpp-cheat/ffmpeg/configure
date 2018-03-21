@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+sudo aptitude update
+sudo aptitude install
+  libavbin-dev \
+  libavcodec-dev \
+  libavdevice-dev \
+  libavfilter-dev \
+  libavformat-dev \
+  libavresample-dev \
+  libavutil-dev \
+  libx264-dev \
+  libvpx-dev

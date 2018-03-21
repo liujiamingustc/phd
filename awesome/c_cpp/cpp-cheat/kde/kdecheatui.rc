@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gui name="kdecheat"
+     version="1"
+     xmlns="http://www.kde.org/standards/kxmlgui/1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
+                         http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd" >
+
+  <MenuBar>
+    <!-- The file menu is already given by KXmlGuiWindow. -->
+    <Menu name="file" >
+      <Action name="clear" />
+    </Menu>
+    <Menu name="action" >
+      <text>A&amp;ction</text>
+      <Action name="viewConfig" />
+      <Action name="saveConfig" />
+    </Menu>
+  </MenuBar>
+
+  <ToolBar name="mainToolBar" >
+    <text>Main Toolbar</text>
+    <Action name="clear" />
+  </ToolBar>
+
+</gui>

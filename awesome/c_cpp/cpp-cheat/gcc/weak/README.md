@@ -1,0 +1,3 @@
+# Weak
+
+ELF weak symbol.

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+sudo aptitude update
+sudo aptitude install libplplot-dev
+sudo aptitude install plplot11-driver-xwin
