@@ -1,3 +1,3 @@
-# Awesome devops
+# Awesome frontend
 
 From github repositories
