@@ -24,7 +24,7 @@ docker build -t friendlyhello .                                                 
 ==============
 docker run -it <image> /bin/bash                                                          # Run interactive an interactive Bash session
 docker run -v /host/dir:/container/dir -it <image> /bin/bash                              # Mount a volume
-docker run -v /Users/quanpan/Documents/mac-Docker/data:/delft3d/examples/data -it quanpan302/phd:delft3d_v6686 /bin/bash
+docker run -v /Users/quanpan/Documents/mac-Docker/delft3d:/delft3d/examples/data -it quanpan302/phd:delft3d_v6686 /bin/bash
                                                                                           # Mount a volume for delft3d
 docker run -p 4000:80 friendlyhello                                                       # Run "friendlyhello" mapping port 4000 to 80
 docker run -d -p 4000:80 friendlyhello                                                    # Same thing, but in detached mode
