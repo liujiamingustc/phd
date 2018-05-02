@@ -55,6 +55,7 @@ Docker Hub, Docker Cloud, Dockerfile, Docker Compose, Docker Swarm.
 - [**surrogate**](./surrogate)
 - [**water**](./water)
   - [delft3d](./water/delft3d)
+  - [xbeach](./water/xbeach)
   - [epanet](./water/epanet)
   - [sph](./water/sph)
   - [swmm](./water/swmm)
