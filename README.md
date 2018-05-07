@@ -1,4 +1,5 @@
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/quanpan302/phd)
+[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://github.com/quanpan302/phd)
 
 # "Web-based Framework For Optimisation And Decision Support Using Complex Water Models"
 
