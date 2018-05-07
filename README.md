@@ -1,4 +1,4 @@
-![Github All Releases](https://img.shields.io/github/downloads/quanpan302/phd.svg)
+![GitHub contributors](https://img.shields.io/github/contributors/quanpan302/phd.svg)
 ![license](https://img.shields.io/github/license/quanpan302/phd.svg)
 ![Read the Docs](https://img.shields.io/readthedocs/phd.svg)
 
