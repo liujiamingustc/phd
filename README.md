@@ -1,3 +1,5 @@
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/quanpan302/phd)
+
 # "Web-based Framework For Optimisation And Decision Support Using Complex Water Models"
 
 My PhD study focuses on testing existing DSS solutions and developing a universal framework including process models, their surrogate models, optimization routines to support decision making for water management, as well as implementation and testing of this framework on two case studies. 
