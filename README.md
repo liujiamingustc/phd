@@ -1,8 +1,8 @@
-![GitHub contributors](https://img.shields.io/github/contributors/quanpan302/phd.svg)
-![license](https://img.shields.io/github/license/quanpan302/phd.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/quanpan302/phd.svg)
-![Read the Docs](https://img.shields.io/readthedocs/phd.svg)
-![Docker Stars](https://img.shields.io/docker/stars/quanpan302/phd.svg)
+![GitHub contributors](https://img.shields.io/github/contributors/quanpan302/phd.svg?style=flat-square)
+![license](https://img.shields.io/github/license/quanpan302/phd.svg?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/quanpan302/phd.svg?style=flat-square)
+![Read the Docs](https://img.shields.io/readthedocs/phd.svg?style=flat-square)
+![Docker Stars](https://img.shields.io/docker/stars/quanpan302/phd.svg?style=flat-square)
 
 # "Web-based Framework For Optimisation And Decision Support Using Complex Water Models"
 
