@@ -1,6 +1,6 @@
-[![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/quanpan302/phd)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/quanpan302/phd)
-[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://readthedocs.org/projects/phd/)
+![Github All Releases](https://img.shields.io/github/downloads/quanpan302/phd.svg)
+![license](https://img.shields.io/github/license/quanpan302/phd.svg)
+![Read the Docs](https://img.shields.io/readthedocs/phd.svg)
 
 # "Web-based Framework For Optimisation And Decision Support Using Complex Water Models"
 
