@@ -76,6 +76,18 @@ $ docker run -it --rm --name myNodeApp node:8-alpine
 > .help
 ```
 
+```
+$ cd /Users/quanpan/Documents
+
+$ docker run -it --rm --name myNodeApp -v "$PWD":/usr/src/app -w /usr/src/app node:8-alpine node test.js
+```
+
+```
+$ cd ~
+
+$ docker run -it --rm --name myNodeApp -v /Users/quanpan/Documents:/usr/src/app -w /usr/src/app node:8-alpine node test.js
+```
+
 ## Best Practice Docker and Node.js
 
 ### Docker Run
