@@ -23,7 +23,7 @@ RUN build=1
 RUN apt purge -y --auto-remove cmake
 RUN wget https://cmake.org/files/v$version/cmake-$version.$build-Linux-x86_64.sh
 RUN mkdir /opt/cmake
-RUN sh cmake-$version.$build-Linux-x86_64.sh --prefix=/opt/cmake
+RUN sh cmake-$version.$build-Linux-x86_64.sh --prefix=/opt/cmake --skip-license
 
 RUN git clone https://github.com/pcraster/pcraster.git
 WORKDIR /opt/pcraster
