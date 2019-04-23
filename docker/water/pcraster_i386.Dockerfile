@@ -17,20 +17,20 @@ RUN apt-get update
 RUN apt install -y libgdal-dev gdal-bin python-gdal libgdal20
 # Configure & build
 WORKDIR /opt
-
-RUN version=3.14
-RUN build=1
-RUN apt purge -y --auto-remove cmake
-RUN wget https://cmake.org/files/v$version/cmake-$version.$build-Linux-x86_64.sh
-RUN mkdir /opt/cmake
-RUN sh cmake-$version.$build-Linux-x86_64.sh --prefix=/opt/cmake --skip-license
-
 RUN git clone https://github.com/pcraster/pcraster.git
 WORKDIR /opt/pcraster
 RUN git submodule update --init --recursive
 RUN mkdir build
 WORKDIR /opt/pcraster/build
 
+WORKDIR /opt
+RUN apt purge -y --auto-remove cmake
+RUN wget https://cmake.org/files/v3.14/cmake-3.14.1-Linux-x86_64.sh
+RUN mkdir /opt/cmake
+RUN sh cmake-3.14.1-Linux-x86_64.sh --prefix=/opt/cmake --skip-license
+RUN ln -s /opt/cmake/bin/cmake /usr/local/bin/cmake
+
+WORKDIR /opt/pcraster/build
 RUN cmake .. -DGDAL_LIBRARY=/usr/lib/libgdal.so.20 -DGDAL_INCLUDE_DIR=/usr/include/gdal -DCMAKE_CXX_FLAGS="-Wno-deprecated"
 RUN make
 RUN make install
