@@ -1,5 +1,7 @@
 # DockertFile for the Massive-PotreeConverter
-FROM i386/ubuntu:bionic
+
+# FROM i386/ubuntu:16.04
+FROM i386/ubuntu:xenial
 MAINTAINER Gijs van den Oord <g.vandenoord@esciencecenter.nl>
 RUN apt-get update -y
 
@@ -10,9 +12,9 @@ RUN apt-get install -y apt-utils software-properties-common git cmake build-esse
 RUN apt-get install -y libboost-all-dev libncurses5-dev libncursesw5-dev freeglut3-dev qtdeclarative5-dev libqwt-dev libqwt-headers xsdcxx
 RUN pip install --upgrade pip
 RUN pip install docopt
-RUN add-apt-repository -y ppa:ubuntugis/ppa
+RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
 RUN apt-get update
-RUN apt install -y libgdal-dev gdal-bin python-gdal libgdal20 
+RUN apt install -y libgdal-dev gdal-bin python-gdal libgdal20
 # Configure & build
 WORKDIR /opt
 RUN git clone https://github.com/pcraster/pcraster.git
