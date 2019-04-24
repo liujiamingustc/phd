@@ -2,7 +2,7 @@
 
 # FROM i386/ubuntu:16.04
 FROM i386/ubuntu:xenial
-MAINTAINER Gijs van den Oord <g.vandenoord@esciencecenter.nl>
+MAINTAINER Quan Pan <quanpan302@hotmail.com>
 RUN apt-get update -y
 
 # INSTALL compilers and build toold
@@ -23,12 +23,12 @@ RUN git submodule update --init --recursive
 RUN mkdir build
 WORKDIR /opt/pcraster/build
 
-WORKDIR /opt
-RUN apt purge -y --auto-remove cmake
-RUN wget https://cmake.org/files/v3.14/cmake-3.14.1-Linux-x86_64.sh
-RUN mkdir /opt/cmake
-RUN sh cmake-3.14.1-Linux-x86_64.sh --prefix=/opt/cmake --skip-license
-RUN ln -s /opt/cmake/bin/cmake /usr/local/bin/cmake
+# WORKDIR /opt
+# RUN apt purge -y --auto-remove cmake
+# RUN wget https://cmake.org/files/v3.14/cmake-3.14.1-Linux-x86_64.sh
+# RUN mkdir /opt/cmake
+# RUN sh cmake-3.14.1-Linux-x86_64.sh --prefix=/opt/cmake --skip-license
+# RUN ln -s /opt/cmake/bin/cmake /usr/local/bin/cmake
 
 WORKDIR /opt/pcraster/build
 RUN cmake .. -DGDAL_LIBRARY=/usr/lib/libgdal.so.20 -DGDAL_INCLUDE_DIR=/usr/include/gdal -DCMAKE_CXX_FLAGS="-Wno-deprecated"
