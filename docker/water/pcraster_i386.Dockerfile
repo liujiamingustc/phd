@@ -20,6 +20,8 @@ WORKDIR /opt
 RUN git clone https://github.com/pcraster/pcraster.git
 WORKDIR /opt/pcraster
 RUN git submodule update --init --recursive
+RUN sed -i '1s/^/set( CURSES_LIBRARY "/usr/lib/i386-linux-gnu/libncurses.so")\n/' source/fern/CMakeLists.txt
+RUN sed -i '1s/^/set( CURSES_INCLUDE_PATH "/usr/include/curses.h")\n/' source/fern/CMakeLists.txt
 RUN mkdir build
 WORKDIR /opt/pcraster/build
 
